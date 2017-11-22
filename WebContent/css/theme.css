@@ -2982,6 +2982,30 @@ textarea {
     top: 0;
 }
 
+.menu-list-copy {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding-left: 0px;
+    margin-bottom: 25px;
+}
+.menu-list-copy h5 {
+    border-bottom: 1px dashed #cccccc;
+    color: #20202f;
+    font-size: 20px;
+    padding-bottom: 14px;
+    padding-right: 60px;
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.menu-list-copy h5 span {
+    color: #e4b95b;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .btn-outer {
     display: inline-block;
     width: 100%;
