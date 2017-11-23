@@ -23,6 +23,7 @@
 <link href="plugin/animation/animate.min.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
+<link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -58,7 +59,7 @@
 
 		<div class="container" style="margin-top: 10%;">
 			<div class="build-title">
-				<h2>메뉴</h2>
+				<h2>메뉴선택</h2>
 			</div>
 			<div class="menu-wrapper">
 				<div class="portfolioFilter">
@@ -256,6 +257,11 @@
 					</div>
 				</div>
 			</section>
+			<section class="contact-map">
+                    <div class="map-outer">
+                        <div id="map"></div>
+                    </div>
+                </section>
 
 		</div>
 		</main>
