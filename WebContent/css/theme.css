@@ -7339,3 +7339,60 @@ body main .team-page {
     padding-top: 0px;
     padding-bottom: 0px;
 }
+
+
+/* 아름쓰 추가 css */
+.payment {
+    height: 50px;
+    width: 100%;
+    border: 2px solid #e5e5ee;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    -ms-border-radius: 80px;
+    -o-border-radius: 80px;
+    border-radius: 80px;
+    padding: 0 30px;
+    margin-bottom: 0px !important; 
+    outline: none;
+}
+
+.shop-checkout-box-edit {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+
+.checkout-button-edit {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn-medium-edit {
+    height: 50px;
+    line-height: 48px;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    display: inline-block;
+    width: auto;
+    padding: 0px 35px;
+    min-width: 150px;
+/*     border: 2px solid #c7a17a; */
+/*     -webkit-border-radius: 50px; */
+/*     -moz-border-radius: 50px; */
+/*     -ms-border-radius: 50px; */
+/*     -o-border-radius: 50px; */
+/*     border-radius: 50px; */
+    text-align: center;
+    box-shadow: none;
+/*     background: transparent; */
+    color: #e4b95b;
+    font-size: 16px;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    font-weight: 700;
+}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.row>div {
+	cursor: pointer;
+	
+}
+
+.row>div h5 {
+	color: #A9A9A9;
+	margin-top: 20px;
+}
+
+.row>div h5:hover {
+	color: #e4b95b;
+ } 
+ 
+ .container .breadcrumb-inner h2 {
+ 	margin-bottom: 40px ;
+ }
+ 
+ 
