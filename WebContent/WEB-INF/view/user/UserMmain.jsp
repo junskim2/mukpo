@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>먹포 - 포장할래?</title>
+    <title>먹포 - 먹고갈래?</title>
     <link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
     <link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
     <link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-	<div class="wrapper-spacer">	
+	<div class="wrapper-spacer">
 		<!-- UserHeader 시작 -->
 			<jsp:include page="../common/UserHeader.jsp"></jsp:include>
 		<!-- UserHeader 끝 -->
@@ -188,7 +188,7 @@
                 <!-- Start Map Part -->
                 <section class="map-address pad-top-remove" data-wow-duration="1000ms" data-wow-delay="300ms">
                 <div class="build-title">
-                            <h2>포장할래 ?</h2>
+                            <h2>먹고갈래 ?</h2>
                             <h6>사용자의 위치에 따라 매장들을 보여줍니다</h6>
                         </div>
                     <div class="map-address-inner">
