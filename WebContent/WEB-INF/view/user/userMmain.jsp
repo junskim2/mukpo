@@ -29,7 +29,7 @@
 <body>
 	<div class="wrapper-spacer">
 		<!-- UserHeader 시작 -->
-			<jsp:include page="../common/UserHeader.jsp"></jsp:include>
+			<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
 		<!-- UserHeader 끝 -->
 
         <!-- Start Main -->
@@ -230,7 +230,7 @@
             </div>
         </main>
         <!-- End Main -->
-		<jsp:include page="../common/UserFooter.jsp"></jsp:include>
+		<jsp:include page="../common/commonUserFooter.jsp"></jsp:include>
         <!-- Start Book Table -->
         <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
             <div class="modal-dialog" role="document">
