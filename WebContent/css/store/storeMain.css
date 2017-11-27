@@ -4948,7 +4948,7 @@ textarea {
     top: 100%;
     left: 0px;
     width: 100%;
-    background-color: #C4BD97;
+    background-color: rgba(196,189,151,0.7);
     z-index: 1;
     height: 100%;
     padding: 20px 15px;
