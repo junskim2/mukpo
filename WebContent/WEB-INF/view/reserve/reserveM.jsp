@@ -6,26 +6,33 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Order Complete - Laboom</title>
-    <link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
-    <link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
-    <link href="plugin/form-field/jquery.formstyler.css" rel="stylesheet">
-    <link href="plugin/revolution-plugin/extralayers.css" rel="stylesheet">
-    <link href="plugin/revolution-plugin/settings.css" rel="stylesheet">
-    <link href="plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
-    <link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
-    <link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-    <link href="plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
-    <link href="plugin/animation/animate.min.css" rel="stylesheet">
-    <link href="css/theme.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <title>먹포 - 테이블 예약</title>
+    <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
+    <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
+    <link href="/plugin/form-field/jquery.formstyler.css" rel="stylesheet">
+    <link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet">
+    <link href="/plugin/revolution-plugin/settings.css" rel="stylesheet">
+    <link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
+    <link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
+    <link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
+    <link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="/plugin/animation/animate.min.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<title></title>
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	$(function() {
+    		$("#reserveTable").click(function() {
+    			location.href = "reserveMPayment.do";
+    		});
+    	});
+    </script>
 </head>
 <body>
 <!--  <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable"> -->
@@ -48,12 +55,12 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                             	  <div>
-                                <img src="images/img2.png" style=width:400px;height:360px;>
+                                <img src="/images/img2.png" style=width:400px;height:360px;>
                            		 </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                              <input type="text" name="txt" placeholder="요청사항" style="width:100%;"> <br/>
-                                <button style="width:100%;" class="btn-main btn-big">예약</button>
+                                <button id="reserveTable" style="width:100%;" class="btn-main btn-big">예약</button>
                             </div>
                         </div>
                     </div>
