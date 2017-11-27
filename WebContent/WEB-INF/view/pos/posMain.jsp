@@ -49,7 +49,7 @@
                     <div class="container">
                         <div class="breadcrumb-inner">
                             <h2>SHOP CART</h2>
-                            <a href="#">Home</a>
+                            <a href="/index.jsp">Home</a>
                             <span>Shop</span>
                         </div>
                     </div>

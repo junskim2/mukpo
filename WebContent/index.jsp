@@ -98,7 +98,7 @@
 	$(function() {
 		$("#UserMmain").click(function() {
 			// 자기꺼 테스트 하세용
-			location.href="reserve/reserveM.do"
+			location.href="pos/posMain.do"
 		});
 		$("#UserPmain").click(function(){
 			location.href = "user/userPmain.do";
