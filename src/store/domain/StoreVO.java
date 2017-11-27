@@ -2,7 +2,7 @@ package store.domain;
 
 public class StoreVO {
 
-	String rCId;
+	String rCid;
 	String bId;
 	String sPw;
 	String sUrl;
@@ -23,11 +23,11 @@ public class StoreVO {
 	
 	public StoreVO() {}
 	
-	public StoreVO(String rCId, String bId, String sPw, String sUrl, String sName, String sTel, String sZipcode,
+	public StoreVO(String rCid, String bId, String sPw, String sUrl, String sName, String sTel, String sZipcode,
 			String sAddress, String sSido, String sSigungo, String sMp, String sCate, String sOpenTime,
 			String sCloseTime, String sClose, String sYn, double sLatitude, double sLongitude) {
 		super();
-		this.rCId = rCId;
+		this.rCid = rCid;
 		this.bId = bId;
 		this.sPw = sPw;
 		this.sUrl = sUrl;
@@ -46,11 +46,11 @@ public class StoreVO {
 		this.sLatitude = sLatitude;
 		this.sLongitude = sLongitude;
 	}
-	public String getrCId() {
-		return rCId;
+	public String getrCid() {
+		return rCid;
 	}
-	public void setrCId(String rCId) {
-		this.rCId = rCId;
+	public void setrCid(String rCId) {
+		this.rCid = rCId;
 	}
 	public String getbId() {
 		return bId;
