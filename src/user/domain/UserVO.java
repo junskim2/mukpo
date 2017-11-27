@@ -2,77 +2,76 @@ package user.domain;
 
 public class UserVO {
 
-   private String userId;
-   private String userPass;
-   private String userName;
-   private String userTel;
-   private String userBorn;
-   private String userEmail;
-   private String userPoint;
-   private String userWithdrop;
-   
-
-
-   public UserVO() {}
-   
-   public UserVO(String userId, String userPass, String userName, String userTel, String userBorn, String userEmail) {
-      super();
-      this.userId = userId;
-      this.userPass = userPass;
-      this.userName = userName;
-      this.userTel = userTel;
-      this.userBorn = userBorn;
-      this.userEmail = userEmail;
-   }
-   
-   public String getUserId() {
-      return userId;
-   }
-   public void setUserId(String userId) {
-      this.userId = userId;
-   }
-   public String getUserPass() {
-      return userPass;
-   }
-   public void setUserPass(String userPass) {
-      this.userPass = userPass;
-   }
-   public String getUserName() {
-      return userName;
-   }
-   public void setUserName(String userName) {
-      this.userName = userName;
-   }
-   public String getUsertel() {
-      return userTel;
-   }
-   public void setUsertel(String userTel) {
-      this.userTel = userTel;
-   }
-   public String getUserborn() {
-      return userBorn;
-   }
-   public void setUserborn(String userBorn) {
-      this.userBorn = userBorn;
-   }
-   public String getUserEmail() {
-      return userEmail;
-   }
-   public void setUserEmail(String userEmail) {
-      this.userEmail = userEmail;
-   }
-   public String getUserPoint() {
-      return userPoint;
-   }
-   public void setUserPoint(String userPoint) {
-      this.userPoint = userPoint;
-   }
-   public String getUserWithdrop() {
-      return userWithdrop;
-   }
-   public void setUserWithdrop(String userWithdrop) {
-      this.userWithdrop = userWithdrop;
-   }
-   
-   
+	String mId;
+	String mPw;
+	String mName;
+	String mTel;
+	String mBorn;
+	String mEmail;
+	int mPoint;
+	String mYn;
+	
+	public UserVO() {}
+	
+	public UserVO(String mId, String mPw, String mName, String mTel, String mBorn, String mEmail, int mPoint,
+			String mYn) {
+		super();
+		this.mId = mId;
+		this.mPw = mPw;
+		this.mName = mName;
+		this.mTel = mTel;
+		this.mBorn = mBorn;
+		this.mEmail = mEmail;
+		this.mPoint = mPoint;
+		this.mYn = mYn;
+	}
+	public String getmId() {
+		return mId;
+	}
+	public void setmId(String mId) {
+		this.mId = mId;
+	}
+	public String getmPw() {
+		return mPw;
+	}
+	public void setmPw(String mPw) {
+		this.mPw = mPw;
+	}
+	public String getmName() {
+		return mName;
+	}
+	public void setmName(String mName) {
+		this.mName = mName;
+	}
+	public String getmTel() {
+		return mTel;
+	}
+	public void setmTel(String mTel) {
+		this.mTel = mTel;
+	}
+	public String getmBorn() {
+		return mBorn;
+	}
+	public void setmBorn(String mBorn) {
+		this.mBorn = mBorn;
+	}
+	public String getmEmail() {
+		return mEmail;
+	}
+	public void setmEmail(String mEmail) {
+		this.mEmail = mEmail;
+	}
+	public int getmPoint() {
+		return mPoint;
+	}
+	public void setmPoint(int mPoint) {
+		this.mPoint = mPoint;
+	}
+	public String getmYn() {
+		return mYn;
+	}
+	public void setmYn(String mYn) {
+		this.mYn = mYn;
+	}
+	
 }
