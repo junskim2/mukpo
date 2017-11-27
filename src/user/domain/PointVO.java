@@ -1,5 +1,5 @@
 package user.domain;
 
-public class test {
+public class PointVO {
 
 }
