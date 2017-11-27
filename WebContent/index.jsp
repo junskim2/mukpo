@@ -96,8 +96,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$("#UserMmain").click(function() {
+			// 자기꺼 테스트 하세용
+			location.href="reserve/reserveM.do"
+		});
 		$("#UserPmain").click(function(){
-			location.href = "user/UserPmain.do";
+			location.href = "user/userPmain.do";
 		});
 	});
 </script>
