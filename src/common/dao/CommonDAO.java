@@ -1,5 +1,5 @@
 package common.dao;
 
-public class test {
+public class CommonDAO {
 
 }
