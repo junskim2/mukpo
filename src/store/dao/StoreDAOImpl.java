@@ -1,5 +1,5 @@
 package store.dao;
-
+ 
 import java.util.List;
 
 public class StoreDAOImpl implements StoreDAO {
