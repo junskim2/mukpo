@@ -4,9 +4,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import user.domain.FavoriteVO;
-import user.domain.PointVO;
-import user.domain.ReviewVO;
+import user.domain.UserFavoriteVO;
+import user.domain.UserPointVO;
+import user.domain.UserReviewVO;
 import user.domain.UserVO;
 
 @Repository
@@ -42,28 +42,28 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public PointVO selectPoint(PointVO vo) { //마이페이지 - 포인트 현황
-		PointVO pointVO = null;
+	public UserPointVO selectPoint(UserPointVO vo) { //마이페이지 - 포인트 현황
+		UserPointVO pointVO = null;
 		
 		return pointVO;
 	}
 
 	@Override
-	public int insertPoint(PointVO vo) { //마이페이지 - 포인트 적립
+	public int insertPoint(UserPointVO vo) { //마이페이지 - 포인트 적립
 		
 		return 0;
 		}
 
 	@Override
-	public FavoriteVO selectFS(FavoriteVO vo) { //마이페이지 - 즐겨찾기 상점 목록
-		FavoriteVO favoriteVO = null;
+	public UserFavoriteVO selectFS(UserFavoriteVO vo) { //마이페이지 - 즐겨찾기 상점 목록
+		UserFavoriteVO favoriteVO = null;
 		
 		return favoriteVO;
 	}
 
 	@Override
-	public ReviewVO selectReview(ReviewVO vo) { //마이페이지 - 내가 쓴 리뷰
-		ReviewVO reviewVO = null;
+	public UserReviewVO selectReview(UserReviewVO vo) { //마이페이지 - 내가 쓴 리뷰
+		UserReviewVO reviewVO = null;
 		
 		return reviewVO;
 	}

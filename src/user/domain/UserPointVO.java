@@ -1,6 +1,6 @@
 package user.domain;
 
-public class PointVO {
+public class UserPointVO {
 	
 	int pId;
 	String mId;
@@ -10,9 +10,9 @@ public class PointVO {
 	int pPrice;
 	int pCruntmoney;
 	
-	public PointVO() {}
+	public UserPointVO() {}
 	
-	public PointVO(int pId, String mId, String pDate, String pAs, String pStore, int pPrice, int pCruntmoney) {
+	public UserPointVO(int pId, String mId, String pDate, String pAs, String pStore, int pPrice, int pCruntmoney) {
 		super();
 		this.pId = pId;
 		this.mId = mId;

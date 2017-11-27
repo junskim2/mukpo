@@ -1,12 +1,12 @@
 package user.domain;
 
-public class ReviewVO {
+public class UserReviewVO {
 	String rvContent;
 	String rvDate;
 	
-	public ReviewVO() {}
+	public UserReviewVO() {}
 	
-	public ReviewVO(String rvContent, String rvDate) {
+	public UserReviewVO(String rvContent, String rvDate) {
 		super();
 		this.rvContent = rvContent;
 		this.rvDate = rvDate;
