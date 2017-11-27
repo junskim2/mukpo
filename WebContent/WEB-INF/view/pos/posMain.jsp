@@ -45,15 +45,7 @@
         <main>
             <div class="main-part">
                 <!-- Start Breadcrumb Part -->
-                <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('images/breadbg1.jpg');">
-                    <div class="container">
-                        <div class="breadcrumb-inner">
-                            <h2>SHOP CART</h2>
-                            <a href="#">Home</a>
-                            <span>Shop</span>
-                        </div>
-                    </div>
-                </section>
+                
                 <!-- End Breadcrumb Part -->
                 <section class="home-icon shop-cart bg-skeen">
                     <div class="icon-default icon-skeen">
