@@ -1,5 +1,21 @@
 package pos.dao;
 
-public class PosDAO {
-
+public interface PosDAO {
+	// 오늘날짜 예약 포스기 화면에 띄어주기 -> select FROM 예약
+	
+	// 예약 거절 -> update 예약테이블의 예약상태컬럼을 RR로 바꿔주기
+	
+	// 혼잡도 보여주기 -> select FROM 혼잡도설정 / 혼잡도상태컬럼 Y인 것 뽑아오기 
+	
+	// 혼잡도 설정 -> update 혼잡도상태컬럼 그 전 상태는 N으로 변경, 설정한 상태는 Y로 변경
+	
+	// 테이블 수 불러오기 -> select 테이블매장관리에서 테이블 수 가져오기
+	
+	// 주문  받기 -> insert 주문내역 테이블에 등록
+	
+	// 주문 취소 -> update 주문내역 테이블 주문취소컬럼 값 OC로 변경
+	
+	// 결제 완료 -> update, select, insert 주문내역테이블에서 결제완료여부를 PO로 변경해주고 주문번호를 가져와 결제테이블에 등록
+	
+	// 결제 취소(환불) -> update 결제테이블에서 상태값컬럼을 PC로 변경
 }
