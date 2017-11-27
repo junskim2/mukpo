@@ -2,7 +2,7 @@ package store.dao;
 
 import java.util.List;
 
-public class storeDAOImpl implements storeDAO {
+public class StoreDAOImpl implements StoreDAO {
 
 	@Override
 	public BossVO bossLogin(BossVO vo) {
