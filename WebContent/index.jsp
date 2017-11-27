@@ -22,7 +22,7 @@
 <link href="css/theme.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
 
-<title>먹포 - 먹고갈래? 포장할래?</title>
+<title>먹포 - 먹고갈래? 포장할래?</title> 
 <style type="text/css">
 #mainLogo2 {
 	height: 80%;
@@ -96,12 +96,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("#UserMmain").click(function() {
-			// 자기꺼 테스트 하세용
-			location.href="pos/posMain.do"
-		});
 		$("#UserPmain").click(function(){
 			location.href = "user/userPmain.do";
+		});
+		
+		$("#UserMmain").click(function(){
+			location.href = "user/userMmain.do";
 		});
 	});
 </script>
@@ -124,12 +124,6 @@
 			</a>
 		</div>
 		<img src="images/common/ㄴㅇㄹ.png" id="logo3" />
-		<a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
-		<a>BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
-		<a>MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
-		<a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
-		
-		<!-- 로그인 회원가입 클릭하면 나오는 화면 -->
 		<div class="location-footer-map">
 			<div class="icon-find-location">
 				<a href="#"> <img class="arrow" src="images/common/up-arrow.png"
@@ -145,7 +139,8 @@
 							<div class="title text-center">
 								<h3 class="text-coffee">Login</h3>
 							</div>
-							<form class="login-form" method="post" name="login">
+							
+							<form action="user/userLogin.do" class="login-form" method="post" name="login">
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<input type="text" name="txt"
@@ -162,7 +157,7 @@
 													me</label>
 											</div>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<a href="#" class="pull-right">Lost your password</a>
+												<a class="pull-right">Lost your password</a>
 											</div>
 										</div>
 									</div>
@@ -194,7 +189,7 @@
 							<div class="title text-center">
 								<h3 class="text-coffee">Register</h3>
 							</div>
-							<form class="register-form" method="post" name="register">
+							<form action="user/userInsert.do" class="register-form" method="post" name="register">
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<input type="text" name="txt" placeholder="First Name"
@@ -236,7 +231,6 @@
 				</div>
 			</div>
 			</section>
-		</div>
 		</div>
 	</footer>
 	<!-- End Footer -->
