@@ -1,5 +1,5 @@
 package pos.mapper;
 
-public class test {
+public class PosMapper {
 
 }

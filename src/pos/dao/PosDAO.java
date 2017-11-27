@@ -1,5 +1,5 @@
 package pos.dao;
 
-public class test {
+public class PosDAO {
 
 }
