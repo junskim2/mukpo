@@ -56,9 +56,6 @@
                 </section>
                 <!-- End Breadcrumb Part -->
                 <section class="home-icon shop-cart bg-skeen">
-                    <div class="icon-default icon-skeen">
-                        <img src="/images/scroll-arrow.png" alt="">
-                    </div>
                     <div class="container">
                         
                         <div class="row">
