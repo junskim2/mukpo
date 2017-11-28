@@ -1,7 +1,7 @@
 package pos.dao;
 
-import pos.domain.PosCongestionSetVO;
-import pos.domain.PosOrderListVO;
+import pos.domain.CongestionSetVO;
+import pos.domain.OrderListVO;
 import pos.domain.PosPaymentVO;
 
 public interface PosDAO {
@@ -26,7 +26,7 @@ public interface PosDAO {
 	//-----------------------------------------------------------------
 	
 	// 혼잡도 insert
-	void insertCongestionset(PosCongestionSetVO pcVO);
+	void insertCongestionset(CongestionSetVO pcVO);
 	
 //	// 혼잡도 설정
 //	void updateCsYn();
@@ -35,16 +35,14 @@ public interface PosDAO {
 //	void updateCongestionset();			// --------- 혼잡도 설정과 수정 합치기
 	
 	// 혼잡도 설정&수정
-	void updateCongestionset(PosCongestionSetVO pcVO); 
+	void updateCongestionset(CongestionSetVO cVO); 
 	
 	// 혼잡도 보여주기
-	PosCongestionSetVO selectCongestionset(String rCid);
+	CongestionSetVO selectCongestionset(String rCid);
 	
 	// 주문하기
-	void insertOrderList(PosOrderListVO polVO);
-	
-//	// 주문취소
-//	void uapdateOyn();
+	void insertOrderList(OrderListVO olVO);	// 주문취소
+	//	void uapdateOyn();
 	
 	// 주문 내역보기
 	void selectOrderList();
@@ -53,9 +51,7 @@ public interface PosDAO {
 //	void updatePyn();			// ---------- 주문취소와 결제취소/완료 합치기
 	
 	// 주문취소 & 결제 취소/완료
-	void updateOrderListYN(PosOrderListVO polVO);
-	
-	// 결제 후 결제테이블에 삽입
+	void updateOrderListYN(OrderListVO OrderListVO); // 결제 후 결제테이블에 삽입
 	void insertPayment(PosPaymentVO ppVO);
 	
 	// 결제 취소할 때 결제테이블 상태값 바꿔주기
