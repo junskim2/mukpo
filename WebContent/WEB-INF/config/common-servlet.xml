@@ -19,6 +19,9 @@
 		<property name="suffix" value='.jsp' /> <!-- setSuffix() 호출 -->
 	</bean>
 	
+	<context:component-scan base-package="common" />
+	<context:annotation-config />
+	
 	<!-- JNDI 설정 -->
 	<bean id='dataSource' class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value='java:comp/env/jdbc/myora' />
@@ -34,5 +37,5 @@
 		<constructor-arg ref="factoryBean" />
 	</bean>
 
-	<context:annotation-config />
+	
 </beans>
