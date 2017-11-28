@@ -1,9 +1,12 @@
 package pos.dao;
 
+import org.springframework.stereotype.Repository;
+
 import pos.domain.CongestionSetVO;
 import pos.domain.OrderListVO;
 import pos.domain.PaymentVO;
 
+@Repository
 public class PosDAOImpl implements PosDAO {
 
 	@Override
