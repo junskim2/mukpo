@@ -1,6 +1,6 @@
 package pos.domain;
 
-public class PosOrderListVO {
+public class OrderListVO {
 	private String oId;			// 주문ID
 	private String oNum;		// 주문번호
 	private String rCid;		// 사업자등록번호
@@ -13,9 +13,9 @@ public class PosOrderListVO {
 	private String oPyn;		// 결제완료여부
 	private String oOyn;		// 주문취소
 	
-	public PosOrderListVO() {}
+	public OrderListVO() {}
 	
-	public PosOrderListVO(String oId, String oNum, String rCid, String oMenu, String oTablenum, String oOrderdate,
+	public OrderListVO(String oId, String oNum, String rCid, String oMenu, String oTablenum, String oOrderdate,
 			Integer oCnt, Integer oKeepmoney, Integer o_price, String oPyn, String oOyn) {
 		super();
 		this.oId = oId;

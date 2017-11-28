@@ -1,5 +1,9 @@
 package pos.dao;
 
+import pos.domain.PosCongestionSetVO;
+import pos.domain.PosOrderListVO;
+import pos.domain.PosPaymentVO;
+
 public interface PosDAO {
 	// 오늘날짜 예약 포스기 화면에 띄어주기 -> select FROM 예약
 	
@@ -18,4 +22,42 @@ public interface PosDAO {
 	// 결제 완료 -> update, select, insert 주문내역테이블에서 결제완료여부를 PO로 변경해주고 주문번호를 가져와 결제테이블에 등록
 	
 	// 결제 취소(환불) -> update 결제테이블에서 상태값컬럼을 PC로 변경
+	
+	//-----------------------------------------------------------------
+	
+	// 혼잡도 insert
+	void insertCongestionset(PosCongestionSetVO pcVO);
+	
+//	// 혼잡도 설정
+//	void updateCsYn();
+//	
+//	// 혼잡도 수정
+//	void updateCongestionset();			// --------- 혼잡도 설정과 수정 합치기
+	
+	// 혼잡도 설정&수정
+	void updateCongestionset(PosCongestionSetVO pcVO); 
+	
+	// 혼잡도 보여주기
+	PosCongestionSetVO selectCongestionset(String rCid);
+	
+	// 주문하기
+	void insertOrderList(PosOrderListVO polVO);
+	
+//	// 주문취소
+//	void uapdateOyn();
+	
+	// 주문 내역보기
+	void selectOrderList();
+	
+//	// 결제 취소/완료
+//	void updatePyn();			// ---------- 주문취소와 결제취소/완료 합치기
+	
+	// 주문취소 & 결제 취소/완료
+	void updateOrderListYN(PosOrderListVO polVO);
+	
+	// 결제 후 결제테이블에 삽입
+	void insertPayment(PosPaymentVO ppVO);
+	
+	// 결제 취소할 때 결제테이블 상태값 바꿔주기
+	void updatePstate(PosPaymentVO ppVO);
 }
