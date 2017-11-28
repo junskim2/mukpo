@@ -1,14 +1,14 @@
 package reserve.domain;
 
-public class ReserveReserveMenuVO {
+public class ReserveMenuVO {
 	private String rmid;	// 예약메뉴ID
 	private String rId;		// 예약ID
 	private Integer mId;	// 메뉴ID
 	private Integer rmCnt;	// 수량
 	
-	public ReserveReserveMenuVO() {}
+	public ReserveMenuVO() {}
 	
-	public ReserveReserveMenuVO(String rmid, String rId, Integer mId, Integer rmCnt) {
+	public ReserveMenuVO(String rmid, String rId, Integer mId, Integer rmCnt) {
 		super();
 		this.rmid = rmid;
 		this.rId = rId;

@@ -1,22 +1,35 @@
 package reserve.domain;
 
 public class ReserveVO {
-	
-	String rId;
-	String mId;
-	String rCid;
-	String rMpwp;
-	String rDate;
-	String rTime;
-	int rPnum;
-	int rKeepmoney;
-	int rTnum;
-	String rYn;
+	private String rId;			// 예약ID
+	private String mId;			// 회원ID
+	private String rCid;		// 사업자등록번호
+	private String rMpwp;		// 예약유형
+	private String rDate;		// 예약날짜
+	private String rTime;		// 예약시간
+	private Integer rPnum;		// 인원수
+	private Integer rKeepmoney;	// 예치금
+	private Integer rTnum;		// 테이블번호
+	private String rYn;			// 예약상태
 	
 	public ReserveVO() {}
 	
+	public ReserveVO(String rId, String mId, String rCid, String rMpwp, String rDate, String rTime,
+			Integer rPnum, Integer rKeepmoney, Integer rTnum, String rYn) {
+		super();
+		this.rId = rId;
+		this.mId = mId;
+		this.rCid = rCid;
+		this.rMpwp = rMpwp;
+		this.rDate = rDate;
+		this.rTime = rTime;
+		this.rPnum = rPnum;
+		this.rKeepmoney = rKeepmoney;
+		this.rTnum = rTnum;
+		this.rYn = rYn;
+	}
 	
-
+	// Getter, Setter
 	public String getrId() {
 		return rId;
 	}
@@ -53,22 +66,22 @@ public class ReserveVO {
 	public void setrTime(String rTime) {
 		this.rTime = rTime;
 	}
-	public int getrPnum() {
+	public Integer getrPnum() {
 		return rPnum;
 	}
-	public void setrPnum(int rPnum) {
+	public void setrPnum(Integer rPnum) {
 		this.rPnum = rPnum;
 	}
-	public int getrKeepmoney() {
+	public Integer getrKeepmoney() {
 		return rKeepmoney;
 	}
-	public void setrKeepmoney(int rKeepmoney) {
+	public void setrKeepmoney(Integer rKeepmoney) {
 		this.rKeepmoney = rKeepmoney;
 	}
-	public int getrTnum() {
+	public Integer getrTnum() {
 		return rTnum;
 	}
-	public void setrTnum(int rTnum) {
+	public void setrTnum(Integer rTnum) {
 		this.rTnum = rTnum;
 	}
 	public String getrYn() {
@@ -77,6 +90,6 @@ public class ReserveVO {
 	public void setrYn(String rYn) {
 		this.rYn = rYn;
 	}
-
+	
 	
 }
