@@ -6,12 +6,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="user">
 
 <!-- 회원가입 sql -->
-<insert id="userInsert" parameterType="user.domain.userVO"> 
+<insert id="userInsert" parameterType="user.domain.UserVO"> 
 	INSERT INTO member VALUES(#{userId}, #{userPass}, #{userName}, #{userTel}, #{userBorn},#{userEmail},)	
 </insert>
 
 <!-- 로그인 sql -->
-<select id="userLogin" parameterType="user.domain.userVO" resultType="user.domain.userVO"> 
+<select id="userLogin" parameterType="user.domain.UserVO" resultType="user.domain.UserVO"> 
 	
 	select * from member where m_id=#{userId}
 	<if test="userPass !=null">
