@@ -1,5 +1,7 @@
 package user.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,27 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
+	@RequestMapping("/login.do")
+	public ModelAndView login(UserVO userVO,Model model, HttpSession session) {
+		String message = "fail.";
+		int result=0;
+	
+		UserVO dbvo = userDAO.selectMemberLogin(userVO);
+		ModelAndView mv = new ModelAndView();
+		if(dbvo !=null) {
+			message="success";
+			result=1;
+			session.setAttribute("sessionTime", (new Date().toString()));
+			session.setAttribute("userName", dbvo.getmId());
+					
+		}
+		System.out.println(message);
+		mv.setViewName("user/login");
+		mv.addObject("result", result);
+		mv.addObject("message", message);
+		return mv;
+		
+	}
 //	@RequestMapping("/userLogin.do")
 //	public String login(Model model) {
 //		String message = "로그인을 성공했습니다.";

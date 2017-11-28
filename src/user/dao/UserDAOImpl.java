@@ -17,7 +17,7 @@ public class UserDAOImpl implements UserDAO{
 
 	public int insertMemberJoin(UserVO vo) { //사용자 회원가입
 
-		return 0;
+		return 0; 
 	}
 
 	@Override

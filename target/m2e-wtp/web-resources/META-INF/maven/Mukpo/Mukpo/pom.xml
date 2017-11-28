@@ -8,7 +8,7 @@
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
-			<plugin>
+			<plugin> 
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
@@ -62,5 +62,13 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.2</version>
 		</dependency>
+		
+		<!-- 디비연결? -->
+		<dependency> 
+			<groupId>commons-dbcp</groupId> 
+			<artifactId>commons-dbcp</artifactId> 
+			<version>1.4</version> 
+		</dependency>
+		
 	</dependencies>
 </project>

@@ -8,7 +8,7 @@ import user.domain.UserVO;
 public interface UserDAO {
 	
 	   int insertMemberJoin(UserVO vo); //사용자 회원가입
-
+ 
 	   UserVO selectMemberLogin(UserVO vo); //사용자 로그인
 	   
 	   UserVO updateMemberModify(UserVO vo); //개인정보 수정

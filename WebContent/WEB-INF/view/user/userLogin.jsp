@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+ 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,25 +26,17 @@
       <script src="/https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/login.js"></script>
 </head>
 <body>
  <main>
             <div class="main-part">
                 <!-- Start Breadcrumb Part -->
-                <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('images/breadbg1.jpg');">
-                    <div class="container">
-                        <div class="breadcrumb-inner">
-                            <h2>Login Register</h2>
-                            <a href="/#">Home</a>
-                            <span>Shop</span>
-                        </div>
-                    </div>
-                </section>
+               
                 <!-- End Breadcrumb Part -->
                 <section class="home-icon login-register bg-skeen">
-                    <div class="icon-default icon-skeen">
-                        <img src="/images/scroll-arrow.png" alt="">
-                    </div>
+                    
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -51,13 +44,13 @@
                                     <div class="title text-center">
                                         <h3 class="text-coffee">로그인</h3>
                                     </div>
-                                    <form class="login-form" method="post" name="login">
+                                    <form class="login-form" method="post" name="login" action="login.do">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="아이디" class="input-fields">
+                                                <input type="text" name="mId" placeholder="아이디" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="password" name="password" placeholder="********" class="input-fields">
+                                                <input type="password" name="mPw" placeholder="********" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <div class="row">
@@ -71,7 +64,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="submit" name="submit" value="로그인" class="button-default button-default-submit">
+                                                <input type="button" name="button" value="로그인" class="button-default button-default-submit">
                                             </div>
                                         </div>
                                     </form>
@@ -106,7 +99,7 @@
                                                 <input type="text" name="txt" placeholder="email@gmail.com" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="submit" name="submit" class="button-default button-default-submit" value="회원가입">
+                                                <input type="button" name="button" class="button-default button-default-submit" value="회원가입">
                                             </div>
                                         </div>
                                     </form>
