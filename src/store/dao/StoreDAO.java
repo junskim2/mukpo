@@ -8,6 +8,7 @@ import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
 
+
 public interface StoreDAO {
 	// 사장님 로그인 기능 구현
 	BossVO selectBossLogin(BossVO vo);

@@ -12,7 +12,7 @@ public class BossVO {
 	public BossVO() {
 	}
 
-	public BossVO(String bId, String bPW, String bBorn, String bName, String bEmail, String bZipcode, String bAddress) {
+	public BossVO(String bId, String bPw, String bBorn, String bName, String bEmail, String bZipcode, String bAddress) {
 		super();
 		this.bId = bId;
 		this.bPw = bPw;
@@ -31,11 +31,11 @@ public class BossVO {
 		this.bId = bId;
 	}
 
-	public String getbPW() {
+	public String getbPw() {
 		return bPw;
 	}
 
-	public void setbPW(String bPW) {
+	public void setbPw(String bPw) {
 		this.bPw = bPw;
 	}
 
