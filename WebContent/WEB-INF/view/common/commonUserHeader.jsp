@@ -159,80 +159,83 @@
                         
                         <!-- 메뉴 헤더 -->
                         <div class="header-info">
-                        	<div class="menu-main">
-                            <ul>
-                            	<!-- 먹포 -->
-                            	<li class="mega-menu" id="mpsectionclass">
-                            		<a id="mpsection" href="index.html"><img id="mparrow" src="/images/common/mp-arrow3.png">
-                            			<c:if test="${ sPM == 'M' }"> 테이블 </c:if>
-                            			<c:if test="${ sPM == 'P' }"> 포장 </c:if>
-                            		</a>
-                                    <ul class="drop-nav" id="mpdrop">
-                                        <li><a href="/common/userMmain.do">먹고갈래?</a></li>
-                                        <li><a href="/common/userPmain.do">포장할래?</a></li>
-                                    </ul>
-                            	</li>
-                            	
-                            	<!-- 지역 메뉴 -->
-                            	<li class="mega-menu"> 
-									<a href="#">지역</a>
-									<ul class="drop-nav" id="locationdrop"> 
-										<li>
-											<div class="drop-mega-part"> 
-												<div class="row"> 
-													<div class="col-md-6 col-sm-12 col-xs-12" id="location1div"> 
-														<ul id="location1">
-															<li> 서울<span>></span></li>
-															<li> 대전<span>></span></li>
-															<li> 충남<span>></span></li>
-															<li> 경기<span>></span></li>
-															<li> 광주<span>></span></li>
-															<li> 부산<span>></span></li>
-														</ul>
+                        	<form method="post" action="/store/storeList.do">
+	                        	<div class="menu-main">
+		                            <ul>
+		                            	<!-- 먹포 -->
+		                            	<li class="mega-menu" id="mpsectionclass">
+		                            		<a id="mpsection" href="index.html"><img id="mparrow" src="/images/common/mp-arrow3.png">
+		                            				<c:if test="${ sPM == 'M' }"> 테이블 </c:if>
+		                            				<c:if test="${ sPM == 'P' }"> 포장 </c:if>
+		                            		</a>
+		                                    <ul class="drop-nav" id="mpdrop">
+		                                        <li><a href="/common/userMmain.do">먹고갈래?</a></li>
+		                                        <li><a href="/common/userPmain.do">포장할래?</a></li>
+		                                    </ul>
+		                            	</li>
+		                           
+		                            	<!-- 지역 메뉴 -->
+		                            	<li class="mega-menu"> 
+											<a href="#">지역</a>
+											<ul class="drop-nav" id="locationdrop"> 
+												<li>
+													<div class="drop-mega-part"> 
+														<div class="row"> 
+															<div class="col-md-6 col-sm-12 col-xs-12" id="location1div"> 
+																<ul id="location1">
+																	<li> 서울<span>></span></li>
+																	<li> 대전<span>></span></li>
+																	<li> 충남<span>></span></li>
+																	<li> 경기<span>></span></li>
+																	<li> 광주<span>></span></li>
+																	<li> 부산<span>></span></li>
+																</ul>
+															</div>
+															<div class="col-md-6 col-sm-12 col-xs-12" id="location2div">
+																<ul id="location2">
+																	<li><input type="checkbox" />Ready Player One</li>
+																	<li><input type="checkbox" />Ernest Cline</li>
+																	<li><input type="checkbox" />Ender's Game</li>
+																	<li><input type="checkbox" />Orson Scott Card</li>
+																	<li><input type="checkbox" />Americam God</li>
+																	<li><input type="checkbox" />Neil Gaiman</li>
+																	<li><input type="checkbox" />The Great Gatsby</li>
+																	<li><input type="checkbox" />The Great Gatsby</li>
+																	<li><input type="checkbox" />The Great Gatsby</li>
+																	<li><input type="checkbox" />The Great Gatsby</li>
+																	<li><input type="checkbox" />The Great Gatsby</li>
+																</ul>
+		                                                    </div>
+														</div>
+														
 													</div>
-													<div class="col-md-6 col-sm-12 col-xs-12" id="location2div">
-                                                                <ul id="location2">
-                                                                    <li><input type="checkbox" />Ready Player One</li>
-                                                                    <li><input type="checkbox" />Ernest Cline</li>
-                                                                    <li><input type="checkbox" />Ender's Game</li>
-                                                                    <li><input type="checkbox" />Orson Scott Card</li>
-                                                                    <li><input type="checkbox" />Americam God</li>
-                                                                    <li><input type="checkbox" />Neil Gaiman</li>
-                                                                    <li><input type="checkbox" />The Great Gatsby</li>
-                                                                    <li><input type="checkbox" />The Great Gatsby</li>
-                                                                    <li><input type="checkbox" />The Great Gatsby</li>
-                                                                    <li><input type="checkbox" />The Great Gatsby</li>
-                                                                    <li><input type="checkbox" />The Great Gatsby</li>
-                                                                </ul>
-                                                    </div>
-												</div>
-												
-											</div>
+												</li>
+											</ul>
 										</li>
-									</ul>
-								</li>
-								
-                            	<!-- 카테고리 메뉴 -->
-                                <li class="mega-menu">
-                                    <a href="index.html">카테고리</a>
-                                    <ul class="drop-nav" id="categorydrop">
-                                        <li><input type="checkbox">음식 전체</li>
-                                        <li><input type="checkbox">한식</li>
-                                        <li><input type="checkbox">양식</li>
-                                        <li><input type="checkbox">중식</li>
-                                        <li><input type="checkbox">일식</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- 검색 기능 -->
-							<div class="search-part">
-                                <a href="#"></a>
-                                <div class="search-box">
-                                    <input type="text" name="txt" placeholder="Search">
-                                    <input type="submit" name="submit" value=" ">
-                                </div>
-                            </div>
+										
+		                            	<!-- 카테고리 메뉴 -->
+		                                <li class="mega-menu">
+		                                    <a href="index.html">카테고리</a>
+		                                    <ul class="drop-nav" id="categorydrop">
+		                                        <li><input type="checkbox">음식 전체</li>
+		                                        <li><input type="checkbox">한식</li>
+		                                        <li><input type="checkbox">양식</li>
+		                                        <li><input type="checkbox">중식</li>
+		                                        <li><input type="checkbox">일식</li>
+		                                    </ul>
+		                                </li>
+		                            </ul>
+		                        </div>
+		                        <!-- 검색 기능 -->
+								<div class="search-part">
+	                                <a href="#"></a>
+	                                <div class="search-box">
+	                                    <input id="txtSearch" type="text" name="txt" placeholder="Search">
+	                                    <input type="hidden" name="sMp" value="${ sPM }" />
+	                                    <input id="btnSearch" type="submit" name="submit" value=" ">
+	                                </div>
+	                            </div>
+	                     	 </form>
                             
                         <!-- 화면 작아질때 -->
                             <div class="header-info-inner">
