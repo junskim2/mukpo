@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="store">
 	<!-- 1. 사장님 로그인 기능 구현 -->
-	<select id="selectBossLogin" resultType="store.domain.BossVO">
+	<select id="selectBossLogin" resultType="bossVO">
 		SELECT * FROM boss WHERE b_id = #{bId} AND b_pw = #{bPw}
 	</select>
 

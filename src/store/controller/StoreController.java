@@ -33,13 +33,18 @@ public class StoreController {
 	public ModelAndView storeMain(String txt, String password, BossVO BossVO, HttpSession httpsession) {
 		BossVO result = null;
 		BossVO.setbId(txt);
-		BossVO.setbPW(password);
+		BossVO.setbPw(password);
+
 		result = storeDAO.selectBossLogin(BossVO);
+		System.out.println(result.getbId());
 		ModelAndView mv = new ModelAndView();
-		if (result != null)
+		if (result != null) {
 			httpsession.setAttribute("bId", result.getbId());
-		mv.setViewName("store/storeMain");
-		mv.setViewName("store/storeBossLogin");
+			System.out.println(httpsession.getAttribute("bId"));
+			mv.setViewName("store/storeMain");
+		} else {
+			mv.setViewName("store/storeBossLogin");
+		}
 
 		return mv;
 	}
