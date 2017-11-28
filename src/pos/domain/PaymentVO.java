@@ -1,6 +1,6 @@
 package pos.domain;
 
-public class PosPaymentVO {
+public class PaymentVO {
 	private String oNum;	// 주문번호
 	private String mId;		// 회원ID
 	private String sId;		// 사업자등록번호
@@ -8,9 +8,9 @@ public class PosPaymentVO {
 	private Integer oTotal;	// 총금액
 	private String pState;	// 상대값
 	
-	public PosPaymentVO() {}
+	public PaymentVO() {}
 	
-	public PosPaymentVO(String oNum, String mId, String sId, String pWith, Integer oTotal, String pState) {
+	public PaymentVO(String oNum, String mId, String sId, String pWith, Integer oTotal, String pState) {
 		super();
 		this.oNum = oNum;
 		this.mId = mId;

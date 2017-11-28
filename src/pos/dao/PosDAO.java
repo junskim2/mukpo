@@ -2,7 +2,7 @@ package pos.dao;
 
 import pos.domain.CongestionSetVO;
 import pos.domain.OrderListVO;
-import pos.domain.PosPaymentVO;
+import pos.domain.PaymentVO;
 
 public interface PosDAO {
 	// 오늘날짜 예약 포스기 화면에 띄어주기 -> select FROM 예약
@@ -52,8 +52,8 @@ public interface PosDAO {
 	
 	// 주문취소 & 결제 취소/완료
 	void updateOrderListYN(OrderListVO OrderListVO); // 결제 후 결제테이블에 삽입
-	void insertPayment(PosPaymentVO ppVO);
+	void insertPayment(PaymentVO ppVO);
 	
 	// 결제 취소할 때 결제테이블 상태값 바꿔주기
-	void updatePstate(PosPaymentVO ppVO);
+	void updatePstate(PaymentVO ppVO);
 }
