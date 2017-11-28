@@ -3,11 +3,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-<context:component-scan base-package="pos" />
+	<context:component-scan base-package="pos" />
 
+	<!-- JNDI 설정 -->
+	<bean id='dataSource' class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value='java:comp/env/jdbc/myora' />
+	</bean>
+
+	<!-- Spring mybatis 설정 -->
+	<bean id='factoryBean' class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:mybatis/*.xml" />
+	</bean>
+	<bean id='posss' class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factoryBean" />
+	</bean>
+
+	<context:annotation-config />
 
 </beans>
