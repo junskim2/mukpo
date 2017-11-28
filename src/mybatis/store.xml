@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="store">
+	<!-- 1. 사장님 로그인 기능 구현 -->
+	<select id="selectBossLogin" resultType="store.domain.BossVO">
+		SELECT * FROM boss WHERE b_id = #{bId} AND b_pw = #{bPw}
+	</select>
+
+</mapper>

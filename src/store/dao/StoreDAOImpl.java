@@ -1,7 +1,9 @@
 package store.dao;
- 
+
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import store.domain.BlackListVO;
@@ -13,110 +15,114 @@ import store.domain.TableSetVO;
 @Repository
 public class StoreDAOImpl implements StoreDAO {
 
+	@Autowired
+	private SqlSessionTemplate storess;
+
+	// 사장님 로그인 기능 구현
 	@Override
-	public BossVO bossLogin(BossVO vo) {
+	public BossVO selectBossLogin(BossVO vo) {
+		// TODO Auto-generated method stub
+		return storess.selectOne("store.selectBossLogin", vo);
+	}
+
+	@Override
+	public int insertBossJoin(BossVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public BossVO selectBossIdCheck(BossVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int bossInsert(BossVO vo) {
+	public int updateBossInfoModify(BossVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public BossVO bossIdCheck(BossVO vo) {
+	public int updateBossInfoDelete(BossVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insertStoreInfo(StoreVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insertTableSet(TableSetVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateStoreModify(StoreVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateTableSetModify(TableSetVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateStoreDelete(StoreVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateTableSetDelete(TableSetVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<StoreVO> selectStoreList(BossVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int bossUpdate(BossVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int bossDelete(BossVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int storeInsert(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int tableSetInsert(TableSetVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int storeUpdate(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int tableSetUpdate(TableSetVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int storeDelete(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int tableSetDelete(TableSetVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<StoreVO> searchStore(BossVO vo) {
+	public TableSetVO selectTableSetSearch(StoreVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public TableSetVO searchTableSet(StoreVO vo) {
+	public int insertMenu(MenuVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateMenuModify(MenuVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateMenuDelete(MenuVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<MenuVO> selectMenuList(StoreVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int menuInsert(MenuVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int menuUpdate(MenuVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int menuDelete(MenuVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<MenuVO> menuInsert(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int blackListInsert(BlackListVO vo) {
+	public int insertBlackList(BlackListVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
