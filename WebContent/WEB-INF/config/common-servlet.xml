@@ -27,6 +27,7 @@
 <!-- 	 Spring mybatis 설정 --> 
 	<bean id='factoryBean' class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis/config/config.xml"></property>
 		<property name="mapperLocations" value="classpath*:mybatis/*.xml" />
 	</bean>
 	<bean id='commonss' class="org.mybatis.spring.SqlSessionTemplate">
