@@ -23,7 +23,33 @@
     <link href="/plugin/animation/animate.min.css" rel="stylesheet">
     <link href="/css/theme.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
-
+	<style type="text/css">
+		/* 지도 옆에 띄어줄 매장 */
+		.userLocationStore{
+		   color: #ffffff; 
+		/* padding-right: 10%; */
+		   margin-bottom: 20px;
+		}
+		
+		.userLocationStore h3 {
+		    color: #e4b95b;
+		    margin-bottom: 3px;
+		}
+		
+		.map-top > div {
+		   display : inline-block;
+		   width : 500px;
+		}
+		
+		/* 지도와 매장이름 띄어주는 div 크기 설정 */
+		#mapContainer {
+		   width: 700px;
+		   margin-left: 100px;
+		}
+		#storeContainer {
+		   margin-left: 100px;
+		}
+	</style>
 </head>
 
 <body>
