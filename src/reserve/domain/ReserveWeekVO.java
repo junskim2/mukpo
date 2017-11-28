@@ -1,12 +1,12 @@
 package reserve.domain;
 
-public class ReserveReserveWeekVO {
+public class ReserveWeekVO {
 	private String rId;		// 예약ID
 	private String wrId;	// 주간예약ID
 	
-	public ReserveReserveWeekVO() {}
+	public ReserveWeekVO() {}
 	
-	public ReserveReserveWeekVO(String rId, String wrId) {
+	public ReserveWeekVO(String rId, String wrId) {
 		super();
 		this.rId = rId;
 		this.wrId = wrId;

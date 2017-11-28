@@ -1,11 +1,11 @@
 package reserve.domain;
 
-public class ReserveFavoriteWeekVO {
+public class FavoriteWeekVO {
 	private String fwID;	// 주간예약ID
 
-	public ReserveFavoriteWeekVO() {}
+	public FavoriteWeekVO() {}
 	
-	public ReserveFavoriteWeekVO(String fwID) {
+	public FavoriteWeekVO(String fwID) {
 		super();
 		this.fwID = fwID;
 	}
