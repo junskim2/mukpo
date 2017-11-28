@@ -97,11 +97,10 @@
 <script type="text/javascript">
    $(function() {
       $("#UserMmain").click(function() {
-         // 자기꺼 테스트 하세용
-         location.href="reserve/reserveM.do"
+         location.href = "user/userPmain.do";
       });
       $("#UserPmain").click(function(){
-         location.href = "user/userPmain.do";
+         location.href = "user/userMmain.do";
       });
    });
 </script>
