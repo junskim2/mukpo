@@ -12,8 +12,8 @@ import user.domain.UserVO;
 @Repository
 public class UserDAOImpl implements UserDAO{
 
-	//   @Autowired
-	//   private SqlSessionTemplate ss;
+	   @Autowired
+	   private SqlSessionTemplate commonss;
 
 	public int insertMemberJoin(UserVO vo) { //사용자 회원가입
 
@@ -23,7 +23,12 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public UserVO selectMemberLogin(UserVO vo) { // 사용자 로그인
 		UserVO userVO = null;
-
+		
+		try {
+			userVO = commonss.selectOne("user.userLogin", vo);
+		}catch(Exception e) {
+			System.out.println("UserDAOImpl / idLogin 실패"+ e.getMessage());
+		}
 		return userVO;
 	}
 
