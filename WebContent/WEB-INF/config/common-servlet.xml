@@ -34,5 +34,5 @@
 		<constructor-arg ref="factoryBean" />
 	</bean>
 
-<!-- 	<context:annotation-config /> -->
+	<context:annotation-config />
 </beans>
