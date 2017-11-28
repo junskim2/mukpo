@@ -37,7 +37,7 @@ public class UserController {
 		}
 		System.out.println(message);
 		mv.setViewName("user/login");
-		mv.addObject("result", result);
+		mv.addObject("result", result); 
 		mv.addObject("message", message);
 		return mv;
 		

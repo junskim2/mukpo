@@ -34,7 +34,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public UserVO updateMemberModify(UserVO vo) { //마이페이지 - 사용자 회원정보수정
-		UserVO userVO = null;
+		UserVO userVO = null; 
 
 		return userVO;
 	}
