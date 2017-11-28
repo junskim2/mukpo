@@ -20,6 +20,7 @@ public class CommonController {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
 	// 화면띄우기
 	@RequestMapping(value="/{url}.do")
 	public String url(@PathVariable String url) {
@@ -48,4 +49,25 @@ public class CommonController {
 		return mv;
 		
 	}
+	
+	// 홈에서 먹고갈래로 들어왔을 때
+	@RequestMapping("/userMmain.do")
+	public ModelAndView userMmain() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/userMmain");
+		mv.addObject("sPM", "M");
+		
+		return mv;
+	}
+	
+	// 홈에서 포장할래로 들어왔을 때
+	@RequestMapping("/userPmain.do")
+	public ModelAndView userPmain() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/userPmain");
+		mv.addObject("sPM", "P");
+		
+		return mv;
+	}
+	
 }

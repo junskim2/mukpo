@@ -145,4 +145,11 @@ public class StoreDAOImpl implements StoreDAO {
 		return null;
 	}
 
+	// 사용자 매장검색 리스트
+	@Override
+	public List<StoreVO> selectUserStore(StoreVO store) {
+		
+		return storess.selectList("store.selectUserStore", store);
+	}
+
 }

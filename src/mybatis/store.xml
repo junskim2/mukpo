@@ -9,4 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM boss WHERE b_id = #{bId} AND b_pw = #{bPw}
 	</select>
 
+	<!-- 사용자 매장검색 -->
+	<select id="selectUserStore" resultType="storeVO" parameterType="storeVO">
+		SELECT *
+		FROM store
+		WHERE s_mp IN ('MP', '${sMp}')
+	</select>
 </mapper>
