@@ -2,12 +2,15 @@ package store.dao;
  
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import store.domain.BlackListVO;
 import store.domain.BossVO;
 import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
 
+@Repository
 public class StoreDAOImpl implements StoreDAO {
 
 	@Override
