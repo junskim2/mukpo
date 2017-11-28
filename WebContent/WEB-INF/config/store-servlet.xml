@@ -7,5 +7,20 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<context:component-scan base-package="store" />
-	
+
+	<!-- JNDI 설정 -->
+	<bean id='dataSource' class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value='java:comp/env/jdbc/myora' />
+	</bean>
+
+	<!-- Spring mybatis 설정 -->
+	<bean id='factoryBean' class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:mybatis/*.xml" />
+	</bean>
+	<bean id='storess' class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factoryBean" />
+	</bean>
+	<context:annotation-config />
+
 </beans>
