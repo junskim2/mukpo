@@ -2,6 +2,12 @@ package store.dao;
  
 import java.util.List;
 
+import store.domain.BlackListVO;
+import store.domain.BossVO;
+import store.domain.MenuVO;
+import store.domain.StoreVO;
+import store.domain.TableSetVO;
+
 public class StoreDAOImpl implements StoreDAO {
 
 	@Override
