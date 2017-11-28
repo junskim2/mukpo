@@ -97,11 +97,11 @@
 <script type="text/javascript">
 	$(function() {
 		$("#UserPmain").click(function(){
-			location.href = "user/userPmain.do";
+			location.href = "user/userMmain.do";
 		});
 		
 		$("#UserMmain").click(function(){
-			location.href = "user/userMmain.do";
+			location.href = "user/userPmain.do";
 		});
 	});
 </script>

@@ -9,20 +9,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>먹포 - 먹고갈래?</title>
-    <link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
-    <link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
-    <link href="plugin/form-field/jquery.formstyler.css" rel="stylesheet">
-    <link href="plugin/revolution-plugin/extralayers.css" rel="stylesheet">
-    <link href="plugin/revolution-plugin/settings.css" rel="stylesheet">
-    <link href="plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
-    <link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
-    <link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-    <link href="plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
-    <link href="plugin/animation/animate.min.css" rel="stylesheet">
-    <link href="css/theme.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
+    <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
+    <link href="/plugin/form-field/jquery.formstyler.css" rel="stylesheet">
+    <link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet">
+    <link href="/plugin/revolution-plugin/settings.css" rel="stylesheet">
+    <link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
+    <link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
+    <link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
+    <link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="/plugin/animation/animate.min.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
 
 </head>
 
@@ -42,7 +42,7 @@
                         <div class="tp-banner">
                             <ul>
                                 <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="images/dummy.png" alt="slidebg1" data-lazyload="images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                                    <img src="/images/dummy.png" alt="slidebg1" data-lazyload="images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                     <!-- LAYERS -->
                                     <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">야생마의 <span>마굿간떡볶이</span>
                                     </div>
@@ -54,7 +54,7 @@
                                     </div>
                                 </li>
                                 <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="images/dummy.png" alt="slidebg1" data-lazyload="images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                                    <img src="/images/dummy.png" alt="slidebg1" data-lazyload="images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                     <!-- LAYERS -->
                                     <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">주용쓰의 <span>잘해줘치킨</span>
                                     </div>
@@ -66,7 +66,7 @@
                                     </div>
                                 </li>
                                 <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="images/dummy.png" alt="slidebg1" data-lazyload="images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                                    <img src="/images/dummy.png" alt="slidebg1" data-lazyload="images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                     <!-- LAYERS -->
                                     <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">밍키의 <span>눈칫밥상 1호점</span>
                                     </div>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="on-scroll">
-                        <a href="#reach-to" class="scroll"><img src="images/scroll-down.png" alt=""></a>
+                        <a href="#reach-to" class="scroll"><img src="/images/scroll-down.png" alt=""></a>
                     </div>
                 </section>
                 <!-- End Slider Part -->
@@ -97,7 +97,7 @@
                             <div class="owl-carousel owl-theme" data-items="2" data-laptop="2" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
                                 <div class="item">
                                     <div class="feature-img">
-                                        <img src="images/img15.png" alt="">
+                                        <img src="/images/img15.png" alt="">
                                         <div class="date-feature">05
                                             <br> <small>oct</small></div>
                                     </div>
@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="feature-img">
-                                        <img src="images/img16.png" alt="">
+                                        <img src="/images/img16.png" alt="">
                                         <div class="date-feature">23
                                             <br> <small>oct</small></div>
                                     </div>
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="feature-img">
-                                        <img src="images/img15.png" alt="">
+                                        <img src="/images/img15.png" alt="">
                                         <div class="date-feature">12
                                             <br> <small>oct</small></div>
                                     </div>
@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="feature-img">
-                                        <img src="images/img16.png" alt="">
+                                        <img src="/images/img16.png" alt="">
                                         <div class="date-feature">06
                                             <br> <small>may</small></div>
                                     </div>
@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="feature-img">
-                                        <img src="images/img15.png" alt="">
+                                        <img src="/images/img15.png" alt="">
                                         <div class="date-feature">11
                                             <br> <small>jun</small></div>
                                     </div>
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="feature-img">
-                                        <img src="images/img16.png" alt="">
+                                        <img src="/images/img16.png" alt="">
                                         <div class="date-feature">04
                                             <br> <small>sept</small></div>
                                     </div>
@@ -283,23 +283,23 @@
     </div>
     <!-- Back To Top Arrow -->
     <a href="#" class="top-arrow"></a>
-    <script src="js/jquery.min.js"></script>
-    <script src="plugin/bootstrap/bootstrap.min.js"></script>
-    <script src="plugin/bootstrap/bootstrap-datepicker.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
     <script src="https:/maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
-    <script src="plugin/form-field/jquery.formstyler.min.js"></script>
-    <script src="plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
-    <script src="plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
-    <script src="plugin/owl-carousel/owl.carousel.min.js"></script>
-    <script src="plugin/slick-slider/slick.min.js"></script>
-    <script src="plugin/isotop/isotop.js"></script>
-    <script src="plugin/isotop/packery-mode.pkgd.min.js"></script>
-    <script src="plugin/magnific/jquery.magnific-popup.min.js"></script>
-    <script src="plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="plugin/animation/wow.min.js"></script>
-    <script src="plugin/parallax/jquery.stellar.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
+    <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
+    <script src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
+    <script src="/plugin/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/plugin/slick-slider/slick.min.js"></script>
+    <script src="/plugin/isotop/isotop.js"></script>
+    <script src="/plugin/isotop/packery-mode.pkgd.min.js"></script>
+    <script src="/plugin/magnific/jquery.magnific-popup.min.js"></script>
+    <script src="/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/plugin/animation/wow.min.js"></script>
+    <script src="/plugin/parallax/jquery.stellar.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
