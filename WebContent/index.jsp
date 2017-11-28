@@ -143,7 +143,7 @@
                      <div class="title text-center">
                         <h3 class="text-coffee">Login</h3>
                      </div>
-                     <form class="login-form" method="post" name="login">
+                     <form action="common/home.do" class="login-form" method="post" name="login">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <input type="text" name="txt"
