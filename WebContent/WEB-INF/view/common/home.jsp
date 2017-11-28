@@ -1,25 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-/W3C/DTD HTML 4.01 Transitional/EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
-<link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
-<link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
-<link href="plugin/form-field/jquery.formstyler.css" rel="stylesheet">
-<link href="plugin/revolution-plugin/extralayers.css" rel="stylesheet">
-<link href="plugin/revolution-plugin/settings.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
-<link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
-<link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
-<link href="plugin/animation/animate.min.css" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+<link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
+<link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
+<link href="/plugin/form-field/jquery.formstyler.css" rel="stylesheet">
+<link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet">
+<link href="/plugin/revolution-plugin/settings.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
+<link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
+<link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
+<link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
+<link href="/plugin/animation/animate.min.css" rel="stylesheet">
+<link href="/css/theme.css" rel="stylesheet">
+<link href="/css/responsive.css" rel="stylesheet">
 
 <title>먹포 - 먹고갈래? 포장할래?</title>
 <style type="text/css">
@@ -64,7 +64,7 @@
    left: 50%;
    top: -59px;
    width: 254px;
-   background: url('images/pattern-dark.png') no-repeat center;
+   background: url('/images/pattern-dark.png') no-repeat center;
    -webkit-transform: translateX(-50%);
    -moz-transform: translateX(-50%);
    -ms-transform: translateX(-50%);
@@ -109,7 +109,7 @@
       <div id="UserMmain"></div>
       <div id="UserPmain"></div>
       <div id="mainLogo">
-         <img id="mainLogo2" src="images/common/로고2.png">
+         <img id="mainLogo2" src="/images/common/로고2.png">
       </div>
    </div>
 
@@ -117,20 +117,20 @@
    <footer> <!--    data-wow-duration="1000ms" data-wow-delay="300ms" fadeInDown  wow-->
    <div class="footer-part">
       <div class="icon-find" id="test">
-         <a href="#"> <img class="arrow"
-            src="images/common/down-arrow.png" alt=""> <span>로그인/회원가입</span>
+         <a href="/#"> <img class="arrow"
+            src="/images/common/down-arrow.png" alt=""> <span>로그인/회원가입</span>
          </a>
       </div>
-      <img src="images/common/ㄴㅇㄹ.png" id="logo3" />
+      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
       <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
-      <a href="store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
-      <a>MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
+      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
+      <a>MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 / 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
       <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
       
       <!-- 로그인 회원가입 클릭하면 나오는 화면 -->
       <div class="location-footer-map">
          <div class="icon-find-location">
-            <a href="#"> <img class="arrow" src="images/common/up-arrow.png"
+            <a href="/#"> <img class="arrow" src="/images/common/up-arrow.png"
                alt=""> <br /> <span>로그인/회원가입</span>
             </a>
          </div>
@@ -160,7 +160,7 @@
                                        me</label>
                                  </div>
                                  <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <a href="#" class="pull-right">Lost your password</a>
+                                    <a href="/#" class="pull-right">Lost your password</a>
                                  </div>
                               </div>
                            </div>
@@ -176,11 +176,11 @@
                      </div>
                      <div class="row">
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                           <a href="#" class="facebook-btn btn-change button-default"><i
+                           <a href="/#" class="facebook-btn btn-change button-default"><i
                               class="fa fa-facebook"></i>Facebook Connect</a>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                           <a href="#" class="tweeter-btn btn-change button-default"><i
+                           <a href="/#" class="tweeter-btn btn-change button-default"><i
                               class="fa fa-twitter"></i>Twitter Connect</a>
                         </div>
                      </div>
@@ -227,7 +227,7 @@
                      </form>
                      <p>
                         By clicking on “Register Now” button you are accepting the <a
-                           href="terms_condition.html">Terms &amp; Conditions</a>
+                           href="/terms_condition.html">Terms &amp; Conditions</a>
                      </p>
                   </div>
                </div>
@@ -239,24 +239,24 @@
    </footer>
    <!-- End Footer -->
 
-   <script src="js/jquery.min.js"></script>
-   <script src="plugin/bootstrap/bootstrap.min.js"></script>
-   <script src="plugin/bootstrap/bootstrap-datepicker.js"></script>
+   <script src="/js/jquery.min.js"></script>
+   <script src="/plugin/bootstrap/bootstrap.min.js"></script>
+   <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
-   <script src="plugin/form-field/jquery.formstyler.min.js"></script>
-   <script src="plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
+   <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
+   <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
    <script
-      src="plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
-   <script src="plugin/owl-carousel/owl.carousel.min.js"></script>
-   <script src="plugin/slick-slider/slick.min.js"></script>
-   <script src="plugin/isotop/isotop.js"></script>
-   <script src="plugin/isotop/packery-mode.pkgd.min.js"></script>
-   <script src="plugin/magnific/jquery.magnific-popup.min.js"></script>
-   <script src="plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-   <script src="plugin/animation/wow.min.js"></script>
-   <script src="plugin/parallax/jquery.stellar.js"></script>
-   <script src="js/app.js"></script>
-   <script src="js/script.js"></script>
+      src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
+   <script src="/plugin/owl-carousel/owl.carousel.min.js"></script>
+   <script src="/plugin/slick-slider/slick.min.js"></script>
+   <script src="/plugin/isotop/isotop.js"></script>
+   <script src="/plugin/isotop/packery-mode.pkgd.min.js"></script>
+   <script src="/plugin/magnific/jquery.magnific-popup.min.js"></script>
+   <script src="/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="/plugin/animation/wow.min.js"></script>
+   <script src="/plugin/parallax/jquery.stellar.js"></script>
+   <script src="/js/app.js"></script>
+   <script src="/js/script.js"></script>
 </body>
 </html>
