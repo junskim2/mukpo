@@ -95,11 +95,11 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
    $(function() {
-      $("#UserMmain").click(function() {
-         location.href = "user/userMmain.do";
+	   $("#UserMmain").click(function() {
+         location.href = "common/userMmain.do";
       });
       $("#UserPmain").click(function(){
-         location.href = "user/userPmain.do";
+         location.href = "common/userPmain.do";
       });
    });
 </script>
