@@ -1,26 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--     <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/form-field/jquery.formstyler.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/revolution-plugin/settings.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/magnific/magnific-popup.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet"> -->
-<!--     <link href="/plugin/animation/animate.min.css" rel="stylesheet"> -->
-<!--     <link href="/css/theme.css" rel="stylesheet"> -->
-<!--     <link href="/css/responsive.css" rel="stylesheet"> -->
 	<title>사용자 헤더</title>
     <style type="text/css">
     	#userlogin {
@@ -89,8 +76,70 @@
 		#location1 span {
 			float: right;
 		}
+/* 		.header-info { */
+/* 			width: 100%; */
+/* 		} */
+		#logo1 {
+			/* 로고크기때문에 */
+			max-width : 50%;
+			position:static;
+		}
+		.header-part {
+			float: none;
+		}
+		.menu-main {
+			/* 수정 검색창과 메뉴들 간격줄이기 위해 */
+			width: 50%;
+		}
+		.menu-main li a {
+			/* 수정 메뉴 헤더들 간격 주기위해 */
+			padding: 15px 15px 15px 15px;			
+			/* 메뉴 헤더 글씨크기 수정 */
+			font-size: 20px;
+			/* 마진 수정 */
+			margin-left : 20px;
+		}
+		.menu-main li.mega-menu .drop-nav {
+			width:450px;
+			top:70px;
+			/* top: 100%; */
+		}
+		.menu-main li.mega-menu .drop-nav li a {
+			/* 수정 글씨 위치때문 */
+			/* margin-bottom: 12px; */
+			margin-bottom: 0px;
+		}
+		.logo>a {
+			/* position: absolute; */
+			position:static;
+		}
 		.header-info {
-			width: 100%;
+			float: left;
+			/* 수정 검색 추가하려고 늘려놓음 */
+			width : 80%;
+		}
+		.header-info-inner {
+			/* 수정 로그인 위치 수정 */
+		    padding: 15px;
+		}
+		.search-part {
+			/* 수정 패딩 주기 위해 마진죽임 */
+			padding : 10px;
+		    /* 마진 수정 */
+		    margin-left : 10px;
+		}
+		.search-box {
+			/* 왼쪽정렬..ㅎㅎ 수정 */
+			right: auto;
+			/* right: 0px; */
+			left : 0px;
+			
+			/* 검색창에 맞춰 크기 줄임 추후 또 수정할꺼 */
+			/* width: 100%; */
+			width : 59%; 
+		}
+		.drop-nav li{
+			font-size : 17px;
 		}
     </style>
 	
@@ -105,7 +154,7 @@
                    
                     	<!-- 로고 -->
                     	<div class="logo">
-                            <a href="index.html"><img src="/images/common/로고1.png" alt=""></a>
+                            <a href="index.html"><img id="logo1" src="/images/common/로고1.png" alt=""></a>
                         </div>
                         
                         <!-- 메뉴 헤더 -->
@@ -114,10 +163,13 @@
                             <ul>
                             	<!-- 먹포 -->
                             	<li class="mega-menu" id="mpsectionclass">
-                            		<a id="mpsection" href="index.html"><img id="mparrow" src="/images/common/mp-arrow3.png"> 포장</a>
+                            		<a id="mpsection" href="index.html"><img id="mparrow" src="/images/common/mp-arrow3.png">
+                            			<c:if test="${ sPM == 'M' }"> 테이블 </c:if>
+                            			<c:if test="${ sPM == 'P' }"> 포장 </c:if>
+                            		</a>
                                     <ul class="drop-nav" id="mpdrop">
-                                        <li><a href="#">먹고갈래?</a></li>
-                                        <li><a href="#">포장할래?</a></li>
+                                        <li><a href="/common/userMmain.do">먹고갈래?</a></li>
+                                        <li><a href="/common/userPmain.do">포장할래?</a></li>
                                     </ul>
                             	</li>
                             	
