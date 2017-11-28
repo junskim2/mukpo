@@ -1,13 +1,13 @@
 package user.domain;
 
-public class UserFavoriteVO {
+public class FavoriteVO {
 	String fId;
 	String mId;
 	String rCid;
 	
-	public UserFavoriteVO() {}
+	public FavoriteVO() {}
 	
-	public UserFavoriteVO(String fId, String mId, String rCid) {
+	public FavoriteVO(String fId, String mId, String rCid) {
 		super();
 		this.fId = fId;
 		this.mId = mId;

@@ -1,6 +1,6 @@
 package common.domain;
 
-public class CommonNoticeVO {
+public class NoticeVO {
 	private Integer nId;		// 공지사항ID
 	private String nTitle;		// 제목
 	private String nContent;	// 내용
@@ -8,9 +8,9 @@ public class CommonNoticeVO {
 	private String nDate;		// 작성날짜
 	private String nYn;			// 공개여부
 	
-	public CommonNoticeVO() {}
+	public NoticeVO() {}
 	
-	public CommonNoticeVO(Integer nId, String nTitle, String nContent, Integer nHit, String nDate, String nYn) {
+	public NoticeVO(Integer nId, String nTitle, String nContent, Integer nHit, String nDate, String nYn) {
 		super();
 		this.nId = nId;
 		this.nTitle = nTitle;

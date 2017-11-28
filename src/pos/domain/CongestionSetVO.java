@@ -1,6 +1,6 @@
 package pos.domain;
 
-public class PosCongestionSetVO {
+public class CongestionSetVO {
 	private String csId;	// 혼잡도ID
 	private String rCid;	// 사업자등록번호
 	private String csCongestion;	// 혼잡도(R, Y, G)
@@ -8,9 +8,9 @@ public class PosCongestionSetVO {
 	private String csTime;	// 소요시간
 	private String csYn;	// 상태
 	
-	public PosCongestionSetVO() {}
+	public CongestionSetVO() {}
 	
-	public PosCongestionSetVO(String csId, String rCid, String csCongestion, Integer csCnt, String csTime,
+	public CongestionSetVO(String csId, String rCid, String csCongestion, Integer csCnt, String csTime,
 			String csYn) {
 		super();
 		this.csId = csId;
