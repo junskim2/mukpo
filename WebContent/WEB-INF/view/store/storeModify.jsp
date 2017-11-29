@@ -79,43 +79,76 @@ tr th {
 
 <script type="text/javascript">
    $(function() {
-      $('#menumanegement').click(function() {
-         $('#modifymenu').css('display', 'none'); 
-         $('#addmenu').css('display', 'none');
-         $('#managere').css('display', 'none');
-         $('#detail').css('display', 'none');
-         $('#list').css('display', 'block');
-      });
-      $('.menu-detail').click(function() {
-         $('#modifymenu').css('display', 'none');
-         $('#list').css('display', 'none');
-         $('#addmenu').css('display', 'none');
-         $('#managere').css('display', 'none');
-         $('#detail').css('display', 'block');
-      });
-      $('#addbtn').click(function() {
-         $('#modifymenu').css('display', 'none');
-         $('#detail').css('display', 'none');
-         $('#list').css('display', 'none');
-         $('#addmenu').css('display', 'block');
-         $('#managere').css('display', 'none');
-
-      });
-      $('#reservebtn').click(function() {
-         $('#modifymenu').css('display', 'none');
-         $('#detail').css('display', 'none');
-         $('#list').css('display', 'none');
-         $('#addmenu').css('display', 'none');
-         $('#managere').css('display', 'block');
-
+      $('#menumanegement').click(function() {  //메뉴 관리 화면
+    	  
+         $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+         $('#addmenu').css('display', 'none');		//메뉴 등록 화면
+         $('#managere').css('display', 'none');		//예약 관리 화면
+         $('#detail').css('display', 'none');		//메뉴 상세 화면
+         $('#storedelete').css('display','none');	//메장 삭제 화면
+         $('#storemodify').css('display','none');	//메장 수정 화면
+         $('#list').css('display', 'block');		// 메뉴 관리 화면
       });
       
-      $('.menu-modify').click(function(){
-         $('#detail').css('display', 'none');
-         $('#list').css('display', 'none');
-         $('#addmenu').css('display', 'none');
-         $('#managere').css('display', 'none');
-         $('#modifymenu').css('display', 'block');
+      $('#reservebtn').click(function() {     // 예약 관리 화면 클릭 시
+    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
+          $('#managere').css('display', 'block');		//예약 관리 화면
+          $('#detail').css('display', 'none');		//메뉴 상세 화면
+          $('#storedelete').css('display','none');	//메장 삭제 화면
+          $('#storemodify').css('display','none');	//메장 수정 화면
+          $('#list').css('display', 'none');		// 메뉴 관리 화면
+       });
+      
+      $('#storedeletebtn').click(function() {     // 삭제 관리 화면  클릭시 
+    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
+          $('#managere').css('display', 'none');		//예약 관리 화면
+          $('#detail').css('display', 'none');		//메뉴 상세 화면
+          $('#storedelete').css('display','block');	//메장 삭제 화면
+          $('#storemodify').css('display','none');	//메장 수정 화면
+          $('#list').css('display', 'none');		// 메뉴 관리 화면
+       });
+      
+      
+      $('#storemodifybtn').click(function() {     // 수정 관리 화면 클릭시
+    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
+          $('#managere').css('display', 'none');		//예약 관리 화면
+          $('#detail').css('display', 'none');		//메뉴 상세 화면
+          $('#storedelete').css('display','none');	//메장 삭제 화면
+          $('#storemodify').css('display','block');	//메장 수정 화면
+          $('#list').css('display', 'none');		// 메뉴 관리 화면
+       });
+      $('.menu-detail').click(function() {        //메뉴 상세 보기 클릭시
+    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
+          $('#managere').css('display', 'none');		//예약 관리 화면
+          $('#detail').css('display', 'block');		//메뉴 상세 화면
+          $('#storedelete').css('display','none');	//메장 삭제 화면
+          $('#storemodify').css('display','none');	//메장 수정 화면
+          $('#list').css('display', 'none');		// 메뉴 관리 화면
+      });
+      $('#addbtn').click(function() {				//메뉴 등록 화면 클릭시
+    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+          $('#addmenu').css('display', 'block');		//메뉴 등록 화면
+          $('#managere').css('display', 'none');		//예약 관리 화면
+          $('#detail').css('display', 'none');		//메뉴 상세 화면
+          $('#storedelete').css('display','none');	//메장 삭제 화면
+          $('#storemodify').css('display','none');	//메장 수정 화면
+          $('#list').css('display', 'none');		// 메뉴 관리 화면
+
+      });
+     
+      
+      $('.menu-modify').click(function(){			//메뉴 수정 화면
+    	  $('#modifymenu').css('display', 'block');   //메뉴 수정 화면
+          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
+          $('#managere').css('display', 'none');		//예약 관리 화면
+          $('#detail').css('display', 'none');		//메뉴 상세 화면
+          $('#storedelete').css('display','none');	//메장 삭제 화면
+          $('#storemodify').css('display','none');	//메장 수정 화면
+          $('#list').css('display', 'none');		// 메뉴 관리 화면
       });
 
 
@@ -165,14 +198,14 @@ tr th {
 <img src="images/img10.png" alt="Laboom" />  <FONT SIZE="6">매장 설정</FONT> 
                                 <div style="background-color:#F4F2ED;box-shadow: 4px 4px 3px #000;" class="shop-checkout-left">
                                   <h4>매장정보관리</h4>
-                                  <h6>-매장 정보 수정</h6>
-                                  <h6>-매장 삭제</h6> 
+                                  <h6 id="storemodifybtn">-매장 정보 수정</h6>
+                                  <h6 id="storedeletebtn">-매장 삭제</h6> 
                                   <h4 id="menumanegement">메뉴 관리</h4>
                                   <h4 id="reservebtn">예약 관리</h4>
                                 </div>
                             </div>
                             <div style="margin-top: 88px;"class="col-md-9 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="menu-wrapper" id="list" style="display: block">
+                            <div class="menu-wrapper" id="list" style="display: none">
                            <div class="portfolioFilter">
                               <input type='image' src='./images/add.png' id="addbtn"
                                  style="width: 6%; height: 6%;">&nbsp;&nbsp;
@@ -394,7 +427,9 @@ tr th {
                               </div>
                            </div>
 
-                        </div> <!-- 메뉴수정 -->
+                        </div> 
+                        
+                        <!-- 메뉴수정 -->
                         <div id="modifymenu" style="display: none">
                            <div class="modal-content">
                               <div class="modal-body" style="border: 0; outline: 0;">
@@ -431,7 +466,10 @@ tr th {
                               </div>
                            </div>
 
-                        </div> <!-- 예약관리 -->
+                        </div> 
+                        
+                        
+                        <!-- 예약관리 -->
                         <div id="managere" style="display: none;">
                            <table class="shop-cart-table"
                               style="margin-left: 20px; width: 95%;">
@@ -468,7 +506,37 @@ tr th {
                               </tbody>
                            </table>
                         </div>
-                                <div style="box-shadow: 4px 4px 3px #000; display:none;" class="shop-checkout-right">
+                        
+                        
+                        
+                        <!--매장 삭제 화면 -->
+                        <div id="storedelete" style="display:none; margin-top: 88px;"class="col-md-9 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
+                                <h3>매장 삭제</h3> 
+                                <FONT SIZE="4">안녕하세요! 밍키사장님,</FONT><br/> 
+                                <FONT SIZE="4">매장을 삭제하려고 하신다니 아쉽네요.</FONT>
+                                <br/>
+                                <h4>삭제하기 전에 이유를 알려주세요.</h4>
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <select style="margin-left:-30px" class="select-dropbox">
+                                                    <option>--</option>
+                                                    <option>폐업을 하게 되었어요.</option>
+                                                    <option>서비스를 그만 이용하고 싶어요.</option>
+                                                    <option>다른 계정을 사용해요.</option>
+                                                    <option>서비스에 문제가 많아요.</option>
+                                                    <option>기타</option>
+                                                </select>
+                                            </div>
+                                             <div class="col-md-5 col-sm-12 col-xs-12">
+                                             <input style="margin-left:70%" name="submit" class="btn-black" type="button" value="삭제"/>
+                                             </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                  				<!--매장 수정 화면 -->
+                                <div id="storemodify"style="box-shadow: 4px 4px 3px #000; display:block;" class="shop-checkout-right">
                                 
                                  <div style="text-align:center;"class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                <div style="padding:3px; text-align:center"class="shop-checkout-left">
