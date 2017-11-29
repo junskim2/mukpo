@@ -46,7 +46,7 @@
         <main>
             <div class="main-part">
                 <!-- Start Breadcrumb Part -->
-                <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('images/breadbg1.jpg');">
+                <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('/images/breadbg1.jpg');">
                     <div class="container">
                         <div class="breadcrumb-inner">
                         	<!-- 현희 제목바꾸기 -->
@@ -225,7 +225,7 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
-    <script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
     <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
     <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
     <script src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
