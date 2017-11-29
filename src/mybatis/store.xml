@@ -2,14 +2,14 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+ 
 <mapper namespace="store">
-	<!-- 1. 사장님 로그인 기능 구현 -->
+	<!-- 사장님 로그인 기능 구현 -->
 	<select id="selectBossLogin" resultType="bossVO">
 		SELECT * FROM boss WHERE
 		b_id = #{bId} AND b_pw = #{bPw}
 	</select>
-	<!-- 2.로그인한 사장님의 매장목록 가져오는 기능 구현 -->
+	<!-- 로그인한 사장님의 매장목록 가져오는 기능 구현 -->
 	<select id="selectStoreList" resultType="storeVO" parameterType="bossVO">
 		SELECT * FROM store WHERE b_id = #{bId}
 	</select>
