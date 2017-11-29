@@ -2,13 +2,13 @@ package user.domain;
 
 public class PointVO {
 	
-	int pId;
-	String mId;
-	String pDate;
-	String pAs;
-	String pStore;
-	int pPrice;
-	int pCruntmoney;
+	int pId;			//포인트 ID
+	String mId;			//회원ID
+	String pDate;		//날짜
+	String pAs;			//입출금(A,S)
+	String pStore;		//사용매장
+	int pPrice;			//금액
+	int pCruntmoney;	//남은금액
 	
 	public PointVO() {}
 	

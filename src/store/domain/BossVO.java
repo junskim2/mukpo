@@ -1,27 +1,46 @@
 package store.domain;
 
 public class BossVO {
-	String bId;
-	String bPw;
-	String bBorn;
-	String bName;
-	String bEmail;
-	String bZipcode;
-	String bAddress;
+	String bId;		//사장 ID
+	String bPw;		//비밀번호
+	String bBorn;	//생년월일
+	String bName;	//이름
+	String bTel;	//전화번호
+	String bEmail;	//이메일
+	String bZipcode;//우편번호
+	String bAddress;//주소
 
 	public BossVO() {
 	}
 
-	public BossVO(String bId, String bPw, String bBorn, String bName, String bEmail, String bZipcode, String bAddress) {
+	
+
+	public BossVO(String bId, String bPw, String bBorn, String bName, String bTel, String bEmail, String bZipcode,
+			String bAddress) {
 		super();
 		this.bId = bId;
 		this.bPw = bPw;
 		this.bBorn = bBorn;
 		this.bName = bName;
+		this.bTel = bTel;
 		this.bEmail = bEmail;
 		this.bZipcode = bZipcode;
 		this.bAddress = bAddress;
 	}
+
+
+
+	public String getbTel() {
+		return bTel;
+	}
+
+
+
+	public void setbTel(String bTel) {
+		this.bTel = bTel;
+	}
+
+
 
 	public String getbId() {
 		return bId;

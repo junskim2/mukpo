@@ -2,9 +2,9 @@ package store.domain;
 
 public class TableSetVO {
 
-	String rCid;
-	int tCnt;
-	int tMax;
+	String rCid;	//사업자등록번호
+	int tCnt;		//테이블수
+	int tMax;		//최대인원
 	
 	public TableSetVO() {}
 	public TableSetVO(String rCid, int tCnt, int tMax) {

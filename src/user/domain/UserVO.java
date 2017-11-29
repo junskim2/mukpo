@@ -2,14 +2,14 @@ package user.domain;
 
 public class UserVO {
 
-	String mId;
-	String mPw;
-	String mName;
-	String mTel;
-	String mBorn;
-	String mEmail;
-	int mPoint;
-	String mYn;
+	String mId;		//회원ID
+	String mPw;		//비밀번호
+	String mName;	//회원 이름
+	String mTel;	//전화번호
+	String mBorn;	//생년월일
+	String mEmail;	//이메일
+	int mPoint;		//먹포인트
+	String mYn;		//회원탈퇴(Y/N)
 	
 	public UserVO() {}
 	
