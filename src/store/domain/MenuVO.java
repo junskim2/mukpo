@@ -1,25 +1,42 @@
 package store.domain;
 
 public class MenuVO {
-	int mId;
-	String rCid;
-	String mCate;
-	String mName;
-	String mUrl;
-	int mPrice;
-	String mYn;
+	int mId;		//메뉴ID
+	String rCid;	//사업자등록번호
+	String mCate;	//메뉴카테고리
+	String mName;	//메뉴명
+	String mDetail;	//메뉴 설명
+	String mUrl;	//메뉴url
+	int mPrice;		//메뉴 가격
+	String mYn;		//판매여부(Y/N)
 	
 	public MenuVO() {}
-	public MenuVO(int mId, String rCid, String mCate, String mName, String mUrl, int mPrice, String mYn) {
+	
+	
+	public MenuVO(int mId, String rCid, String mCate, String mName, String mDetail, String mUrl, int mPrice,
+			String mYn) {
 		super();
 		this.mId = mId;
 		this.rCid = rCid;
 		this.mCate = mCate;
 		this.mName = mName;
+		this.mDetail = mDetail;
 		this.mUrl = mUrl;
 		this.mPrice = mPrice;
 		this.mYn = mYn;
 	}
+
+
+	public String getmDetail() {
+		return mDetail;
+	}
+
+
+	public void setmDetail(String mDetail) {
+		this.mDetail = mDetail;
+	}
+
+
 	public int getmId() {
 		return mId;
 	}

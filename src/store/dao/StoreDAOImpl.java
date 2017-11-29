@@ -21,7 +21,6 @@ public class StoreDAOImpl implements StoreDAO {
 	// 사장님 로그인 기능 구현
 	@Override
 	public BossVO selectBossLogin(BossVO vo) {
-		// TODO Auto-generated method stub
 		return storess.selectOne("store.selectBossLogin", vo);
 	}
 
@@ -85,10 +84,10 @@ public class StoreDAOImpl implements StoreDAO {
 		return 0;
 	}
 
+	// 매장 목록 리스트 반환 메소드
 	@Override
 	public List<StoreVO> selectStoreList(BossVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return storess.selectList("store.selectStoreList", vo);
 	}
 
 	@Override
@@ -148,7 +147,7 @@ public class StoreDAOImpl implements StoreDAO {
 	// 사용자 매장검색 리스트
 	@Override
 	public List<StoreVO> selectUserStore(StoreVO store) {
-		
+
 		return storess.selectList("store.selectUserStore", store);
 	}
 

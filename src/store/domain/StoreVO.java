@@ -2,24 +2,24 @@ package store.domain;
 
 public class StoreVO {
 
-	String rCid;
-	String bId;
-	String sPw;
-	String sUrl;
-	String sName;
-	String sTel;
-	String sZipcode;
-	String sAddress;
-	String sSido;
-	String sSigungo;
-	String sMp;
-	String sCate;
-	String sOpenTime;
-	String sCloseTime;
-	String sClose;
-	String sYn;
-	double sLatitude;
-	double sLongitude;
+	String rCid;		//사업자등록번호
+	String bId;			//사장 ID
+	String sPw;			//매장PW
+	String sUrl;		//로고URL
+	String sName;		//업소명
+	String sTel;		//전화번호
+	String sZipcode;	//우편번호
+	String sAddress;	//주소
+	String sSido;		//시도
+	String sSigungo;	//시구군
+	String sMp;			//먹포구분(M,P,MP)
+	String sCate;		//카테고리
+	String sOpenTime;	//오픈시간
+	String sCloseTime;	//마감시간
+	String sClose;		//휴무일
+	String sYn;			//휴폐업여부(Y,N)
+	double sLatitude;	//위도
+	double sLongitude;	//경도
 	
 	public StoreVO() {}
 	

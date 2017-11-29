@@ -1,12 +1,12 @@
 package store.domain;
 
 public class BlackListVO {
-	String blId;
-	String mId;
-	String rCid;
-	int blCnt;
-	String blMemo;
-	String blYn;
+	String blId;	//블랙리스트 ID
+	String mId;		//회원 ID
+	String rCid;	//사업자등록번호
+	int blCnt;		//노쇼건수
+	String blMemo;	//메모
+	String blYn;	//주문(Y/N)
 	
 	public BlackListVO() {}
 	public BlackListVO(String blId, String mId, String rCid, int blCnt, String blMemo, String blYn) {

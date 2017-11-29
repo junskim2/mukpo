@@ -1,9 +1,9 @@
 package user.domain;
 
 public class FavoriteVO {
-	String fId;
-	String mId;
-	String rCid;
+	String fId;	//단골매장ID
+	String mId;	//회원ID
+	String rCid;//사업자등록번호
 	
 	public FavoriteVO() {}
 	
