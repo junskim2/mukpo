@@ -72,4 +72,7 @@ public interface StoreDAO {
 
 	// 매장의 블랙리스트를 출력하는 기능 구현
 	List<BlackListVO> menuInsert(BlackListVO vo);
+	
+	// 사용자 매장검색 리스트
+	List<StoreVO> selectUserStore(StoreVO store);
 }

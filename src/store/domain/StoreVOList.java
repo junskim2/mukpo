@@ -1,18 +1,16 @@
 package store.domain;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class StoreVOList {
-	private ArrayList<StoreVO> storeList;
+	private List<StoreVO> storeList;
 
-	public ArrayList<StoreVO> getStoreList() {
+	public List<StoreVO> getStoreList() {
 		return storeList;
 	}
 
-	public void setStoreList(ArrayList<StoreVO> storeList) {
+	public void setStoreList(List<StoreVO> storeList) {
 		this.storeList = storeList;
 	}
-	
-	
 
 }
