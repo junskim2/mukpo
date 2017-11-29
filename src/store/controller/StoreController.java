@@ -70,4 +70,11 @@ public class StoreController {
 		
 		return mv;
 	}
+	
+	// 현희 추가
+	// 매장 상세 페이지
+	@RequestMapping(value="storePdetail.do")
+	public void storeMdetail(String rCid) {
+		// 사업자등록번호 rCid로 넘어옴
+	}
 }

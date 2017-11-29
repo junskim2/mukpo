@@ -26,6 +26,20 @@
     <link href="/css/responsive.css" rel="stylesheet">
     <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
     
+    <!-- 현희 추가 -->
+	<style type="text/css">
+		.store {
+			cursor: pointer;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".store").on("click", function() {
+				$(this).parent().submit();
+			});		
+		});	
+	</script>
 </head>
 
 <body>
@@ -81,17 +95,22 @@
                                     <div class="row">
                                         <!-- 현희 매장목록 DB값 출력 -->
                                     	<c:forEach var="list" items="${ storeList }" end="30" >
-	                                    	<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                    		<form method="post" action="/store/storePdetail.do">
+                                    			<!-- 사업자 등록번호 파라미터로 넘기기 -->
+                                    			<input type="hidden" name="rCid" value="${ list.rCid }" />
+                                    			<!-- 매장 출력 -->
+	                                    	<div class="store col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 	                                            <div class="blog-right-listing">
 	                                                <div class="feature-img">
 	                                                    <img src="${ list.sUrl }" alt="" />
-	                                                    <h3>${ list.sName }</h3>		<!-- 매장이름 -->
-	                                                    <div>${ list.sAddress }</div>	<!-- 매장주소 -->
-	                                                    <div>${ list.sTel }</div>		<!-- 매장 전화번호 -->
-	                                                    <div>${ list.sClose }</div>		<!-- 매장 휴무일 -->
+	                                                    <h3>${ list.sName }</h3>
+	                                                    <div>${ list.sAddress }</div>
+	                                                    <div>${ list.sTel }</div>
+	                                                    <div>${ list.sClose }</div>
 	                                                </div>
 	                                            </div>
 	                                        </div>
+	                                        </form>
                                     	</c:forEach>
                                     	<!-- 매장 목록 값 끝 -->
                                     </div>
@@ -115,117 +134,20 @@
             </div>
         </main>
         <!-- End Main -->
+        
+        <!-- 현희 푸터 추가&잠시주석처리 -->
         <!-- Start Footer -->
-        <footer>
-            <div class="footer-part wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                <div class="icon-default icon-dark">
-                    <img src="/images/footer-logo.png" alt="">
-                </div>
-                <div class="container">
-                    <div class="footer-inner">
-                        <div class="footer-info">
-                            <h3>La boom Restaurant</h3>
-                            <p>329 Queensberry Street, North Melbourne VIC 3051, Australia.</p>
-                            <p><a href="#">123 456 7890</a></p>
-                            <p><a href="#">support@laboom.com</a></p>
-                        </div>
-                    </div>
-                    <div class="copy-right">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-12 copyright-before">
-                                <span>Copyright © 2017 Polygon Theme. All rights reserved.</span>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 copyright-after">
-                                <div class="social-round">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="icon-find">
-                    <a href="#">
-                        <img src="/images/location.png" alt="">
-                        <span>Find us on Map</span>
-                    </a>
-                </div>
-                <div class="location-footer-map">
-                    <div class="icon-find-location">
-                        <a href="#">
-                            <img src="/images/location.png" alt="">
-                            <span>Find us on Map</span>
-                        </a>
-                    </div>
-                    <div class="footer-map-outer">
-                        <div id="footer-map"></div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+<%--      		<jsp:include page="../common/commonUserFooter.jsp"></jsp:include> --%>
         <!-- End Footer -->
-        <!-- Start Book Table -->
-        <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <div class="table-title">
-                            <h2>Reservation</h2>
-                            <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="select-dropbox">
-                                    <option>Hour</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="select-dropbox">
-                                    <option>Number of People</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="txt" placeholder="Pick a Date" class="date-pick">
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="txt" placeholder="Phone Number">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <input type="email" name="email" placeholder="Email Address">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn-main btn-big">BOOK A TABLE</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Book Table -->
+        
+        <!-- 현희 book table 지움 -->
     </div>
     <!-- Back To Top Arrow -->
     <a href="#" class="top-arrow"></a>
     <script src="/js/jquery.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
-    <script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
     <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
     <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
     <script src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
