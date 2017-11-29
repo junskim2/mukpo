@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <!-- 현희 추가 -->
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html> 
 <html>
 
@@ -37,7 +39,8 @@
     </div>
     <div class="wrapper">
         <!-- Start Header -->
-        	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
+        <!-- 현희 헤더 잠시 주석처리 -->
+<%--         	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include> --%>
         <!-- End Header -->
         <!-- Start Main -->
         <main>
@@ -46,7 +49,8 @@
                 <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('images/breadbg1.jpg');">
                     <div class="container">
                         <div class="breadcrumb-inner">
-                            <h2>BLOG</h2>
+                        	<!-- 현희 제목바꾸기 -->
+                            <h2>매장검색</h2>
                             <a href="#">Home</a>
                             <span>Blog</span>
                         </div>
@@ -67,56 +71,29 @@
                                     </div>
                      
                             <div class="portfolioFilter-inner bg-skeen">
-                                <a href="/javascript:;" data-filter=".breakfast" class="current">테이크 아웃</a>
-                                <a href="/javascript:;" data-filter=".dessert">좌석 예약</a>
+                                <a href="javascript:;" data-filter=".breakfast" class="current">테이크 아웃</a>
+                                <a href="javascript:;" data-filter=".dessert">좌석 예약</a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="blog-right-section">
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                            <div class="blog-right-listing">
-                                                <div class="feature-img">
-                                                    <img src="/images/img52.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                            <div class="blog-right-listing">
-                                                <div class="feature-img">
-                                                    <img src="/images/img76.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                            <div class="blog-right-listing">
-                                                <div class="feature-img">
-                                                    <img src="/images/img77.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                            <div class="blog-right-listing">
-                                                <div class="feature-img">
-                                                    <img src="/images/img78.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                            <div class="blog-right-listing">
-                                                <div class="feature-img">
-                                                    <img src="/images/img79.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                            <div class="blog-right-listing">
-                                                <div class="feature-img">
-                                                    <img src="/images/img80.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <!-- 현희 매장목록 DB값 출력 -->
+                                    	<c:forEach var="list" items="${ storeList }" end="30" >
+	                                    	<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+	                                            <div class="blog-right-listing">
+	                                                <div class="feature-img">
+	                                                    <img src="${ list.sUrl }" alt="" />
+	                                                    <h3>${ list.sName }</h3>		<!-- 매장이름 -->
+	                                                    <div>${ list.sAddress }</div>	<!-- 매장주소 -->
+	                                                    <div>${ list.sTel }</div>		<!-- 매장 전화번호 -->
+	                                                    <div>${ list.sClose }</div>		<!-- 매장 휴무일 -->
+	                                                </div>
+	                                            </div>
+	                                        </div>
+                                    	</c:forEach>
+                                    	<!-- 매장 목록 값 끝 -->
                                     </div>
                                     <div class="gallery-pagination">
                                         <div class="gallery-pagination-inner">
