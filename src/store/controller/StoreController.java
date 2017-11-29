@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import store.dao.StoreDAO;
 import store.domain.BossVO;
 import store.domain.StoreVO;
-import store.domain.StoreVOList;
 
 @Controller
 @RequestMapping("/store")
