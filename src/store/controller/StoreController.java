@@ -1,5 +1,7 @@
 package store.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,9 +61,10 @@ public class StoreController {
 	// 매장 검색
 	@RequestMapping(value="storeList.do")
 	public ModelAndView storeList(StoreVO store) {
-		StoreVOList list = new StoreVOList();
-		list.setStoreList(storeDAO.selectUserStore(store)); 
+		// 현희 VOList 없애고 List<> 형태로 변경
 		ModelAndView mv = new ModelAndView();
+		
+		List<StoreVO> list = storeDAO.selectUserStore(store); 
 		mv.setViewName("store/storeList");
 		mv.addObject("storeList", list);
 		
