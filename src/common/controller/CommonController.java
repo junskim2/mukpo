@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import reserve.dao.ReserveDAO;
 import user.dao.UserDAO;
 import user.domain.UserVO;
 
@@ -20,6 +21,9 @@ public class CommonController {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private ReserveDAO reserveDAO;
 	
 	// 화면띄우기
 	@RequestMapping(value="/{url}.do")

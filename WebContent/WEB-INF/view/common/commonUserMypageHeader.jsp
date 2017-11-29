@@ -26,6 +26,14 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+        <!--신주요 예약 내역 이벤트 처리 -->
+    <script type="text/javascript">
+    $(function() {
+        $("#orderlist").click(function() {;
+           location.href = "../reserve/userMypageReservList.do";
+        });
+   
+     });
 </head>
 
 <body>

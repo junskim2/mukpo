@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
 </head>
 <style>
 
 </style>
+
 <body>
+
+	<jsp:include page="../common/commonUserMypageHeader.jsp"></jsp:include>
 <div class="container">
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
  <div class="mail-box">
@@ -81,28 +85,22 @@
                                   <td class="view-message inbox-small-cells">주문 예약상태</td>
                                   <td class="view-message dont-show">리뷰</td>
                               </tr>
+                              
+                              
+                             <c:forEach items="${voList}" var='list'>
                               <tr class="">
                                   <td class="inbox-small-cells">
                                       <input type="checkbox" class="mail-checkbox">
+                                      <!-- 신주용 db값 출력 -->
                                   </td>
-                                  <td class="view-message dont-show">2017/12/25</td>
-                                  <td class="view-message dont-show">TEST_NUMBER</td> 
-                                  <td class="view-message dont-show">MINGKY!</td> 
-                                  <td class="view-message dont-show">59,590</td>
-                                  <td class="view-message inbox-small-cells">배송완료</td>
+                                  <td class="view-message dont-show">"${list.rDate}"</td>
+                                  <td class="view-message dont-show">"${list.sName}"</td> 
+                                  <td class="view-message dont-show">"${list.rId}"!</td> 
+                                  <td class="view-message dont-show">"${list.rKeepmoney}"</td>
+                                  <td class="view-message inbox-small-cells">"${list.rYn}"</td>
                                   <td class="view-message dont-show"><input type="button" value="리뷰 남기기"/></td>
                               </tr>
-                                 <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="view-message dont-show">2017/12/25</td>
-                                  <td class="view-message dont-show">TEST_NUMBER</td> 
-                                  <td class="view-message dont-show">MINGKY!</td> 
-                                  <td class="view-message dont-show">59,590</td>
-                                  <td class="view-message inbox-small-cells">배송완료</td>
-                                  <td class="view-message dont-show"><input type="button" value="리뷰 남기기"/></td>
-                              </tr>
+                         		</c:forEach>
                           </tbody>
                           </table>
                       </div>

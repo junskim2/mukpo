@@ -2,11 +2,16 @@ package reserve.dao;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import reserve.domain.ReserveVO;
 @Repository
 public class ReserveDAOImpl implements ReserveDAO{
+	
+	@Autowired
+	private SqlSessionTemplate reservess;
 
 	@Override
 	public int reserveInsert(ReserveVO vo) {					//예약하기 insert
@@ -16,8 +21,9 @@ public class ReserveDAOImpl implements ReserveDAO{
 
 	@Override
 	public List<ReserveVO> reserveList(ReserveVO vo) {			//예약 불러오기 select
-		// TODO Auto-generated method stub
-		return null;
+		ReserveVO voList = null;
+		
+		return  reservess.selectList("reserve.reserveList", vo);
 	}
 
 	@Override
