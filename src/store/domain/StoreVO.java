@@ -20,12 +20,13 @@ public class StoreVO {
 	String sYn;			//휴폐업여부(Y,N)
 	double sLatitude;	//위도
 	double sLongitude;	//경도
+	String sDetail;		//매장설명
 	
 	public StoreVO() {}
 	
 	public StoreVO(String rCid, String bId, String sPw, String sUrl, String sName, String sTel, String sZipcode,
 			String sAddress, String sSido, String sSigungo, String sMp, String sCate, String sOpenTime,
-			String sCloseTime, String sClose, String sYn, double sLatitude, double sLongitude) {
+			String sCloseTime, String sClose, String sYn, double sLatitude, double sLongitude, String sDetail) {
 		super();
 		this.rCid = rCid;
 		this.bId = bId;
@@ -45,7 +46,10 @@ public class StoreVO {
 		this.sYn = sYn;
 		this.sLatitude = sLatitude;
 		this.sLongitude = sLongitude;
+		this.sDetail = sDetail;
 	}
+
+	
 	public String getrCid() {
 		return rCid;
 	}
@@ -153,6 +157,14 @@ public class StoreVO {
 	}
 	public void setsLongitude(double sLongitude) {
 		this.sLongitude = sLongitude;
+	}
+
+	public String getsDetail() {
+		return sDetail;
+	}
+
+	public void setsDetail(String sDetail) {
+		this.sDetail = sDetail;
 	}
 	
 }
