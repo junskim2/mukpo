@@ -11,11 +11,11 @@ public class StoreVO {
 	String sZipcode;	//우편번호
 	String sAddress;	//주소
 	String sSido;		//시도
-	String sSigungo;	//시구군
+	String sSigungu;	//시구군
 	String sMp;			//먹포구분(M,P,MP)
 	String sCate;		//카테고리
-	String sOpenTime;	//오픈시간
-	String sCloseTime;	//마감시간
+	String sOpentime;	//오픈시간
+	String sClosetime;	//마감시간
 	String sClose;		//휴무일
 	String sYn;			//휴폐업여부(Y,N)
 	double sLatitude;	//위도
@@ -25,8 +25,8 @@ public class StoreVO {
 	public StoreVO() {}
 	
 	public StoreVO(String rCid, String bId, String sPw, String sUrl, String sName, String sTel, String sZipcode,
-			String sAddress, String sSido, String sSigungo, String sMp, String sCate, String sOpenTime,
-			String sCloseTime, String sClose, String sYn, double sLatitude, double sLongitude, String sDetail) {
+			String sAddress, String sSido, String sSigungu, String sMp, String sCate, String sOpentime,
+			String sClosetime, String sClose, String sYn, double sLatitude, double sLongitude, String sDetail) {
 		super();
 		this.rCid = rCid;
 		this.bId = bId;
@@ -37,11 +37,11 @@ public class StoreVO {
 		this.sZipcode = sZipcode;
 		this.sAddress = sAddress;
 		this.sSido = sSido;
-		this.sSigungo = sSigungo;
+		this.sSigungu = sSigungu;
 		this.sMp = sMp;
 		this.sCate = sCate;
-		this.sOpenTime = sOpenTime;
-		this.sCloseTime = sCloseTime;
+		this.sOpentime = sOpentime;
+		this.sClosetime = sClosetime;
 		this.sClose = sClose;
 		this.sYn = sYn;
 		this.sLatitude = sLatitude;
@@ -104,11 +104,11 @@ public class StoreVO {
 	public void setsSido(String sSido) {
 		this.sSido = sSido;
 	}
-	public String getsSigungo() {
-		return sSigungo;
+	public String getsSigungu() {
+		return sSigungu;
 	}
-	public void setsSigungo(String sSigungo) {
-		this.sSigungo = sSigungo;
+	public void setsSigungu(String sSigungu) {
+		this.sSigungu = sSigungu;
 	}
 	public String getsMp() {
 		return sMp;
@@ -122,17 +122,17 @@ public class StoreVO {
 	public void setsCate(String sCate) {
 		this.sCate = sCate;
 	}
-	public String getsOpenTime() {
-		return sOpenTime;
+	public String getsOpentime() {
+		return sOpentime;
 	}
-	public void setsOpenTime(String sOpenTime) {
-		this.sOpenTime = sOpenTime;
+	public void setsOpentime(String sOpentime) {
+		this.sOpentime = sOpentime;
 	}
-	public String getsCloseTime() {
-		return sCloseTime;
+	public String getsClosetime() {
+		return sClosetime;
 	}
-	public void setsCloseTime(String sCloseTime) {
-		this.sCloseTime = sCloseTime;
+	public void setsClosetime(String sClosetime) {
+		this.sClosetime = sClosetime;
 	}
 	public String getsClose() {
 		return sClose;
