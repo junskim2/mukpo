@@ -4,6 +4,7 @@ public class ReserveVO {
 	private String rId;			// 예약ID
 	private String mId;			// 회원ID
 	private String rCid;		// 사업자등록번호
+	private String sName;		// 업소명 
 	private String rMpwp;		// 예약유형
 	private String rDate;		// 예약날짜
 	private String rTime;		// 예약시간
@@ -14,12 +15,13 @@ public class ReserveVO {
 	
 	public ReserveVO() {}
 	
-	public ReserveVO(String rId, String mId, String rCid, String rMpwp, String rDate, String rTime,
+	public ReserveVO(String rId, String mId, String rCid, String sName, String rMpwp, String rDate, String rTime,
 			Integer rPnum, Integer rKeepmoney, Integer rTnum, String rYn) {
 		super();
 		this.rId = rId;
 		this.mId = mId;
 		this.rCid = rCid;
+		this.sName = sName; 
 		this.rMpwp = rMpwp;
 		this.rDate = rDate;
 		this.rTime = rTime;
@@ -29,6 +31,14 @@ public class ReserveVO {
 		this.rYn = rYn;
 	}
 	
+	public String getsName() {
+		return sName;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
 	// Getter, Setter
 	public String getrId() {
 		return rId;

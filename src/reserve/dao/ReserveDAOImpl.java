@@ -1,5 +1,6 @@
 package reserve.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,10 +21,8 @@ public class ReserveDAOImpl implements ReserveDAO{
 	}
 
 	@Override
-	public List<ReserveVO> reserveList(ReserveVO vo) {			//예약 불러오기 select
-		ReserveVO voList = null;
-		
-		return  reservess.selectList("reserve.reserveList", vo);
+	public List<HashMap> reserveList(ReserveVO vo) {			//예약 불러오기 select
+			return  reservess.selectList("reserve.reserveList", vo);
 	}
 
 	@Override

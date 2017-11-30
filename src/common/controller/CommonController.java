@@ -31,12 +31,12 @@ public class CommonController {
 		return "/common/" + url;
 	}
 	
-	
+	//메인 화면에서 아이디 비번 입력 후 로그인을 클릭했을때
 	@RequestMapping("/home.do")
 	public ModelAndView login(UserVO userVO,Model model, HttpSession session) {
 		String message = "로그인을 실패하셨습니다.";
 		int result=0;
-	
+		//id pw 디비통해 select
 		UserVO dbvo = userDAO.selectMemberLogin(userVO);
 		ModelAndView mv = new ModelAndView();
 		if(dbvo !=null) {
@@ -44,9 +44,8 @@ public class CommonController {
 			result=1;
 			session.setAttribute("sessionTime", (new Date().toString()));
 			session.setAttribute("userName", dbvo.getmId());
-					
 		}
-		System.out.println(message);
+		//모델앤뷰 화면 리턴
 		mv.setViewName("common/home");
 		mv.addObject("result", result);
 		mv.addObject("message", message);
