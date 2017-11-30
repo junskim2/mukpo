@@ -68,7 +68,8 @@
                         <div class="tp-banner">
                             <ul>
                                 <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="/images/dummy.png" alt="slidebg1" data-lazyload="/images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+<!-- 1130 현희 이미지추가 -->
+                                    <img class="ad" src="/images/user/야생마떡볶이광고.png" alt="야생마떡볶이" data-lazyload="/images/user/야생마떡볶이광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                     <!-- LAYERS -->
                                     <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">야생마의 <span>마굿간떡볶이</span>
                                     </div>
@@ -80,7 +81,8 @@
                                     </div>
                                 </li>
                                 <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="/images/dummy.png" alt="slidebg1" data-lazyload="/images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+<!-- 1130 현희 이미지추가 -->                                    
+                                    <img class="ad" src="/images/user/주용쓰잘해줘치킨광고.png" alt="주용쓰잘해줘치킨" data-lazyload="/images/user/주용쓰잘해줘치킨광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                     <!-- LAYERS -->
                                     <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">주용쓰의 <span>잘해줘치킨</span>
                                     </div>
@@ -92,7 +94,8 @@
                                     </div>
                                 </li>
                                 <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="/images/dummy.png" alt="slidebg1" data-lazyload="/images/slider2.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+<!-- 1130 현희 이미지추가 -->                                
+                                    <img class="ad" src="/images/user/민우쓰의눈칫밥상광고.png" alt="민우쓰의눈칫밥상" data-lazyload="/images/user/민우쓰의눈칫밥상광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                     <!-- LAYERS -->
                                     <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">밍키의 <span>눈칫밥상 1호점</span>
                                     </div>
