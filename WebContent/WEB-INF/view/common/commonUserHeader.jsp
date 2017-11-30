@@ -348,7 +348,7 @@
 							<!-- 로그인/회원가입 버튼 -->
 							<div class="header-info-inner">
 								<div class="book-table header-collect book-md">
-									<a href="#">
+									<a href="/user/userLogin.do">
 										<img id="userlogin" src="/images/common/login.png" alt="">
 										<span id="userloginspan">LOGIN / JOIN</span>
 									</a>
