@@ -121,11 +121,12 @@ public class StoreDAOImpl implements StoreDAO {
 		return 0;
 	}
 
-	@Override
-	public List<MenuVO> selectMenuList(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	//매장의 매뉴 리스트  경식 추가
+		@Override
+		public List<MenuVO> selectMenuList(StoreVO vo) {
+			// TODO Auto-generated method stub
+			return storess.selectList("store.selectMenuList", vo);
+		}
 
 	@Override
 	public int insertBlackList(BlackListVO vo) {

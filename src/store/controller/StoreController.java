@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pos.domain.CongestionSetVO;
 import store.dao.StoreDAO;
 import store.domain.BossVO;
+import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
 
@@ -194,9 +195,16 @@ public class StoreController {
 
 	// 현희 추가
 	// 포장 상세 페이지
-	@RequestMapping(value = "storePdetail.do")
-	public void storePdetail(String rCid) {
-		// 사업자등록번호 rCid로 넘어옴
+	//경식 바꿈
+	@RequestMapping("/storePdetail.do")
+	public ModelAndView storePdetail(StoreVO vo) {
+		System.out.println("사업자등록번호 rCid로 넘어옴");
+
+		ModelAndView mv = new ModelAndView();
+		List<MenuVO> list = storeDAO.selectMenuList(vo);
+		mv.setViewName("store/storePdetail");
+		mv.addObject("menuList", list);
+		return mv;
 	}
 
 	// 1130 현희 추가

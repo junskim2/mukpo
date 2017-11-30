@@ -1,28 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog Single - Laboom</title>
-<link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
-<link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
-<link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
-<link href="plugin/form-field/jquery.formstyler.css" rel="stylesheet">
-<link href="plugin/revolution-plugin/extralayers.css" rel="stylesheet">
-<link href="plugin/revolution-plugin/settings.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
-<link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
-<link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css"
+<link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
+<link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
+<link href="/plugin/form-field/jquery.formstyler.css" rel="stylesheet">
+<link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet">
+<link href="/plugin/revolution-plugin/settings.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
+<link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
+<link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
+<link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css"
 	rel="stylesheet">
-<link href="plugin/animation/animate.min.css" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+<link href="/plugin/animation/animate.min.css" rel="stylesheet">
+<link href="/css/theme.css" rel="stylesheet">
+<link href="/css/responsive.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -35,7 +36,7 @@
 	<div id="pre-loader">
 		<div class="loader-holder">
 			<div class="frame">
-				<img src="images/Preloader.gif" alt="Laboom" />
+				<img src="/images/Preloader.gif" alt="Laboom" />
 			</div>
 		</div>
 	</div>
@@ -48,7 +49,7 @@
 				<div class="blog-right-listing wow fadeInDown"
 					data-wow-duration="1000ms" data-wow-delay="300ms">
 					<div class="feature-img">
-						<img src="images/img54.png" alt="">
+						<img src="/images/img54.png" alt="">
 						<div class="date-feature">
 							27 <br> <small>may</small>
 						</div>
@@ -61,107 +62,56 @@
 			<div class="build-title">
 				<h2>메뉴선택</h2>
 			</div>
-			<div class="menu-wrapper">
-				<div class="portfolioFilter">
+			<div class="menu-wrapper col-md-6 col-sm-6 col-xs-12" style="width:66%;">
+				<div class="portfolioFilter" style="margin-bottom:2%;">
 					<div class="portfolioFilter-inner">
 						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> <a
-							href="javascript:;" data-filter=".breakfast">메뉴1</a> <a
-							href="javascript:;" data-filter=".dessert">메뉴2</a> <a
+							href="javascript:;" data-filter=".japan">메뉴1</a> <a
+							href="javascript:;" data-filter=".china">메뉴2</a> <a
 							href="javascript:;" data-filter=".dinner">메뉴3</a> <a
 							href="javascript:;" data-filter=".freshfood">메뉴4</a> <a
 							href="javascript:;" data-filter=".lunch">메뉴5</a>
 					</div>
 				</div>
-				<div class="portfolioContainer row">
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item breakfast">
-						<div class="menu-list">
+				<div style="width:100%;height:320px;padding-bottom:10%; margin-left:0%; margin-right:20%;border-radius:50px; border:2px solid orange;" class="portfolioContainer row ">
+				<c:choose>
+				<c:when test="${menuList == null}">
+           		 <tr><td colspan='7'>등록된 메뉴가 없습니다.</td></tr>
+        		</c:when>
+        		<c:otherwise>
+				<c:forEach var="list" items="${menuList}" end="30" >
+				<form method="post" action="/store/storeMdetail.do" class="${list.mCate}" style="left: 5%;top: 15%; margin-top:40px;">
+					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item">
+						<div class="menu-list" style="margin-left:25%; margin-top:20%;">
 							<span class="menu-list-product"> <img
-								src="images/img3.png" alt="">
+								src="/images/img3.png" alt="">
 							</span>
-							<h5>
-								LASAL CHEESE <span>$ 15.00</span>
+							<h5 style="padding-bottom:0px;padding-right:0px;margin-bottom:10px;width:154px; ">
+								${list.mName},
+								${list.mCate}
 							</h5>
-							<p>음식1은 맛있다.</p>
+							<h5 style="padding-bottom:0px;padding-right:0px;margin-bottom:10px;width:154px;">${list.mPrice}원</h5>
+							<input type="button" value="장바구니에 담기" name="${list.mId}" menu="${list.mName}" class="basket"/>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item lunch">
-						<div class="menu-list">
-							<span class="menu-list-product"> <img
-								src="images/img4.png" alt="">
-							</span>
-							<h5>
-								JUMBO CARB SHRIMP <span>$ 25.00</span>
-							</h5>
-							<p>음식2는 맛있다.</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item dessert">
-						<div class="menu-list">
-							<span class="menu-list-product"> <img
-								src="images/img5.png" alt="">
-							</span>
-							<h5>
-								SURMAI CHILLI <span>$ 15.00</span>
-							</h5>
-							<p>음식3은 맛있다.</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item dinner">
-						<div class="menu-list">
-							<span class="menu-list-product"> <img
-								src="images/img6.png" alt="">
-							</span>
-							<h5>
-								CAPO STEAK <span>$ 45.00</span>
-							</h5>
-							<p>음식4는 맛있다.</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item freshfood">
-						<div class="menu-list">
-							<span class="menu-list-product"> <img
-								src="images/img7.png" alt="">
-							</span>
-							<h5>
-								ORGANIC FRUIT SALAD <span>$ 15.00</span>
-							</h5>
-							<p>음식5는 맛있다.</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item freshfood">
-						<div class="menu-list">
-							<span class="menu-list-product"> <img
-								src="images/img8.png" alt="">
-							</span>
-							<h5>
-								PRAWNS BUTTER GARLIC <span>$ 15.00</span>
-							</h5>
-							<p>음식6는 맛있다.</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item dessert">
-						<div class="menu-list">
-							<span class="menu-list-product"> <img
-								src="images/img81.png" alt="">
-							</span>
-							<h5>
-								CHInese Egg Cake <span>$ 15.00</span>
-							</h5>
-							<p>음식7은 맛있다.</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item dinner">
-						<div class="menu-list">
-							<span class="menu-list-product"> <img
-								src="images/img82.png" alt="">
-							</span>
-							<h5>
-								Beef SpaghettI <span>$ 45.00</span>
-							</h5>
-							<p>음식2은 맛있다.</p>
-						</div>
-					</div>
+					</form>
+					</c:forEach>
+					</c:otherwise>
+					</c:choose>
+					
 				</div>
+			
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12" style="width:30%;">
+			
+			
+			<h3 style="text-align:center; margin-bottom:10%;">장바구니</h3>  
+			<div style="width:100%;height:100%; margin-left:0%; margin-right:20%;border-radius:50px; border:2px solid orange;" class="basketform ">
+			<h5 style="text-align:center; width:100%;">메뉴명|갯수|삭제</h5>
+			</div>
+			</div>
+			
+			
 			</div>
 		</div>
 
@@ -181,7 +131,7 @@
 			<!-- End Breadcrumb Part -->
 			<section class="home-icon blog-main-section blog-single">
 				<div class="icon-default">
-					<img src="images/scroll-arrow.png" alt="">
+					<img src="/images/scroll-arrow.png" alt="">
 				</div>
 				<div class="container">
 					<div class="row">
@@ -232,7 +182,7 @@
 										<h3>2 댓글</h3>
 										<div class="comment-inner-list">
 											<div class="comment-img">
-												<img src="images/img55.png" alt="">
+												<img src="/images/img55.png" alt="">
 											</div>
 											<div class="comment-info">
 												<h5>주용쓰</h5>
@@ -242,7 +192,7 @@
 										</div>
 										<div class="comment-inner-list">
 											<div class="comment-img">
-												<img src="images/img55.png" alt="">
+												<img src="/images/img55.png" alt="">
 											</div>
 											<div class="comment-info">
 												<h5>현희쓰</h5>
@@ -271,7 +221,7 @@
 			<div class="footer-part wow fadeInDown" data-wow-duration="1000ms"
 				data-wow-delay="300ms">
 				<div class="icon-default icon-dark">
-					<img src="images/footer-logo.png" alt="">
+					<img src="/images/footer-logo.png" alt="">
 				</div>
 				<div class="container">
 					<div class="footer-inner">
@@ -315,13 +265,13 @@
 					</div>
 				</div>
 				<div class="icon-find">
-					<a href="#"> <img src="images/location.png" alt=""> <span>Find
+					<a href="#"> <img src="/images/location.png" alt=""> <span>Find
 							us on Map</span>
 					</a>
 				</div>
 				<div class="location-footer-map">
 					<div class="icon-find-location">
-						<a href="#"> <img src="images/location.png" alt=""> <span>Find
+						<a href="#"> <img src="/images/location.png" alt=""> <span>Find
 								us on Map</span>
 						</a>
 					</div>
@@ -390,25 +340,26 @@
 	</div>
 	<!-- Back To Top Arrow -->
 	<a href="#" class="top-arrow"></a>
-	<script src="js/jquery.min.js"></script>
-	<script src="plugin/bootstrap/bootstrap.min.js"></script>
-	<script src="plugin/bootstrap/bootstrap-datepicker.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/plugin/bootstrap/bootstrap.min.js"></script>
+	<script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
-	<script src="plugin/form-field/jquery.formstyler.min.js"></script>
-	<script src="plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
+	<script src="/plugin/form-field/jquery.formstyler.min.js"></script>
+	<script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
 	<script
-		src="plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
-	<script src="plugin/owl-carousel/owl.carousel.min.js"></script>
-	<script src="plugin/slick-slider/slick.min.js"></script>
-	<script src="plugin/isotop/isotop.js"></script>
-	<script src="plugin/isotop/packery-mode.pkgd.min.js"></script>
-	<script src="plugin/magnific/jquery.magnific-popup.min.js"></script>
-	<script src="plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="plugin/animation/wow.min.js"></script>
-	<script src="plugin/parallax/jquery.stellar.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/script.js"></script>
+		src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
+	<script src="/plugin/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/plugin/slick-slider/slick.min.js"></script>
+	<script src="/plugin/isotop/isotop.js"></script>
+	<script src="/plugin/isotop/packery-mode.pkgd.min.js"></script>
+	<script src="/plugin/magnific/jquery.magnific-popup.min.js"></script>
+	<script src="/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/plugin/animation/wow.min.js"></script>
+	<script src="/plugin/parallax/jquery.stellar.js"></script>
+	<script src="/js/app.js"></script>
+	<script src="/js/script.js"></script>
+	<script src="/js/store/basket.js"></script>
 </body>
 
 </html>

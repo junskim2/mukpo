@@ -46,5 +46,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO congestionset
 		VALUES(#{csId},#{rCid},#{csCongestion},#{csCnt},#{csTime},#{csYn})
 	</insert>
+	
+	<!-- 경식추가	사용자 매뉴리스트 -->
+	<select id="selectMenuList" resultType="menuVO" parameterType="storeVO">
+		SELECT * FROM menu WHERE r_cid = #{rCid}
+	</select>
 
 </mapper>
