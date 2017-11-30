@@ -145,26 +145,83 @@
 		.drop-nav li{
 			font-size : 17px;
 		}
-		/* 현희 마우스 오버 해제 클릭추가 */
-		.menu-main ul>li:hover>.drop-nav {
-			display: none;
+		/* 11300932 현희 css추가 */
+		/* 지역, 카테고리 css */
+		.menuname {
+			padding : 15px;
+			font-size : 20px;
+			margin-left : 20px;
+			display : block;
+			position : relative;
+			color : #ffffff;
+			cursor: pointer;
 		}
-/* 		.menu-main ul>li:click>.drop-nav { */
-/* 			display : block; */
-/* 		} */
+		.menuname:before {
+			/* content 수정 */
+		    content: "ㆍ";
+		    position: absolute;
+		    top: 50%;
+		    -webkit-transform: translateY(-50%);
+		    -moz-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		    -o-transform: translateY(-50%);
+		    transform: translateY(-50%);
+		    color: #e4b95b;
+		    left: 0px;
+		}
+		/* 마우스 오버 해제 클릭추가 */
+		.menu-main ul>li:hover>.drop-nav { 
+		     display: none;
+		 }
+		 /* 먹포만 마우스오버 가능하게  */
+		 #mpsectionclass:hover>.drop-nav { 
+		     display: block;
+		 } 
+		 /* 지역 선택할 때 css 변하게 하려고 */
+		 .selectLocal {
+		 	color : #e4b95b;
+		 }
+		
     </style>
     
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		$(function() {
-			$(".menu-main ul>li").click(function() {
-// 				$(this)
+	// 현희 11300935 스크립트 추가
+	$(function() {
+		// 지역, 카테고리 클릭하면 하단메뉴 뜨게 하는 소스
+		$(".menuname").each(function() {
+			$(this).click(function() {
+				var drop = $(this).parent().find(">.drop-nav");
+				if(drop.is(":visible")){
+					drop.css("display", "none");
+				} else {
+					drop.css("display","block");
+				}
+				
 			});
 		});
+		
+		// 지역 선택했을때 시군구 나오게 하려고
+// 		$("#location1>li").click(function() {
+// 			var imsi = $(this).text().split(">");
+// 			$.ajax({
+// 				type:"POST",
+// 				url:"/common/commonLocationAJAX.jsp",
+// 				data:"imsi[0]",
+// 				dataType:"text",
+// 				success : function(data) {
+// 					console.log(data);
+// 				},
+// 				error : function() {
+// 					console.log("에러");
+// 				}
+// 			});
+// 		});
+		
+	});
 	</script>
 </head>
 <body>
-
 	<!-- Start Header -->
 	<header>
 		<div class="header-part header-on">
@@ -173,22 +230,22 @@
 					       
 					<!-- 로고 -->
 					<div class="logo">
-						<a href="/common/home.do"><img id="logo1" src="/images/common/로고1.png" alt=""></a>
+						<a href="#"><img id="logo1" src="/images/common/로고1.png" alt=""></a>
 					</div>
 					                        
 					<!-- 메뉴 헤더 -->
+					<!-- 현희 헤더(먹포 지역 카테고리) a태그-> span 으로 수정 -->
 					<div class="header-info">
 						<form method="post" action="/store/storeList.do">
 							<div class="menu-main">
 								<ul>
 									<!-- 먹포 -->
 									<li class="mega-menu" id="mpsectionclass">
-										
-										<a id="mpsection" href="index.html"><img id="mparrow" src="/images/common/mp-arrow3.png">
+										<span id="mpsection">
+											<img id="mparrow" src="/images/common/mp-arrow3.png">
 											<c:if test="${ sPM == 'M' }"> 테이블 </c:if>
 											<c:if test="${ sPM == 'P' }"> 포장 </c:if>
-										</a>
-										
+										</span>
 										<ul class="drop-nav" id="mpdrop">
 											<li><a href="/common/userMmain.do">먹고갈래?</a></li>
 											<li><a href="/common/userPmain.do">포장할래?</a></li>
@@ -197,7 +254,7 @@
 									
 									<!-- 지역 메뉴 -->
 									<li class="mega-menu"> 
-										<a href="#">지역</a>
+										<span class="menuname">지역</span>
 										<ul class="drop-nav" id="locationdrop"> 
 											<li>
 												<div class="drop-mega-part"> 
@@ -205,10 +262,10 @@
 														<!-- 시도 출력 -->
 														<div class="col-md-6 col-sm-12 col-xs-12" id="location1div"> 
 															<ul id="location1">
-																<li> 서울<span>></span></li>
-																<li> 대전<span>></span></li>
-																<li> 충남<span>></span></li>
+																<li class="selectLocal"> 서울<span>></span></li>
 																<li> 경기<span>></span></li>
+																<li> 충남<span>></span></li>
+																<li> 대전<span>></span></li>
 																<li> 광주<span>></span></li>
 																<li> 부산<span>></span></li>
 															</ul>
@@ -238,7 +295,7 @@
 									
 									<!-- 카테고리 메뉴 -->
 									<li class="mega-menu">
-										<a href="index.html">카테고리</a>
+										<span class="menuname">카테고리</span>
 										<ul class="drop-nav" id="categorydrop">
 											<li><input type="checkbox">음식 전체</li>
 											<li><input type="checkbox">한식</li>
@@ -259,102 +316,8 @@
 									<input id="btnSearch" type="submit" name="submit" value=" " />
 								</div>
 							</div>
-						</form>
-						
-						<!-- 로그인/회원가입 버튼 -->
-						<div class="header-info-inner">
-							<div class="book-table header-collect book-md">
-								<a href="#">
-									<img id="userlogin" src="/images/common/login.png" alt="">
-									<span id="userloginspan">LOGIN / JOIN</span>
-								</a>
-							</div>
-							<div class="shop-cart header-collect">
-								<a href="#"></a>
-							</div> 
-						</div>
-						 
-					</div>
-					<!-- 메뉴헤더 끝 -->
-					
-					<!-- 나중에 반응형 수정  -->
-					<div class="menu-icon">
-						<a href="#" class="hambarger">
-						<span class="bar-1"></span>
-						<span class="bar-2"></span>
-						<span class="bar-3"></span>
-						</a>
-					</div>
-					<div class="book-table header-collect book-sm">
-						<div class="header-info">
-							<div class="menu-main">
-								<ul>
-									<!-- 먹포 -->
-									<li class="has-child" >
-										<a id="mpsection" href="index.html">포장</a>
-										<ul class="drop-nav">
-											<li><input type="checkbox">음식 전체</li>
-											<li><input type="checkbox">한식</li>
-											<li><input type="checkbox">양식</li>
-											<li><input type="checkbox">중식</li>
-											<li><input type="checkbox">일식</li>
-										</ul>
-									</li>
-									<!-- 지역 메뉴 -->
-									<li class="mega-menu"> 
-										<a href="#">지역</a>
-										<ul class="drop-nav"> 
-											<li>
-												<div class="drop-mega-part"> 
-													<div class="row"> 
-														<div class="col-md-6 col-sm-12 col-xs-12"> 
-															<ul id="location1">
-																<li>> 서울</li>
-																<li>> 대전</li>
-																<li>> 충남</li>
-																<li>> 경기</li>
-																<li>> 광주</li>
-																<li>> 부산</li>
-															</ul>
-														</div>
-														<div class="col-md-6 col-sm-12 col-xs-12">
-															<ul id="location2">
-															<li><input type="checkbox" />Ready Player One</li>
-															<li><input type="checkbox" />Ernest Cline</li>
-															<li><input type="checkbox" />Ender's Game</li>
-															<li><input type="checkbox" />Orson Scott Card</li>
-															<li><input type="checkbox" />Americam God</li>
-															<li><input type="checkbox" />Neil Gaiman</li>
-															<li><input type="checkbox" />The Great Gatsby</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</li>
-								
-									<!-- 카테고리 메뉴 -->
-									<li class="has-child">
-										<a href="index.html">카테고리</a>
-										<ul class="drop-nav">
-											<li><input type="checkbox">음식 전체</li>
-											<li><input type="checkbox">한식</li>
-											<li><input type="checkbox">양식</li>
-											<li><input type="checkbox">중식</li>
-											<li><input type="checkbox">일식</li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-							<div class="search-part">
-								<a href="#"></a>
-								<div class="search-box">
-									<input type="text" name="txt" placeholder="Search">
-									<input type="button" name="submit" value=" ">
-								</div>
-							</div>
-							 
+							
+							<!-- 로그인/회원가입 버튼 -->
 							<div class="header-info-inner">
 								<div class="book-table header-collect book-md">
 									<a href="#">
@@ -364,10 +327,105 @@
 								</div>
 								<div class="shop-cart header-collect">
 									<a href="#"></a>
-								</div>
+								</div> 
 							</div>
-						</div>
-					</div>					
+							
+						</form>
+					
+					</div>
+					<!-- 메뉴헤더 끝 -->
+					
+					<!-- 나중에 반응형 수정  -->
+<!-- 					<div class="menu-icon"> -->
+<!-- 						<a href="#" class="hambarger"> -->
+<!-- 						<span class="bar-1"></span> -->
+<!-- 						<span class="bar-2"></span> -->
+<!-- 						<span class="bar-3"></span> -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<!-- 					<div class="book-table header-collect book-sm"> -->
+<!-- 						<div class="header-info"> -->
+<!-- 							<div class="menu-main"> -->
+<!-- 								<ul> -->
+<!-- 									먹포 -->
+<!-- 									<li class="has-child" > -->
+<!-- 										<a id="mpsection" href="index.html">포장</a> -->
+<!-- 										<ul class="drop-nav"> -->
+<!-- 											<li><input type="checkbox">음식 전체</li> -->
+<!-- 											<li><input type="checkbox">한식</li> -->
+<!-- 											<li><input type="checkbox">양식</li> -->
+<!-- 											<li><input type="checkbox">중식</li> -->
+<!-- 											<li><input type="checkbox">일식</li> -->
+<!-- 										</ul> -->
+<!-- 									</li> -->
+<!-- 									지역 메뉴 -->
+<!-- 									<li class="mega-menu">  -->
+<!-- 										<a href="#">지역</a> -->
+<!-- 										<ul class="drop-nav">  -->
+<!-- 											<li> -->
+<!-- 												<div class="drop-mega-part">  -->
+<!-- 													<div class="row">  -->
+<!-- 														<div class="col-md-6 col-sm-12 col-xs-12">  -->
+<!-- 															<ul id="location1"> -->
+<!-- 																<li>> 서울</li> -->
+<!-- 																<li>> 대전</li> -->
+<!-- 																<li>> 충남</li> -->
+<!-- 																<li>> 경기</li> -->
+<!-- 																<li>> 광주</li> -->
+<!-- 																<li>> 부산</li> -->
+<!-- 															</ul> -->
+<!-- 														</div> -->
+<!-- 														<div class="col-md-6 col-sm-12 col-xs-12"> -->
+<!-- 															<ul id="location2"> -->
+<!-- 															<li><input type="checkbox" />Ready Player One</li> -->
+<!-- 															<li><input type="checkbox" />Ernest Cline</li> -->
+<!-- 															<li><input type="checkbox" />Ender's Game</li> -->
+<!-- 															<li><input type="checkbox" />Orson Scott Card</li> -->
+<!-- 															<li><input type="checkbox" />Americam God</li> -->
+<!-- 															<li><input type="checkbox" />Neil Gaiman</li> -->
+<!-- 															<li><input type="checkbox" />The Great Gatsby</li> -->
+<!-- 															</ul> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</li> -->
+<!-- 										</ul> -->
+<!-- 									</li> -->
+								
+<!-- 									카테고리 메뉴 -->
+<!-- 									<li class="has-child"> -->
+<!-- 										<a href="index.html">카테고리</a> -->
+<!-- 										<ul class="drop-nav"> -->
+<!-- 											<li><input type="checkbox">음식 전체</li> -->
+<!-- 											<li><input type="checkbox">한식</li> -->
+<!-- 											<li><input type="checkbox">양식</li> -->
+<!-- 											<li><input type="checkbox">중식</li> -->
+<!-- 											<li><input type="checkbox">일식</li> -->
+<!-- 										</ul> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+<!-- 							<div class="search-part"> -->
+<!-- 								<a href="#"></a> -->
+<!-- 								<div class="search-box"> -->
+<!-- 									<input type="text" name="txt" placeholder="Search"> -->
+<!-- 									<input type="button" name="submit" value=" "> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+							 
+<!-- 							<div class="header-info-inner"> -->
+<!-- 								<div class="book-table header-collect book-md"> -->
+<!-- 									<a href="#"> -->
+<!-- 										<img id="userlogin" src="/images/common/login.png" alt=""> -->
+<!-- 										<span id="userloginspan">LOGIN / JOIN</span> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="shop-cart header-collect"> -->
+<!-- 									<a href="#"></a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div>					 -->
 					<!-- 반응형 메뉴 끝 -->
 					
 				</div>
