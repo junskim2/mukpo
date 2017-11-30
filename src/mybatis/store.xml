@@ -18,6 +18,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectUserStore" resultType="storeVO" parameterType="storeVO">
 		SELECT *
 		FROM store
-		WHERE s_mp IN ('MP', '${sMp}')
+		WHERE s_mp IN ('${sMp}')
 	</select>
 </mapper>
