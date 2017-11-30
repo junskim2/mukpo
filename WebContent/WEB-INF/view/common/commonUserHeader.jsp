@@ -145,7 +145,7 @@
 		.drop-nav li{
 			font-size : 17px;
 		}
-		/* 11300932 현희 css추가 */
+/* 1130 현희 css추가 */
 		/* 지역, 카테고리 css */
 		.menuname {
 			padding : 15px;
@@ -181,12 +181,22 @@
 		 .selectLocal {
 		 	color : #e4b95b;
 		 }
+/* 1130 현희 지역 확인버튼  */
+		 #btnLocation, #btnCate {
+		 	width : 100%;
+		 	margin: 15px 0px;
+		 	min-width: 0px;
+		 }
+		#categorydrop, #locationdrop {
+/* 1130 현희 버튼 추가함으로써 패딩값 추가 */
+			padding-bottom: 0px;
+		}
 		
     </style>
     
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
-	// 현희 11300935 스크립트 추가
+// 1130 현희 스크립트 추가
 	$(function() {
 		// 지역, 카테고리 클릭하면 하단메뉴 뜨게 하는 소스
 		$(".menuname").each(function() {
@@ -292,6 +302,8 @@
 													</div>
 												</div>
 											</li>
+<!-- 1130 현희 버튼 추가 -->
+											<div id="btnLocation" class="btn-black send_message">확인</div>
 										</ul>
 									</li>
 									
@@ -304,6 +316,8 @@
 											<li><input type="checkbox">양식</li>
 											<li><input type="checkbox">중식</li>
 											<li><input type="checkbox">일식</li>
+<!-- 1130 현희 버튼 추가 -->
+											<div id="btnCate" class="btn-black send_message">확인</div>
 										</ul>
 									</li>
 								</ul>
