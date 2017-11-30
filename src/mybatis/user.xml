@@ -19,6 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 </select>
 
+	<!-- 리뷰 등록sql -->
+	<insert id="reviewInsert" parameterType="reVO">
+		INSERT INTO review VALUES(#{rId},#{rvContent},sysdate)
+	</insert>
 
 	<!-- 마이페이지 포인트내역 -->
 	<select id="selectPoint" parameterType="poVO" resultType="poVO">

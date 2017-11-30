@@ -1,5 +1,6 @@
 package reserve.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import reserve.domain.ReserveVO;
@@ -8,7 +9,7 @@ public interface ReserveDAO {
 
 	int reserveInsert(ReserveVO vo); //예약하기 insert
 	
-	List<ReserveVO> reserveList(ReserveVO vo); //예약 불러오기 select
+	List<HashMap> reserveList(ReserveVO vo); //예약 불러오기 select
 	
 	ReserveVO reserveUpdate(ReserveVO vo); //예약 취소 or 주간예약 취소,변경 update
 	

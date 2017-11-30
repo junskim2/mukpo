@@ -26,7 +26,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-        <!--신주요 예약 내역 이벤트 처리 -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!--신주요 예약 내역 이벤트 처리 -->
     <script type="text/javascript">
     $(function() {
         $("#orderlist").click(function() {;
@@ -34,6 +36,8 @@
         });
    
      });
+    
+    </script>
 </head>
 
 <body>
@@ -73,14 +77,6 @@
 									</div>
 								</div>
 								<h5>주간예약하기</h5>
-							</div>
-							<div class="col-md-2 col-sm-2 col-xs-2 "  id="review">
-								<div class="feature-list-icon">
-									<div class="feature-icon-table">
-										<img src="/images/user/speech-bubbles.png" alt="">
-									</div>
-								</div>
-								<h5>내가 쓴 후기</h5>
 							</div>
 							<div class="col-md-2 col-sm-2 col-xs-2 "  id="love">
 								<div class="feature-list-icon">
