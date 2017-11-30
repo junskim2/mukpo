@@ -59,7 +59,8 @@ public class CommonController {
 	public ModelAndView userMmain() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userMmain");
-		mv.addObject("sPM", "M");
+// 1130 현희 sPM -> sMp로 이름 통일
+		mv.addObject("sMp", "M");
 		
 		return mv;
 	}
@@ -69,7 +70,8 @@ public class CommonController {
 	public ModelAndView userPmain() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userPmain");
-		mv.addObject("sPM", "P");
+// 1130 현희 sPM -> sMp로 이름 통일 
+		mv.addObject("sMp", "P");
 		
 		return mv;
 	}

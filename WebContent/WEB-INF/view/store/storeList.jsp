@@ -63,10 +63,16 @@
                 <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('/images/breadbg1.jpg');">
                     <div class="container">
                         <div class="breadcrumb-inner">
-                        	<!-- 현희 제목바꾸기 -->
+<!-- 현희 제목바꾸기 -->
                             <h2>매장검색</h2>
-                            <a href="#">Home</a>
-                            <span>Blog</span>
+<!-- 1130 현희 추가 -->
+                            <!-- 홈 -->
+                            <c:if test="${ sMp eq 'M' }"> <a href="/common/userMmain.do">Home</a> </c:if>
+                            <c:if test="${ sMp eq 'P' }"> <a href="/common/userPmain.do">Home</a> </c:if>
+                            <!-- 테이블인지 포장인지  -->
+                            <c:if test="${ sMp eq 'M' }"> <span>테이블</span> </c:if>
+                            <c:if test="${ sMp eq 'P' }"> <span>포장</span> </c:if>
+<!-- 1130 현희 추가 끝 -->
                         </div>
                     </div>
                 </section>
@@ -95,7 +101,10 @@
                                     <div class="row">
                                         <!-- 현희 매장목록 DB값 출력 -->
                                     	<c:forEach var="list" items="${ storeList }" end="30" >
-                                    		<form method="post" action="/store/storePdetail.do">
+<!-- 1130 현희 포장/테이블에 따라 경로 바꿈 -->
+                                    		<c:if test="${ sMp eq 'M' }"> <form method="post" action="/store/storeMdetail.do"> </c:if>
+                                    		<c:if test="${ sMp eq 'P' }"> <form method="post" action="/store/storePdetail.do"> </c:if>
+<!-- 1130 현희 포장/테이블에 따라 경로 바꿈 끝 -->
                                     			<!-- 사업자 등록번호 파라미터로 넘기기 -->
                                     			<input type="hidden" name="rCid" value="${ list.rCid }" />
                                     			<!-- 매장 출력 -->

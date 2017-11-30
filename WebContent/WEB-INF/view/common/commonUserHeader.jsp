@@ -243,8 +243,10 @@
 									<li class="mega-menu" id="mpsectionclass">
 										<span id="mpsection">
 											<img id="mparrow" src="/images/common/mp-arrow3.png">
-											<c:if test="${ sPM == 'M' }"> 테이블 </c:if>
-											<c:if test="${ sPM == 'P' }"> 포장 </c:if>
+<!-- 1130 현희 sPM -> sMp 이름통일 -->
+											<c:if test="${ sMp == 'M' }"> 테이블 </c:if>
+											<c:if test="${ sMp == 'P' }"> 포장 </c:if>
+<!-- 1130 현희 sPM -> sMp 이름통일  끝 -->
 										</span>
 										<ul class="drop-nav" id="mpdrop">
 											<li><a href="/common/userMmain.do">먹고갈래?</a></li>
@@ -312,7 +314,7 @@
 								<a href="#"></a> <!-- 처음 돋보기 -->
 								<div class="search-box"> <!-- 돋보기 클릭 후 입력창 -->
 									<input id="txtSearch" type="text" name="txt" placeholder="Search" />
-									<input type="hidden" name="sMp" value="${ sPM }" />
+									<input type="hidden" name="sMp" value="${ sMp }" />
 									<input id="btnSearch" type="submit" name="submit" value=" " />
 								</div>
 							</div>
