@@ -36,7 +36,7 @@ $(document).ready(function(){
 			}				
 		}
 		
-		alert(rCIdArr.toString() + "    <>   " + cntArr.toString());
+//		alert(rCIdArr.toString() + "    <>   " + cntArr.toString());
 		
 //		$('.basketform').append('<h5 name="menus"class="'+result+'" style="width:100%; text-align:center">'+mName+result+' 갯수<input type="button" value="삭제"/></h5>');
 		
