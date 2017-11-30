@@ -28,7 +28,7 @@
 		<property name="configLocation" value="classpath:mybatis/config/config.xml"></property>
 		<property name="mapperLocations" value="classpath*:mybatis/*.xml" />
 	</bean>
-	<bean id='commonss' class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id='userss' class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="factoryBean" />
 	</bean>
 </beans>

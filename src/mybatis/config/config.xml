@@ -7,29 +7,26 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 	<typeAliases>
+		<!-- common -->
 		<typeAlias type="common.domain.NoticeVO" alias="notiVO" />
-		<typeAlias type="common.domain.NoticeVOList" alias="notiVOL" />
+		<!-- pos -->
 		<typeAlias type="pos.domain.CongestionSetVO" alias="conVO" />
-		<typeAlias type="pos.domain.OrderListVO" alias="ordLVO" />
 		<typeAlias type="pos.domain.PaymentVO" alias="payVO" />
+		<!-- reserve -->
 		<typeAlias type="reserve.domain.FavoriteWeekVO" alias="favWeekVO" />
 		<typeAlias type="reserve.domain.ReserveMenuVO" alias="resMenuVO" />
 		<typeAlias type="reserve.domain.ReserveVO" alias="resVO" />
-		<typeAlias type="reserve.domain.ReserveVOList" alias="resVOL" />
 		<typeAlias type="reserve.domain.ReserveWeekVO" alias="resWeekVO" />
+		<!-- store -->
 		<typeAlias type="store.domain.BlackListVO" alias="bLVO" />
 		<typeAlias type="store.domain.BossVO" alias="bossVO" />
 		<typeAlias type="store.domain.MenuVO" alias="menuVO" />
-		<typeAlias type="store.domain.MenuVOList" alias="menuVOL" />
 		<typeAlias type="store.domain.StoreVO" alias="storeVO" />
-		<typeAlias type="store.domain.StoreVOList" alias="storeVOL" />
 		<typeAlias type="store.domain.TableSetVO" alias="tSetVO" />
+		<!-- user -->
 		<typeAlias type="user.domain.FavoriteVO" alias="favVO" />
-		<typeAlias type="user.domain.FavoriteVOList" alias="favVOL" />
 		<typeAlias type="user.domain.PointVO" alias="poVO" />
-		<typeAlias type="user.domain.PointVOList" alias="poVOL" />
 		<typeAlias type="user.domain.ReviewVO" alias="reVO" />
-		<typeAlias type="user.domain.ReviewVOList" alias="reVOL" />
 		<typeAlias type="user.domain.UserVO" alias="userVO" />
 	</typeAliases>
 </configuration>
