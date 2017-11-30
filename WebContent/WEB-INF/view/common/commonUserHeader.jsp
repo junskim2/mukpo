@@ -191,44 +191,51 @@
 /* 1130 현희 버튼 추가함으로써 패딩값 추가 */
 			padding-bottom: 0px;
 		}
-		
+/* 1130 현희 돋보기에 클래스 추가하면서 땡그라미 없앰 */
+		.searchIcon:before {
+			content : "";
+		}
     </style>
     
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
 // 1130 현희 스크립트 추가
 	$(function() {
+// 1130 현희 한개만 열리게
 		// 지역, 카테고리 클릭하면 하단메뉴 뜨게 하는 소스
-		$(".menuname").each(function() {
-			$(this).click(function() {
-				var drop = $(this).parent().find(">.drop-nav");
-				if(drop.is(":visible")){
-					drop.css("display", "none");
-				} else {
-					drop.css("display","block");
-				}
-				
-			});
+		$(".menuname").on("click",function() {
+			var drop = $(".menuname").parent().find(">.drop-nav");
+			if(drop.is(":visible")) {
+				$(".menuname").parent().find(">.drop-nav").css("display","none");
+				$(this).parent().find(">.drop-nav").css("display","block");
+			} else {
+				$(this).parent().find(">.drop-nav").css("display","block");
+			}
+			
+		}); // END .menuname each
+		
+		// 음식 전체를 선택하면
+		$("#cateAll").click(function() {
+			alert(this.cheched);
+			$(".cate").prop("checked", this.checked);
 		});
+
+// 1130 현희 하다말음.. help !
+		// 카테고리 확인버튼 클릭 시
+		$("#btnCate").click(function() {
+			$(this).parent().find(">li:checked");
+			alert($(this).parent().find(">li").is("checked").val());
+		}); // END #btnCate click
 		
 		// 지역 선택했을때 시군구 나오게 하려고
-// 		$("#location1>li").click(function() {
-// 			var imsi = $(this).text().split(">");
-// 			$.ajax({
-// 				type:"POST",
-// 				url:"/common/commonLocationAJAX.jsp",
-// 				data:"imsi[0]",
-// 				dataType:"text",
-// 				success : function(data) {
-// 					console.log(data);
-// 				},
-// 				error : function() {
-// 					console.log("에러");
-// 				}
-// 			});
-// 		});
+		$("#location1>li").click(function() {
+// 1130 현희 클릭하면 색깔변함
+			$("#location1>li").removeClass("selectLocal"); // 색깔 가지고 있는 애 없애고
+			$(this).addClass("selectLocal"); // 클릭한 아이가 색깔가져가기
+			
+		}); // END #location1>li click
 		
-	});
+	}); // END function
 	</script>
 </head>
 <body>
@@ -307,15 +314,19 @@
 										</ul>
 									</li>
 									
+<!-- 1130 현희 카테고리 내용 수정 -->									
 									<!-- 카테고리 메뉴 -->
 									<li class="mega-menu">
 										<span class="menuname">카테고리</span>
 										<ul class="drop-nav" id="categorydrop">
-											<li><input type="checkbox">음식 전체</li>
-											<li><input type="checkbox">한식</li>
-											<li><input type="checkbox">양식</li>
-											<li><input type="checkbox">중식</li>
-											<li><input type="checkbox">일식</li>
+											<li><input type="checkbox" id="cateAll" value="음식전체">음식 전체</li>
+											<li><input type="checkbox" class="cate" value="뷔페식">뷔페식</li>
+											<li><input type="checkbox" class="cate" value="탕류">탕류</li>
+											<li><input type="checkbox" class="cate" value="카페">키페</li>
+											<li><input type="checkbox" class="cate" value="일식">일식</li>
+											<li><input type="checkbox" class="cate" value="패스트푸드">패스트푸드</li>
+											<li><input type="checkbox" class="cate" value="중국식">중국식</li>
+											<li><input type="checkbox" class="cate" value="BGM">BGM</li>
 <!-- 1130 현희 버튼 추가 -->
 											<div id="btnCate" class="btn-black send_message">확인</div>
 										</ul>
@@ -325,7 +336,8 @@
 							
 							<!-- 검색 기능 -->
 							<div class="search-part">
-								<a href="#"></a> <!-- 처음 돋보기 -->
+<!-- 1130 현희 class 추가  -->
+								<a class="menuname searchIcon" href="#"></a> <!-- 처음 돋보기 -->
 								<div class="search-box"> <!-- 돋보기 클릭 후 입력창 -->
 									<input id="txtSearch" type="text" name="txt" placeholder="Search" />
 									<input type="hidden" name="sMp" value="${ sMp }" />
