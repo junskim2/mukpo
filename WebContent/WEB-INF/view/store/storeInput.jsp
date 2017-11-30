@@ -9,22 +9,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Checkout - Laboom</title>
-<link href="plugin/bootstrap/bootstrap_copy.css" rel="stylesheet">
-<link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
-<link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
-<link href="plugin/form-field/jquery.formstyler_copy.css"
+<link href="/plugin/bootstrap/bootstrap_copy.css" rel="stylesheet">
+<link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
+<link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
+<link href="/plugin/form-field/jquery.formstyler_copy.css"
 	rel="stylesheet">
-<link href="plugin/revolution-plugin/extralayers.css" rel="stylesheet">
-<link href="plugin/revolution-plugin/settings.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
-<link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
-<link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css"
+<link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet">
+<link href="/plugin/revolution-plugin/settings.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
+<link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
+<link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
+<link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css"
 	rel="stylesheet">
-<link href="plugin/animation/animate.min.css" rel="stylesheet">
-<link href="css/store/storeInput.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+<link href="/plugin/animation/animate.min.css" rel="stylesheet">
+<link href="/css/store/storeInput.css" rel="stylesheet">
+<link href="/css/responsive.css" rel="stylesheet">
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -220,6 +220,10 @@
 													</div>
 												</div>
 											</div>
+											<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
+												<a href="storeMain.do" class="button-default button-default-submit btn">뒤로가기</a>
+												<a href="javascript:store.submit();" class="button-default button-default-submit btn">등록</a>
+											</div>
 									</form>
 								</div>
 							</div>
@@ -235,25 +239,25 @@
 	</div>
 	<!-- Back To Top Arrow -->
 	<a href="#" class="top-arrow"></a>
-	<script src="js/jquery.min.js"></script>
-	<script src="plugin/bootstrap/bootstrap.min.js"></script>
-	<script src="plugin/bootstrap/bootstrap-datepicker.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/plugin/bootstrap/bootstrap.min.js"></script>
+	<script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
-	<script src="plugin/form-field/jquery.formstyler.min.js"></script>
-	<script src="plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
+	<script src="/plugin/form-field/jquery.formstyler.min.js"></script>
+	<script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
 	<script
-		src="plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
-	<script src="plugin/owl-carousel/owl.carousel.min.js"></script>
-	<script src="plugin/slick-slider/slick.min.js"></script>
-	<script src="plugin/isotop/isotop.js"></script>
-	<script src="plugin/isotop/packery-mode.pkgd.min.js"></script>
-	<script src="plugin/magnific/jquery.magnific-popup.min.js"></script>
-	<script src="plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="plugin/animation/wow.min.js"></script>
-	<script src="plugin/parallax/jquery.stellar.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/script.js"></script>
+		src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
+	<script src="/plugin/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/plugin/slick-slider/slick.min.js"></script>
+	<script src="/plugin/isotop/isotop.js"></script>
+	<script src="/plugin/isotop/packery-mode.pkgd.min.js"></script>
+	<script src="/plugin/magnific/jquery.magnific-popup.min.js"></script>
+	<script src="/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/plugin/animation/wow.min.js"></script>
+	<script src="/plugin/parallax/jquery.stellar.js"></script>
+	<script src="/js/app.js"></script>
+	<script src="/js/script.js"></script>
 </body>
 
 </html>

@@ -7446,6 +7446,10 @@ body main .team-page {
 	font-size: 16px;
 	margin-bottom: 1%
 }
+.storeinfo2 a{
+	float:right;
+}
+
 .maindiv{
 	margin-left:15%;
 	margin-right:15%;
