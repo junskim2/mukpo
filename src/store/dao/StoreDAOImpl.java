@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import pos.domain.CongestionSetVO;
 import store.domain.BlackListVO;
 import store.domain.BossVO;
 import store.domain.MenuVO;
@@ -42,22 +43,28 @@ public class StoreDAOImpl implements StoreDAO {
 		return 0;
 	}
 
+	// 사장님 정보 가져오는 기능 구현
+	@Override
+	public BossVO selectBossSearch(BossVO vo) {
+		return storess.selectOne("store.selectBossSearch", vo);
+	}
+
 	@Override
 	public int updateBossInfoDelete(BossVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	// 매장 등록 기능 구현
 	@Override
 	public int insertStoreInfo(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return storess.insert("store.insertStoreInfo", vo);
 	}
 
+	// 테이블 매장 관리 테이블 입력
 	@Override
 	public int insertTableSet(TableSetVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return storess.insert("store.insertTableSet", vo);
 	}
 
 	@Override
@@ -149,6 +156,12 @@ public class StoreDAOImpl implements StoreDAO {
 	public List<StoreVO> selectUserStore(StoreVO store) {
 
 		return storess.selectList("store.selectUserStore", store);
+	}
+
+	// 혼잡도 초기설정
+	@Override
+	public int insertCongestionset(CongestionSetVO vo) {
+		return storess.insert("store.insertCongestionset", vo);
 	}
 
 }

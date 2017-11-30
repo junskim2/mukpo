@@ -51,7 +51,7 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="shop-checkout-left">
 
-									<form class="form-checkout" name="form" method="post">
+									<form action="storeInputOk.do" name="store" method="post">
 										<div class="col-md-4 col-sm-12 col-xs-12 image">
 											<img src="/images/plus.png" alt="" />
 											<h6>매장 사진</h6>
@@ -76,6 +76,9 @@
 												</div>
 											</div>
 											<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="col-md-7 col-sm-12 col-xs-12">
+													<input type="text" name="sTel" placeholder="전화번호">
+												</div>
 												<div class="col-md-6 col-sm-12 col-xs-12">
 													<input type="text" name="sOpentime" placeholder="오픈시간">
 												</div>
@@ -89,15 +92,15 @@
 													<h5>카테고리 선택</h5>
 												</div>
 												<div class="col-md-4 col-sm-12 col-xs-12">
-													<select class="select-dropbox">
-														<option>한식</option>
-														<option>분식</option>
-														<option>일식</option>
-														<option>중식</option>
-														<option>양식</option>
-														<option>패스트푸드</option>
-														<option>카페</option>
-														<option>뷔페식</option>
+													<select class="select-dropbox" name="sCate">
+														<option value="한식">한식</option>
+														<option value="분식">분식</option>
+														<option value="일식">일식</option>
+														<option value="중식">중식</option>
+														<option value="양식">양식</option>
+														<option value="패스트푸드">패스트푸드</option>
+														<option value="카페">카페</option>
+														<option value="뷔페식">뷔페식</option>
 													</select>
 												</div>
 												<div class="col-md-8 col-sm-12 col-xs-12"></div>
@@ -107,7 +110,7 @@
 												</div>
 												<div class="col-md-6 col-sm-12 col-xs-12">
 													<input type="button" name="submit" value="우편번호 검색"
-														class="button-default button-default-submit btn">
+														class="button-default button-default-submit btn2">
 												</div>
 												<div class="col-md-7 col-sm-12 col-xs-12">
 													<input type="text" name="sAddress" placeholder="주소">
@@ -119,23 +122,23 @@
 													<h5>휴무일 선택</h5>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12">
-													<label> <input type="checkbox" name="checkbox">월
-													</label> <label> <input type="checkbox" name="checkbox">화
-													</label> <label> <input type="checkbox" name="checkbox">수
-													</label> <label> <input type="checkbox" name="checkbox">목
-													</label> <label> <input type="checkbox" name="checkbox">금
-													</label> <label> <input type="checkbox" name="checkbox">토
-													</label> <label> <input type="checkbox" name="checkbox">일
+													<label> <input type="checkbox" name="checkbox" name="day" value="월">월
+													</label> <label> <input type="checkbox" name="checkbox" value="화">화
+													</label> <label> <input type="checkbox" name="checkbox" value="수">수
+													</label> <label> <input type="checkbox" name="checkbox" value="목">목
+													</label> <label> <input type="checkbox" name="checkbox" value="금">금
+													</label> <label> <input type="checkbox" name="checkbox" value="토">토
+													</label> <label> <input type="checkbox" name="checkbox" value="일">일
 													</label>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
 													<h5>먹포 선택</h5>
 												</div>
 												<div class="col-md-6 col-sm-12 col-xs-12">
-													<select class="select-dropbox">
-														<option>먹고 간다.</option>
-														<option>포장 한다.</option>
-														<option>둘다 한다.</option>
+													<select class="select-dropbox" name="sMp">
+														<option value="M">먹고 간다.</option>
+														<option value="P">포장 한다.</option>
+														<option value="MP">둘다 한다.</option>
 													</select>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
@@ -144,25 +147,25 @@
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
 													<div class="col-md-3 col-sm-12 col-xs-12">
 														<h6>매장 테이블 갯수</h6>
-														<select class="select-dropbox">
-															<option>0</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															<option>6</option>
-															<option>7</option>
-															<option>8</option>
-															<option>9</option>
-															<option>10</option>
-															<option>11</option>
-															<option>12</option>
+														<select class="select-dropbox" name="tCnt">
+															<option value="0">0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
 														</select>
 													</div>
 													<div class="col-md-4 col-sm-12 col-xs-12">
 														<h6>테이블당 인원수</h6>
-														<input type="text" name="t_max" placeholder="테이블당 최대 인원">
+														<input type="text" name="tMax" placeholder="테이블당 최대 인원">
 													</div>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
@@ -171,59 +174,61 @@
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
 													<h6>여유</h6>
 													<div class="col-md-3 col-sm-12 col-xs-12">
-														<input type="text" name="t_max" placeholder="주문건수">
+														<input type="text" name="GcsCnt" placeholder="주문건수">
 													</div>
 													<div class="col-md-3 col-sm-12 col-xs-12">
-														<select class="select-dropbox">
-															<option>0분</option>
-															<option>10분</option>
-															<option>20분</option>
-															<option>30분</option>
-															<option>40분</option>
-															<option>50분</option>
-															<option>60분</option>
+														<select class="select-dropbox" name="GcsTime">
+															<option value="0">0분</option>
+															<option value="10">10분</option>
+															<option value="20">20분</option>
+															<option value="30">30분</option>
+															<option value="40">40분</option>
+															<option value="50">50분</option>
+															<option value="60">60분</option>
 														</select>
 													</div>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
 													<h6>보통</h6>
 													<div class="col-md-3 col-sm-12 col-xs-12">
-														<input type="text" name="t_max" placeholder="주문건수">
+														<input type="text" name="YcsCnt" placeholder="주문건수">
 													</div>
 													<div class="col-md-3 col-sm-12 col-xs-12">
-														<select class="select-dropbox">
-															<option>0분</option>
-															<option>10분</option>
-															<option>20분</option>
-															<option>30분</option>
-															<option>40분</option>
-															<option>50분</option>
-															<option>60분</option>
+														<select class="select-dropbox" name="YcsTime">
+															<option value="0">0분</option>
+															<option value="10">10분</option>
+															<option value="20">20분</option>
+															<option value="30">30분</option>
+															<option value="40">40분</option>
+															<option value="50">50분</option>
+															<option value="60">60분</option>
 														</select>
 													</div>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
 													<h6>혼잡</h6>
 													<div class="col-md-3 col-sm-12 col-xs-12">
-														<input type="text" name="t_max" placeholder="주문건수">
+														<input type="text" name="RcsCnt" placeholder="주문건수">
 													</div>
 													<div class="col-md-3 col-sm-12 col-xs-12">
-														<select class="select-dropbox">
-															<option>0분</option>
-															<option>10분</option>
-															<option>20분</option>
-															<option>30분</option>
-															<option>40분</option>
-															<option>50분</option>
-															<option>60분</option>
+														<select class="select-dropbox" name="RcsTime">
+															<option value="0">0분</option>
+															<option value="10">10분</option>
+															<option value="20">20분</option>
+															<option value="30">30분</option>
+															<option value="40">40분</option>
+															<option value="50">50분</option>
+															<option value="60">60분</option>
 														</select>
 													</div>
 												</div>
 											</div>
 											<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
-												<a href="storeMain.do" class="button-default button-default-submit btn">뒤로가기</a>
-												<a href="javascript:store.submit();" class="button-default button-default-submit btn">등록</a>
+												<a href="storeMain.do"
+													class="button-default button-default-submit btn">뒤로가기</a>
+													<input type="submit" name="store" value="등록" class="button-default button-default-submit btn"> 
 											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -245,7 +250,8 @@
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
 	<script src="/plugin/form-field/jquery.formstyler.min.js"></script>
-	<script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
+	<script
+		src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
 	<script
 		src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
 	<script src="/plugin/owl-carousel/owl.carousel.min.js"></script>

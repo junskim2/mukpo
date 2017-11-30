@@ -2,12 +2,12 @@ package store.dao;
 
 import java.util.List;
 
+import pos.domain.CongestionSetVO;
 import store.domain.BlackListVO;
 import store.domain.BossVO;
 import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
-
 
 public interface StoreDAO {
 	// 사장님 로그인 기능 구현
@@ -24,6 +24,9 @@ public interface StoreDAO {
 
 	// 사장님 정보 삭제 기능 구현
 	int updateBossInfoDelete(BossVO vo);
+
+	// 사장님 정보 가져오는 기능 구현
+	BossVO selectBossSearch(BossVO vo);
 
 	// 매장 정보 입력 기능 구현
 	int insertStoreInfo(StoreVO vo);
@@ -72,7 +75,10 @@ public interface StoreDAO {
 
 	// 매장의 블랙리스트를 출력하는 기능 구현
 	List<BlackListVO> menuInsert(BlackListVO vo);
-	
+
 	// 사용자 매장검색 리스트
 	List<StoreVO> selectUserStore(StoreVO store);
+	
+	// 혼잡도 초기 설정
+	int insertCongestionset(CongestionSetVO vo);
 }
