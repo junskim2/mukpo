@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import = "java.util.Date" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib  uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
-
-<!DOCTYPE>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mypage -point</title>
+<title>먹포 - 먹포인트충전</title>
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -52,72 +50,31 @@
 					<img src="/images/scroll-arrow.png" alt="">
 				</div>
 				<div class="container">
-					<div class="shop-cart-list wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="300ms">
-						<!-- 날짜초기값설정 -->
-						<fmt:formatDate value="<%=new java.util.Date()%>"
-							pattern="yyyy/MM/dd" var="endDate" />
-						<fmt:formatDate value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 * 30)%>"
-							pattern="yyyy/MM/dd" var="startDate" />
-						<!-- 미완료 -->
-						<!-- 날짜로검색(한달 전 날짜) --> 
-						<form action="/user/userMypagePointDate.do" class="pointDate-form"
-							method="post" name="pointDate">
-							<div class="col-md-12 col-sm-6 col-xs-12" id="calendarsearch">
-								<strong name="datetext">일자별</strong> <input type="text"
-									name="startDate"  value="${ startDate }"
-<%-- 									value="<%= param.startDate %>" --%>
-									
-									class="date-pick" id="calendarstart"> <strong
-									name="datetext">-</strong> <input type="text" name="endDate"
-									 value="${ endDate }"
-									class="date-pick" id="calendarend">
-								<div class="product-cart-detail datesearch">
-									<input type="submit" name="submit" value="검색"
-										class="col-md-12 col-sm-6 col-xs-12 btn-medium searchbtn btn-dark-coffee">
-								</div>
-							</div>
-						</form>
-						<table class="shop-cart-table">
-							<thead>
-								<tr>
-									<th>구분</th>
-									<th>이용매장</th>
-									<th>금액</th>
-									<th>날짜</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:choose>
-									<c:when test="${ pointVOList == null }">
-										<tr>포인트 내역이 없습니다.
-										</tr>
-									</c:when>
-									<c:otherwise>
 
-										<c:forEach items="${ pointVOList }" var="pointVO">
-											<tr>
-												<th>구분</th>
-												<td><span>${ pointVO.pAs }</span></td>
-												<th>이용매장</th>
-												<td>${ pointVO.pStore }</td>
-												<th>금액</th>
-												<td>
-													<div class="price-textbox">
-														<fmt:formatNumber value="${ pointVO.pPrice }"
-															type="number" />
-													</div>
-												</td>
-												<th>날짜</th>
-												<td>${ pointVO.pDate }</td>
-											</tr>
-										</c:forEach>
-									</c:otherwise>
-								</c:choose>
-							</tbody>
-						</table>
-						<div class="product-cart-detail">
-							<a href="/user/userMypagePointCharge.do" class="btn-medium btn-dark-coffee">충전</a>
+					<div class="row center">
+						<div class="col-md-12 col-sm-12 col-xs-12 wow fadeInDown">
+							<form action="/user/userMypagePointChargeOk.do" method="post">
+								<div class="shop-checkout-right pointmaincenter">
+									<div class="shop-checkout-box-edit center">
+										<h5 name="mypoint">${ userVOName.mName }님의
+											현재 포인트는
+											<fmt:formatNumber value="${ pointVO.pCruntmoney }"
+												type="number" />
+											원 입니다.
+										</h5>
+										<div class="checkout-total">
+											<h6 name="mypointprice">충전금액</h6>
+											<input type="hidden" value="${ pointVO.pCruntmoney }" name="pCruntmoney"/>
+											<input type="text" name="pPrice" value="0" />
+										</div>
+									</div>
+									<div class="checkout-button">
+										<div class="checkout-button">
+											<input type="submit" class="button-default btn-large btn-primary-gold" value="카드충전" />
+										</div>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -150,4 +107,5 @@
 	<script src="/js/app.js"></script>
 	<script src="/js/script.js"></script>
 </body>
+
 </html>

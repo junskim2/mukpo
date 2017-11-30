@@ -20,4 +20,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 
+	<!-- 마이페이지 포인트내역 -->
+	<select id="selectPoint" parameterType="poVO" resultType="poVO">
+		SELECT * FROM point WHERE m_id = '${mId}'
+
+	</select>
+
+	<!-- 마이페이지 날짜검색 포인트내역 -->
+	<select id="selectPointDate" parameterType="poVO" resultType="poVO">
+		SELECT * FROM point WHERE m_id = '${mId}' AND p_date BETWEEN TO_DATE('${startDate}', 'yyyy/mm/dd') AND TO_DATE('${endDate}', 'yyyy/mm/dd')
+	</select>
+	
+	<!-- 마이페이지 먹포인트 충전 메인 -->
+	<select id="selectPointCharge" parameterType="poVO" resultType="poVO">
+		SELECT * FROM (SELECT * FROM point WHERE m_id='${mId}' ORDER BY p_date DESC) WHERE rownum=1 
+	</select>
+	
+	<!-- 회원명 검색 -->
+	<select id="selectMemberName" parameterType="userVO" resultType="userVO">
+		SELECT * FROM member WHERE m_id = #{mId}
+	</select>
+	
+	<!-- 먹포인트 충전 -->
+	<insert id="insertPoint" parameterType="poVO">
+		INSERT INTO point (p_id, m_id, p_date, p_as, p_store, p_price, p_cruntmoney) VALUES (seq_point_p_id.nextval, #{mId}, sysdate, '충전', '포인트충전', #{pPrice}, #{pCruntmoney})
+	</insert>
+
 </mapper>

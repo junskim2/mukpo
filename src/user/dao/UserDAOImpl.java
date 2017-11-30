@@ -1,5 +1,7 @@
 package user.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,7 +15,7 @@ import user.domain.UserVO;
 public class UserDAOImpl implements UserDAO{
 
 	   @Autowired
-	   private SqlSessionTemplate commonss;
+	   private SqlSessionTemplate userss;
 
 	public int insertMemberJoin(UserVO vo) { //사용자 회원가입
 
@@ -25,7 +27,7 @@ public class UserDAOImpl implements UserDAO{
 		UserVO userVO = null;
 		
 		try {
-			userVO = commonss.selectOne("user.userLogin", vo);
+			userVO = userss.selectOne("user.userLogin", vo);
 		}catch(Exception e) {
 			System.out.println("UserDAOImpl / idLogin 실패"+ e.getMessage());
 		}
@@ -46,18 +48,8 @@ public class UserDAOImpl implements UserDAO{
 		return userVO;
 	}
 
-	@Override
-	public PointVO selectPoint(PointVO vo) { //마이페이지 - 포인트 현황
-		PointVO pointVO = null;
-		
-		return pointVO;
-	}
+	
 
-	@Override
-	public int insertPoint(PointVO vo) { //마이페이지 - 포인트 적립
-		
-		return 0;
-		}
 
 	@Override
 	public FavoriteVO selectFS(FavoriteVO vo) { //마이페이지 - 즐겨찾기 상점 목록
@@ -72,5 +64,34 @@ public class UserDAOImpl implements UserDAO{
 		
 		return reviewVO;
 	}
+	
+//	1130 아름 포인트관련 내용 추가
+	@Override
+	public List<PointVO> selectPoint(PointVO vo) { // 마이페이지 - 포인트 현황
+		return userss.selectList("user.selectPoint", vo);
+	}
+
+	@Override
+	public int insertPoint(PointVO vo) { // 마이페이지 - 포인트 적립
+
+		return userss.insert("user.insertPoint", vo);
+	}
+	
+	@Override
+	public List<PointVO> selectPointDate(PointVO vo) {	//마이페이지 - 먹포인트 현황 (날짜검색)
+		return userss.selectList("user.selectPointDate", vo);
+	}
+
+	@Override
+	public PointVO selectPointCharge(PointVO pointVO) {	// 마이페이지 - 현재포인트
+		return userss.selectOne("user.selectPointCharge", pointVO);
+	}
+
+	@Override
+	public UserVO selectMemberName(UserVO userVO) {	// 회원명 검색
+		return userss.selectOne("user.selectMemberName", userVO);
+	}
+	
+//	아름 추가 끝
 
 }

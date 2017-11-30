@@ -51,3 +51,61 @@ strong[name="datetext"] {
 #calendarsearch {
 	text-align: right;
 }
+
+
+.searchbtn {
+    min-width: auto;
+    margin-left: 5%;
+    width: 100%;
+    float: none;
+    margin-bottom: 0px;
+}
+
+input[name="startDate"], input[name="endDate"] {
+    width: 15%;
+    text-align: center;
+}
+
+div.container .pointmaincenter {
+    /* float: initial; */
+    margin-left: 25%;
+    width: 50%;
+    margin-right: 25%;
+    background: #ffffff;
+    padding: 35px 30px 40px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    -ms-border-radius: 17px;
+    -o-border-radius: 17px;
+    border-radius: 17px;
+}
+
+.row>div h5[name="mypoint"] {
+	color: #20202f;
+	
+	
+}
+
+input[name="pPrice"] {
+	width: 50%;
+	float: right;
+	margin-bottom: 0px;
+	
+}
+
+.row>div h6[name="mypointprice"] {
+	float: left;
+    padding-top: 10px;
+}
+
+.row>div h6[name="mypointnotice"] {
+	float: left;
+	margin-right: 
+}
+
+small ol li {
+	margin-left: 20%;
+}
+.checkout-total {
+	border-bottom: 0px;
+}
