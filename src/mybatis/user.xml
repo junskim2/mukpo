@@ -51,12 +51,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 마이페이지 주간예약 매장 검색 -->
+<!-- 마이페이지 주간예약 매장 검색 -->
 <select id="getaddr" parameterType="java.util.HashMap" resultType="storeVO">
-        SELECT s_name
-        FROM store
-        WHERE s_name like '%'||'${search}'||'%'
-        </select>
-</mapper>
+               SELECT s_name
+               FROM store
+               WHERE s_name like '%'||'${search}'||'%' 
+               or s_sido like '%'||'${search}'||'%'
+               or s_sigungu like '%'||'${search}'||'%'
+               or s_cate like '%'||'${search}'||'%'
+</select>
 
 	<!-- 생생리뷰 -->
 <!-- 	<select id="selectLatelyReview" parameterType="java.util.HashMap" resultType="java.util.HashMap"> -->
