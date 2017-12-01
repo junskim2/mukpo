@@ -8,6 +8,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Checkout - Laboom</title>
+<%String param[] = request.getParameterValues("name"); %>
+<%String result[] = request.getParameterValues("result"); %>
+<%String price[] = request.getParameterValues("price"); %>
+<%int onetotal[]=null; %>
+<%int total=0; %>
+<%String id = (String)session.getAttribute("userName");%>
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -25,11 +31,11 @@
 <link href="/css/responsive.css" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$("#pay").click(function() {
-			location.href="reservePaymentOk.do";
-		});
-	});
+// 	$(function() {
+// 		$("#pay").click(function() {
+// 			location.href="reservePaymentOk.do";
+// 		});
+// 	});
 </script>
 </head>
 <body>
@@ -67,6 +73,7 @@
 					<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown"
 						data-wow-duration="1000ms" data-wow-delay="300ms">
 						<div class="shop-checkout-right">
+						<form action="reservePaymentOk.do" method="post">
 							<div class="shop-checkout-box">
 								<h5>결제 정보</h5>
 								<div class="shop-checkout-title">
@@ -75,14 +82,26 @@
 									</h6>
 								</div>
 								<div class="shop-checkout-row">
+									<%for(int i=0; i<param.length; i++){ %>
 									<p>
-										<span>여기에 주문내역을 띄워줘야 한단다</span>
+									<!-- 메뉴 리스트 출력 화면 윤경식 추가 -->
+										<span>메뉴 명 :<%=param[i]%> 수량 : <%=result[i] %> 가격 : <%=price[i] %></span>
+									
 									</p>
+									<%
+									}
+									%>
 								</div>
 								
 								<div class="checkout-total">
 									<h6>
-										결제금액 <small>13000원</small>
+										결제금액 <small><!--총 금액  윤경식 추가  -->
+										<%for(int j=0; j<price.length; j++){
+											total+=Integer.parseInt(price[j])*Integer.parseInt(result[j]);
+										}
+										%>
+										<%=total %>원
+										</small>
 									</h6>
 								</div>
 								<div class="checkout-total">
@@ -100,13 +119,18 @@
 										</div>
 
 										<div class="checkout-button">
-											<button id="pay" class="button-default btn-large btn-primary-gold">결제하기</button>
+										<input type="hidden" name="<%=total%>" />   <!--총 금액-->
+										<input type="hidden" name="<%=id%>" />		<!--아이디-->
+										
+											<input type="submit" id="pay" class="button-default btn-large btn-primary-gold" value="예약하기"/>
 										</div>
 									</div>
 
 								</div>
 							</div>
+						</form>
 						</div>
+						
 					</div>
 
 				</div>

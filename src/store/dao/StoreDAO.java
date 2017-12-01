@@ -66,7 +66,7 @@ public interface StoreDAO {
 	// 매장의 메뉴를 출력하는 기능 구현
 	List<MenuVO> selectMenuList(MenuVO menuVO);
 	
-	//ㄳ
+	// 1201 경식 메뉴리스트
 	List<MenuVO> selectMenuList(StoreVO storeVO);
 
 	// 매장의 블랙리스트를 등록하는 기능 구현

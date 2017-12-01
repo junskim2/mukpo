@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{csId},#{rCid},#{csCongestion},#{csCnt},#{csTime},#{csYn})
 	</insert>
 
-	<!-- 경식추가 사용자 매뉴리스트 -->
+	<!-- 1201 경식추가 사용자 매뉴리스트 -->
 	<select id="selectMenuList" resultType="menuVO" parameterType="storeVO">
 		SELECT * FROM menu WHERE r_cid = #{rCid}
 	</select>
@@ -99,5 +99,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM store WHERE
 		r_cid = #{rCid}
 	</select>
-
+	
+	<!-- 	사용자 매뉴리스트 --><!-- 1201 경식 추가 -->
+	<select id="selectMenuList" resultType="menuVO" parameterType="storeVO">
+		SELECT * FROM menu WHERE r_cid = #{rCid}
+	</select>
 </mapper>
