@@ -1,8 +1,13 @@
 package pos.dao;
 
+import java.util.List;
+
 import pos.domain.CongestionSetVO;
 import pos.domain.OrderListVO;
 import pos.domain.PaymentVO;
+import reserve.domain.ReserveVO;
+import store.domain.MenuVO;
+import store.domain.TableSetVO;
 
 public interface PosDAO {
 	// 오늘날짜 예약 포스기 화면에 띄어주기 -> select FROM 예약
@@ -38,14 +43,14 @@ public interface PosDAO {
 	void updateCongestionset(CongestionSetVO cVO); 
 	
 	// 혼잡도 보여주기
-	CongestionSetVO selectCongestionset(String rCid);
+	CongestionSetVO selectCongestionset(CongestionSetVO vo);
 	
 	// 주문하기
 	void insertOrderList(OrderListVO olVO);	// 주문취소
 	//	void uapdateOyn();
 	
 	// 주문 내역보기
-	void selectOrderList();
+	List<OrderListVO> selectOrderList(String rCid);
 	
 //	// 결제 취소/완료
 //	void updatePyn();			// ---------- 주문취소와 결제취소/완료 합치기
@@ -56,4 +61,15 @@ public interface PosDAO {
 	
 	// 결제 취소할 때 결제테이블 상태값 바꿔주기
 	void updatePstate(PaymentVO ppVO);
+
+	//성현 추가
+	// 사업자등록번호를 통한 메뉴리스트 가져오기
+	List<MenuVO> selectMenuList(String rCid);
+
+	// 사업자등록번호를 통한 매장 테이블정보 가져오기
+	TableSetVO selectTableSet(String rCid);
+
+	// 예약리스트 가져오기
+	List<ReserveVO> selectReserveList(String rCid);
+
 }

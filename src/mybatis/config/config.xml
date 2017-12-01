@@ -12,6 +12,7 @@
 		<!-- pos -->
 		<typeAlias type="pos.domain.CongestionSetVO" alias="conVO" />
 		<typeAlias type="pos.domain.PaymentVO" alias="payVO" />
+		<typeAlias type="pos.domain.OrderListVO" alias="olVO" />
 		<!-- reserve -->
 		<typeAlias type="reserve.domain.FavoriteWeekVO" alias="favWeekVO" />
 		<typeAlias type="reserve.domain.ReserveMenuVO" alias="resMenuVO" />

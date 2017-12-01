@@ -79,7 +79,7 @@
 															<h3>${sl.sName}</h3>
 														</div>
 														<div class="service-track-overlay banner-bg">
-															<a href="#" class="btn-black" style="margin-bottom: 70%;">POS기</a>
+															<a href="/pos/posMain.do?rCid=${sl.rCid}" class="btn-black" style="margin-bottom: 70%;">POS기</a>
 
 															<a href="storeSetting.do?rCid=${sl.rCid }" class="btn-black">설정</a>
 														</div>

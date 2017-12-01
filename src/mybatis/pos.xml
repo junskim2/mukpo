@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pos">
+	<!-- 성현추가 -->
+	<!-- 메뉴리스트 가져오는 기능 구현 -->
+	<select id="selectMenuList" resultType="menuVO" parameterType="String">
+		SELECT * FROM menu
+		WHERE
+		r_cid=#{rCid}
+	</select>
+
+	<!-- 성현추가 -->
+	<!-- 주문목록 가져오는 기능 구현 -->
+	<select id="selectOrderList" resultType="olVO" parameterType="String">
+		SELECT * FROM orderlist
+		WHERE
+		r_cid=#{rCid}
+	</select>
+	
+	<!-- 성현추가 -->
+	<!-- 테이블정보 가져오는 기능 구현 -->
+	<select id="selectTableSet" resultType="tSetVO" parameterType="String">
+		SELECT * FROM tableset
+		WHERE
+		r_cid=#{rCid}
+	</select>
+	
+	<!-- 성현추가 -->
+	<!-- 혼잡도 정보 가져오는 기능 구현 -->
+	<select id="selectCongestionset" resultType="conVO" parameterType="conVO">
+		SELECT * FROM congestionset
+		WHERE
+		r_cid=#{rCid} AND cs_congestion=#{csCongestion}
+	</select>
+	
+	<!-- 성현추가 -->
+	<!-- 예약 정보 가져오는 기능 구현 -->
+	<select id="selectReserveList" resultType="resVO" parameterType="String">
+		SELECT * FROM reservelist
+		WHERE
+		r_cid=#{rCid}
+	</select>
+</mapper>
