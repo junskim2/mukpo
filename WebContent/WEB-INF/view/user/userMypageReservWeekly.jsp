@@ -29,7 +29,6 @@
     <link href="/plugin/animation/animate.min.css" rel="stylesheet">
     <link href="/css/theme.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
-    <link href="/css/common/jquery.auto-complete.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
 
     
@@ -199,8 +198,6 @@ $(function(){
          <!-- Back To Top Arrow -->
     <a href="#" class="top-arrow"></a>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="/js/common/jquery.auto-complete.js"></script>
-    <script src="/js/common/jquery.auto-complete.min.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>

@@ -146,11 +146,10 @@
                      <form action="common/home.do" class="login-form" method="post" name="login">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt"
-                                 placeholder="Username or email address" class="input-fields">
+                              <input type="text" name="mId" placeholder="Username or email address" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password" placeholder="********"
+                              <input type="password" name="mPw" placeholder="********"
                                  class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
