@@ -12,6 +12,7 @@ import pos.dao.PosDAO;
 import pos.domain.CongestionSetVO;
 import pos.domain.OrderListVO;
 import reserve.domain.ReserveVO;
+import store.dao.StoreDAO;
 import store.domain.MenuVO;
 import store.domain.TableSetVO;
 
@@ -21,6 +22,8 @@ public class PosController {
 
 	@Autowired
 	private PosDAO posDAO;
+	@Autowired
+	private StoreDAO storeDAO;
 
 	// 화면띄우기
 	@RequestMapping(value = "/{url}.do")
@@ -75,5 +78,20 @@ public class PosController {
 		
 		return mv;
 	}
+	
+// 1201 현희 주문하기
+		@RequestMapping(value="/posOrder.do")
+		public ModelAndView posOrder(String tableNum, MenuVO menuVO) {
+			List<MenuVO> menuVOCate = storeDAO.selectMenuCate(menuVO); // 매장의 메뉴 카테고리 가져오는 기능 구현
+			List<MenuVO> menuVOList = storeDAO.selectMenuList(menuVO); // 매장의 메뉴를 출력하는 기능 구현
+			
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("pos/posOrder");
+			mv.addObject("tableNum", tableNum);
+			mv.addObject("menuVOCate", menuVOCate);
+			mv.addObject("menuVOList", menuVOList);
+			
+			return mv;
+		}
 
 }

@@ -81,7 +81,7 @@
 											<img src="/images/table${status.count }.png" alt="">
 											<div class="cart-overlay-wrap">
 												<div class="cart-overlay">
-													<a href="#" class="shop-cart-btn">ADD TO TABLE</a>
+													<a href="/pos/posOrder.do?rCid=${ tableSet.rCid }&tableNum=${ status.count }" class="shop-cart-btn">ADD TO TABLE</a>
 												</div>
 											</div>
 										</div>
