@@ -24,7 +24,7 @@
 <title>먹포 - 먹고갈래? 포장할래?</title>
 <style type="text/css">
 #mainLogo2 {
-   height: 80%;
+/*    height: 80%; */
    width: 80%;
 }
 
