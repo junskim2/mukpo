@@ -1,5 +1,6 @@
 package store.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -98,12 +99,6 @@ public class StoreDAOImpl implements StoreDAO {
 	}
 
 	@Override
-	public TableSetVO selectTableSetSearch(StoreVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int insertMenu(MenuVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -120,13 +115,6 @@ public class StoreDAOImpl implements StoreDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	//매장의 매뉴 리스트  경식 추가
-		@Override
-		public List<MenuVO> selectMenuList(StoreVO vo) {
-			// TODO Auto-generated method stub
-			return storess.selectList("store.selectMenuList", vo);
-		}
 
 	@Override
 	public int insertBlackList(BlackListVO vo) {
@@ -163,6 +151,51 @@ public class StoreDAOImpl implements StoreDAO {
 	@Override
 	public int insertCongestionset(CongestionSetVO vo) {
 		return storess.insert("store.insertCongestionset", vo);
+	}
+
+	// 1130 아름 StoreVO -> MenuVO로 수정
+	// 매장의 메뉴를 출력하는 기능 구현
+	@Override
+	public List<MenuVO> selectMenuList(MenuVO menuVO) {
+		return storess.selectList("store.selectMMenuList", menuVO);
+	}
+	
+	@Override
+	public List<MenuVO> selectMenuList(StoreVO storeVO) {
+		return storess.selectList("store.selectMenuList", storeVO);
+	}
+
+	// 1130 아름 매장의 메뉴 카테고리 가져오는 기능 구현
+	@Override
+	public List<MenuVO> selectMenuCate(MenuVO menuVO) {
+		return storess.selectList("store.selectMenuCate", menuVO);
+	}
+
+	// 1130 아름 매장 리뷰 가져오는 기능 구현
+	@Override
+	public List<HashMap> selectReviewList(MenuVO menuVO) {
+		HashMap<String, String> hashMap = new HashMap<String, String>();
+		hashMap.put("rCid", menuVO.getrCid());
+		return storess.selectList("store.selectReviewList", menuVO);
+	}
+
+	// 1130 아름 매장 혼잡도 가져오는 기능 구현
+	@Override
+	public String selectCongestionset(CongestionSetVO congestionSetVO) {
+		return storess.selectOne("store.selectCongestionset", congestionSetVO);
+	}
+
+	// 1130 아름 StoreVO -> TableSetVO 로 수정
+	// 선택한 매장에 대한 테이블 정보를 가져오는 기능 구현
+	@Override
+	public TableSetVO selectTableSetSearch(TableSetVO tableSetVO) {
+		return storess.selectOne("store.selectTableSetSearch", tableSetVO);
+	}
+
+	// 1130 매장설명 가져오는 기능 구현
+	@Override
+	public StoreVO selectStore(StoreVO storeVO) {
+		return storess.selectOne("store.selectStore", storeVO);
 	}
 
 }

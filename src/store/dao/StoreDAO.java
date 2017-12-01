@@ -1,5 +1,6 @@
 package store.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import pos.domain.CongestionSetVO;
@@ -50,7 +51,7 @@ public interface StoreDAO {
 	List<StoreVO> selectStoreList(BossVO vo);
 
 	// 선택한 매장에 대한 테이블 정보를 가져오는 기능 구현
-	TableSetVO selectTableSetSearch(StoreVO vo);
+	TableSetVO selectTableSetSearch(TableSetVO tableSetVO);
 
 	// 매장의 메뉴를 등록하는 기능 구현
 	int insertMenu(MenuVO vo);
@@ -61,8 +62,12 @@ public interface StoreDAO {
 	// 매장의 메뉴를 삭제하는 기능 구현
 	int updateMenuDelete(MenuVO vo);
 
+	// 1130 아름 StoreVO -> MenuVO로 수정
 	// 매장의 메뉴를 출력하는 기능 구현
-	List<MenuVO> selectMenuList(StoreVO vo);
+	List<MenuVO> selectMenuList(MenuVO menuVO);
+	
+	//ㄳ
+	List<MenuVO> selectMenuList(StoreVO storeVO);
 
 	// 매장의 블랙리스트를 등록하는 기능 구현
 	int insertBlackList(BlackListVO vo);
@@ -78,7 +83,19 @@ public interface StoreDAO {
 
 	// 사용자 매장검색 리스트
 	List<StoreVO> selectUserStore(StoreVO store);
-	
+
 	// 혼잡도 초기 설정
 	int insertCongestionset(CongestionSetVO vo);
+
+	// 1130 아름 매장의 메뉴 카테고리 가져오는 기능 구현
+	List<MenuVO> selectMenuCate(MenuVO menuVO);
+
+	// 1130 아름 매장 리뷰 가져오는 기능 구현
+	List<HashMap> selectReviewList(MenuVO menuVO);
+
+	// 1130 아름 매장 혼잡도 가져오는 기능 구현
+	String selectCongestionset(CongestionSetVO congestionSetVO);
+
+	// 1130 매장설명 가져오는 기능 구현
+	StoreVO selectStore(StoreVO storeVO);
 }

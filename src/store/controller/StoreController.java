@@ -1,5 +1,6 @@
 package store.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -115,32 +116,32 @@ public class StoreController {
 		}
 		// End - tableset테이블 등록부분
 
-		//Start - CongestionSet테이블 등록부분
+		// Start - CongestionSet테이블 등록부분
 		CongestionSetVO gConSetVO = new CongestionSetVO();
 		CongestionSetVO yConSetVO = new CongestionSetVO();
 		CongestionSetVO rConSetVO = new CongestionSetVO();
-		
+
 		gConSetVO.setrCid(storeVO.getrCid());
-		gConSetVO.setCsId(storeVO.getrCid()+"_G");
+		gConSetVO.setCsId(storeVO.getrCid() + "_G");
 		gConSetVO.setCsCongestion("G");
 		gConSetVO.setCsCnt(Integer.parseInt(GcsCnt));
 		gConSetVO.setCsTime(GcsTime);
 		gConSetVO.setCsYn("Y");
-		
+
 		yConSetVO.setrCid(storeVO.getrCid());
-		yConSetVO.setCsId(storeVO.getrCid()+"_Y");
+		yConSetVO.setCsId(storeVO.getrCid() + "_Y");
 		yConSetVO.setCsCongestion("Y");
 		yConSetVO.setCsCnt(Integer.parseInt(YcsCnt));
 		yConSetVO.setCsTime(YcsTime);
 		yConSetVO.setCsYn("N");
-		
+
 		rConSetVO.setrCid(storeVO.getrCid());
-		rConSetVO.setCsId(storeVO.getrCid()+"_R");
+		rConSetVO.setCsId(storeVO.getrCid() + "_R");
 		rConSetVO.setCsCongestion("R");
 		rConSetVO.setCsCnt(Integer.parseInt(RcsCnt));
 		rConSetVO.setCsTime(RcsTime);
 		rConSetVO.setCsYn("N");
-		
+
 		int result1 = storeDAO.insertCongestionset(gConSetVO);
 		int result2 = storeDAO.insertCongestionset(yConSetVO);
 		int result3 = storeDAO.insertCongestionset(rConSetVO);
@@ -153,9 +154,9 @@ public class StoreController {
 		if (result3 > 0) {
 			msg = "매장정보 등록 완료!";
 		}
-		
-		//End - CongestionSet테이블 등록부분
-		
+
+		// End - CongestionSet테이블 등록부분
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("store/storeInputOk");
 		mv.addObject("result", result3);
@@ -195,7 +196,7 @@ public class StoreController {
 
 	// 현희 추가
 	// 포장 상세 페이지
-	//경식 바꿈
+	// 경식 바꿈
 	@RequestMapping("/storePdetail.do")
 	public ModelAndView storePdetail(StoreVO vo) {
 		System.out.println("사업자등록번호 rCid로 넘어옴");
@@ -210,8 +211,25 @@ public class StoreController {
 	// 1130 현희 추가
 	// 매장 상세 페이지
 	@RequestMapping(value = "storeMdetail.do")
-	public void storeMdetail(String rCid) {
-		// 사업자등록번호 rCid로 넘어옴
+	public ModelAndView storeMdetail(MenuVO menuVO, CongestionSetVO congestionSetVO, TableSetVO tableSetVO,
+			StoreVO storeVO) {
+		// 1130 아름 추가
+		List<MenuVO> menuVOCate = storeDAO.selectMenuCate(menuVO); // 매장의 메뉴 카테고리 가져오는 기능 구현
+		List<MenuVO> menuVOList = storeDAO.selectMenuList(menuVO); // 매장의 메뉴를 출력하는 기능 구현
+		String congestionState = (String) storeDAO.selectCongestionset(congestionSetVO); // 매장의 혼잡도 가져오는 기능 구현
+		tableSetVO = storeDAO.selectTableSetSearch(tableSetVO); // 매장의 테이블정보 가져오기
+		storeVO = storeDAO.selectStore(storeVO); // 매장설명 가져오는 기능 구현
+		List<HashMap> reviewList = storeDAO.selectReviewList(menuVO); // 매장의 리뷰 가져오는 기능 구현
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("store/storeMdetail");
+		mv.addObject("menuVOCate", menuVOCate);
+		mv.addObject("menuVOList", menuVOList);
+		mv.addObject("congestionState", congestionState);
+		mv.addObject("tableSetVO", tableSetVO);
+		mv.addObject("storeVO", storeVO);
+		mv.addObject("reviewList", reviewList);
+		return mv;
 	}
 
 }
