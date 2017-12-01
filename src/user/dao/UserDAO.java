@@ -1,5 +1,6 @@
 package user.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import store.domain.StoreVO;
@@ -35,5 +36,5 @@ public interface UserDAO {
 	List<StoreVO> getAddrList(StoreVO vo); //마이페이지 - 주간예약 매장 검색 ajax
 	
 // 1201 현희 추가
-	List<ReviewVO> selectLatelyReview(String mp); // 메인 - 생생리뷰
+	List<HashMap> selectLatelyReview(String mp); // 메인 - 생생리뷰
 }

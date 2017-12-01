@@ -1,6 +1,7 @@
 package common.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -64,8 +65,8 @@ public class CommonController {
 // 1130 현희 sPM -> sMp로 이름 통일
 		mv.addObject("sMp", mp);
 // 1201 현희 생생리뷰 디비 값 가져오기
-//		List<ReviewVO> review = userDAO.selectLatelyReview(mp);
-//		mv.addObject("review", review);
+		List<HashMap> review = userDAO.selectLatelyReview(mp);
+		mv.addObject("review", review);
 		
 		return mv;
 	}
@@ -79,8 +80,8 @@ public class CommonController {
 // 1130 현희 sPM -> sMp로 이름 통일 
 		mv.addObject("sMp", mp);
 // 1201 현희 생생리뷰 디비 값 가져오기
-//		List<ReviewVO> review = userDAO.selectLatelyReview(mp);
-//		mv.addObject("review", review);
+		List<HashMap> review = userDAO.selectLatelyReview(mp);
+		mv.addObject("review", review);
 		
 		return mv;
 	}

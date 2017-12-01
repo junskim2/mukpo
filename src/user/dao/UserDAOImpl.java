@@ -98,7 +98,7 @@ public class UserDAOImpl implements UserDAO{
 		
 // 1201 현희 추가
 		@Override
-		public List<ReviewVO> selectLatelyReview(String mp) { // 메인 - 생생리뷰
+		public List<HashMap> selectLatelyReview(String mp) { // 메인 - 생생리뷰
 			HashMap map = new HashMap();
 			map.put("rMpwp", mp);
 			return userss.selectList("user.selectLatelyReview", map);
