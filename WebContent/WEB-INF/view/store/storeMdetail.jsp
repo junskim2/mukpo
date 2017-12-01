@@ -53,7 +53,7 @@
 				<div class="blog-right-listing wow fadeInDown"
 					data-wow-duration="1000ms" data-wow-delay="300ms">
 					<div class="feature-img">
-						<img src="/images/img54.png" alt="">
+						<img src="${ storeVO.sUrl }" alt="">
 
 					</div>
 				</div>
@@ -115,53 +115,66 @@
 			</div>
 		</div>
 	</section>
-
 	<!--혼잡도 표시 -->
 	<div class="StoreMdetail_congestion">
 		혼잡도 &nbsp;
 		<c:choose>
 			<c:when test="${ congestionState eq 'G' }">
-				<img src="/images/congestion_green.png" />
+				<img src="/images/congestion_green.png" /> &nbsp; 여유
 			</c:when>
 			<c:when test="${ congestionState eq 'Y' }">
-				<img src="/images/congestion_orange.png" />
+				<img src="/images/congestion_orange.png" /> &nbsp; 보통
 			</c:when>
 			<c:when test="${ congestionState eq 'R' }">
-				<img src="/images/congestion_red.png" />
+				<img src="/images/congestion_red.png" /> &nbsp; 혼잡
 			</c:when>
 		</c:choose>
 	</div>
 	<!--혼잡도표시 끝 -->
 	<!-- 1130 아름 예약정보입력 -->
-	<form action="">
-		<!--예약 테이블 선택  -->
+	<!--예약 테이블 선택  -->
+	<c:choose>
+		<c:when test="${ tableSetVO eq null }">
+			<h5>등록된 테이블이 없습니다.</h5>
+		</c:when>
+		<c:otherwise>
+			<h5>테이블 선택시 예약 가능합니다.</h5>
+			<div class="StoreMdetail_tablechoice col-md-6 col-sm-6 col-xs-12">
+				<c:forEach begin="1" end="${ tableSetVO.tCnt }" varStatus="no">
+					<div
+						class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown animated"
+						data-wow-duration="1000ms" data-wow-delay="300ms"
+						style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
+						<div class="shop-main-list" style="height: 165px;">
+							<div class="shop-product">
+								<img src="/images/table${ no.count }.png" alt="" />
+								<div class="cart-overlay-wrap">
+									<div class="cart-overlay">
+										<form action="/reserve/reserveM.do" method="POST">
+											<!-- 사업자등록번호 -->
+											<input type="hidden" name="rCid" value="${ param.rCid }">
+											<input type="hidden" name="rTnum" value="${ no.count }" /> <input
+												type="submit" class="shop-cart-btn" value="예약하기">
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</c:otherwise>
+
+	</c:choose>
+	<!--예약 테이블 선택 끝  -->
+	<div class="reserveM">
 		<c:choose>
 			<c:when test="${ tableSetVO eq null }">
-				<h5>등록된 테이블이 없습니다.</h5>
-
+				<input type="submit" class="btn-black reserveM" value="테이블 없이 예약하기" />
 			</c:when>
-			<c:otherwise>
-		${ tableSetVO.tCnt }
-			<div class="StoreMdetail_tablechoice col-md-6 col-sm-6 col-xs-12">
-					<c:forEach begin="1" end="${ tableSetVO.tCnt }" varStatus="no">
-						<input type="button" value="${ no.count }">
-					</c:forEach>
-				</div>
-			</c:otherwise>
-
 		</c:choose>
-		<!--예약 테이블 선택 끝  -->
-		<div class="reserveM">
-			<c:choose>
-				<c:when test="${ tableSetVO eq null }">
-					<input type="submit" class="btn-black reserveM" value="테이블 없이 예약하기" />
-				</c:when>
-				<c:otherwise>
-					<input type="submit" class="btn-black reserveM" value="예약하기" />
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</form>
+	</div>
 	<!-- 예약 끝 -->
 	<div class="main-part">
 		<!-- Start Breadcrumb Part -->

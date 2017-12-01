@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,32 +77,33 @@
 								</div>
 								<div class="shop-checkout-row">
 									<p>
-										<span>여기에 테이블을 띄워줘야 한단다</span>
+										<span>${ reserveInfo.rTnum }</span>
 									</p>
 								</div>
 								<div class="checkout-total">
 									<h6>
-										예약 시간 <small>2017년 11월 22일 오후 12시 40분</small>
+										예약 시간 <small>${ reserveInfo.rDate } ${ reserveInfo.rTime }
+										</small>
 									</h6>
 								</div>
 								<div class="checkout-total">
 									<h6>
-										인원수 <small>6명</small>
+										인원수 <small>${ reserveInfo.rPnum }명</small>
 									</h6>
 								</div>
 								<div class="checkout-total">
 									<h6>
-										전화번호 <small>010-0000-0000</small>
+										전화번호 <small>${ rTel }</small>
 									</h6>
 								</div>
 								<div class="checkout-total">
 									<h6>
-										이름 <small>김밍키</small>
+										이름 <small>${ rName }</small>
 									</h6>
 								</div>
 								<div class="checkout-total">
 									<h6>요청사항</h6>
-									<br /> <span>요청사항을 요청요청합니다.</span>
+									<br /> <span>${ rMemo }</span>
 								</div>
 							</div>
 
@@ -112,62 +115,18 @@
 							<h6>메뉴 선택</h6>
 							<br />
 							<div class="portfolioContainer row">
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item breakfast">
-									<div class="menu-list-copy">
-										<h5>
-											LASAL CHEESE <span>$ 15.00</span>
-										</h5>
+								<c:forEach items="${ payMenuList }" var="menuList">
+
+									<div
+										class="col-md-12 col-sm-6 col-xs-12 isotope-item ${ menuList.mCate }">
+										<div class="menu-list-copy">
+											<h5>
+												${ menuList.mName } <span><fmt:formatNumber
+														value="${ menuList.mPrice }" type="number" /></span>
+											</h5>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item lunch">
-									<div class="menu-list-copy">
-										<h5>
-											JUMBO CARB SHRIMP <span>$ 25.00</span>
-										</h5>
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item dessert">
-									<div class="menu-list-copy">
-										<h5>
-											SURMAI CHILLI <span>$ 15.00</span>
-										</h5>
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item dinner">
-									<div class="menu-list-copy">
-										<h5>
-											CAPO STEAK <span>$ 45.00</span>
-										</h5>
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item freshfood">
-									<div class="menu-list-copy">
-										<h5>
-											ORGANIC FRUIT SALAD <span>$ 15.00</span>
-										</h5>
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item freshfood">
-									<div class="menu-list-copy">
-										<h5>
-											PRAWNS BUTTER GARLIC <span>$ 15.00</span>
-										</h5>
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item dessert">
-									<div class="menu-list-copy">
-										<h5>
-											CHInese Egg Cake <span>$ 15.00</span>
-										</h5>
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item dinner">
-									<div class="menu-list-copy">
-										<h5>
-											Beef SpaghettI <span>$ 45.00</span>
-										</h5>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
