@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checkout - Laboom</title>
+<title>먹포 - 포스기</title>
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">

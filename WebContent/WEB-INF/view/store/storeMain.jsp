@@ -71,7 +71,8 @@
 
 									</c:when>
 									<c:otherwise>
-										<c:forEach items="${storeList}" var="sl">
+<!-- 1201 현희 DB값 너무 많아서 숫자제한 -->									
+										<c:forEach items="${storeList}" var="sl" end="16">
 											<div class="item">
 												<div class="col-md-12 col-sm-6 col-xs-12">
 													<div class="service-track-inner btn-shadow">
