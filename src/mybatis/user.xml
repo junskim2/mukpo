@@ -50,4 +50,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO point (p_id, m_id, p_date, p_as, p_store, p_price, p_cruntmoney) VALUES (seq_point_p_id.nextval, #{mId}, sysdate, '충전', '포인트충전', #{pPrice}, #{pCruntmoney})
 	</insert>
 
+	<!-- 생생리뷰 -->
+	<select id="selectLatelyReview" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT c.rv_content AS rv_content, c.rv_date AS rv_date, c.r_cid AS r_cid, c.s_name AS s_name, c.m_name AS m_name
+		FROM (SELECT a.rv_content AS rv_content, a.rv_date AS rv_date, b.r_cid AS r_cid, b.s_name AS s_name, d.m_name AS m_name
+				FROM review a,
+		        (SELECT r_id, r_cid, s_name FROM reservelist WHERE r_mpwp = '${rMpwp}') b,
+		        (SELECT m_name FROM member WHERE m_id IN (SELECT m_id FROM reservelist) ) d
+				WHERE a.r_id IN b.r_id
+				ORDER BY rv_date DESC) c
+		<where>
+			ROWNUM <![CDATA[ <= ]]> 6;
+		</where>
+	</select>
+
 </mapper>

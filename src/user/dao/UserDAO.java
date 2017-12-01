@@ -30,4 +30,7 @@ public interface UserDAO {
 	FavoriteVO selectFS(FavoriteVO vo); // 마이페이지 - 즐겨찾기목록
 
 	ReviewVO selectReview(ReviewVO vo); // 마이페이지 - 내가 쓴 후기
+	
+// 1201 현희 추가
+	List<ReviewVO> selectLatelyReview(String mp); // 메인 - 생생리뷰
 }

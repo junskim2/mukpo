@@ -1,5 +1,6 @@
 package user.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -93,5 +94,13 @@ public class UserDAOImpl implements UserDAO{
 		}
 	
 //	아름 추가 끝
+		
+// 1201 현희 추가
+		@Override
+		public List<ReviewVO> selectLatelyReview(String mp) { // 메인 - 생생리뷰
+			HashMap map = new HashMap();
+			map.put("rMpwp", mp);
+			return userss.selectList("user.selectLatelyReview", map);
+		}
 
 }

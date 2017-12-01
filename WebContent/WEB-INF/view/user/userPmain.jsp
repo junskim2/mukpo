@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-/W3C/DTD HTML 4.01 Transitional/EN" "http:/www.w3.org/TR/html4/loose.dtd">
-<!-- <!DOCTYPE html> -->
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -124,6 +124,8 @@
                         </div>
                         <div class="feature-blog feature-label">
                             <div class="owl-carousel owl-theme" data-items="2" data-laptop="2" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
+<!-- 1201 현희 리뷰 DB값 연결 /아직 연결안되고 P는 값이 없음 -->           
+                 				<c:forEach var="re" items="${ review }" >
                                 <div class="item">
                                     <div class="feature-img">
                                         <img src="/images/img15.png" alt="">
@@ -131,83 +133,91 @@
                                             <br> <small>oct</small></div>
                                     </div>
                                     <div class="feature-info">
-                                        <span><i class="icon-user"></i> 김현희 </span>
-<!--                                         <span><i class="icon-comment"></i> 5 Comments</span> -->
-                                        <h5>밍키의 눈칫밥상 1호점</h5>
-                                        <p>음식은 맛있었어요!! 사장님 이상한 요술봉 들고다니는게 함정..</p>
+                                        <span><i class="icon-user"></i> ${ re.M_NAME } </span>
+                                        <h5>${ re.S_NAME }</h5>
+                                        <p>${ re.RV_CONTENT }</p>
                                         <a href="#">더보기 <i class="icon-more"></i></a>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="feature-img">
-                                        <img src="/images/img16.png" alt="">
-                                        <div class="date-feature">23
-                                            <br> <small>oct</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> 김민우</span>
-<!--                                         <span><i class="icon-comment"></i> 5 Comments</span> -->
-                                        <h5>야생마의 마굿간떡볶이</h5>
-                                        <p>엄청 매워요 ㅠ 이름만 마굿간인줄 알았는데 진짜 마굿간에서 장사해요</p>
-                                        <a href="#">더보기 <i class="icon-more"></i></a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="feature-img">
-                                        <img src="/images/img15.png" alt="">
-                                        <div class="date-feature">12
-                                            <br> <small>oct</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> 윤경식</span>
-<!--                                         <span><i class="icon-comment"></i> 5 Comments</span> -->
-                                        <h5>갱식쓰의 뼉다구찜닭</h5>
-                                        <p>진짜 뼈만 있음.. 뼈만 있어서 1인 2닭함</p>
-                                        <a href="#">더 보기 <i class="icon-more"></i></a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="feature-img">
-                                        <img src="/images/img16.png" alt="">
-                                        <div class="date-feature">06
-                                            <br> <small>may</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> 정성현</span>
-<!--                                         <span><i class="icon-comment"></i> 5 Comments</span> -->
-                                        <h5>주용쓰 잘해줘치킨</h5>
-                                        <p>최고예요 !! 사장님 엄청 잘해주고 못생김ㅎㅎ</p>
-                                        <a href="#">더 보기<i class="icon-more"></i></a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="feature-img">
-                                        <img src="/images/img15.png" alt="">
-                                        <div class="date-feature">11
-                                            <br> <small>jun</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> 이아름</span>
-<!--                                         <span><i class="icon-comment"></i> 5 Comments</span> -->
-                                        <h5>와따 큰 피자</h5>
-                                        <p>엄청 큼 !!! 도우만 !!!!!...</p>
-                                        <a href="#">더보기 <i class="icon-more"></i></a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="feature-img">
-                                        <img src="/images/img16.png" alt="">
-                                        <div class="date-feature">04
-                                            <br> <small>sept</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> 신주용</span>
-<!--                                         <span><i class="icon-comment"></i> 5 Comments</span> -->
-                                        <h5>밍키의 눈칫밥상 1호점</h5>
-                                        <p>그럭저럭 사장님이 자꾸 옆에서 음식 설명함.. 눈치 드럽게 없음 ㅡㅡ</p>
-                                        <a href="#">더보기 <i class="icon-more"></i></a>
-                                    </div>
-                                </div>
+                                </c:forEach>
+<!--                                 <div class="item"> -->
+<!--                                     <div class="feature-img"> -->
+<!--                                         <img src="/images/img15.png" alt=""> -->
+<!--                                         <div class="date-feature">05 -->
+<!--                                             <br> <small>oct</small></div> -->
+<!--                                     </div> -->
+<!--                                     <div class="feature-info"> -->
+<!--                                         <span><i class="icon-user"></i> 김현희 </span> -->
+<!--                                         <h5>밍키의 눈칫밥상 1호점</h5> -->
+<!--                                         <p>음식은 맛있었어요!! 사장님 이상한 요술봉 들고다니는게 함정..</p> -->
+<!--                                         <a href="#">더보기 <i class="icon-more"></i></a> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                                 <div class="item"> -->
+<!--                                     <div class="feature-img"> -->
+<!--                                         <img src="/images/img16.png" alt=""> -->
+<!--                                         <div class="date-feature">23 -->
+<!--                                             <br> <small>oct</small></div> -->
+<!--                                     </div> -->
+<!--                                     <div class="feature-info"> -->
+<!--                                         <span><i class="icon-user"></i> 김민우</span> -->
+<!--                                         <h5>야생마의 마굿간떡볶이</h5> -->
+<!--                                         <p>엄청 매워요 ㅠ 이름만 마굿간인줄 알았는데 진짜 마굿간에서 장사해요</p> -->
+<!--                                         <a href="#">더보기 <i class="icon-more"></i></a> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                                 <div class="item"> -->
+<!--                                     <div class="feature-img"> -->
+<!--                                         <img src="/images/img15.png" alt=""> -->
+<!--                                         <div class="date-feature">12 -->
+<!--                                             <br> <small>oct</small></div> -->
+<!--                                     </div> -->
+<!--                                     <div class="feature-info"> -->
+<!--                                         <span><i class="icon-user"></i> 윤경식</span> -->
+<!--                                         <h5>갱식쓰의 뼉다구찜닭</h5> -->
+<!--                                         <p>진짜 뼈만 있음.. 뼈만 있어서 1인 2닭함</p> -->
+<!--                                         <a href="#">더 보기 <i class="icon-more"></i></a> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                                 <div class="item"> -->
+<!--                                     <div class="feature-img"> -->
+<!--                                         <img src="/images/img16.png" alt=""> -->
+<!--                                         <div class="date-feature">06 -->
+<!--                                             <br> <small>may</small></div> -->
+<!--                                     </div> -->
+<!--                                     <div class="feature-info"> -->
+<!--                                         <span><i class="icon-user"></i> 정성현</span> -->
+<!--                                         <h5>주용쓰 잘해줘치킨</h5> -->
+<!--                                         <p>최고예요 !! 사장님 엄청 잘해주고 못생김ㅎㅎ</p> -->
+<!--                                         <a href="#">더 보기<i class="icon-more"></i></a> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                                 <div class="item"> -->
+<!--                                     <div class="feature-img"> -->
+<!--                                         <img src="/images/img15.png" alt=""> -->
+<!--                                         <div class="date-feature">11 -->
+<!--                                             <br> <small>jun</small></div> -->
+<!--                                     </div> -->
+<!--                                     <div class="feature-info"> -->
+<!--                                         <span><i class="icon-user"></i> 이아름</span> -->
+<!--                                         <h5>와따 큰 피자</h5> -->
+<!--                                         <p>엄청 큼 !!! 도우만 !!!!!...</p> -->
+<!--                                         <a href="#">더보기 <i class="icon-more"></i></a> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                                 <div class="item"> -->
+<!--                                     <div class="feature-img"> -->
+<!--                                         <img src="/images/img16.png" alt=""> -->
+<!--                                         <div class="date-feature">04 -->
+<!--                                             <br> <small>sept</small></div> -->
+<!--                                     </div> -->
+<!--                                     <div class="feature-info"> -->
+<!--                                         <span><i class="icon-user"></i> 신주용</span> -->
+<!--                                         <h5>밍키의 눈칫밥상 1호점</h5> -->
+<!--                                         <p>그럭저럭 사장님이 자꾸 옆에서 음식 설명함.. 눈치 드럽게 없음 ㅡㅡ</p> -->
+<!--                                         <a href="#">더보기 <i class="icon-more"></i></a> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
                             </div>
                         </div>
                     </div>

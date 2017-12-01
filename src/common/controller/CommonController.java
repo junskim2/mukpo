@@ -1,6 +1,7 @@
 package common.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import reserve.dao.ReserveDAO;
 import user.dao.UserDAO;
+import user.domain.ReviewVO;
 import user.domain.UserVO;
 
 @Controller
@@ -56,10 +58,14 @@ public class CommonController {
 	// 홈에서 먹고갈래로 들어왔을 때
 	@RequestMapping("/userMmain.do")
 	public ModelAndView userMmain() {
+		String mp = "M";
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userMmain");
 // 1130 현희 sPM -> sMp로 이름 통일
-		mv.addObject("sMp", "M");
+		mv.addObject("sMp", mp);
+// 1201 현희 생생리뷰 디비 값 가져오기
+		List<ReviewVO> review = userDAO.selectLatelyReview(mp);
+		mv.addObject("review", review);
 		
 		return mv;
 	}
@@ -67,10 +73,14 @@ public class CommonController {
 	// 홈에서 포장할래로 들어왔을 때
 	@RequestMapping("/userPmain.do")
 	public ModelAndView userPmain() {
+		String mp = "P";
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userPmain");
 // 1130 현희 sPM -> sMp로 이름 통일 
-		mv.addObject("sMp", "P");
+		mv.addObject("sMp", mp);
+// 1201 현희 생생리뷰 디비 값 가져오기
+		List<ReviewVO> review = userDAO.selectLatelyReview(mp);
+		mv.addObject("review", review);
 		
 		return mv;
 	}
