@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){			//윤경식 
 	var rCIdArr =new Array();
 	var cntArr =new Array();
 	
@@ -6,8 +6,9 @@ $(document).ready(function(){
 	
 	$(".basket").click(function(){
 		
-		var result=$(this).attr('name');
-		var mName=$(this).attr('menu');
+		var result=$(this).attr('name');  	//수량 가져오기
+		var mName=$(this).attr('menu');		//메뉴명 가져오기
+		var mPrice=$(this).attr('price');	//메뉴가격 가져오기
 		
 		//alert("array.length:"+rCIdArr.length);
 		//alert(array[0]+result)
@@ -16,7 +17,7 @@ $(document).ready(function(){
 		if( rCIdArr.length == 0){
 			rCIdArr[0] = result;
 			cntArr[0] = 1;
-			$('.basketform').append('<h5 name="menus"class="'+result+'" style="width:100%; text-align:center">'+mName+result+' 갯수<span class="'+result+'">1</span><input type="button" value="삭제"/></h5>');
+			$('.basketform').append('<input type="hidden" name="price" value="'+mPrice+'"/><input type="hidden" name="name" value="'+mName+'"/><input class="'+result+'" type="hidden" name="result" value="1"/> <h5 name="menus" class="'+result+'" style="width:100%; text-align:center">'+mName+result+' 갯수<span class="'+result+'">1</span><input type="button" value="삭제"/></h5>');
 		}else { // 이미1개 이상 저장된 상태
 			var dulpChk = false;
 			var idxSame = 0;
@@ -26,14 +27,19 @@ $(document).ready(function(){
 					dulpChk =true;
 				}
 			}
-			if( dulpChk ){
+			if( dulpChk ){	//수량 늘어남
 				cntArr[idxSame]++;
 				$("span[class='"+result+"']").text(cntArr[idxSame]);
-			}else{
+				$("input[class='"+result+"']").val(cntArr[idxSame]);
+			}else{	//하나 중복 되지 않을때
 				rCIdArr[a] = result;
 				cntArr[a] = 1;
-				$('.basketform').append('<h5 name="menus"class="'+result+'" style="width:100%; text-align:center">'+mName+result+' 갯수<span class="'+result+'">1</span><input type="button" value="삭제"/></h5>');
-			}				
+				//                                           파라미터로 메뉴 이름 넘기기                                                                                  파라미터로 메뉴 갯수 넘기기                                                                                                
+				$('.basketform').append('<input type="hidden" name="price" value="'+mPrice+'"/><input type="hidden" name="name" value="'+mName+'"/> <input class="'+result+'" type="hidden" name="result" value="1"/> <h5 name="menus" class="'+result+'" style="width:100%; text-align:center">'+mName+result+' 갯수<span class="'+result+'">1</span><input type="button" value="삭제"/></h5>');
+				// <input type="hidden" name="'+result+'name" value="'+mName+'"/>
+				// hidden name='yyyyy' value='111'
+			}
+			
 		}
 		
 //		alert(rCIdArr.toString() + "    <>   " + cntArr.toString());

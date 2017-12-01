@@ -66,14 +66,15 @@
 				<div class="portfolioFilter" style="margin-bottom:2%;">
 					<div class="portfolioFilter-inner">
 						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> <a
-							href="javascript:;" data-filter=".japan">메뉴1</a> <a
-							href="javascript:;" data-filter=".china">메뉴2</a> <a
+							href="javascript:;" data-filter=".japan">일식</a> <a
+							href="javascript:;" data-filter=".china">중식</a> <a
 							href="javascript:;" data-filter=".dinner">메뉴3</a> <a
 							href="javascript:;" data-filter=".freshfood">메뉴4</a> <a
 							href="javascript:;" data-filter=".lunch">메뉴5</a>
 					</div>
 				</div>
 				<div style="width:100%;height:320px;padding-bottom:10%; margin-left:0%; margin-right:20%;border-radius:50px; border:2px solid orange;" class="portfolioContainer row ">
+<!-- 				메뉴 리스트 화면 -윤경식 추가-->
 				<c:choose>
 				<c:when test="${menuList == null}">
            		 <tr><td colspan='7'>등록된 메뉴가 없습니다.</td></tr>
@@ -91,7 +92,7 @@
 								${list.mCate}
 							</h5>
 							<h5 style="padding-bottom:0px;padding-right:0px;margin-bottom:10px;width:154px;">${list.mPrice}원</h5>
-							<input type="button" value="장바구니에 담기" name="${list.mId}" menu="${list.mName}" class="basket"/>
+							<input type="button" value="장바구니에 담기" price="${list.mPrice}" name="${list.mId}" menu="${list.mName}" class="basket button-default button-default-submit" style="border:2px solid orange; width:150px; padding:0px 0px;"/>
 						</div>
 					</div>
 					</form>
@@ -102,15 +103,21 @@
 				</div>
 			
 			</div>
+			<form method="post" action="/reserve/reserveMPayment.do">
 			<div class="col-md-6 col-sm-6 col-xs-12" style="width:30%;">
 			
 			
 			<h3 style="text-align:center; margin-bottom:10%;">장바구니</h3>  
 			<div style="width:100%;height:100%; margin-left:0%; margin-right:20%;border-radius:50px; border:2px solid orange;" class="basketform ">
 			<h5 style="text-align:center; width:100%;">메뉴명|갯수|삭제</h5>
-			</div>
-			</div>
 			
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12"  style="width:100%;"> 
+			<input class="payment button-default button-default-submit"type="submit" value="결제하기" style="width:48%; min-width:0px; padding:0px 0px; border:2px solid red;"/>
+			<input class="payment button-default button-default-submit"type="button" value="취소하기" style="width:48%; min-width:0px; padding:0px 0px; border:2px solid black;"/>
+			</div> 
+			</div>
+			</form>
 			
 			</div>
 		</div>
