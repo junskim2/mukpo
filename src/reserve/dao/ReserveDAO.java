@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import reserve.domain.ReserveVO;
+import store.domain.MenuVO;
 
 public interface ReserveDAO {
 
@@ -15,7 +16,7 @@ public interface ReserveDAO {
 	
 	int reserveMenuInsert(ReserveVO vo); //메뉴 예약 insert
 	
-	ReserveVO reserveMenuList(ReserveVO vo); //메뉴 예약 불러오기 select 
+	//ReserveVO reserveMenuList(ReserveVO vo); //메뉴 예약 불러오기 select 
 	
 	int reserveWeekInsert(ReserveVO vo); // 주간예약하기 insert
 	
@@ -25,6 +26,7 @@ public interface ReserveDAO {
 	
 	ReserveVO favoriteWeekSelect(ReserveVO vo); // 주주간예약 즐겨찾기 불러오기 selsect
 	
+	List<MenuVO> reserveMenuList(ReserveVO vo); // 1201 아름 메뉴정보 가져오기 
 
 	
 }

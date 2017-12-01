@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import reserve.domain.ReserveVO;
+import store.domain.MenuVO;
 @Repository
 public class ReserveDAOImpl implements ReserveDAO{
 	
@@ -37,11 +38,11 @@ public class ReserveDAOImpl implements ReserveDAO{
 		return 0;
 	}
 
-	@Override
-	public ReserveVO reserveMenuList(ReserveVO vo) {			//메뉴 예약 불러오기 select 
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public ReserveVO reserveMenuList(ReserveVO vo) {			//메뉴 예약 불러오기 select 
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int reserveWeekInsert(ReserveVO vo) {				// 주간예약하기 insert
@@ -67,7 +68,10 @@ public class ReserveDAOImpl implements ReserveDAO{
 		return null;
 	}
 
-
+	@Override
+	public List<MenuVO> reserveMenuList(ReserveVO vo) {			// 1201 아름 메뉴정보 가져오기 
+		return reservess.selectList("reserve.reserveMenuList", vo);
+	}
 
 
 
