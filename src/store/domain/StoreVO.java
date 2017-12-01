@@ -21,12 +21,13 @@ public class StoreVO {
 	double sLatitude;	//위도
 	double sLongitude;	//경도
 	String sDetail;		//매장설명
-	
+	String search;
+
 	public StoreVO() {}
 	
 	public StoreVO(String rCid, String bId, String sPw, String sUrl, String sName, String sTel, String sZipcode,
 			String sAddress, String sSido, String sSigungu, String sMp, String sCate, String sOpentime,
-			String sClosetime, String sClose, String sYn, double sLatitude, double sLongitude, String sDetail) {
+			String sClosetime, String sClose, String sYn, double sLatitude, double sLongitude, String sDetail, String search) {
 		super();
 		this.rCid = rCid;
 		this.bId = bId;
@@ -47,6 +48,7 @@ public class StoreVO {
 		this.sLatitude = sLatitude;
 		this.sLongitude = sLongitude;
 		this.sDetail = sDetail;
+		this.search = search;
 	}
 
 	
@@ -165,6 +167,14 @@ public class StoreVO {
 
 	public void setsDetail(String sDetail) {
 		this.sDetail = sDetail;
+	}
+	
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 	
 }

@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import store.domain.StoreVO;
 import user.domain.FavoriteVO;
 import user.domain.PointVO;
 import user.domain.ReviewVO;
@@ -101,6 +102,15 @@ public class UserDAOImpl implements UserDAO{
 			HashMap map = new HashMap();
 			map.put("rMpwp", mp);
 			return userss.selectList("user.selectLatelyReview", map);
+		}
+		
+// 1201 민우 추가
+		@Override
+		public List<StoreVO> getAddrList(StoreVO storeVO) { // 마이페이지 - 주간예약 매장검색 
+			HashMap map = new HashMap();
+			map.put("search", storeVO.getSearch());
+			return userss.selectList("user.getaddr", map);
+			
 		}
 
 }

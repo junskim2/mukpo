@@ -15,8 +15,6 @@ public class PointVO {
 	
 	public PointVO() {}
 
-	
-	
 	public PointVO(int pId, String mId, String pDate, String pAs, String pStore, int pPrice, int pCruntmoney,
 			String startDate, String endDate) {
 		super();
