@@ -24,7 +24,7 @@
 				//다이어 로그에 hidden값 지정
 				$('#reviewid').val(rid);
 				$('#reviewdb').click(function(){
-					alert($('#reviewid').val());
+// 					alert($('#reviewid').val());
 					//$(".reviewadd1").submit();
 				});
 				
@@ -110,7 +110,7 @@
 							<td class="view-message dont-show">리뷰</td>
 						</tr>
 
-<!-- 						예약내역 db값  for문 -->
+							<!--=예약내역 db값  for문 -->
 						<c:forEach items="${voList}" var='reserve'>
 							<tr class="reserved">
 								<td class="inbox-small-cells"><input type="checkbox"
@@ -122,14 +122,14 @@
 								<td class="view-message dont-show">${reserve.R_KEEPMONEY}</td>
 								<td class="view-message inbox-small-cells">${reserve.R_YN}</td>
 								<!-- db리뷰 select, insert-->
+									<!--db리뷰 없는 회원 리뷰 남기기 버튼 -->
+								<!--db리뷰 있는 회원 리뷰 보기 버튼 -->
 								<c:choose>
-<!-- 								db리뷰 없는 회원 리뷰 남기기 버튼 -->
 									<c:when test="${reserve.RV_ID eq null}">
 										<td class="view-message dont-show reviewadd"><input
 											type="button" class="reviewadd1" value="리뷰 남기기"
 											data-toggle="modal" data-target="#booktable" /></td>
 									</c:when>
-<!-- 									db리뷰 있는 회원 리뷰 보기 버튼 -->
 									<c:otherwise>
 										<td class="view-message dont-show review"><input
 											type="button" class="reviewselect" value="리뷰 보기"

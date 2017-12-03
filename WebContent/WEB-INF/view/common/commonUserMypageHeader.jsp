@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- 주용 id세션값 -->	
+	<%!String mId;%>
+	<%mId = (String)request.getAttribute("userName");%> 
 <!DOCTYPE>
 <head>
 <meta charset="utf-8">
@@ -31,8 +34,8 @@
     <!--신주요 예약 내역 이벤트 처리 -->
     <script type="text/javascript">
     $(function() {
-        $("#orderlist").click(function() {;
-           location.href = "../reserve/userMypageReservList.do";
+        $("#orderlist").click(function() {
+      	  location.href = "../reserve/userMypageReservList.do?mId=<%=mId%>";
         });
    
      });

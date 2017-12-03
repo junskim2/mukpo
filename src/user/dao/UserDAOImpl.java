@@ -16,23 +16,22 @@ import user.domain.UserVO;
 @Repository
 public class UserDAOImpl implements UserDAO{
 
+		//신주용 
+		@Autowired
+		private SqlSessionTemplate commonss;
+	
 	   @Autowired
 	   private SqlSessionTemplate userss;
 
-	   public int insertMemberJoin(UserVO vo) { //사용자 회원가입
-
-		   return 0; 
-	   }
+		public int insertMemberJoin(UserVO vo) { // 사용자 회원가입  신주용
+			int result = 0;
+			result = userss.insert("user.userInsert", vo);
+			return result;
+		}
 
 		@Override
-		public UserVO selectMemberLogin(UserVO vo) { // 사용자 로그인
-			UserVO userVO = null;
-			
-			try {
-				userVO = userss.selectOne("user.userLogin", vo);
-			}catch(Exception e) {
-				System.out.println("UserDAOImpl / idLogin 실패"+ e.getMessage());
-			}
+		public UserVO selectMemberLogin(UserVO vo) { // main - 사용자 로그인 신주용
+			UserVO userVO = commonss.selectOne("user.userLogin", vo);
 			return userVO;
 		}
 	
@@ -51,8 +50,6 @@ public class UserDAOImpl implements UserDAO{
 		}
 	
 		
-	
-	
 		@Override
 		public FavoriteVO selectFS(FavoriteVO vo) { //마이페이지 - 즐겨찾기 상점 목록
 			FavoriteVO favoriteVO = null;
@@ -111,6 +108,12 @@ public class UserDAOImpl implements UserDAO{
 			map.put("search", storeVO.getSearch());
 			return userss.selectList("user.getaddr", map);
 			
+		}
+//주용
+		@Override
+		public int insertReview(ReviewVO vo) {		//마이페이지 - 예약내역 리뷰 작성
+			int result = 0;
+			return userss.insert("user.reviewInsert", vo);
 		}
 
 }

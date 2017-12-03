@@ -49,7 +49,7 @@
 				<div class="blog-right-listing wow fadeInDown"
 					data-wow-duration="1000ms" data-wow-delay="300ms">
 					<div class="feature-img">
-						<img src="/images/img54.png" alt="">
+						<img src="${vo.sUrl}" alt="">
 						<div class="date-feature">
 							27 <br> <small>may</small>
 						</div>

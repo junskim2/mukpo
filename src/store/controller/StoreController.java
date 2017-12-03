@@ -183,6 +183,7 @@ public class StoreController {
 	@RequestMapping(value = "storeList.do")
 	public ModelAndView storeList(StoreVO store) {
 		// 현희 VOList 없애고 List<> 형태로 변경
+		//dfsaf
 		ModelAndView mv = new ModelAndView();
 		// 1130 현희 추가
 		mv.addObject("sMp", store.getsMp()); // 매장인지 포장인지 구분값

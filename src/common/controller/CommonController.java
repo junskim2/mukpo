@@ -58,7 +58,7 @@ public class CommonController {
 	
 	// 홈에서 먹고갈래로 들어왔을 때
 	@RequestMapping("/userMmain.do")
-	public ModelAndView userMmain() {
+	public ModelAndView userMmain(HttpSession session) {
 		String mp = "M";
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userMmain");
@@ -67,13 +67,14 @@ public class CommonController {
 // 1201 현희 생생리뷰 디비 값 가져오기
 		List<HashMap> review = userDAO.selectLatelyReview(mp);
 		mv.addObject("review", review);
-		
+//신주용 헤더 먹포 구분		
+		session.setAttribute("sMp",mp);		
 		return mv;
 	}
 	
 	// 홈에서 포장할래로 들어왔을 때
 	@RequestMapping("/userPmain.do")
-	public ModelAndView userPmain() {
+	public ModelAndView userPmain(HttpSession session) {
 		String mp = "P";
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userPmain");
@@ -82,7 +83,8 @@ public class CommonController {
 // 1201 현희 생생리뷰 디비 값 가져오기
 		List<HashMap> review = userDAO.selectLatelyReview(mp);
 		mv.addObject("review", review);
-		
+//신주용 헤더 먹포 구분		
+		session.setAttribute("sMp",mp);		
 		return mv;
 	}
 	

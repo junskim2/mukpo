@@ -220,13 +220,6 @@
 			$(".cate").prop("checked", this.checked);
 		});
 
-// 1130 현희 하다말음.. help !
-		// 카테고리 확인버튼 클릭 시
-		$("#btnCate").click(function() {
-			$(this).parent().find(">li:checked");
-			alert($(this).parent().find(">li").is("checked").val());
-		}); // END #btnCate click
-		
 		// 지역 선택했을때 시군구 나오게 하려고
 		$("#location1>li").click(function() {
 // 1130 현희 클릭하면 색깔변함
@@ -234,7 +227,36 @@
 			$(this).addClass("selectLocal"); // 클릭한 아이가 색깔가져가기
 			
 		}); // END #location1>li click
+//주용 지역 확인 버튼 클릭시 사라짐		
+	$("#btnLocation").click(function() {
 		
+			$("#locationdrop").css("display", "none");
+		});
+//주용 카테고리 확인 버튼 클릭시 사라짐				
+	$("#btnCate").click(function() {
+			$("#categorydrop").css("display", "none");
+		});
+		
+//1201 주용 메뉴 카테고리 전체선택
+		$('.cateAll').bind('change',function(event){
+			event.preventDefault();
+			event.stopPropagation();
+			
+			//전체선택 조건식
+			if( $(this).is(":checked") ){
+				$('.foodchk').addClass('checked');
+				$('.foodchk').prop("checked",true);
+			}else{
+				$('.foodchk').removeClass('checked');
+				$('.foodchk').prop("checked",false);
+			}
+			
+		});
+		// 주용 미완성...
+		if($('input:checkbox[name=sCate2]').length!=8){
+			$('.cateAll').prop(":checked",false);
+			$('.cateAll').removeClass('checked');
+		}
 	}); // END function
 	</script>
 </head>
@@ -279,58 +301,120 @@
 												<div class="drop-mega-part"> 
 													<div class="row"> 
 														<!-- 시도 출력 -->
-														<div class="col-md-6 col-sm-12 col-xs-12" id="location1div"> 
+															<div class="col-md-6 col-sm-12 col-xs-12"
+															id="location1div">
+															 <!-- 경기도 값 넘기기 -->
+															<input type="hidden" value="경기도" name="sSido"/>
 															<ul id="location1">
-																<li class="selectLocal"> 서울<span>></span></li>
-																<li> 경기<span>></span></li>
-																<li> 충남<span>></span></li>
-																<li> 대전<span>></span></li>
-																<li> 광주<span>></span></li>
-																<li> 부산<span>></span></li>
+																<li id="selecgg">서울<span>></span></li>
+																<li>경기<span>></span></li>
+																<li>충남<span>></span></li>
+																<li>대전<span>></span></li>
+																<li>광주<span>></span></li>
+																<li>부산<span>></span></li>
 															</ul>
 														</div>
 													
 														<!-- 해당 시군구 출력 -->
 														<div class="col-md-6 col-sm-12 col-xs-12" id="location2div">
 															<ul id="location2">
-																<li><input type="checkbox" />Ready Player One</li>
-																<li><input type="checkbox" />Ernest Cline</li>
-																<li><input type="checkbox" />Ender's Game</li>
-																<li><input type="checkbox" />Orson Scott Card</li>
-																<li><input type="checkbox" />Americam God</li>
-																<li><input type="checkbox" />Neil Gaiman</li>
-																<li><input type="checkbox" />The Great Gatsby</li>
-																<li><input type="checkbox" />The Great Gatsby</li>
-																<li><input type="checkbox" />The Great Gatsby</li>
-																<li><input type="checkbox" />The Great Gatsby</li>
-																<li><input type="checkbox" />The Great Gatsby</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="의정부시" />의정부시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="이천시" />이천시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="평택시" />평택시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="금천구" />금천구</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="광명시" />광명시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="과천시" />과천시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="남양주시" />남양주시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="동두천시" />동두천시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="연천군" />연천군</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="구리시" />구리시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="성남시" />성남시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="광주시" />광주시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="양평군" />양평군</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="여주시" />여주시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="고양시" />고양시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="수원시" />수원시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="가평군" />가평군</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="오산시" />오산시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="안양시" />안양시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="부천시" />부천시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="군포시" />군포시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="김포시" />김포시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="시흥시" />시흥시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="안산시" />안산시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="용인시" />용인시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="의왕시" />의왕시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="파주시" />파주시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="안성시" />안성시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="양주시" />양주시</li>
+																<li><input type="checkbox" name="sSigungu2"
+																	value="청주시" />청주시</li>
+																
 															</ul>
 														</div>
 													</div>
 												</div>
 											</li>
-<!-- 1130 현희 버튼 추가 -->
+<!-- 1130 현희 버튼 추가 -->						
 											<div id="btnLocation" class="btn-black send_message">확인</div>
 										</ul>
 									</li>
 									
 <!-- 1130 현희 카테고리 내용 수정 -->									
 									<!-- 카테고리 메뉴 -->
-									<li class="mega-menu">
-										<span class="menuname">카테고리</span>
+									<li class="mega-menu"><span class="menuname">카테고리</span>
 										<ul class="drop-nav" id="categorydrop">
-											<li><input type="checkbox" id="cateAll" value="음식전체">음식 전체</li>
-											<li><input type="checkbox" class="cate" value="뷔페식">뷔페식</li>
-											<li><input type="checkbox" class="cate" value="탕류">탕류</li>
-											<li><input type="checkbox" class="cate" value="카페">키페</li>
-											<li><input type="checkbox" class="cate" value="일식">일식</li>
-											<li><input type="checkbox" class="cate" value="패스트푸드">패스트푸드</li>
-											<li><input type="checkbox" class="cate" value="중국식">중국식</li>
-											<li><input type="checkbox" class="cate" value="BGM">BGM</li>
+											<li id="cataAll2"><input type="checkbox" id="cateAll" class='cateAll'
+												value="음식전체"/>음식 전체</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="뷔페식"/>뷔페식</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="탕류"/>탕류</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="카페"/>키페</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="한식"/>한식</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="일식"/>일식</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="패스트푸드"/>패스트푸드</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="중국식"/>중국식</li>
+											<li><input type="checkbox" name="sCate2" class='foodchk'
+												value="BGM"/>BGM</li>
 <!-- 1130 현희 버튼 추가 -->
-											<div id="btnCate" class="btn-black send_message">확인</div>
+											<div id="btnCate" class="btn-black send_message test">확인</div>
 										</ul>
-									</li>
+										</li>
 								</ul>
 							</div>
 							

@@ -33,6 +33,8 @@ public interface UserDAO {
 
 	ReviewVO selectReview(ReviewVO vo); // 마이페이지 - 내가 쓴 후기
 	
+	int insertReview(ReviewVO vo); // 마이페이지 - 후기쓰기 신주용
+	
 	List<StoreVO> getAddrList(StoreVO vo); //마이페이지 - 주간예약 매장 검색 ajax
 	
 // 1201 현희 추가

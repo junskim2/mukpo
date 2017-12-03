@@ -16,7 +16,8 @@
 <link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
 <link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
 <link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
+<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css"
+   rel="stylesheet">
 <link href="plugin/animation/animate.min.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
@@ -24,7 +25,7 @@
 <title>먹포 - 먹고갈래? 포장할래?</title>
 <style type="text/css">
 #mainLogo2 {
-/*    height: 80%; */
+   height: 80%;
    width: 80%;
 }
 
@@ -94,14 +95,18 @@
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-   $(function() {
+$(function() {
 	   $("#UserMmain").click(function() {
-         location.href = "common/userMmain.do";
-      });
-      $("#UserPmain").click(function(){
-         location.href = "common/userPmain.do";
-      });
+      location.href = "common/userMmain.do";
    });
+   $("#UserPmain").click(function(){
+      location.href = "common/userPmain.do";
+   });
+   
+   $('#mypage').click(function(){
+	   alert("로그인 후 이용 가능합니다.");
+   });
+});
 </script>
 </head>
 <body>
@@ -124,14 +129,14 @@
       <img src="images/common/ㄴㅇㄹ.png" id="logo3" />
       <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
       <a href="store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
-      <a>MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
+      <a id="mypage" style="cursor:pointer">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
       <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
       
       <!-- 로그인 회원가입 클릭하면 나오는 화면 -->
       <div class="location-footer-map">
          <div class="icon-find-location">
             <a href="#"> <img class="arrow" src="images/common/up-arrow.png"
-               alt=""> <br /> <span>로그인/회원가입</span>
+               alt=""> <br/> <span>로그인/회원가입</span>
             </a>
          </div>
          <section id="mainLogin" class="home-icon login-register bg-skeen">
@@ -146,7 +151,8 @@
                      <form action="common/home.do" class="login-form" method="post" name="login">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="mId" placeholder="Username or email address" class="input-fields">
+                              <input type="text" name="mId"
+                                 placeholder="Username or email address" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <input type="password" name="mPw" placeholder="********"
@@ -185,37 +191,42 @@
                      </div>
                   </div>
                </div>
+<!-- 주용 회원가입 db연결 -->
                <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown"
                   data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="register-wrap form-common">
                      <div class="title text-center">
                         <h3 class="text-coffee">Register</h3>
                      </div>
-                     <form class="register-form" method="post" name="register">
+                     <form action="/user/insertMemberJoin.do"class="register-form" method="post" name="register">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt" placeholder="First Name"
+                              <input type="text" name="mId" placeholder="아이디"
                                  class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt" placeholder="Last Name"
+                              <input type="password" name="mPw" placeholder="비밀번호"
+                                 class="input-fields">
+                           </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <input type="password" placeholder="비밀번호 확인"
                                  class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt" placeholder="alitfn58@gmail.com"
+                              <input type="text" name="mName" placeholder="이름"
                                  class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password" placeholder="Password"
+                              <input type="text" name="mTel" placeholder="전화번호"
                                  class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password"
-                                 placeholder="Confirm Password" class="input-fields">
+                              <input type="text" name="mBorn"
+                                 placeholder="yyyy/mm/dd" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password"
-                                 placeholder="Confirm Password" class="input-fields">
+                              <input type="text" name="mEmail"
+                                 placeholder="alitfn58@gmail.com" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <input type="submit" name="submit"
@@ -224,10 +235,6 @@
                            </div>
                         </div>
                      </form>
-                     <p>
-                        By clicking on “Register Now” button you are accepting the <a
-                           href="terms_condition.html">Terms &amp; Conditions</a>
-                     </p>
                   </div>
                </div>
             </div>

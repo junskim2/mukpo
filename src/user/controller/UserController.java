@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import store.domain.StoreVO;
 import user.dao.UserDAO;
 import user.domain.PointVO;
+import user.domain.ReviewVO;
 import user.domain.UserVO;
 
 @Controller
@@ -151,5 +152,27 @@ public class UserController {
 				e.printStackTrace();
 			}
 		   }
-	
+		   
+			//마에페이지 - 예약내역 - 리뷰 남기기 버튼 클릭시, 모델앤뷰 사용 불가 String만 가능 신주용
+			@RequestMapping("/reviewInsert.do")
+			public  String reviewInsert2(ReviewVO vo){
+				String msg="등록에 실패했습니다.";
+				int result = userDAO.insertReview(vo);
+				return "redirect:/reserve/userMypageReservList.do";
+			}
+			// Main - 회원가입 신주용
+			@RequestMapping("/insertMemberJoin.do")
+			public ModelAndView insertMemberJoin(UserVO vo) {
+				ModelAndView mv = new ModelAndView();
+		
+				int result = userDAO.insertMemberJoin(vo);
+				if(result>0) {
+				
+					result=2;
+				}
+				mv.setViewName("common/home");
+				mv.addObject("result", result);
+		
+				return mv;
+			}
 }

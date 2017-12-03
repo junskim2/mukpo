@@ -15,13 +15,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 사용자 매장검색 -->
-	<!-- 1130 아름 데이터 있는 매장만 뽑기(임시) -->
+	<!-- 주용 사용자 검색기능 구현 -->
 	<select id="selectUserStore" resultType="storeVO" parameterType="storeVO">
-		SELECT *
-		FROM store
-		WHERE s_mp IN ('${sMp}') AND r_cid IN ('10001',
-		'131', '2192', '2090')
+			SELECT *
+			FROM store
+			WHERE (s_mp IN ('${sMp}') OR s_mp='MP') 
+		<if test="sSido != null"> 
+			AND s_sido = #{sSido}
+		</if> 
+		<if test="sSigungu2 != null"> 
+			AND s_sigungu in
+		<foreach collection="sSigungu2" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		</if>
+		<if test="sCate2 != null"> 
+			AND s_cate in
+		<foreach collection="sCate2" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		</if>
+<!-- 		<if test="sName != null">  -->
+<!-- 		and s_name = #{sName} -->
+<!-- 		</if> -->
 	</select>
+
 
 	<!-- 사장님 정보 가져오는 기능 구현 -->
 	<select id="selectBossSearch" resultType="bossVO">
