@@ -33,8 +33,9 @@
         </div>
     </div>
     <div class="wrapper">
-        <!-- 헤더 추가 -->
-        
+        <!-- Start Header -->
+        	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
+        <!-- End Header -->
         <!-- Start Main -->
         <main>
             <div class="main-part">

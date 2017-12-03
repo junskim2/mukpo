@@ -45,7 +45,8 @@
 		</div>
 	</div>
 	<!-- Start Header -->
-	<!-- End Header -->
+	   	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
+   <!-- End Header -->
 	<!-- Start Main -->
 	<main>
 	<div class="main-part">

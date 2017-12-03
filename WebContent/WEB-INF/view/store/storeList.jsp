@@ -52,9 +52,9 @@
         </div>
     </div>
     <div class="wrapper">
+<!-- 1204 현희 헤더 추가 -->    
         <!-- Start Header -->
-        <!-- 현희 헤더 잠시 주석처리 -->
-<%--         	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include> --%>
+        	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
         <!-- End Header -->
         <!-- Start Main -->
         <main>

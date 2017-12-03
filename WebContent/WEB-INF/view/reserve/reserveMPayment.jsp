@@ -47,8 +47,12 @@
 			</div>
 		</div>
 	</div>
-	<!-- Start Header -->
-	<!-- End Header -->
+	
+<!-- 1204 현희 헤더 추가 -->    
+		<div class="wrapper">
+        <!-- Start Header -->
+        	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
+        <!-- End Header -->
 	<!-- Start Main -->
 	<main>
 	<div class="main-part">
@@ -143,7 +147,7 @@
 	<!-- Start Footer -->
 
 	<!-- End Footer -->
-
+</div>
 	<!-- Back To Top Arrow -->
 	<a href="#" class="top-arrow"></a>
 	<script src="/js/jquery.min.js"></script>
