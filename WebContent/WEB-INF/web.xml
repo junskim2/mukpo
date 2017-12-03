@@ -29,7 +29,11 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
+<!-- 404페이지 설정 -->
+<error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/view/common/404.jsp</location>
+ </error-page>
 	<!-- 한글처리 -->
 	<filter>
 		<filter-name>charEncoding</filter-name>
