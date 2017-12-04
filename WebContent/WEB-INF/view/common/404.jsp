@@ -33,7 +33,7 @@
                         <div class="error-404-title">4 <img src="/images/404.png" alt=""> 4</div>
                         <h2>PAGE NOT FOUND</h2>
                         <p>Sorry, We couldn't find the page you're looking for.
-                            <br> Try returning to the <a href="/index.jsp"> homepage</a></p>
+                            <br> Try returning to the <a href="/index.jsp"> 메인페이지로 이동</a></p>
                     </div>
                 </div>
             </div>
