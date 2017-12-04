@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import pos.domain.CongestionSetVO;
@@ -183,7 +184,7 @@ public class StoreController {
 	@RequestMapping(value = "storeList.do")
 	public ModelAndView storeList(StoreVO store) {
 		// 현희 VOList 없애고 List<> 형태로 변경
-		//dfsaf
+		// dfsaf
 		ModelAndView mv = new ModelAndView();
 		// 1130 현희 추가
 		mv.addObject("sMp", store.getsMp()); // 매장인지 포장인지 구분값
@@ -231,6 +232,26 @@ public class StoreController {
 		mv.addObject("storeVO", storeVO);
 		mv.addObject("reviewList", reviewList);
 		return mv;
+	}
+
+	// 성현추가
+	// 모달창 pwd 체크
+	@RequestMapping(value = "bossPwdCheck.do", produces = "text/json;charset=UTF-8")
+	@ResponseBody
+	public String bossPwdCheck(String bossId, String bossPwd, String rCid) {
+		BossVO bossVO = new BossVO();
+		System.out.println(bossId);
+		System.out.println(bossPwd);
+		System.out.println(rCid);
+		bossVO.setbId(bossId);
+		bossVO.setbPw(bossPwd);
+
+		bossVO = storeDAO.selectBossLogin(bossVO); // 로그인 후 사장님 정보 가져오기
+		if (bossVO == null) {
+			rCid = null;
+		}
+		System.out.println("final : " + rCid);
+		return rCid;
 	}
 
 }

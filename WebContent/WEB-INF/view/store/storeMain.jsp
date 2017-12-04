@@ -25,6 +25,9 @@
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/store/storeMain.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/store/storeMain.js"></script>
 </head>
 <body>
 	<!-- Page pre loader -->
@@ -48,7 +51,7 @@
 				</div>
 				<div class="container">
 					<div class="build-title">
-						<h2>${bossInfo.bName}&nbsp사장님의 매장 목록</h2>
+						<h2>${bossInfo.bName}&nbsp사장님의매장목록</h2>
 					</div>
 					<div class="service-track">
 						<div class="row">
@@ -71,7 +74,7 @@
 
 									</c:when>
 									<c:otherwise>
-<!-- 1201 현희 DB값 너무 많아서 숫자제한 -->									
+										<!-- 1201 현희 DB값 너무 많아서 숫자제한 -->
 										<c:forEach items="${storeList}" var="sl" end="16">
 											<div class="item">
 												<div class="col-md-12 col-sm-6 col-xs-12">
@@ -80,9 +83,12 @@
 															<h3>${sl.sName}</h3>
 														</div>
 														<div class="service-track-overlay banner-bg">
-															<a href="/pos/posMain.do?rCid=${sl.rCid}" class="btn-black" style="margin-bottom: 70%;">POS기</a>
-
-															<a href="storeSetting.do?rCid=${sl.rCid }" class="btn-black">설정</a>
+															<a data-toggle="modal" data-target="#booktable" href="#"
+																class="btn-black btnPos" style="margin-bottom: 70%;"
+																id="${sl.rCid }"
+																>POS기</a> <a
+																data-toggle="modal" data-target="#booktable2" href="#"
+																class="btn-black btnSetting" id="${sl.rCid }">설정</a>
 														</div>
 													</div>
 												</div>
@@ -103,7 +109,8 @@
 											<div class="service-track-overlay banner-bg">
 
 
-												<a href="storeInput.do?bId=${bossInfo.bId }" class="btn-black">매장 등록</a>
+												<a href="storeInput.do?bId=${bossInfo.bId }"
+													class="btn-black">매장 등록</a>
 											</div>
 										</div>
 									</div>
@@ -117,6 +124,68 @@
 		</div>
 		</main>
 		<!-- End Main -->
+		<!-- 비밀번호 확인 모달창1 -->
+		<div class="modal fade booktable" id="booktable" tabindex="-1"
+			role="dialog" aria-labelledby="booktable">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<div class="table-title">
+							<h2>POS기 접속</h2>
+							<h6 class="heade-xs">비밀번호 확인이 필요합니다.</h6>
+						</div>
+						<div class="row">
+
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<input type="password" id="bossPwd" name="password"
+									placeholder="비밀번호 입력">
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<input type="hidden" id="bossId" value="${bossInfo.bId}" /> 
+								<input type="hidden" id="rCid" />
+								<button id="pwdCheck" class="btn-main btn-big">확인</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 비밀번호 확인 모달창2 -->
+		<div class="modal fade booktable" id="booktable2" tabindex="-1"
+			role="dialog" aria-labelledby="booktable2">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<div class="table-title">
+							<h2>설정 접속</h2>
+							<h6 class="heade-xs">비밀번호 확인이 필요합니다.</h6>
+						</div>
+						<div class="row">
+
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<input type="password" id="bossPwd2" name="password"
+									placeholder="비밀번호 입력">
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<input type="hidden" id="bossId2" value="${bossInfo.bId}" /> 
+								<input type="hidden" id="rCid2" />
+									
+								<button id="pwdCheck2" class="btn-main btn-big">확인</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Start Footer -->
 		<!-- End Footer -->
 	</div>
