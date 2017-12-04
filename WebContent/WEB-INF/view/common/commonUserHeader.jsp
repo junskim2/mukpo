@@ -206,12 +206,18 @@
 			top:78px;
 		}
 /* 1204 현희 스크롤 내렸을 때 추가될 클래스 */
-		.header-part.header-on.scroll {
+		.header-part.header-on.mainscroll {
 			top : -60px;
 			background-color: black;
 		}
 		nav {
 			width : 100%;
+		}
+/* 1204 현희 메인 아닐 때 추가될 클래스 */
+		.header-part.header-on.otherscroll {
+			top : 0px;
+			left:0px;
+			background-color: red;
 		}
     </style>
     
@@ -277,17 +283,30 @@
 		}
 	}); // END function
 	
-// 1204 현희 스크롤 링크 확인
-	var link = document.location.href;
-	alert(link);
-	$(window).scroll(function() {
-		var sc = $(window).scrollTop();
-		if( sc > 10 ) {
-			$("header > div.header-part").addClass("scroll");
-		} else {
-			$("header > div.header-part").removeClass("scroll");
-		}
-	});
+// 1204 현희 스크롤
+	var link = document.location.href; // 주소 전체 받아오기
+	var mainlink = link.split("/"); // /를 기준으로 나누기
+	var mainurl = mainlink[mainlink.length-1]; // 마지막 userPmain.do 이 부분을 가져오기
+	if(mainurl == "userPmain.do" || mainurl == "userMmain.do" ) { // 메인일 때
+		$("header > div.header-part").removeClass("otherscroll");
+		$(window).scroll(function() {
+			var sc = $(window).scrollTop();
+			if( sc > 10 ) {
+				$("header > div.header-part").addClass("mainscroll");
+			} else {
+				$("header > div.header-part").removeClass("mainscroll");
+			}
+		});
+	} else { // 메인이 아닐 때
+		$(function() {
+// 			alert("?");
+			$("header > div.header-part").addClass("otherscroll");
+		});
+			
+		
+		
+	}
+	
 	</script>
 </head>
 <body>
