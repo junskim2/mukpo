@@ -16,8 +16,7 @@
 <link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
 <link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
 <link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css"
-   rel="stylesheet">
+<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
 <link href="plugin/animation/animate.min.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">

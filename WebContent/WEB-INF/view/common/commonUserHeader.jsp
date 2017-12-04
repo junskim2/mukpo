@@ -195,6 +195,24 @@
 		.searchIcon:before {
 			content : "";
 		}
+/* 1203 현희 헤더 스크롤 고정 */
+		header {
+			position :fixed;
+			z-index: 9999;
+			width: 100%;
+		}
+		.header-part.header-on {
+			left:-70px;
+			top:78px;
+		}
+/* 1204 현희 스크롤 내렸을 때 추가될 클래스 */
+		.header-part.header-on.scroll {
+			top : -60px;
+			background-color: black;
+		}
+		nav {
+			width : 100%;
+		}
     </style>
     
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
