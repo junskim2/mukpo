@@ -258,6 +258,18 @@
 			$('.cateAll').removeClass('checked');
 		}
 	}); // END function
+	
+// 1204 현희 스크롤 링크 확인
+	var link = document.location.href;
+	alert(link);
+	$(window).scroll(function() {
+		var sc = $(window).scrollTop();
+		if( sc > 10 ) {
+			$("header > div.header-part").addClass("scroll");
+		} else {
+			$("header > div.header-part").removeClass("scroll");
+		}
+	});
 	</script>
 </head>
 <body>
