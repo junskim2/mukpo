@@ -13,6 +13,7 @@ import store.domain.BossVO;
 import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
+import user.domain.FavoriteVO;
 
 @Repository
 public class StoreDAOImpl implements StoreDAO {
@@ -197,5 +198,10 @@ public class StoreDAOImpl implements StoreDAO {
 	public StoreVO selectStore(StoreVO storeVO) {
 		return storess.selectOne("store.selectStore", storeVO);
 	}
-
+	
+	// 1203 아름 즐겨찾기 매장 가져오는 기능 구현
+	@Override
+	public FavoriteVO selectFavoriteStore(FavoriteVO vo) {
+		return storess.selectOne("store.selectFavoriteStore", vo);
+	}
 }

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- 1202 아름 로그인확인 시작 -->
+<c:if test="${ empty sessionScope.userName }">
+	<c:redirect url="/user/userLogin.do" />
+</c:if>
+<!-- 1202 아름 로그인확인 끝 -->
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +14,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>먹고갈래? 포장할래? - 회원정보수정</title>
+<!-- 1202 아름 절대경로 수정 시작 -->
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -23,14 +30,9 @@
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
+<!-- 1202 아름 user/userMypage.css 추가 -->
 <link href="/css/user/userMypage.css" rel="stylesheet">
-<style type="text/css">
-.tab-part .tab-content {
-	padding: 0px 50px 0px;
-	margin-top: 20px;
-	margin-left: 180px;
-}
-</style>
+<!-- 1202 아름 절대경로 수정 끝 -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -40,57 +42,70 @@
 	<section
 		class="default-section comment-review-tab bg-grey v-pad-remove wow fadeInDown"
 		data-wow-duration="1000ms" data-wow-delay="300ms">
-		<article class="container">
-			<div class="col-md-12">
-				<form class="form-horizontal infoModifySubmit" action="/user/userMypageInfoModifyOk.do" method="POST">
-				<input type="hidden" name="mId" value="${ userInfo.mId }" />
-				<input type="hidden" name="mPw" value="${ userInfo.mPw }" />
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="inputName">이름</label>
-						<div class="col-sm-6">
-							<input class="form-control" id="inputName" type="text"
-								name="mName" value="${ userInfo.mName }">
-						</div>
+		<div class="container">
+			<div class="tab-part">
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#reviews"
+						aria-controls="reviews" role="tab" data-toggle="tab">회원정보 수정</a></li>
+					<li role="presentation"><a href="#description"
+						aria-controls="description" role="tab" data-toggle="tab">비밀번호
+							변경</a></li>
+				</ul>
+				<div class="tab-content">
+					<!-- 회원정보수정 -->
+					<div role="tabpanel" class="tab-pane active" id="reviews">
+						<!-- 1202 아름 수정 -->
+						<form action="/user/userMypageInfoModify.do" method="post"
+							class="infoPwCheck">
+							<div style="border-radius: 2em; padding-top: 23px;"
+								class="title text-center">
+								<div class="pwConfirm">
+									<h6 name="infoModicyCheck" style="vertical-align: middle">비밀번호</h6>
+									<input style="height: 40px" type="password" name="mPw" />
+								</div>
+								<br /> <a href="#" id="aInfoPwCheck" name="infoModify"
+									class="btn-main btn-shadow">확인</a> <a href="/common/home.do"
+									name="infoModify" class="btn-main btn-shadow">취소</a>
+							</div>
+						</form>
+						<!-- 1202 아름 수정 끝 -->
 					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
-						<div class="col-sm-6">
-							<input type="tel" class="form-control onlynum" id="inputNumber"
-								name="mTel" value="${ userInfo.mTel }"  />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="inputEmail">이메일</label>
-						<div class="col-sm-6">
-							<input class="form-control" id="inputEmail" type="email"
-								name="mEmail" value="${ userInfo.mEmail }">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label" for="inputName">생년월일</label>
-						<div class="col-sm-6">
-							<input class="form-control onlynum" id="inputBorn" type="text"
-								name="mBorn" value="${ userInfo.mBorn }"  />
-						</div>
-					</div>
-				</form>
-				
-				<p name="memberout">먹고갈래? 포장할래? 사이트를 더 이상 이용하지 않는다면, <a href="/user/userMypageMemberout.do">회원탈퇴</a></p>
-				
-				<div class="form-group">
-					<div class="col-sm-12 text-center">
-						<a href="#" id="aInfoModifyConfirm" 
-							class="btn-main btn-shadow">수정</a> 
-						<a href="/common/home.do"
-							class="btn-main btn-shadow">취소</a>
+					<!-- 비밀번호변경 -->
+					<div role="tabpanel" class="tab-pane" id="description">
+						<form action="/user/userMypageInfoPWModify.do" method="post"
+							id="infoPwModify">
+							<div style="border-radius: 2em; padding-top: 23px;"
+								class="title text-center">
+								<div class="pwConfirm">
+									<h6 name="infoModicyCheck" style="vertical-align: middle">현재
+										비밀번호</h6>
+									<input style="height: 40px" type="password" name="rmPw" />
+								</div>
+								<div class="pwConfirm">
+									<h6 name="infoModicyCheck" style="vertical-align: middle">새
+										비밀번호</h6>
+									<input style="height: 40px" type="password" name="mPw"
+										id="user_pass" />
+								</div>
+								<div class="pwConfirm">
+									<h6 name="infoModicyCheck" style="vertical-align: middle">새
+										비밀번호 확인</h6>
+									<input style="height: 40px" type="password" name="mPwNewCh" id="chpass" />
+								</div>
+								<br /> <a  href="#" id="aInfoPwModify"
+									class="btn-main btn-shadow" name="infoModify">확인</a> <a href="/common/home.do"
+									class="btn-main btn-shadow" name="infoModify">취소</a>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
-		</article>
+		</div>
 	</section>
 </body>
 <!-- Back To Top Arrow -->
 <a href="#" class="top-arrow"></a>
+<!-- 1202 아름 절대경로 수정 시작 -->
 <script src="/js/jquery.min.js"></script>
 <script src="/plugin/bootstrap/bootstrap.min.js"></script>
 <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
@@ -110,6 +125,6 @@
 <script src="/plugin/parallax/jquery.stellar.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/script.js"></script>
-<!-- 1203 아름 js 연결 추가 -->
 <script src="/js/user/userMypage.js"></script>
+<!-- 1202 아름 절대경로 수정 끝 -->
 </html>
