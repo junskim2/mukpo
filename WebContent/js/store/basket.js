@@ -30,9 +30,8 @@ $(document).ready(function(){			//윤경식 추가
 	$(document).on("click","span[class='minus-text']",function(){
 		var mPrice = $(this).parent().parent().prev().prev().children().text(); //원가
 		
-		$(this).next().val($(this).next().val()-1);
-		
-		$(this).parent().parent().next().next().text(mPrice*$(this).next().val());
+		$(this).next().next().next().val($(this).next().next().next().val()-1);
+		$(this).parent().parent().next().next().text(mPrice*$(this).next().next().next().val());
 	});
 	//선택한 매뉴의 갯수 더하기
 	$(document).on("click","span[class='plus-text']",function(){

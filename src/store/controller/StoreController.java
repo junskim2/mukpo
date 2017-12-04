@@ -201,7 +201,6 @@ public class StoreController {
 	// 경식 바꿈
 	@RequestMapping("/storePdetail.do")
 	public ModelAndView storePdetail(StoreVO vo) {
-		System.out.println("사업자등록번호 rCid로 넘어옴");
 
 		ModelAndView mv = new ModelAndView();
 		List<MenuVO> list = storeDAO.selectMenuList(vo);
