@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE>
 <html>
 <head>
@@ -120,11 +121,14 @@ $(function() {
    <!-- Start Footer -->
    <footer> <!--    data-wow-duration="1000ms" data-wow-delay="300ms" fadeInDown  wow-->
    <div class="footer-part">
+ <!-- 1204 아름 로그인했을시 안보이게 시작 -->
+   <c:if test="${ empty sessionScope.userName }">
       <div class="icon-find" id="test">
          <a href="#"> <img class="arrow"
-            src="images/common/down-arrow.png" alt=""> <span>로그인/회원가입</span>
+            src="/images/common/down-arrow.png" alt=""> <span>로그인/회원가입</span>
          </a>
       </div>
+    </c:if>
       <img src="images/common/ㄴㅇㄹ.png" id="logo3" />
       <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
       <a href="store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
@@ -133,11 +137,15 @@ $(function() {
       
       <!-- 로그인 회원가입 클릭하면 나오는 화면 -->
       <div class="location-footer-map">
-         <div class="icon-find-location">
-            <a href="#"> <img class="arrow" src="images/common/up-arrow.png"
-               alt=""> <br/> <span>로그인/회원가입</span>
+		<c:if test="${ empty sessionScope.userName  }">
+         <div class="icon-find-location">         
+            <a href="/#"> <img class="arrow" src="/images/common/up-arrow.png"
+               alt=""> <br />
+                <span>로그인/회원가입</span>
             </a>
          </div>
+          </c:if>
+<!-- 1204 아름 로그인했을시 안보이게 끝 -->
          <section id="mainLogin" class="home-icon login-register bg-skeen">
          <div class="container">
             <div class="row">
