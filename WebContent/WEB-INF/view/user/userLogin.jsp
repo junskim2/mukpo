@@ -43,7 +43,7 @@
                                     <div class="title text-center">
                                         <h3 class="text-coffee">로그인</h3>
                                     </div>
-                                    <form class="login-form" method="post" name="login" action="/user/Login.do">
+                                    <form class="login-form" method="post" name="login" action="/user/login.do">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <input type="text" name="mId" placeholder="아이디" class="input-fields">

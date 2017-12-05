@@ -28,6 +28,7 @@ import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
 import user.domain.FavoriteVO;
+import user.domain.UserVO;
 
 @Controller
 @RequestMapping("/store")
@@ -50,14 +51,11 @@ public class StoreController {
 	// 아름,성현추가
 	// 로그인 후 Main으로 이동하며 데이터 처리하는 메소드
 	@RequestMapping("/storeMain.do")
-	public ModelAndView storeMain(String txt, String password, BossVO bossVO, HttpSession httpsession) {
+	public ModelAndView storeMain(BossVO bossVO, HttpSession httpsession) {
 		ModelAndView mv = new ModelAndView();
 		BossVO result = null;
 		if (httpsession.getAttribute("bId") == null) {
-
-			bossVO.setbId(txt);
-			bossVO.setbPw(password);
-
+			
 			result = storeDAO.selectBossLogin(bossVO); // 로그인 후 사장님 정보 가져오기
 
 			if (result != null) { // 로그인 정보가 일치할때
@@ -266,9 +264,6 @@ public class StoreController {
 	@ResponseBody
 	public String bossPwdCheck(String bossId, String bossPwd, String rCid) {
 		BossVO bossVO = new BossVO();
-		System.out.println(bossId);
-		System.out.println(bossPwd);
-		System.out.println(rCid);
 		bossVO.setbId(bossId);
 		bossVO.setbPw(bossPwd);
 
@@ -276,7 +271,7 @@ public class StoreController {
 		if (bossVO == null) {
 			rCid = null;
 		}
-		System.out.println("final : " + rCid);
+
 		return rCid;
 	}
 	
@@ -307,5 +302,19 @@ public class StoreController {
 			}
 			
 		}
+		@RequestMapping(value="bossRegister.do")
+		public ModelAndView userRegister(BossVO vo,HttpServletRequest request) {
+			ModelAndView mv = new ModelAndView();
+			String bAddr1 = request.getParameter("bAddr1"); //주소값 받아오기
+			String bAddr2 = request.getParameter("bAddr2"); //상세주소값 받아오기
+			String bAddress = bAddr1+"-"+bAddr2; //주소+상세주소 합치기
+			vo.setbAddress(bAddress);  //주고 set
+			int result = storeDAO.insertBossJoin(vo);
+			
+			mv.setViewName("store/storeBossLogin");
+			mv.addObject("result",result);
+			return mv; 
+		}
+		
 
 }
