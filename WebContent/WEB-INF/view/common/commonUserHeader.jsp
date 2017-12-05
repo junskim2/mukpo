@@ -331,7 +331,6 @@ nav {
 		$("#Gyeonggi")
 				.click(
 						function() {
-							alert("경기도 알러");
 							//경기도 시군구 불러오기
 							$
 									.ajax({

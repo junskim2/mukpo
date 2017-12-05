@@ -27,7 +27,6 @@
       <script src="/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/login.js"></script>
 </head>
 <body>
  <main>
@@ -44,7 +43,7 @@
                                     <div class="title text-center">
                                         <h3 class="text-coffee">로그인</h3>
                                     </div>
-                                    <form class="login-form" method="post" name="login" action="login.do">
+                                    <form class="login-form" method="post" name="login" action="/user/Login.do">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <input type="text" name="mId" placeholder="아이디" class="input-fields">
@@ -64,7 +63,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="button" name="button" value="로그인" class="button-default button-default-submit">
+                                                <input type="submit" name="submit" value="로그인" class="button-default button-default-submit">
                                             </div>
                                         </div>
                                     </form>
@@ -75,31 +74,31 @@
                                     <div class="title text-center">
                                         <h3 class="text-coffee">회원가입</h3>
                                     </div>
-                                    <form class="register-form" method="post" name="register">
+                                    <form class="register-form" method="post" name="register" action="/user/userRegister.do">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="아이디" class="input-fields">
+                                                <input type="text" name="mId" placeholder="아이디" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="password" name="password" placeholder="비밀번호" class="input-fields">
+                                                <input type="password" name="mPw" placeholder="비밀번호" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <input type="password" name="password" placeholder="비밀번호 확인" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="이름" class="input-fields">
+                                                <input type="text" name="mName" placeholder="이름" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="전화번호" class="input-fields">
+                                                <input type="text" name="mTel" placeholder="전화번호" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="YYYY-MM-DD" class="input-fields">
+                                                <input type="text" name="mBorn" placeholder="YYYY-MM-DD" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="email@gmail.com" class="input-fields">
+                                                <input type="text" name="mEmail" placeholder="email@gmail.com" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="button" name="button" class="button-default button-default-submit" value="회원가입">
+                                                <input type="submit" name="submit" class="button-default button-default-submit" value="회원가입">
                                             </div>
                                         </div>
                                     </form>
