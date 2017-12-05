@@ -30,7 +30,7 @@ public class StoreDAOImpl implements StoreDAO {
 	@Override
 	public int insertBossJoin(BossVO vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return storess.insert("store.insertBossRegister",vo);
 	}
 
 	@Override

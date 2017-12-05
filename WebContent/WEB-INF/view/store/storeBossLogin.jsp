@@ -109,10 +109,10 @@
                                                 <input type="submit" name="submit" value="우편번호 검색" class="button-default">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="addr1" placeholder="주소" class="input-fields">
+                                                <input type="text" name="bAddr1" placeholder="주소" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="addr2" placeholder="상세주소" class="input-fields">
+                                                <input type="text" name="bAddr2" placeholder="상세주소" class="input-fields">
                                             </div>
                                             <input type="hidden" name="bAddress"/>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
