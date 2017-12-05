@@ -85,6 +85,9 @@ public interface StoreDAO {
 	// 사용자 매장검색 리스트
 	List<StoreVO> selectUserStore(StoreVO store);
 
+	// 민우 매장리스트 총 갯수
+	int countUserStore(StoreVO store);
+	
 	// 혼잡도 초기 설정
 	int insertCongestionset(CongestionSetVO vo);
 

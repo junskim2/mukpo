@@ -16,10 +16,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 사용자 매장검색 -->
 	<!-- 주용 사용자 검색기능 구현 -->
-	<select id="selectUserStore" resultType="storeVO" parameterType="storeVO">
-			SELECT *
+	<!-- 민우 페이징기능 추가-->
+	<select id="selectUserStore" resultType="storeVO" parameterType="storeVO">		
+			   SELECT 
+        a.*
+    FROM (
+        SELECT ROWNUM rnum, s.*
+        FROM (
+            SELECT *
 			FROM store
-			WHERE (s_mp IN ('${sMp}') OR s_mp='MP') 
+			WHERE (s_mp IN ('${sMp}') OR s_mp='MP')
+        )s
+    )a 
+WHERE rnum BETWEEN #{startRowNo} AND #{endRowNo}  
 		<if test="sSido != null"> 
 			AND s_sido = #{sSido}
 		</if> 

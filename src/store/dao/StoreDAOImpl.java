@@ -147,6 +147,11 @@ public class StoreDAOImpl implements StoreDAO {
 
 		return storess.selectList("store.selectUserStore", store);
 	}
+	
+	//사용자 매장리스트 총개수
+	public int countUserStore(StoreVO store) {
+		return storess.selectOne("store.countUserStore", store);
+		 }
 
 	// 혼잡도 초기설정
 	@Override
