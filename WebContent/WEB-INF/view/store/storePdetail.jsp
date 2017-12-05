@@ -72,7 +72,7 @@ margin-top: 10%;
 			<div class="build-title">
 				<h2>메뉴선택</h2>
 			</div>
-			<form method="post" action="/store/storeMdetail.do"style="left: 5%;;top: 15% margin-top:40px;width:100%;">
+			<form method="post" action="/reserve/reservePPayment.do" style="left: 5%;;top: 15% margin-top:40px;width:100%;">
 			<div class="menu-wrapper">
                             <div class="portfolioFilter">
                                 <div class="portfolioFilter-inner">
@@ -121,7 +121,7 @@ margin-top: 10%;
 			
 			</div>
 			</section>
-			<form method="post" action="/reserve/reserveMPayment.do">
+			<form method="post" action="/reserve/reservePPayment.do">
 			<div class="shop-cart-list wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                             <table class="shop-cart-table">
                                 <thead>
