@@ -151,7 +151,7 @@ public class StoreDAOImpl implements StoreDAO {
 	//사용자 매장리스트 총개수
 	public int countUserStore(StoreVO store) {
 		return storess.selectOne("store.countUserStore", store);
-		 }
+	}
 
 	// 혼잡도 초기설정
 	@Override
@@ -208,5 +208,11 @@ public class StoreDAOImpl implements StoreDAO {
 	@Override
 	public FavoriteVO selectFavoriteStore(FavoriteVO vo) {
 		return storess.selectOne("store.selectFavoriteStore", vo);
+	}
+	
+	//신주용 시군구 가져오는 기능 구현
+	@Override
+	public List<StoreVO> selectSigungu(StoreVO storeVO) {
+		return storess.selectList("store.selectSigungu", storeVO);
 	}
 }
