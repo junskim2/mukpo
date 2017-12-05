@@ -1,13 +1,21 @@
 package store.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -271,5 +279,33 @@ public class StoreController {
 		System.out.println("final : " + rCid);
 		return rCid;
 	}
+	
+	//주용추가 경기도 시군구 불러오기
+		@RequestMapping(value = "/sigunguSelect.do", produces="text/json;charset=UTF-8")
+		@ResponseBody
+		public void  sigunguSelect(Model model, HttpServletResponse response, HttpServletRequest request,StoreVO store) {
+			List<StoreVO> storeVOList = storeDAO.selectSigungu(store); //mybatis형식으로 데이터 가져오기
+			   List<JSONObject> rList = new ArrayList<>(); //제이슨 오브젝트 리스트 생성
+			  
+			   JSONArray ja = new JSONArray(); //제이슨Array 배열생성
+			   
+			   for(int i=0; i<storeVOList.size(); i++) { //가져온 데이터값 돌려서 한줄씩 JSONobject에 넣기
+					JSONObject obj = new JSONObject(); //JONS형식으로 변환할 OBJECT형식 선언
+					try {
+						obj.put("sSigungu", storeVOList.get(i).getsSigungu());
+						ja.put(obj);//object에 넣은값을 배열로 변환하기위해 JSONArray에 넣기
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} //제이슨obj에 가져온 값 넣기
+				}
+			   try {
+				response.getWriter().print(ja.toString());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 
 }

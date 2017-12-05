@@ -134,4 +134,9 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 	<select id="selectFavoriteStore" resultType="favVO">
 			SELECT * FROM favorite WHERE r_cid = #{ rCid } AND m_id = #{ mId }
 	</select>
+<!--1205 주용 시군구 가져오는 기능 구현  -->
+	<select id="selectSigungu" resultType='storeVO'>
+	SELECT s_sigungu FROM store WHERE
+		s_sido = #{sSido} group by s_sigungu
+	</select>	
 </mapper>

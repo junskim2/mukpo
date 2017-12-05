@@ -277,4 +277,16 @@ public class UserController {
 				
 				return mv;
 			}
+			
+			// 1205 경식 사용자 회원가입
+						@RequestMapping(value="userRegister.do")
+						public ModelAndView userRegister(UserVO userVO) {
+							ModelAndView mv = new ModelAndView();
+							
+							int result = userDAO.insertMemberJoin(userVO);
+							
+							mv.setViewName("user/userLogin");
+							mv.addObject("result",result);
+							return mv; 
+						}
 }

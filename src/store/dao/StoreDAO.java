@@ -105,4 +105,7 @@ public interface StoreDAO {
 	
 	// 1203 아름 즐겨찾기 매장 가져오는 기능 구현
 	FavoriteVO selectFavoriteStore(FavoriteVO vo);
+	
+	//신주용 1205 시군구 가져오는 기능 구현
+	List<StoreVO> selectSigungu(StoreVO store);
 }
