@@ -30,24 +30,24 @@
  <main>
             <div class="main-part">
 
-                <section class="home-icon login-register bg-skeen">
+              <section class="home-icon login-register bg-skeen">
                     <div class="icon-default icon-skeen">
                         <img src="images/scroll-arrow.png" alt="">
                     </div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div class="login-wrap form-common">
                                     <div class="title text-center">
                                         <h3 class="text-coffee">로그인</h3>
                                     </div>
-                                    <form class="login-form" method="post" name="login" action="storeMain.do">
+                                    <form class="login-form" method="post" name="login" action="/store/storeMain.do">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="아이디" class="input-fields">
+                                                <input type="text" name="bId" placeholder="아이디" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="password" name="password" placeholder="********" class="input-fields">
+                                                <input type="password" name="bPw" placeholder="********" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <div class="row">
@@ -67,63 +67,60 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div class="register-wrap form-common">
+                                    <form class="register-form" method="post" name="register" action="/store/bossRegister.do">
                                     <div class="title text-center">
                                         <h3 class="text-coffee">회원가입</h3>
                                     </div>
-                                    <form class="register-form" method="post" name="register">
+                                    
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="아이디" class="input-fields">
+                                                <input type="text" name="bId" placeholder="아이디" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="password" name="password" placeholder="비밀번호" class="input-fields">
+                                                <input type="password" name="bPw" placeholder="비밀번호" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <input type="password" name="password" placeholder="비밀번호 확인" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="이름" class="input-fields">
+                                                <input type="text" name="bName" placeholder="이름" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="전화번호" class="input-fields">
+                                                <input type="text" name="bTel" placeholder="전화번호" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="YYYY-MM-DD" class="input-fields">
+                                                <input type="text" name="bBorn" placeholder="YYYY-MM-DD" class="input-fields">
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="email@gmail.com" class="input-fields">
+                                                <input type="text" name="bEmail" placeholder="email@gmail.com" class="input-fields">
                                             </div>
+                                            
+                                        </div>
+                                         <div class="title text-center">
+                                        <h3 class="text-coffee">우편</h3>
+                                    </div>
+                                     <div class="row"> 
+                                            <div class="col-md-7 col-sm-6 col-xs-12">
+                                                <input type="text" name="bZipcode" placeholder="우편번호" class="input-fields">
+                                            </div>
+                                            <div class="col-md-5 col-sm-6 col-xs-12"> 
+                                                <input type="submit" name="submit" value="우편번호 검색" class="button-default">
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <input type="text" name="addr1" placeholder="주소" class="input-fields">
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <input type="text" name="addr2" placeholder="상세주소" class="input-fields">
+                                            </div>
+                                            <input type="hidden" name="bAddress"/>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <input type="submit" name="submit" class="button-default button-default-submit" value="회원가입">
                                             </div>
                                         </div>
                                     </form>
                                     
-                                </div>
-                            </div>
-                             <div class="col-md-5 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                <div class="login-wrap form-common">
-                                    <div class="title text-center">
-                                        <h3 class="text-coffee">우편</h3>
-                                    </div> 
-                                    <form class="post-form" method="post" name="post">
-                                        <div class="row"> 
-                                            <div class="col-md-7 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="우편번호" class="input-fields">
-                                            </div>
-                                            <div class="col-md-5 col-sm-12 col-xs-12"> 
-                                                <input type="submit" name="submit" value="우편번호 검색" class="button-default button-default-submit">
-                                            </div>
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="주소" class="input-fields">
-                                            </div>
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="상세주소" class="input-fields">
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
