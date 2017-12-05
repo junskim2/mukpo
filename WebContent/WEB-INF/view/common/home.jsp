@@ -139,7 +139,7 @@ $(function() {
       <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
       <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
       <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
-      <a>MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 / 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
+      <a ref="/user/userMypageInfoModifyMain.do">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 / 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
       <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->      
       <!-- 로그인 회원가입 클릭하면 나오는 화면 -->
       <div class="location-footer-map">

@@ -94,22 +94,10 @@
 </style>
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {
-	   $("#UserMmain").click(function() {
-      location.href = "common/userMmain.do";
-   });
-   $("#UserPmain").click(function(){
-      location.href = "common/userPmain.do";
-   });
-   
-   $('#mypage').click(function(){
-	   alert("로그인 후 이용 가능합니다.");
-   });
-});
-</script>
 </head>
 <body>
+<!-- 로그인 아이디확인 -->
+<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }" />
    <div id="body">
       <div id="UserMmain"></div>
       <div id="UserPmain"></div>
@@ -271,5 +259,7 @@ $(function() {
    <script src="plugin/parallax/jquery.stellar.js"></script>
    <script src="js/app.js"></script>
    <script src="js/script.js"></script>
+<!-- 1204 아름 로그인여부 확인 -->
+   <script src="/js/common/loginCheck.js"></script>
 </body>
 </html>

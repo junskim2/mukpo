@@ -47,11 +47,10 @@ public class UserDAOImpl implements UserDAO{
 			return userss.update("user.updateMemberDelete", vo);
 		}	
 		
+// 1204 아름 수정
 		@Override
-		public FavoriteVO selectFS(FavoriteVO vo) { //마이페이지 - 즐겨찾기 상점 목록
-			FavoriteVO favoriteVO = null;
-			
-			return favoriteVO;
+		public List<HashMap> selectFS(FavoriteVO vo) { //마이페이지 - 즐겨찾기 상점 목록			
+			return userss.selectList("user.selectFS", vo);
 		}
 	
 		@Override

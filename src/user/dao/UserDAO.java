@@ -31,7 +31,8 @@ public interface UserDAO {
 
 	PointVO selectPointCharge(PointVO pointVO); // 마이페이지 - 현재포인트
 
-	FavoriteVO selectFS(FavoriteVO vo); // 마이페이지 - 즐겨찾기목록
+	// 1204 아름 수정
+	List<HashMap> selectFS(FavoriteVO vo); // 마이페이지 - 즐겨찾기목록
 
 	ReviewVO selectReview(ReviewVO vo); // 마이페이지 - 내가 쓴 후기
 	

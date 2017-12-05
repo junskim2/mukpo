@@ -50,5 +50,39 @@ $(function() {
 
 				}
 			});
+	
+	// 1205 아름 마이페이지 즐겨찾기 해제
+	$(".favoriteImg").click(function(event){
+		var src = $(this).attr("src");
+		var rCid = $(this).attr("rcid");
+		var mId = $("#mId").val();
+		
+		if ( $("#mId").val() == "" ){
+			location.href = '/user/userLogin.do';
+		} else {
+			$.ajax({
+				url : "/user/userFavoriteStore.do",
+				type : "POST",
+				dataType: "text",
+				data : {	"src" : $(this).attr("src"),
+							"rCid": $(this).attr("rcid"),
+							"mId" : $("#mId").val()
+						},
+				success : function(data){
+					var favoriteVO = decodeURIComponent(data);
+					if (favoriteVO == "즐겨찾기X"){
+						$(this).attr("src", "/images/store/likeX.png");
+						$("img[rcid="+rCid+"]").parents(".comment-inner-list").remove();
+					} else if(favoriteVO == "즐겨찾기O"){
+						$(this).attr("src", "/images/store/likeO.png");
+					}
+					
+				}, 
+				error : function(err) {
+					
+				}
+			})
+		}
+	});
 
 });
