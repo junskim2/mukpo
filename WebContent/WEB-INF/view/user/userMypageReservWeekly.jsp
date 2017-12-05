@@ -30,9 +30,6 @@
     <link href="/css/theme.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
-
-    
-   
     <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
 <style type="text/css">
 html,body{
@@ -40,13 +37,8 @@ height:100%;
 }
 
 </style>
-		<!-- UserMypageHeader 시작 -->
-<%-- 			<jsp:include page="/WEB-INF/view/common/commonUserMypageHeader.jsp"></jsp:include> --%>
-		<!-- UserMypageHeader 끝 -->
-		
 <script type="text/javascript">
 $( document ).ready(function() {
-	
 	$("#search").bind("click",function(){
 		var keyword = $('#term').val();
 		if($('#term').val()==""){
@@ -61,11 +53,24 @@ $( document ).ready(function() {
              },
 	        success : function(data){	        	
 	        	if(data != null){
-	        		$('.tblList').html("");
+	        		$('#searchList').html("");
 	        		$(data).each(function(index, item) {
 	        	var tag="";
-	        	tag += "<tr><td>"+ this.sName +"</tr></td>";
- 	        	$('.tblList').append(tag);
+	        	tag += 
+				 "<input type='hidden' name='rCid' value="+ this.sRcid +" />"
+				+ "<div class='store col-md-6 col-sm-6 col-xs-12 wow fadeInDown' data-wow-duration='1000ms' data-wow-delay='300ms'>"
+				+ "<div class='blog-right-listing'>"
+				+ "<div class='feature-img'>"
+				+ "<img src=" + this.sUrl + " />"
+				+ "<h3>"+ this.sName +"</h3>"
+				+ "<div>" + this.sAddress + "</div>"
+				+ "<div>" + this.sTel + "</div>"
+				+ "<div>" + this.sClose + "</div>"
+				+ "</div>"
+				+ "</div>"
+		  		+ "</div>";
+
+ 	        	$('#searchList').append(tag);
 	        	});
 	        }
 	        },
@@ -75,75 +80,59 @@ $( document ).ready(function() {
 		});
 	});
 });
-
-<%--  자동완성 autocomplete 라이브러리 안먹힘
-$(function(){
-//  var source = ['난누군가','또여긴어딘가','누가날불러?'];
-    // 자동으로 /ajax/auato 주소로 term 이란 파라미터가 전송된다.
-    // 응답은 [{label:~~~,value:~~~},{label:~~~,value:~~~}] 형태가 된다.
-   $('#term').autocomplete({"source":"<%=cp%>/ajax/auto"});
-    $('#term').autocomplete({"source":function(request,response){
-           $.getJSON("<%=cp%>/user/auto",{"term":request.term},
-                   function(result) {
-        	   				alert("result : "+ result );
-                          return response($.map(result, function(item){
-                                  var l = item.label.replace(request.term,
-                                                 "<span style='color:red'>"+request.term+"</span>");
-                                  return {label:l, value:item.value};
-                          }));
-           });
-    }});
-});
- --%> 
- 
-/*  현희 ajax
-		$('#term').keyup(function() {
-			var data = $("#term").val();
-			console.log(data);
-			$.ajax({
-				type:"POST",
-				url:"/user/userSelectStoreAJAX.jsp",
-				data: { "context" : $("#term").val() },
-				dataType:"text",
-				success : function(data) {
-// 					alert(data);
-// 					var jsonData = JSON.stringify(data.dd);
-// 					console.log("성공:" + data);
-					
-				},
-				error : function(err) {
-					console.log("에러" + err);
-				}
-			});
-		});
-});
- */
 </script>
 </head>
 <body>
-		<div class="weekly_form1">
+        <!-- Start Mypage Header -->
+        	<jsp:include page="/WEB-INF/view/common/commonUserMypageHeader.jsp"></jsp:include>
+        <!-- End Mypage Header -->
+
 		        <!-- 날짜선택 -->
-                <section id="reach-to" class="col-md-6 col-sm-6 col-xs-12 table-part booktable wow fadeInUp" 
-                data-wow-duration="1000ms" data-wow-delay="300ms" style="width:40%; margin-left:20%; padding:30px 0;">
-                        <div class="content-middle">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="txt" placeholder="날짜검색" class="date-pick">    
+                <section id="reach-to" data-wow-duration="1000ms" data-wow-delay="300ms" style="width:40%; margin-left:20%; padding:30px 0;">
+                        <div class="content-middle" style="margin-left:30%;">
+<!--                                 <div class="col-md-6 col-sm-6 col-xs-12"> -->
+<!--                                     <input type="text" name="txt" placeholder="날짜검색" class="date-pick">     -->
                 <!-- 날짜선택 끝 -->
                 <!-- 매장검색 -->
-                                    <input type="text" id="term" placeholder="매장검색"/>  
-                                  </div>
-                              <table class="tblList" border="1"></table> <!-- 매장리스트 띄워주는 테이블 -->
+                                    <input type="text" id="term" placeholder="매장검색" style="width:70%;"/>
+                                    <img src="/images/icon-zoom-blue.png" name="search" id="search" style="margin-bottom:5%; margin-left:2%;"> 
+                    	            <table class="tblList" border="1"></table> <!-- 매장리스트 띄워주는 테이블 -->
                         </div>
-                         
                 </section>	
 				<!-- 매장검색 끝-->
-				<input type="button" name="search" id="search" value="검색" style="margin-top:2%;"/>
-                                    
-		<div class="weekly_form2">
-		<div>예약내역</div>
-		<div>예약내용</div>
+				         
 		</div>
-		</div>
+		<!-- Start Blog List -->
+			<section
+				class="home-icon blog-main-section text-center blog-main-2col wow fadeInDown"
+				data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="container">
+					<div class="portfolioFilter">
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="blog-right-section">
+								<div class="row" id="searchList">
+<%-- 										<input type="hidden" name="rCid" value="${ list.rCid }" /> --%>
+										
+<!-- 										<div class="store col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms"> -->
+<!-- 											<div class="blog-right-listing"> -->
+<!-- 												<div class="feature-img"> -->
+<%-- 													<img src="${ list.sUrl }" alt="" /> --%>
+<%-- 													<h3>${ list.sName }</h3> --%>
+<%-- 													<div>${ list.sAddress }</div> --%>
+<%-- 													<div>${ list.sTel }</div> --%>
+<%-- 													<div>${ list.sClose }</div> --%>
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 								  	</div> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+									<!-- 매장 목록 값 끝 -->
 		
 		<!-- 예약 달력 -->
         <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
@@ -201,7 +190,6 @@ $(function(){
     <script src="/js/jquery.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap.min.js"></script>
     <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
-    <script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
     <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
     <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
     <script src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
