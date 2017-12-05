@@ -8,12 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Checkout - Laboom</title>
-<%String param[] = request.getParameterValues("name"); %>
-<%String result[] = request.getParameterValues("result"); %>
-<%String price[] = request.getParameterValues("price"); %>
-<%int onetotal[]=null; %>
-<%int total=0; %>
-<%String id = (String)session.getAttribute("userName");%>
+<%String mName[] = request.getParameterValues("mName");//메뉴 이름  %>  
+<%String mCnt[] = request.getParameterValues("mCnt"); //메뉴 갯수%>
+<%String mPrice[] = request.getParameterValues("mPrice"); //메뉴 가격%>
+<%int total=0; //총갯수 %>
+<%String id = (String)session.getAttribute("userName");  //아이디%>
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -85,11 +84,12 @@
 										주문내역 <span></span>
 									</h6>
 								</div>
+<!-- 								경식추가 메뉴 리스트 -->
 								<div class="shop-checkout-row">
-									<%for(int i=0; i<param.length; i++){ %>
+									<%for(int i=0; i<mName.length; i++){ %>
 									<p>
 									<!-- 메뉴 리스트 출력 화면 윤경식 추가 -->
-										<span>메뉴 명 :<%=param[i]%> 수량 : <%=result[i] %> 가격 : <%=price[i] %></span>
+										<span>메뉴 명 :<%=mName[i]%> 수량 : <%=mCnt[i] %> 가격 : <%=mPrice[i] %></span>
 									
 									</p>
 									<%
@@ -100,8 +100,8 @@
 								<div class="checkout-total">
 									<h6>
 										결제금액 <small><!--총 금액  윤경식 추가  -->
-										<%for(int j=0; j<price.length; j++){
-											total+=Integer.parseInt(price[j])*Integer.parseInt(result[j]);
+										<%for(int j=0; j<mPrice.length; j++){
+											total+=Integer.parseInt(mPrice[j])*Integer.parseInt(mCnt[j]);
 										}
 										%>
 										<%=total %>원

@@ -35,20 +35,17 @@ public class UserDAOImpl implements UserDAO{
 			return userVO;
 		}
 	
+// 1203 아름 리턴형 수정
 		@Override
-		public UserVO updateMemberModify(UserVO vo) { //마이페이지 - 사용자 회원정보수정
-			UserVO userVO = null; 
-	
-			return userVO;
+		public int updateMemberModify(UserVO vo) { // 마이페이지 - 사용자 회원정보수정
+			return userss.update("user.updateMemberModify", vo);
 		}
 	
+// 1203 아름 리턴형 수정
 		@Override
-		public UserVO updateMemberDelete(UserVO vo) { //마이페이지 - 회원탈퇴
-			UserVO userVO = null;
-	
-			return userVO;
-		}
-	
+		public int updateMemberDelete(UserVO vo) { //마이페이지 - 회원탈퇴
+			return userss.update("user.updateMemberDelete", vo);
+		}	
 		
 		@Override
 		public FavoriteVO selectFS(FavoriteVO vo) { //마이페이지 - 즐겨찾기 상점 목록
@@ -115,5 +112,22 @@ public class UserDAOImpl implements UserDAO{
 			int result = 0;
 			return userss.insert("user.reviewInsert", vo);
 		}
+		
+// 1202 아름 회원정보 수정 전 비밀번호 확인		
+		@Override
+		public UserVO selectMemberModifyCheck(UserVO vo) {
+			return userss.selectOne("user.selectMemberModifyCheck", vo);
+		}
 
+// 1204 아름 즐겨찾기 추가
+		@Override
+		public int insertFavorite(FavoriteVO vo) {
+			return userss.insert("user.insertFavorite", vo);
+		}
+
+// 1204 아름 즐겨찾기 삭제
+		@Override
+		public int deleteFavorite(FavoriteVO vo) {
+			return userss.delete("user.deleteFavorite", vo);
+		}
 }

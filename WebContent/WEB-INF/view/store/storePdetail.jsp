@@ -61,14 +61,15 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="container" style="margin-top: 10%;">
+<section class="home-icon blog-main-section shop-page">
+		<div class="container">
 			<div class="build-title">
 				<h2>메뉴선택</h2>
 			</div>
-			<div class="menu-wrapper col-md-6 col-sm-6 col-xs-12" style="width:66%;">
-				<div class="portfolioFilter" style="margin-bottom:2%;">
-					<div class="portfolioFilter-inner">
+			<form method="post" action="/store/storeMdetail.do"style="left: 5%;;top: 15% margin-top:40px;width:100%;">
+			<div class="menu-wrapper">
+                            <div class="portfolioFilter">
+                                <div class="portfolioFilter-inner">
 						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> <a
 							href="javascript:;" data-filter=".japan">일식</a> <a
 							href="javascript:;" data-filter=".china">중식</a> <a
@@ -77,7 +78,8 @@
 							href="javascript:;" data-filter=".lunch">메뉴5</a>
 					</div>
 				</div>
-				<div style="width:100%;height:320px;padding-bottom:10%; margin-left:0%; margin-right:20%;border-radius:50px; border:2px solid orange;" class="portfolioContainer row ">
+
+				<div class="portfolioContainer row ">
 <!-- 				메뉴 리스트 화면 -윤경식 추가-->
 				<c:choose>
 				<c:when test="${menuList == null}">
@@ -85,45 +87,54 @@
         		</c:when>
         		<c:otherwise>
 				<c:forEach var="list" items="${menuList}" end="30" >
-				<form method="post" action="/store/storeMdetail.do" class="${list.mCate}" style="left: 5%;top: 15%; margin-top:40px;">
-					<div class="col-md-6 col-sm-6 col-xs-12 isotope-item">
-						<div class="menu-list" style="margin-left:25%; margin-top:20%;">
-							<span class="menu-list-product"> <img
-								src="/images/img3.png" alt="">
-							</span>
-							<h5 style="padding-bottom:0px;padding-right:0px;margin-bottom:10px;width:154px; ">
-								${list.mName},
-								${list.mCate}
-							</h5>
-							<h5 style="padding-bottom:0px;padding-right:0px;margin-bottom:10px;width:154px;">${list.mPrice}원</h5>
-							<input type="button" value="장바구니에 담기" price="${list.mPrice}" name="${list.mId}" menu="${list.mName}" class="basket button-default button-default-submit" style="border:2px solid orange; width:150px; padding:0px 0px;"/>
-						</div>
-					</div>
-					</form>
+				
+					    <div class="col-md-3 col-sm-6 col-xs-12 isotope-item  ${list.mCate}">
+                                <div class="shop-main-list">
+                                    <div class="shop-product">
+                                        <img src="/images/img56.png" alt="">
+                                        <div class="cart-overlay-wrap">
+                                            <div class="cart-overlay">
+                                                <input type="button" name="${list.mId}" class="shop-cart-btn" value="ADD TO CART"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#"><h5 class="${list.mId}">${list.mName }</h5></a>
+                                    <h5><strong class="${list.mId}">${list.mPrice }</strong></h5>
+                                </div>
+                            </div>
+					
 					</c:forEach>
 					</c:otherwise>
 					</c:choose>
 					
+					
 				</div>
 			
-			</div>
-			<form method="post" action="/reserve/reserveMPayment.do">
-			<div class="col-md-6 col-sm-6 col-xs-12" style="width:30%;">
-			
-			
-			<h3 style="text-align:center; margin-bottom:10%;">장바구니</h3>  
-			<div style="width:100%;height:100%; margin-left:0%; margin-right:20%;border-radius:50px; border:2px solid orange;" class="basketform ">
-			<h5 style="text-align:center; width:100%;">메뉴명|갯수|삭제</h5>
-			
-			</div>
-			<div class="col-md-6 col-sm-6 col-xs-12"  style="width:100%;"> 
-			<input class="payment button-default button-default-submit"type="submit" value="결제하기" style="width:48%; min-width:0px; padding:0px 0px; border:2px solid red;"/>
-			<input class="payment button-default button-default-submit"type="button" value="취소하기" style="width:48%; min-width:0px; padding:0px 0px; border:2px solid black;"/>
-			</div> 
 			</div>
 			</form>
 			
 			</div>
+			</section>
+			<form method="post" action="/reserve/reserveMPayment.do">
+			<div class="shop-cart-list wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <table class="shop-cart-table">
+                                <thead>
+                                    <tr>
+                                        <th>PRODUCT</th>
+                                        <th>PRICE</th>
+                                        <th>QUANTITY</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+<!--                                  경식 추가  여기에 매뉴 리스트 추가 됨 *************************************************************************************-->
+                                </tbody>
+                            </table>
+                            <div class="product-cart-detail">
+                                <input type="submit"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
+                            </div>
+                        </div>
+			</form>
 		</div>
 
 		<!-- End Menu Part -->

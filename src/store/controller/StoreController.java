@@ -19,6 +19,7 @@ import store.domain.BossVO;
 import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
+import user.domain.FavoriteVO;
 
 @Controller
 @RequestMapping("/store")
@@ -201,7 +202,6 @@ public class StoreController {
 	// 경식 바꿈
 	@RequestMapping("/storePdetail.do")
 	public ModelAndView storePdetail(StoreVO vo) {
-		System.out.println("사업자등록번호 rCid로 넘어옴");
 
 		ModelAndView mv = new ModelAndView();
 		List<MenuVO> list = storeDAO.selectMenuList(vo);
@@ -214,7 +214,7 @@ public class StoreController {
 	// 매장 상세 페이지
 	@RequestMapping(value = "storeMdetail.do")
 	public ModelAndView storeMdetail(MenuVO menuVO, CongestionSetVO congestionSetVO, TableSetVO tableSetVO,
-			StoreVO storeVO) {
+			StoreVO storeVO, FavoriteVO favoriteVO, HttpSession httpsession) {
 		// 1130 아름 추가
 		List<MenuVO> menuVOCate = storeDAO.selectMenuCate(menuVO); // 매장의 메뉴 카테고리 가져오는 기능 구현
 		List<MenuVO> menuVOList = storeDAO.selectMenuList(menuVO); // 매장의 메뉴를 출력하는 기능 구현
@@ -222,8 +222,20 @@ public class StoreController {
 		tableSetVO = storeDAO.selectTableSetSearch(tableSetVO); // 매장의 테이블정보 가져오기
 		storeVO = storeDAO.selectStore(storeVO); // 매장설명 가져오는 기능 구현
 		List<HashMap> reviewList = storeDAO.selectReviewList(menuVO); // 매장의 리뷰 가져오는 기능 구현
-
+		// 1203 아름 즐겨찾기 매장 가져오는 기능 구현
+		Object userName = "";
+		userName = httpsession.getAttribute("userName");
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("favoriteVO", "즐겨찾기X");
+		if (userName != null ) {				
+			favoriteVO.setmId((String)httpsession.getAttribute("userName"));
+			favoriteVO = storeDAO.selectFavoriteStore(favoriteVO);
+			if (favoriteVO != null) {
+				mv.addObject("favoriteVO", "즐겨찾기O");
+			}	
+		} 
+		
+		
 		mv.setViewName("store/storeMdetail");
 		mv.addObject("menuVOCate", menuVOCate);
 		mv.addObject("menuVOList", menuVOList);

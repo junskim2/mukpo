@@ -24,6 +24,10 @@
     <link href="/plugin/animation/animate.min.css" rel="stylesheet">
     <link href="/css/theme.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c90936953fe2cb46c371ca9d061b1a69"></script>
+<script src="/js/user/userMmain.js"></script>
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script type="text/javascript">
@@ -137,10 +141,10 @@
                             <h2>먹고갈래 ?</h2>
                             <h6>사용자의 위치에 따라 매장들을 보여줍니다</h6>
                         </div>
-                    <div class="map-address-inner">
+                    
                         <div class="map-top">
                             <div class="container" id="mapContainer">
-                            	<div id="map" style="width:700px;height:400px;"></div>
+                            	<div id="kakaoMap" style="width:700px;height:400px;"></div>
                             </div>
                             <div class="container" id="storeContainer">
                                 <div class="userLocationStore">
@@ -164,7 +168,7 @@
                                     <span>아름동 혀니빌딩 204호</span>
                                 </div>
                             </div>
-                        </div>
+                        
                     </div>
 <!--                     <div class="map-bottom"> -->
 <!--                          <div class="footer-map-outer1"> -->
@@ -177,55 +181,7 @@
         </main>
         <!-- End Main -->
 		<jsp:include page="../common/commonUserFooter.jsp"></jsp:include>
-        <!-- Start Book Table -->
-        <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <div class="table-title">
-                            <h2>Reservation</h2>
-                            <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="select-dropbox">
-                                    <option>Hour</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="select-dropbox">
-                                    <option>Number of People</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="txt" placeholder="Pick a Date" class="date-pick">
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="txt" placeholder="Phone Number">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <input type="email" name="email" placeholder="Email Address">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn-main btn-big">BOOK A TABLE</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Book Table -->
+        
     </div>
     <!-- Back To Top Arrow -->
     <a href="#" class="top-arrow"></a>

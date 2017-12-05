@@ -11,8 +11,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </insert>
 
 <!-- 로그인 sql -->
+<!-- 1203 아름 탈퇴여부 체크 추가 -->
 <select id="userLogin" parameterType="userVO" resultType="userVO"> 
-	select * from member where m_id=#{mId} 
+	select * from member where m_id=#{mId} AND m_yn = 'N'
 	<if test="mPw !=null">
 		AND m_pw = #{mPw}
 	</if>
@@ -74,5 +75,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ROWNUM <![CDATA[ <= ]]> 6
 		</where>
 	</select>
-
+<!-- 1202 아름 회원정보 수정 전 비밀번호 확인 -->
+	<select id="selectMemberModifyCheck" resultType="userVO">
+		SELECT * FROM member WHERE m_id = #{mId} AND m_pw = #{mPw}
+	</select>
+	
+<!-- 1203 아름 회원정보 수정 update -->
+	<update id="updateMemberModify" parameterType="userVO">
+		UPDATE member SET m_pw = #{ mPw }
+		<if test="mName != null and mTel != null and mEmail != null and mBorn != null">
+		,m_name = #{ mName }, m_tel = #{ mTel }, m_email = #{ mEmail }, m_born = #{ mBorn } 
+		</if>
+		 WHERE m_id = #{mId}
+	</update>
+	
+<!-- 1203 아름 회원탈퇴 -->
+	<update id="updateMemberDelete" parameterType="userVO">
+		UPDATE member SET m_yn = 'Y' WHERE m_id = #{ mId }
+	</update>
+	
+<!-- 	1204 아름 즐겨찾기 추가 -->
+	<insert id="insertFavorite" parameterType="favVO">
+		INSERT INTO favorite VALUES (#{fId}, #{mId}, #{rCid})
+	</insert>
+	
+<!-- 1204 아름 즐겨찾기 삭제 -->
+	<delete id="deleteFavorite" parameterType="favVO">
+		DELETE FROM favorite WHERE f_id = #{fId}
+	</delete>
+	
 </mapper>

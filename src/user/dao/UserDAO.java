@@ -17,9 +17,11 @@ public interface UserDAO {
 	
 	UserVO selectMemberName(UserVO userVO);	// 회원명 검색
 
-	UserVO updateMemberModify(UserVO vo); // 개인정보 수정
+	// 1203 아름 리턴형 수정
+	int updateMemberModify(UserVO vo); // 개인정보 수정
 
-	UserVO updateMemberDelete(UserVO vo); // 회원탈퇴
+	// 1203 아름 리턴형 수정
+	int updateMemberDelete(UserVO vo); // 회원탈퇴
 
 	List<PointVO> selectPoint(PointVO vo); // 마이페이지 - 먹포인트 현황
 
@@ -39,4 +41,13 @@ public interface UserDAO {
 	
 // 1201 현희 추가
 	List<HashMap> selectLatelyReview(String mp); // 메인 - 생생리뷰
+	
+// 1202 아름 회원정보 수정 전 비밀번호 확인
+		UserVO selectMemberModifyCheck(UserVO vo);
+
+// 1204 아름 즐겨찾기 추가
+		int insertFavorite(FavoriteVO vo);
+
+// 1204 아름 즐겨찾기 삭제
+		int deleteFavorite(FavoriteVO vo);
 }

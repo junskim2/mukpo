@@ -25,5 +25,10 @@ where r.m_id='user3'
 	
 </select>
 
+	<!-- 아름 먹고갈래 예약 메뉴 불러오기 -->
+	<select id="reserveMenuList" parameterType="resVO" resultType="menuVO">
+		SELECT * FROM menu WHERE r_cid = #{rCid}
+	</select>
+
 
 </mapper>

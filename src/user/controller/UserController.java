@@ -1,6 +1,8 @@
 package user.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import store.domain.StoreVO;
 import user.dao.UserDAO;
+import user.domain.FavoriteVO;
 import user.domain.PointVO;
 import user.domain.ReviewVO;
 import user.domain.UserVO;
@@ -45,10 +48,11 @@ public class UserController {
 			result=1;
 			session.setAttribute("sessionTime", (new Date().toString()));
 			session.setAttribute("userName", dbvo.getmId());
-					
+// 1203 아름 404오류 처리 추가
+			mv.setViewName("common/home");					
+		} else {
+			mv.setViewName("user/userLogin");
 		}
-		System.out.println(message);
-		mv.setViewName("user/login");
 		mv.addObject("result", result); 
 		mv.addObject("message", message);
 		return mv;
@@ -174,5 +178,88 @@ public class UserController {
 				mv.addObject("result", result);
 		
 				return mv;
+			}
+			
+			// 1202 아름 회원정보 수정 전 비밀번호 확인
+			@RequestMapping(value = "/userMypageInfoModify.do")
+			public ModelAndView userMypageInfoModify(UserVO userVO, HttpSession httpSession) {
+				userVO.setmId((String) httpSession.getAttribute("userName"));
+				UserVO userInfo = userDAO.selectMemberModifyCheck(userVO);
+				ModelAndView mv = new ModelAndView();
+				if (userInfo == null) {
+					mv.setViewName("user/userMypageInfoModifyMain");
+				} else {
+					mv.setViewName("user/userMypageInfoModify");
+					mv.addObject("userInfo", userInfo);
+				}
+				return mv;
+			}
+
+			// 1203 아름 회원정보 수정 update
+			@RequestMapping(value = "/userMypageInfoModifyOk.do")
+			public ModelAndView userMypageInfoModifyOk(UserVO userVO) {
+				int result = userDAO.updateMemberModify(userVO);
+				ModelAndView mv = new ModelAndView();
+				if (result > 0) {
+					mv.addObject("message", "회원정보수정완료");
+				} else {
+					mv.addObject("message", "회원정보수정실패");
+				}
+				mv.addObject("userInfo", userVO);
+				mv.addObject("result", result);
+				mv.setViewName("user/userMypageInfoModifyOK");
+				return mv;
+			}
+
+			// 1203 아름 회원탈퇴
+			@RequestMapping(value = "/userMypageMemberout.do")
+			public ModelAndView userMypageMemberout(UserVO userVO, HttpSession httpsession) {
+				userVO.setmId((String) httpsession.getAttribute("userName"));
+				int result = userDAO.updateMemberDelete(userVO);
+				ModelAndView mv = new ModelAndView();
+				if (result > 0) {
+					mv.addObject("message", "회원탈퇴완료");
+					httpsession.removeAttribute("userName");
+				} else {
+					mv.addObject("message", "회원탈퇴실패");
+				}
+				mv.addObject("result", result);
+				mv.setViewName("user/userMypageMemberout");
+				return mv;
+			}
+
+			// 1203 아름 비밀번호 변경
+			@RequestMapping(value = "/userMypageInfoPWModify.do")
+			public ModelAndView userMypageInfoPWModify(UserVO userVO, HttpSession httpsession) {
+				userVO.setmId((String) httpsession.getAttribute("userName"));
+				int result = userDAO.updateMemberModify(userVO);
+				ModelAndView mv = new ModelAndView();
+				if (result > 0) {
+					mv.addObject("message", "비밀번호수정완료");
+				} else {
+					mv.addObject("message", "비밀번호수정실패");
+				}
+				mv.addObject("result", result);
+				mv.setViewName("user/userMypageInfoModifyPWOK");
+
+				return mv;
+			}
+
+			// 1204 아름 즐겨찾기 기능 ajax 처리
+			@RequestMapping(value="/userFavoriteStore.do")
+			@ResponseBody
+			public String userFavoriteStore(FavoriteVO favoriteVO, HttpServletRequest request ) throws UnsupportedEncodingException {
+				String src = request.getParameter("src");
+				favoriteVO.setfId(favoriteVO.getrCid() + "_" + favoriteVO.getmId());
+				String resultFavorite = "즐겨찾기X";
+				if (src.equals("/images/store/likeX.png")) {
+					int result = userDAO.insertFavorite(favoriteVO);
+					resultFavorite = "즐겨찾기O";			
+				} else if (src.equals("/images/store/likeO.png")) {
+					int result = userDAO.deleteFavorite(favoriteVO);
+					resultFavorite = "즐겨찾기X";
+				} 
+				resultFavorite = URLEncoder.encode(resultFavorite, "UTF-8");
+				return resultFavorite;
 			}
 }

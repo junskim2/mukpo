@@ -58,7 +58,18 @@
 					data-wow-duration="1000ms" data-wow-delay="300ms">
 					<div class="feature-img">
 						<img src="${ storeVO.sUrl }" alt="">
-
+<!-- 1203 아름 즐겨찾기 기능 추가 -->
+						<div class="date-feature">
+							<c:choose>
+								<c:when test="${ favoriteVO eq '즐겨찾기X' }">
+									<img alt="" src="/images/store/likeX.png" class="favoriteImg" >
+								</c:when>
+								<c:when test="${ favoriteVO eq '즐겨찾기O' }">
+									<img alt="" src="/images/store/likeO.png" class="favoriteImg" >
+								</c:when>
+								
+							</c:choose>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -139,6 +150,9 @@
 	<c:choose>
 		<c:when test="${ tableSetVO eq null }">
 			<h5>등록된 테이블이 없습니다.</h5>
+<!-- 1204 아름 ajax 처리 위해 mId, rCid 받기 -->
+			<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }">
+			<input type="hidden" id="rCid" name="rCid" value="${ param.rCid }">
 		</c:when>
 		<c:otherwise>
 			<h5>테이블 선택시 예약 가능합니다.</h5>
@@ -155,7 +169,9 @@
 									<div class="cart-overlay">
 										<form action="/reserve/reserveM.do" method="POST">
 											<!-- 사업자등록번호 -->
-											<input type="hidden" name="rCid" value="${ param.rCid }">
+<!-- 1204 아름 ajax 처리 위해 mId, rCid 받기 -->
+											<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }">
+											<input type="hidden" id="rCid" name="rCid" value="${ param.rCid }">
 											<input type="hidden" name="rTnum" value="${ no.count }" /> <input
 												type="submit" class="shop-cart-btn" value="예약하기">
 										</form>
@@ -267,6 +283,8 @@
 	<script src="/plugin/parallax/jquery.stellar.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/script.js"></script>
+<!-- 	1204 아름 즐겨찾기 js파일 추가 -->
+	<script src="/js/store/favoriteStore.js"></script>
 </body>
 
 </html>

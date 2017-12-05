@@ -9,6 +9,7 @@ import store.domain.BossVO;
 import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
+import user.domain.FavoriteVO;
 
 public interface StoreDAO {
 	// 사장님 로그인 기능 구현
@@ -98,4 +99,7 @@ public interface StoreDAO {
 
 	// 1130 매장설명 가져오는 기능 구현
 	StoreVO selectStore(StoreVO storeVO);
+	
+	// 1203 아름 즐겨찾기 매장 가져오는 기능 구현
+	FavoriteVO selectFavoriteStore(FavoriteVO vo);
 }
