@@ -264,9 +264,6 @@ public class StoreController {
 	@ResponseBody
 	public String bossPwdCheck(String bossId, String bossPwd, String rCid) {
 		BossVO bossVO = new BossVO();
-		System.out.println(bossId);
-		System.out.println(bossPwd);
-		System.out.println(rCid);
 		bossVO.setbId(bossId);
 		bossVO.setbPw(bossPwd);
 
@@ -274,7 +271,7 @@ public class StoreController {
 		if (bossVO == null) {
 			rCid = null;
 		}
-		System.out.println("final : " + rCid);
+
 		return rCid;
 	}
 	
