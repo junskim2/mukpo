@@ -1,6 +1,8 @@
 package store.domain;
 
-public class StoreVO {
+import common.domain.PagingVO;
+
+public class StoreVO extends PagingVO{
 
 	String rCid;		//사업자등록번호
 	String bId;			//사장 ID
