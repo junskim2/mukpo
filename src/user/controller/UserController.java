@@ -287,6 +287,6 @@ public class UserController {
 							
 							mv.setViewName("user/userLogin");
 							mv.addObject("result",result);
-							return mv;
+							return mv; 
 						}
 }
