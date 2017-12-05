@@ -35,8 +35,11 @@
     <script type="text/javascript">
     $(function() {
         $("#orderlist").click(function() {
-      	  location.href = "../reserve/userMypageReservList.do?mId=<%=mId%>";
+      	  location.href = "/reserve/userMypageReservList.do?mId=<%=mId%>";
         });
+        $("#booking").click(function() {
+        	  location.href = "/user/userMypageReservWeekly.do";
+          });
    
      });
     
