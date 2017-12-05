@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import pos.domain.PaymentVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
 @Repository
@@ -71,6 +72,12 @@ public class ReserveDAOImpl implements ReserveDAO{
 	@Override
 	public List<MenuVO> reserveMenuList(ReserveVO vo) {			// 1201 아름 메뉴정보 가져오기 
 		return reservess.selectList("reserve.reserveMenuList", vo);
+	}
+
+	@Override
+	public int reservePayment(PaymentVO vo) {
+		// TODO Auto-generated method stub
+		return reservess.insert("reserve.reservePayment",vo);
 	}
 
 

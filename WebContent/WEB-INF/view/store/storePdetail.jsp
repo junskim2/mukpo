@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@ page trimDirectiveWhitespaces="true" %>
+	<%String rCid=request.getParameter("rCid"); %>
+	<%String sName=request.getParameter("sName"); %>
 <!DOCTYPE html>
 <html>
 
@@ -138,6 +140,8 @@ margin-top: 10%;
                             </table>
                             <div class="product-cart-detail">
                                 <input type="submit"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
+                            	<input type="hidden" name="rCid"value="<%=rCid %>"/>
+                            	<input type="hidden" name="sName"value="<%=sName %>"/>
                             </div>
                         </div>
 			</form>

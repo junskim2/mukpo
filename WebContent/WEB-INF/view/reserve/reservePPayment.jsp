@@ -13,6 +13,8 @@
 <%String mPrice[] = request.getParameterValues("mPrice"); //메뉴 가격%>
 <%int total=0; //총갯수 %>
 <%String id = (String)session.getAttribute("userName");  //아이디%>
+<%String rCid = request.getParameter("rCid"); //사업자등록번호%>
+<%String sName = request.getParameter("sName"); //업소명%> 
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -76,7 +78,7 @@
 					<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown"
 						data-wow-duration="1000ms" data-wow-delay="300ms">
 						<div class="shop-checkout-right">
-						<form action="reservePaymentOk.do" method="post">
+						<form action="/reserve/reservePaymentOk.do" method="post">
 							<div class="shop-checkout-box">
 								<h5>결제 정보</h5>
 								<div class="shop-checkout-title">
@@ -111,21 +113,25 @@
 									<div class="shop-checkout-box">
 										<h5>결제 수단</h5>
 										<div class="payment-mode">
-											<label> <input type="radio" name="radio">포인트
+											<label> <input type="radio" name="pWith"value="point">포인트
 												결제
 											</label>
 										</div>
 										<div class="payment-mode">
-											<label> <input type="radio" name="radio">카드
+											<label> <input type="radio" name="pWith"value="card">카드
 												결제
 											</label>
 										</div>
+										
 
 										<div class="checkout-button">
-										<input type="hidden" name="<%=total%>" />   <!--총 금액-->
-										<input type="hidden" name="<%=id%>" />		<!--아이디-->
+										<input type="hidden" name="mId" value="<%=id%>"/>		<!--회원ID-->
+										<input type="hidden" name="sId" value="<%=rCid%>"/>		<!--사업자등록번호-->
+										<input type="hidden" name="sName" value="<%=sName%>"/>		<!--사업자등록번호-->
 										
-											<input type="submit" id="pay" class="button-default btn-large btn-primary-gold" value="예약하기"/>
+										<input type="hidden" name="oTotal"value="<%=total%>" />   <!--총 금액-->
+										
+											<input type="submit" id="pay" class="button-default btn-large btn-primary-gold" value="결제하기"/>
 										</div>
 									</div>
 

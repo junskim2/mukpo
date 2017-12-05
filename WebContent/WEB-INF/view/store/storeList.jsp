@@ -119,6 +119,7 @@
 										<!-- 1130 현희 포장/테이블에 따라 경로 바꿈 끝 -->
 										<!-- 사업자 등록번호 파라미터로 넘기기 -->
 										<input type="hidden" name="rCid" value="${ list.rCid }" />
+										<input type="hidden" name="sName" value="${ list.sName }" />
 										<!-- 매장 출력 -->
 										<div class="store col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 											<div class="blog-right-listing">

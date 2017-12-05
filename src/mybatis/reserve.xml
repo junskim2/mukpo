@@ -29,6 +29,9 @@ where r.m_id='user3'
 	<select id="reserveMenuList" parameterType="resVO" resultType="menuVO">
 		SELECT * FROM menu WHERE r_cid = #{rCid}
 	</select>
-
+<!-- 경식 추가 결제하기  -->
+<insert id="reservePayment" parameterType="payVO"  >
+insert into payment values(sysdate,#{mId},#{sId},#{pWith},#{oTotal},#{pState},#{sName})
+</insert>
 
 </mapper>
