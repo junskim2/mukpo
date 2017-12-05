@@ -182,20 +182,26 @@ public class StoreController {
 	}
 
 	// 매장 검색
-	@RequestMapping(value = "storeList.do")
-	public ModelAndView storeList(StoreVO store) {
-		// 현희 VOList 없애고 List<> 형태로 변경
-		// dfsaf
-		ModelAndView mv = new ModelAndView();
-		// 1130 현희 추가
-		mv.addObject("sMp", store.getsMp()); // 매장인지 포장인지 구분값
+		// 민우 페이징
+		@RequestMapping(value = "storeList.do")
+		public ModelAndView storeList(StoreVO store) {
 
-		List<StoreVO> list = storeDAO.selectUserStore(store);
-		mv.setViewName("store/storeList");
-		mv.addObject("storeList", list);
+			// 현희 VOList 없애고 List<> 형태로 변경
+			ModelAndView mv = new ModelAndView();
+			// 1130 현희 추가
+			mv.addObject("sMp", store.getsMp()); // 매장인지 포장인지 구분값
 
-		return mv;
-	}
+			int totalCount = storeDAO.countUserStore(store); //매장 리스트 총 갯수
+			
+			store.setTotalCount(totalCount);//storeVO setTotalCount에 총매장리스트값 설정
+			List<StoreVO> list = storeDAO.selectUserStore(store); //상점리스트 받아오기
+
+			mv.addObject("storeList", list);//상점리스트
+			mv.addObject("pageVO",store);//페이징 정보
+	 		mv.setViewName("store/storeList");
+			
+			return mv;
+		}
 
 	// 현희 추가
 	// 포장 상세 페이지
