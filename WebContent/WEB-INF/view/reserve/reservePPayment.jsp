@@ -89,8 +89,7 @@
 									<%for(int i=0; i<mName.length; i++){ %>
 									<p>
 									<!-- 메뉴 리스트 출력 화면 윤경식 추가 -->
-										<span>메뉴 명 :<%=mName[i]%> 수량 : <%=mCnt[i] %> 가격 : <%=mPrice[i] %></span>
-									
+										<span><%=mName[i]%></span>x<%=mCnt[i] %><small><%=mPrice[i] %>원</small>
 									</p>
 									<%
 									}

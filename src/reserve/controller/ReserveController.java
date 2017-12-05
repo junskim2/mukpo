@@ -59,7 +59,7 @@ public class ReserveController {
 			System.out.println(vo.getrCid());
 			System.out.println(payMenuList.size());
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("reserve/reservePPayment");
+			mv.setViewName("reserve/reserveMPayment");
 			mv.addObject("reserveInfo", vo);
 			mv.addObject("payMenuList", payMenuList);
 			mv.addObject("rTel", rTel);

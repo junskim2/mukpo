@@ -302,6 +302,7 @@ public class StoreController {
 			}
 			
 		}
+		// 1205 경식추가 사장회원가입
 		@RequestMapping(value="bossRegister.do")
 		public ModelAndView userRegister(BossVO vo,HttpServletRequest request) {
 			ModelAndView mv = new ModelAndView();
@@ -315,6 +316,8 @@ public class StoreController {
 			mv.addObject("result",result);
 			return mv; 
 		}
+		
+		
 		
 
 }
