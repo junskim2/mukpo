@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import pos.domain.PaymentVO;
 import reserve.dao.ReserveDAO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
@@ -67,4 +68,16 @@ public class ReserveController {
 			mv.addObject("rMemo", rMemo);
 			return mv;
 		}
+		
+		@RequestMapping(value ="reservePaymentOk.do")
+		public ModelAndView userRegister(PaymentVO vo) {
+			ModelAndView mv = new ModelAndView();
+			vo.setpState("Y");
+			int result = reserveDAO.reservePayment(vo);
+			
+			mv.setViewName("reserve/reservePaymentOk");
+			mv.addObject("result",result);
+			return mv; 
+		}
+		
 }

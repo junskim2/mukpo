@@ -7,10 +7,11 @@ public class PaymentVO {
 	private String pWith;	// 결제수단
 	private Integer oTotal;	// 총금액
 	private String pState;	// 상대값
+	private String sName;   // 업소명
 	
-	public PaymentVO() {}
 	
-	public PaymentVO(String oNum, String mId, String sId, String pWith, Integer oTotal, String pState) {
+	
+	public PaymentVO(String oNum, String mId, String sId, String pWith, Integer oTotal, String pState, String sName) {
 		super();
 		this.oNum = oNum;
 		this.mId = mId;
@@ -18,6 +19,17 @@ public class PaymentVO {
 		this.pWith = pWith;
 		this.oTotal = oTotal;
 		this.pState = pState;
+		this.sName = sName;
+	}
+	public PaymentVO() {}
+	public String getsName() {
+		return sName;
+	}
+
+
+
+	public void setsName(String sName) {
+		this.sName = sName;
 	}
 	
 	// Getter, Setter
