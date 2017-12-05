@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -261,5 +262,19 @@ public class UserController {
 				} 
 				resultFavorite = URLEncoder.encode(resultFavorite, "UTF-8");
 				return resultFavorite;
+			}
+			
+			// 1204 아름 즐겨찾기 매장
+			@RequestMapping(value="userMypageFavoriteList.do")
+			public ModelAndView userMypageFavoriteList(HttpSession httpSession, FavoriteVO favoriteVO) {
+				ModelAndView mv = new ModelAndView();
+				
+				favoriteVO.setmId((String)httpSession.getAttribute("userName"));
+				List<HashMap> favoriteVOList = userDAO.selectFS(favoriteVO);
+				
+				mv.setViewName("user/userMypageFavoriteList");
+				mv.addObject("favoriteVOList", favoriteVOList);
+				
+				return mv;
 			}
 }

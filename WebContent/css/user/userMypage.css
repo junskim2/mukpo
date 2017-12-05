@@ -147,3 +147,10 @@ p[name="memberout"] {
 }
 
 /* 1202 아름 마이페이지 회원정보수정 끝 */
+
+/* 1205 아름 매장즐겨찾기 하트이미지 */
+.favoriteImg {
+	float: right;
+    margin-top: -6%;
+    cursor: pointer;
+}
