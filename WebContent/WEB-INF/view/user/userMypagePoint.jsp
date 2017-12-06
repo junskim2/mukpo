@@ -34,6 +34,10 @@
 </head>
 
 <body>
+        <!-- Start Mypage Header -->
+        	<jsp:include page="/WEB-INF/view/common/commonUserMypageHeader.jsp"></jsp:include>
+        <!-- End Mypage Header -->
+        
 	<!-- Page pre loader -->
 	<div id="pre-loader">
 		<div class="loader-holder">

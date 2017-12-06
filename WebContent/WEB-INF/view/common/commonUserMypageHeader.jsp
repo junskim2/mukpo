@@ -40,6 +40,13 @@
         $("#booking").click(function() {
         	  location.href = "/user/userMypageReservWeekly.do";
           });
+        $("#love").click(function() {
+      	  location.href = "/user/userMypageFavoriteList.do";
+        });
+        $("#point").click(function() {
+      	  location.href = "/user/userMypagePoint.do";
+        });
+      
    
      });
     
