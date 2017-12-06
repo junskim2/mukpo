@@ -31,11 +31,9 @@ public class ReserveController {
 	
 	//1206주용 수정
 		// 로그인 후 마이페이지 접속할때, 마이페이지에서 예약 내역 클릭했을때
-			@RequestMapping("/userMypageReservList.do")
+			@RequestMapping("/userMypageReservList.do")  
 			public ModelAndView userInsert(ReserveVO vo, HttpSession httpSession) {
-				System.out.println("마이페이지 첫 접속"+(String)httpSession.getAttribute("userName"));
 				vo.setmId((String)httpSession.getAttribute("userName"));
-				System.out.println(vo.getmId());
 				
 				//예약 내역 db select
 				 List<HashMap> voList = reserveDAO.reserveList(vo);

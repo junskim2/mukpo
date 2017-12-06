@@ -35,7 +35,7 @@ public class CommonController {
 	}
 	
 	//메인 화면에서 아이디 비번 입력 후 로그인을 클릭했을때
-	@RequestMapping("/home.do")
+	@RequestMapping("/home.do")  
 	public ModelAndView login(UserVO userVO,Model model, HttpSession session) {
 		String message = "로그인을 실패하셨습니다.";
 		int result=0;
@@ -48,7 +48,6 @@ public class CommonController {
 			session.setAttribute("sessionTime", (new Date().toString()));
 			session.setAttribute("userName", dbvo.getmId());
 		}
-		System.out.println("첫로그인"+dbvo.getmId());
 		//모델앤뷰 화면 리턴
 		mv.setViewName("common/home");
 		mv.addObject("result", result);
