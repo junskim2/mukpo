@@ -69,7 +69,7 @@ public interface StoreDAO {
 	
 	// 1201 경식 메뉴리스트
 	List<MenuVO> selectMenuList(StoreVO storeVO);
-
+	
 	// 매장의 블랙리스트를 등록하는 기능 구현
 	int insertBlackList(BlackListVO vo);
 
@@ -108,4 +108,9 @@ public interface StoreDAO {
 	
 	//신주용 1205 시군구 가져오는 기능 구현
 	List<StoreVO> selectSigungu(StoreVO store);
+
+	// 1206 경식 메뉴카테고리 리스트 출력
+	List<MenuVO> selectCateList(MenuVO vo);
+	
+	
 }

@@ -213,12 +213,21 @@ public class StoreController {
 	// 포장 상세 페이지
 	// 경식 바꿈
 	@RequestMapping("/storePdetail.do")
-	public ModelAndView storePdetail(StoreVO vo) {
+	public ModelAndView storePdetail(MenuVO menuVO,StoreVO vo,HttpServletRequest request) {
 
+
+		String rCid = request.getParameter("rCid");
+		vo.setrCid(rCid);
 		ModelAndView mv = new ModelAndView();
 		List<MenuVO> list = storeDAO.selectMenuList(vo);
+		List<MenuVO> catelist = storeDAO.selectCateList(menuVO);  
+		List<HashMap> reviewList = storeDAO.selectReviewList(menuVO);
+		
 		mv.setViewName("store/storePdetail");
+		
+		mv.addObject("cateList",catelist);
 		mv.addObject("menuList", list);
+		mv.addObject("reviewList", reviewList);
 		return mv;
 	}
 

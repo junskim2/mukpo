@@ -144,4 +144,9 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 	<insert id="insertBossRegister" parameterType="bossVO">
 	Insert into boss values(#{bId},#{bPw},#{bBorn},#{bName},#{bTel},#{bEmail},#{bZipcode},#{bAddress})
 	</insert>
+	
+	<!-- 1206 경식 메뉴 카테 리스트 가져오기 -->
+	<select id="selectCateList" resultType="menuVO" parameterType="menuVO">
+	select m_cate from menu where r_cid=#{rCid} group by m_cate
+	</select>
 </mapper>

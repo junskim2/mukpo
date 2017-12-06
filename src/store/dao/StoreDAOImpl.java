@@ -215,4 +215,10 @@ public class StoreDAOImpl implements StoreDAO {
 	public List<StoreVO> selectSigungu(StoreVO storeVO) {
 		return storess.selectList("store.selectSigungu", storeVO);
 	}
+
+	//경식 메뉴 카테고리 리스트 가져오기
+	@Override
+	public List<MenuVO> selectCateList(MenuVO menuVO) {
+		return storess.selectList("store.selectCateList", menuVO);
+	}
 }
