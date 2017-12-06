@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="reserve">
 
-
+ 
 
 <!-- 예약, 리뷰 sql -->
 <select id="reserveList" parameterType="resVO" resultType="hashmap">

@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 			and s_name = #{sName} -->
 <!-- 		</if> -->
 <!-- 	</if> -->
-   		)WHERE rownum BETWEEN 1 AND 7; 
+   		)WHERE rownum BETWEEN #{startRowNo} AND #{endRowNo}; 
    		  
 	</select>
 
