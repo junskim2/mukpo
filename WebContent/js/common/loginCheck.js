@@ -10,7 +10,7 @@ $(document).ready(function(){
 		   if ($("#mId").val() == null || $("#mId").val() == ""){
 			   location.href = "/user/userLogin.do"
 		   } else {
-			   location.href="/user/userMypageFavoriteList.do"
+			   location.href="/reserve/userMypageReservList.do" // 1206 주용수정
 		   }
 		   
 	   

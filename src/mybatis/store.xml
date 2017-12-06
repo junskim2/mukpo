@@ -17,37 +17,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 사용자 매장검색 -->
 	<!-- 주용 사용자 검색기능 구현 -->
 	<!-- 민우 페이징기능 추가-->
-	<select id="selectUserStore" resultType="storeVO" parameterType="storeVO">		
-			   SELECT 
-        a.*
-    FROM (
-        SELECT ROWNUM rnum, s.*
-        FROM (
-            SELECT *
-			FROM store
-			WHERE (s_mp IN ('${sMp}') OR s_mp='MP')
-        )s
-    )a 
-WHERE rnum BETWEEN #{startRowNo} AND #{endRowNo}  
-		<if test="sSido != null"> 
-			AND s_sido = #{sSido}
-		</if> 
-		<if test="sSigungu2 != null"> 
-			AND s_sigungu in
-		<foreach collection="sSigungu2" item="item" index="index" open="(" separator="," close=")">
-			#{item}
-		</foreach>
-		</if>
-		<if test="sCate2 != null"> 
-			AND s_cate in
-		<foreach collection="sCate2" item="item" index="index" open="(" separator="," close=")">
-			#{item}
-		</foreach>
-		</if>
+	<!-- 1206 주용 페이징기능 수정-->
+	<select id="selectUserStore" resultType="storeVO" parameterType="storeVO">	
+		SELECT *
+		FROM (SELECT  rownum rnum,a.*
+			FROM ( SELECT  s.* FROM ( SELECT * FROM store WHERE (s_mp in('${sMp}') OR s_mp='MP'))s)a
+			WHERE s_sido='경기도' 
+	<if test="sSigungu2 != null"> 
+		AND s_sigungu in
+	<foreach collection="sSigungu2" item="item" index="index" open="(" separator="," close=")" >
+		#{item}
+	</foreach>
+	</if>
+	
+    <if test="sCate2 != null"> 
+		AND s_cate in
+	<foreach collection="sCate2" item="item" index="index" open="(" separator="," close=")">
+		#{item}
+	</foreach>
+	</if>  
+	
+<!-- 	<if test="sName != ''">  -->
 <!-- 		<if test="sName != null">  -->
-<!-- 		and s_name = #{sName} -->
+<!-- 			and s_name = #{sName} -->
 <!-- 		</if> -->
+<!-- 	</if> -->
+   		)WHERE rownum BETWEEN 1 AND 7; 
+   		  
 	</select>
+
 
 <select id="countUserStore" resultType="int">
 SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc

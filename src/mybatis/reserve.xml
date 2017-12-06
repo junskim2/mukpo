@@ -19,7 +19,7 @@ from reservelist r LEFT OUTER JOIN
             on reserv.r_id = rv.r_id     
         ) rv
 ON r.r_id = rv.rv_id
-where r.m_id='user3'
+where r.m_id= #{mId}
 	
 	
 	

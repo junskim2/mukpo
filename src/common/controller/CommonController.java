@@ -48,6 +48,7 @@ public class CommonController {
 			session.setAttribute("sessionTime", (new Date().toString()));
 			session.setAttribute("userName", dbvo.getmId());
 		}
+		System.out.println("첫로그인"+dbvo.getmId());
 		//모델앤뷰 화면 리턴
 		mv.setViewName("common/home");
 		mv.addObject("result", result);

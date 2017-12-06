@@ -5,7 +5,7 @@
 <% request.setCharacterEncoding("euc-kr");%>
  
  <!--   1202 신주용 회원가입 성공 메세지 -->
-<%! int result = 0;%>
+<% int result = 0;%>
 
 <%  result= (int)request.getAttribute("result");%>  
 <!DOCTYPE html PUBLIC "-/W3C/DTD HTML 4.01 Transitional/EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -113,6 +113,7 @@ $(function() {
     if(<%=result%>==2){
   	  alert("회원가입을 축하합니다.");
     }
+
 });
 </script>
 </head>
@@ -139,7 +140,7 @@ $(function() {
       <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
       <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
       <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
-      <a ref="/user/userMypageInfoModifyMain.do">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 / 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
+      <a href="/reserve/userMypageReservList.do">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 / 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
       <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->      
       <!-- 로그인 회원가입 클릭하면 나오는 화면 -->
       <div class="location-footer-map">

@@ -165,6 +165,8 @@ public class UserController {
 				int result = userDAO.insertReview(vo);
 				return "redirect:/reserve/userMypageReservList.do";
 			}
+		
+			
 			// Main - 회원가입 신주용
 			@RequestMapping("/insertMemberJoin.do")
 			public ModelAndView insertMemberJoin(UserVO vo) {

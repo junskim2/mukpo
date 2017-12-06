@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <!-- 주용 id세션값 -->	
 	<%!String mId;%>
-	<%mId = (String)request.getAttribute("userName");%> 
 <!DOCTYPE>
 <head>
 <meta charset="utf-8">
@@ -35,7 +34,7 @@
     <script type="text/javascript">
     $(function() {
         $("#orderlist").click(function() {
-      	  location.href = "/reserve/userMypageReservList.do?mId=<%=mId%>";
+      	  location.href = "/reserve/userMypageReservList.do";
         });
         $("#booking").click(function() {
         	  location.href = "/user/userMypageReservWeekly.do";

@@ -347,29 +347,36 @@ nav {
 														.each(
 																function(index,
 																		item) {
-																	var tag = ""; //var tag 선언
-																	tag += "<li>"
-																			+ "<input type='checkbox' name='sSigungu2'value="+this.sSigungu+"/>"
-																			+ this.sSigungu
-																			+ "</li>";
+																	var tag = ""; //var tag 선언 주용1206 수정
+																	tag += "<li><div class='jq-checkbox' unselectable='on' style='user-select: none; display: inline-block; position: relative; '><input type='checkbox' class='sigungu' name='sSigungu2' value='"+this.sSigungu+"' style='position: absolute; z-index: -1; opacity: 0; margin: 0px; padding: 0px;'><div class='jq-checkbox__div'></div></div>"
+																	+this.sSigungu+"</li>";
 																	$(
 																			'#location2')
 																			.append(
 																					tag); //#tblList에 tag값을 붙임
 																});
 											}
+										
+										
+											$(".Gyeonggi").css("display", "block");
+											$(".selecgg").css("display", "none");
+											$(".Chungcheongnam").css("display", "none");
+											$(".Daejeon").css("display", "none");
+											$(".Gwangju").css("display", "none");
+											$(".Busan").css("display", "none");
+											
+											//1206 주용 시군구 클릭시 체크 체크 이벤트
+											$('#location2 > li').on('click', function(){
+												$(this).find('div').addClass('checked');
+												$(this).find('input').prop("checked",true);
+											});
 										},
 										error : function(error) {
 											alert("error" + error); //에러 던지기
 										}
 									});
 
-							$(".Gyeonggi").css("display", "block");
-							$(".selecgg").css("display", "none");
-							$(".Chungcheongnam").css("display", "none");
-							$(".Daejeon").css("display", "none");
-							$(".Gwangju").css("display", "none");
-							$(".Busan").css("display", "none");
+						
 						});
 		//충남
 		$("#Chungcheongnam").click(function() {
