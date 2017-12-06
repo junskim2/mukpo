@@ -2,6 +2,8 @@ $(document).ready(function(){			//윤경식 추가
 	var mIdArr = new Array();
 	//메뉴 추가 버튼
 	$(".shop-cart-btn").click(function(){
+		$('.pull-right').css('display','block');
+		$('.ordermenu').css('display','none');
 		var mName = $('h5[class="'+$(this).attr('name')+'"]').text();  
 		var mPrice = $('strong[class="'+$(this).attr('name')+'"]').text();
 		var mId=$(this).attr('name');
@@ -45,8 +47,14 @@ $(document).ready(function(){			//윤경식 추가
 	});
 	// 선택한 메뉴 삭제 
 	$(document).on("click","i[class='icon-cancel-5']",function(){
-			mIdArr.splice(mIdArr.indexOf(($(this).attr('name')),1));
-			$(this).parent().parent().remove();
+			
+		var lastmenu =$(this).parent().parent().next().text();
+		if(lastmenu==""){
+			$('.pull-right').css('display','none');
+			$('.ordermenu').css('display','block');
+		}
+		mIdArr.splice(mIdArr.indexOf(($(this).attr('name')),1));
+		$(this).parent().parent().remove();
 	});
 
 	});

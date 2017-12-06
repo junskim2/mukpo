@@ -40,6 +40,9 @@ margin-top: 10%;
 .menu-select{
 width:70%;
 }
+.pull-right{
+display:none;
+}
 
 
 </style>
@@ -139,8 +142,12 @@ width:70%;
 			
 			</div>
 			</section>
+			
 			<form method="post" action="/reserve/reservePPayment.do">
 			<div class="shop-cart-list wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="build-title">
+				<h2>주문 메뉴</h2>
+			</div>
                             <div class="menu-select">
                             <table class="shop-cart-table">
                                 <thead>
@@ -151,12 +158,14 @@ width:70%;
                                         <th>TOTAL</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="menulist">
 <!--                                  경식 추가  여기에 매뉴 리스트 추가 됨 *************************************************************************************-->
                                 </tbody>
                             </table>
                             
+                            
                             <div class="product-cart-detail">
+                            <h3 class="ordermenu">주문할 메뉴를 선택하세요.</h3>
                                 <input type="submit"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
                             	<input type="hidden" name="rCid"value="<%=rCid %>"/>
                             	<input type="hidden" name="sName"value="<%=sName %>"/>
