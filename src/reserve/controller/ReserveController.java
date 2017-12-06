@@ -3,6 +3,8 @@ package reserve.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,21 +29,26 @@ public class ReserveController {
 		return "/reserve/" + url;
 	}
 	
-	//마이페이지에서 예약 내역 클릭했을때
-		@RequestMapping("/userMypageReservList.do")
-		public ModelAndView userInsert(ReserveVO vo) {
-			//예약 내역 db select
-			 List<HashMap> voList = reserveDAO.reserveList(vo);
+	//1206주용 수정
+		// 로그인 후 마이페이지 접속할때, 마이페이지에서 예약 내역 클릭했을때
+			@RequestMapping("/userMypageReservList.do")
+			public ModelAndView userInsert(ReserveVO vo, HttpSession httpSession) {
+				System.out.println("마이페이지 첫 접속"+(String)httpSession.getAttribute("userName"));
+				vo.setmId((String)httpSession.getAttribute("userName"));
+				System.out.println(vo.getmId());
+				
+				//예약 내역 db select
+				 List<HashMap> voList = reserveDAO.reserveList(vo);
+				
+				 
+				ModelAndView mv = new ModelAndView();
+				mv.setViewName("user/userMypageReservList");
+				mv.addObject("voList",voList); 
+				
 			
-			 
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("user/userMypageReservList");
-			mv.addObject("voList",voList); 
 			
-		
-		
-			return mv;
-		}
+				return mv;
+			}
 		
 		// 1201 아름 추가 예약화면 (테이블번호 가져가기)
 		@RequestMapping(value = "/reserveM.do")
