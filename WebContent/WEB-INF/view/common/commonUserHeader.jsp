@@ -311,11 +311,15 @@ nav {
 			}
 
 		});
-		// 주용 미완성...
-		if ($('input:checkbox[name=sCate2]').length != 8) {
-			$('.cateAll').prop(":checked", false);
+
+		// 전체 선택이 되어있지 않을경우 전체선택 체크박스 해제됨
+		$('.foodchk').click(function(){
+		if ($('input:checkbox[name=sCate2]:checked').length != 8) {
 			$('.cateAll').removeClass('checked');
-		}
+			$('.cateAll').prop(":checked", false);
+			}
+			
+		});
 		
 		//신주용 추가 지역 클릭시 해당 시군구 표시
 		//서울
