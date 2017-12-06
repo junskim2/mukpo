@@ -57,8 +57,7 @@ public class ReserveController {
 		@RequestMapping(value = "reserveMPayment.do")
 		public ModelAndView reserveMPayment(ReserveVO vo, String rTel, String rName, String rMemo) {
 			List<MenuVO> payMenuList = reserveDAO.reserveMenuList(vo);	// 1201 아름 메뉴정보 가져오기
-			System.out.println(vo.getrCid());
-			System.out.println(payMenuList.size());
+
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("reserve/reserveMPayment");
 			mv.addObject("reserveInfo", vo);
