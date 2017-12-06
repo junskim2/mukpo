@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from member where m_id=#{mId} AND m_yn = 'N'
 	<if test="mPw !=null">
 		AND m_pw = #{mPw}
-	</if>
+	</if>  
 	
 </select>
 
