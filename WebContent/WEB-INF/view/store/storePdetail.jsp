@@ -92,12 +92,12 @@ display:none;
 			<div class="menu-wrapper">
                             <div class="portfolioFilter">
                                 <div class="portfolioFilter-inner">
-						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> 
 							<c:choose>
-							<c:when test="${cateList == null}">
-           		 <tr><td colspan='7'>등록된 메뉴가 없습니다.</td></tr>
+							<c:when test="${cateList=='[]'}">
+           		 <a href="javascript:;" data-filter="*" class="current">카테고리가 없습니다.</a> 
         		</c:when>
         			<c:otherwise>
+						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> 
 				<c:forEach var="list" items="${cateList}" end="30" >
 							<a href="javascript:;" data-filter=".${list.mCate }">${list.mCate }</a> 
 					</c:forEach>
@@ -109,8 +109,8 @@ display:none;
 				<div class="portfolioContainer row ">
 <!-- 				메뉴 리스트 화면 -윤경식 추가-->
 				<c:choose>
-				<c:when test="${menuList == null}">
-           		 <tr><td colspan='7'>등록된 메뉴가 없습니다.</td></tr>
+				<c:when test="${menuList == '[]'}">
+ 				<div><h3>등록된 메뉴가 없습니다.</h3></div>
         		</c:when>
         		<c:otherwise>
 				<c:forEach var="list" items="${menuList}" end="30" >
