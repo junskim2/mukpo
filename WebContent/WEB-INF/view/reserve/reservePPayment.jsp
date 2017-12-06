@@ -118,7 +118,7 @@
 											</label>
 										</div>
 										<div class="payment-mode">
-											<label> <input type="radio" name="pWith"value="card">카드
+											<label> <input type="radio" name="pWith"value="card" checked>카드
 												결제
 											</label>
 										</div>
