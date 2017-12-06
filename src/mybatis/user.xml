@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 마이페이지 포인트내역 -->
 	<select id="selectPoint" parameterType="poVO" resultType="poVO">
-		SELECT * FROM point WHERE m_id = '${mId}'
+		SELECT * FROM point WHERE m_id = ${mId}
 
 	</select>
 
