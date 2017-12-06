@@ -43,6 +43,7 @@ public class UserController {
 		int result=0;
 	
 		UserVO dbvo = userDAO.selectMemberLogin(userVO);
+		
 		ModelAndView mv = new ModelAndView();
 		if(dbvo !=null) {
 			message="success";
