@@ -7,6 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
+
+<style type="text/css">
+/* 주용 1206 리뷰 사진 css */
+#reviewleft{
+float:left;
+width:50%;
+
+}
+/* 주용 1206 리뷰 내용 css */
+#reviewright{
+float:right;
+width:50%;
+height:228px;
+overflow:hidden;
+}
+
+</style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript">
@@ -135,6 +153,7 @@
 											type="button" class="reviewselect" value="리뷰 보기"
 											data-toggle="modal" data-target=".booktable${reserve.RV_ID}" /></td>
 										<!-- 리뷰보기  다이어로그-->
+										<!--1206 신주용 수정 -->
 										<div class="modal fade booktable tavleclose booktable${reserve.RV_ID}"
 											tabindex="-1" role="dialog" aria-labelledby="booktable">
 											<div class="modal-dialog" role="document">
@@ -146,11 +165,11 @@
 														</button>
 														<div class="table-title">
 															<h2>리뷰 보기</h2>
+															<h6 class="heade-xs">${reserve.R_DATE}</h6>
 														</div>
-														<div class="">
-															<p style="width: 100%; height: 100%;">${reserve.RV_CONTENT}</p>
-
-														</div>
+															<div class="memberpic" class="reviewleft">
+																<img id = "reviewleft" alt="" src="/images/img56.png">
+																<textarea id = "reviewright" readonly >${reserve.RV_CONTENT}</textarea>
 													</div>
 												</div>
 											</div>
