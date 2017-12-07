@@ -92,12 +92,12 @@ display:none;
 			<div class="menu-wrapper">
                             <div class="portfolioFilter">
                                 <div class="portfolioFilter-inner">
+						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> 
 							<c:choose>
 							<c:when test="${cateList=='[]'}">
            		 <a href="javascript:;" data-filter="*" class="current">카테고리가 없습니다.</a> 
         		</c:when>
         			<c:otherwise>
-						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> 
 				<c:forEach var="list" items="${cateList}" end="30" >
 							<a href="javascript:;" data-filter=".${list.mCate }">${list.mCate }</a> 
 					</c:forEach>

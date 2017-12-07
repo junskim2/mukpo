@@ -174,14 +174,23 @@ public class StoreController {
 	}
 
 	// 성현추가
-	// 매장 설정화면으로 이동하며 데이터 처리하는 메소드
+	// 매장 설정화면으로 이동하며 데이터 처리하는 메소드 
+	// 경식 수정
 	@RequestMapping(value = "/storeSetting.do")
 	public ModelAndView storeSetting(String rCid) {
 		StoreVO svo = new StoreVO();
 		svo.setrCid(rCid);
-
+		
+		MenuVO mvo = new MenuVO();
+		mvo.setrCid(rCid);
+		List<MenuVO> list = storeDAO.selectMenuList(svo);  // 메장 의 메뉴리스트 뽑아 오기
+		List<MenuVO> catelist = storeDAO.selectCateList(mvo); //매뉴 카테고리
+		
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("store/storeModify"); // viewname 지정
+		mv.addObject("menuList",list);
+		mv.addObject("cateList",catelist);
 		mv.addObject("storeVO", svo); // model에 매장정보 추가
 
 		return mv;
@@ -213,21 +222,23 @@ public class StoreController {
 	// 포장 상세 페이지
 	// 경식 바꿈
 	@RequestMapping("/storePdetail.do")
-	public ModelAndView storePdetail(MenuVO menuVO,StoreVO vo,HttpServletRequest request) {
+	public ModelAndView storePdetail(MenuVO menuVO,StoreVO storeVO,HttpServletRequest request) {
 
 
 		String rCid = request.getParameter("rCid");
-		vo.setrCid(rCid);
+		storeVO.setrCid(rCid);
 		ModelAndView mv = new ModelAndView();
-		List<MenuVO> list = storeDAO.selectMenuList(vo);
+		List<MenuVO> list = storeDAO.selectMenuList(storeVO);
 		List<MenuVO> catelist = storeDAO.selectCateList(menuVO);  
 		List<HashMap> reviewList = storeDAO.selectReviewList(menuVO);
+		storeVO = storeDAO.selectStore(storeVO);
 		
 		mv.setViewName("store/storePdetail");
 		
 		mv.addObject("cateList",catelist);
 		mv.addObject("menuList", list);
 		mv.addObject("reviewList", reviewList);
+		mv.addObject("storeVO", storeVO);
 		return mv;
 	}
 

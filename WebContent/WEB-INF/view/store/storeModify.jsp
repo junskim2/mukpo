@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,20 +9,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Checkout - Laboom</title>
-    <link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
-    <link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
-    <link href="plugin/form-field/jquery.formstyler.css" rel="stylesheet">
-    <link href="plugin/revolution-plugin/extralayers.css" rel="stylesheet">
-    <link href="plugin/revolution-plugin/settings.css" rel="stylesheet">
-    <link href="plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
-    <link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
-    <link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-    <link href="plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
-    <link href="plugin/animation/animate.min.css" rel="stylesheet">
-    <link href="css/theme.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
+    <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
+    <link href="/plugin/form-field/jquery.formstyler.css" rel="stylesheet">
+    <link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet">
+    <link href="/plugin/revolution-plugin/settings.css" rel="stylesheet">
+    <link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
+    <link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
+    <link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
+    <link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="/plugin/animation/animate.min.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -36,7 +37,7 @@
     	.shop-checkout-left{padding:40px 52px 34px;} 
     	.shop-checkout-right{background-color:#F4F2ED}
     	.btn-main .modi{min-width:100px; height:30px; line-height:30px;}
-    	.portfolioFilter{margin-bottom:40px;}
+    	
     	#bosstb {
    box-shadow: 5px 5px 5px 5px lightgray;
    color: #999999;
@@ -46,21 +47,14 @@
    clear: both;
    border-radius: 10px;
 }
-.menu-list h5 span{right:-11px;}
 table.shop-cart-table td {
    padding: 6px 0;
 }
-.menu-wrapper{
-	width:130%;
-}
-.portfolioFilter{
-margin-left:-18px;
-
+.jq-selectbox__select{
+margin-left:0%;
 }
 
-.portfolioFilter-inner{
-	width:76%;
-}
+
 table.shop-cart-table td {
    padding: 10px 0;
 }
@@ -76,97 +70,7 @@ tr th {
     	
     </style>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-
-<script type="text/javascript">
-   $(function() {
-      $('#menumanegement').click(function() {  //메뉴 관리 화면
-    	  
-         $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-         $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-         $('#managere').css('display', 'none');		//예약 관리 화면
-         $('#detail').css('display', 'none');		//메뉴 상세 화면
-         $('#storedelete').css('display','none');	//메장 삭제 화면
-         $('#storemodify').css('display','none');	//메장 수정 화면
-         $('#list').css('display', 'block');		// 메뉴 관리 화면
-      });
-      
-      $('#reservebtn').click(function() {     // 예약 관리 화면 클릭 시
-    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-          $('#managere').css('display', 'block');		//예약 관리 화면
-          $('#detail').css('display', 'none');		//메뉴 상세 화면
-          $('#storedelete').css('display','none');	//메장 삭제 화면
-          $('#storemodify').css('display','none');	//메장 수정 화면
-          $('#list').css('display', 'none');		// 메뉴 관리 화면
-       });
-      
-      $('#storedeletebtn').click(function() {     // 삭제 관리 화면  클릭시 
-    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-          $('#managere').css('display', 'none');		//예약 관리 화면
-          $('#detail').css('display', 'none');		//메뉴 상세 화면
-          $('#storedelete').css('display','block');	//메장 삭제 화면
-          $('#storemodify').css('display','none');	//메장 수정 화면
-          $('#list').css('display', 'none');		// 메뉴 관리 화면
-       });
-      
-      
-      $('#storemodifybtn').click(function() {     // 수정 관리 화면 클릭시
-    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-          $('#managere').css('display', 'none');		//예약 관리 화면
-          $('#detail').css('display', 'none');		//메뉴 상세 화면
-          $('#storedelete').css('display','none');	//메장 삭제 화면
-          $('#storemodify').css('display','block');	//메장 수정 화면
-          $('#list').css('display', 'none');		// 메뉴 관리 화면
-       });
-      $('.menu-detail').click(function() {        //메뉴 상세 보기 클릭시
-    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-          $('#managere').css('display', 'none');		//예약 관리 화면
-          $('#detail').css('display', 'block');		//메뉴 상세 화면
-          $('#storedelete').css('display','none');	//메장 삭제 화면
-          $('#storemodify').css('display','none');	//메장 수정 화면
-          $('#list').css('display', 'none');		// 메뉴 관리 화면
-      });
-      $('#addbtn').click(function() {				//메뉴 등록 화면 클릭시
-    	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-          $('#addmenu').css('display', 'block');		//메뉴 등록 화면
-          $('#managere').css('display', 'none');		//예약 관리 화면
-          $('#detail').css('display', 'none');		//메뉴 상세 화면
-          $('#storedelete').css('display','none');	//메장 삭제 화면
-          $('#storemodify').css('display','none');	//메장 수정 화면
-          $('#list').css('display', 'none');		// 메뉴 관리 화면
-
-      });
-     
-      
-      $('.menu-modify').click(function(){			//메뉴 수정 화면
-    	  $('#modifymenu').css('display', 'block');   //메뉴 수정 화면
-          $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-          $('#managere').css('display', 'none');		//예약 관리 화면
-          $('#detail').css('display', 'none');		//메뉴 상세 화면
-          $('#storedelete').css('display','none');	//메장 삭제 화면
-          $('#storemodify').css('display','none');	//메장 수정 화면
-          $('#list').css('display', 'none');		// 메뉴 관리 화면
-      });
-
-
-      $('.menu').mouseenter(function() {
-
-         $(this).children('.menu-list').css('display', 'none');
-         $(this).children('.rollover').css('display', 'block');
-
-      });
-      $('.menu').mouseleave(function() {
-         $(this).children('.rollover').css('display', 'none');
-         $(this).children('.menu-list').css('display', 'block');
-
-      });
-
-   
-   });
-</script>
+	<script src="/js/store/modify.js"></script>
 </head>
 
                 
@@ -175,7 +79,7 @@ tr th {
     <div id="pre-loader">
         <div class="loader-holder">
             <div class="frame">
-                <img src="images/Preloader.gif" alt="Laboom" />
+                <img src="/images/Preloader.gif" alt="Laboom" />
             </div>
         </div>
     </div>
@@ -193,190 +97,101 @@ tr th {
                     <div class="container">
                         
                         <div class="row"> 
-                            
+                        	<div>
+							  
+							<h2><img src="/images/img10.png" alt="Laboom"/>매장 설정</h2> 
+							</div>    
                             <div class="col-md-3 col-sm-5 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-<img src="images/img10.png" alt="Laboom" />  <FONT SIZE="6">매장 설정</FONT> 
+						
                                 <div style="background-color:#F4F2ED;box-shadow: 4px 4px 3px #000;" class="shop-checkout-left">
-                                  <h4>매장정보관리</h4>
+                                  
+                                  <div class="storemg-main">
+                                  <h4 class="storemg-ck">매장정보관리</h4>
+                                  <div class="storemg" style="display:none;">
                                   <h6 id="storemodifybtn">-매장 정보 수정</h6>
                                   <h6 id="storedeletebtn">-매장 삭제</h6> 
-                                  <h4 id="menumanegement">메뉴 관리</h4>
-                                  <h4 id="reservebtn">예약 관리</h4>
+                                  </div>
+                                  </div>
+                                  
+                                  <div class="menumg-main">
+                                  <h4 class="menumg-ck">메뉴 관리</h4>
+                                  <div class="menumg" style="display:none;">
+                                  <h6 id="menumgbtn">-메뉴 관리</h6>
+                                  </div>
+                                  </div>
+                                  
+                                  <div class="reservemg-main">
+                                  <h4 class="reservemg-ck">예약 관리</h4> 
+                                  <div class="reservemg" style="display:none;">
+                                  <h6 id="reservemgbtn">-예약 관리</h6>
+                                  </div>
+                                </div>
                                 </div>
                             </div>
-                            <div style="margin-top: 88px;"class="col-md-9 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="menu-wrapper" id="list" style="display: none">
+                            
+                            
+                            <div class="col-md-9 col-sm-7 col-xs-12 wow" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            
+                            
+                            
+                            <!-- 메뉴 리스트 가져오기 -->
+                            <div id="list" style="display: none" class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
+                           
+                           <h3>메뉴 관리</h3> 
                            <div class="portfolioFilter">
-                              <input type='image' src='./images/add.png' id="addbtn"
-                                 style="width: 6%; height: 6%;">&nbsp;&nbsp;
-                              <div class="portfolioFilter-inner">
-                                 <a href="javascript:;" data-filter="*" class="current">All</a>
-                                 <a href="javascript:;" data-filter=".breakfast">BREAKFAST</a>
-                                 <a href="javascript:;" data-filter=".dessert">DESSERT</a> <a
-                                    href="javascript:;" data-filter=".dinner">DINNER</a> <a
-                                    href="javascript:;" data-filter=".freshfood">FRESHFOOD</a> <a
-                                    href="javascript:;" data-filter=".lunch">LUNCH</a>
+                              <input type='image' src='/images/plus.png' id="addbtn"
+                                 style="width: 6%; height: 6%;">
+                                 <!-- 경식 수정 메뉴 카테고리 뽑기 -->
+                                 <div class="portfolioFilter-inner">
+							<c:choose>
+							<c:when test="${cateList=='[]'}">
+           		 <a href="javascript:;" data-filter="*" class="current">카테고리가 없습니다.</a> 
+        		</c:when>
+        			<c:otherwise>
+						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> 
+				<c:forEach var="list" items="${cateList}" end="30" >
+							<a href="javascript:;" data-filter=".${list.mCate }">${list.mCate }</a> 
+					</c:forEach>
+					</c:otherwise>
+					</c:choose>
+					</div>
                               </div>
-                           </div>
-                           <div class="portfolioContainer row"
-                              style="margin-left: 8%; margin-right: 8%" id="menutot">
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item breakfast menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img3.png" alt="">
-                                    </span>
-                                    <h5>
-                                       LASAL CHEESE <span>$ 15.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-
-                                 <div class="rollover" style="display: none">
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail" >상세보기</a> 
-                                       <a href="#" class="btn-main btn-shadow menu-modify">수정</a>
+                              
+                              <div class="portfolioContainer row ">
+<!-- 				메뉴 리스트 화면 -윤경식 추가-->
+				<c:choose>
+				<c:when test="${menuList == '[]'}">
+ 				<div><h3>등록된 메뉴가 없습니다.</h3></div>
+        		</c:when>
+        		<c:otherwise>
+				<c:forEach var="list" items="${menuList}" end="30" >
+				
+					    <div class="col-md-3 col-sm-6 col-xs-12 isotope-item  ${list.mCate}">
+                                <div class="shop-main-list">
+                                    <div class="shop-product">
+                                        <img src="/images/img56.png" alt="">
+                                        <div class="cart-overlay-wrap">
+                                            <div class="cart-overlay">
+                                                <input type="button" name="${list.mId}" class="shop-cart-btn" value="ADD TO CART"/>
+                                            </div>
+                                        </div>
                                     </div>
-                                 </div>
-                              </div>
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item lunch menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img4.png">
-                                    </span>
-                                    <h5>
-                                       JUMBO CARB asdfasdf<span>$ 25.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-                                 <div class="rollover" style="display: none">
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail">상세보기</a> <a
-                                          href="#" class="btn-main btn-shadow menu-modify">수정</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item dessert menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img5.png" alt="">
-                                    </span>
-                                    <h5>
-                                       SURMAI CHILLI <span>$ 15.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-                                 <div class="rollover" style="display: none">
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail">상세보기</a> <a
-                                          href="#" class="btn-main btn-shadow menu-modify">수정</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item dinner menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img6.png" alt="">
-                                    </span>
-                                    <h5>
-                                       CAPO STEAK dfasasd<span>$ 45.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-                                 <div class="rollover" style="display: none">
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail">상세보기</a> <a
-                                          href="#" class="btn-main btn-shadow menu-modify">수정</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item freshfood menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img7.png" alt="">
-                                    </span>
-                                    <h5>
-                                       ORGANIC FRUIT<span>$ 15.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-                                 <div class="rollover" style="display: none">
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail">상세보기</a> <a
-                                          href="#" class="btn-main btn-shadow menu-modify">수정</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item freshfood menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img8.png" alt="">
-                                    </span>
-                                    <h5>
-                                       PRAWNS BUTTER<span>$ 15.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-                                 <div class="rollover" style="display: none">
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail">상세보기</a> <a
-                                          href="#" class="btn-main btn-shadow menu-modify">수정</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item dessert menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img81.png" alt="">
-                                    </span>
-                                    <h5>
-                                       CHInese Egg Cake <span>$ 15.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-                                 <div class="rollover" style="display: none">5
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail">상세보기</a> <a
-                                          href="#" class="btn-main btn-shadow menu-modify">수정</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div
-                                 class="col-md-6 col-sm-6 col-xs-12 isotope-item dinner menu">
-                                 <div class="menu-list">
-                                    <span class="menu-list-product"> <img
-                                       src="images/img82.png" alt="">
-                                    </span>
-                                    <h5>
-                                       Beef SpaghettI<span>$ 45.00</span>
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et
-                                       netus et malesuada fames</p>
-                                 </div>
-                                 <div class="rollover" style="display:  none">
-                                    <div style="height:151.8px;"class="col-md-12 col-sm-12 col-xs-12">
-                                       <a href="#" class="btn-main btn-shadow menu-detail">상세보기</a> <a
-                                          href="#" class="btn-main btn-shadow menu-modify">수정</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div> <!-- 메뉴상세 -->
-                        <div align="center" style="display: none" id="detail">
-                           <img src="images/img2.png" style="width: 400px; height: 300px;"><br>
+                                    <a href="#"><h5 class="${list.mId}">${list.mName }</h5></a>
+                                    <h5><strong class="${list.mId}">${list.mPrice }</strong></h5>
+                                </div>
+                            </div>
+					
+					</c:forEach>
+					</c:otherwise>
+					</c:choose>
+				</div>
+                        </div> 
+                        </div>
+                        
+                        <!-- 메뉴상세 -->
+                        <div align="center" style="display: none" id="detail" class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                           <img src="/images/img2.png" style="width: 400px; height: 300px;"><br>
                            <div align="center">
                               <div>
 
@@ -389,13 +204,14 @@ tr th {
                                  <p>여기는 음식 상세정보가 들어갈 곳</p>
                               </div>
                            </div>
-                        </div> <!-- 메뉴등록 -->
-                        <div id="addmenu" style="display: none">
+                        </div> 
+                        <!-- 메뉴등록 -->
+                        <div id="addmenu" style="display: none" class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                            <div class="modal-content">
                               <div class="modal-body" style="border: 0; outline: 0;">
                                  <div>
                                     <h3>
-                                       <img src="./images/food.png"
+                                       <img src="/images/food.png"
                                           style="width: 60px; height: 60px">메뉴등록
                                     </h3>
                                     <hr />
@@ -405,11 +221,11 @@ tr th {
                                  <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div>
                                        <!--                                 <img src="images/img2.png" class="img-circle" style=width:380px;height:330px;> -->
-                                       <img src="images/img2.png" class="img-circle"
+                                       <img src="/images/img2.png" class="img-circle"
                                           onmouseover="this.src='images/insert2.png';"
                                           onmouseout="this.src='images/img2.png';"
                                           style="width: 380px; height: 330px; cursor: pointer;" />
-                                       c
+                                          
                                     </div>
                                  </div>
                                  <div class="row">
@@ -430,12 +246,12 @@ tr th {
                         </div> 
                         
                         <!-- 메뉴수정 -->
-                        <div id="modifymenu" style="display: none">
+                        <div id="modifymenu" style="display: none" class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                            <div class="modal-content">
                               <div class="modal-body" style="border: 0; outline: 0;">
                                  <div>
                                     <h3>
-                                       <img src="./images/food.png"
+                                       <img src="/images/food.png"
                                           style="width: 60px; height: 60px">메뉴수정
                                     </h3>
                                     <hr />
@@ -444,11 +260,10 @@ tr th {
 
                                  <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div>
-                                       <img src="images/img2.png" class="img-circle"
+                                       <img src="/images/img2.png" class="img-circle"
                                           onmouseover="this.src='images/reverse3.png';"
                                           onmouseout="this.src='images/img2.png';"
                                           style="width: 380px; height: 330px; cursor: pointer;" />
-                                       c
                                     </div>
                                  </div>
                                  <div class="row">
@@ -470,9 +285,9 @@ tr th {
                         
                         
                         <!-- 예약관리 -->
-                        <div id="managere" style="display: none;">
-                           <table class="shop-cart-table"
-                              style="margin-left: 20px; width: 95%;">
+                        <div id="managere" style="display: none;" class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                           <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
+                           <table class="shop-cart-table">
                               <thead>
                                  <tr>
                                     <th style="font-size: 15px; text-align: center;">회원ID</th>
@@ -505,20 +320,21 @@ tr th {
                                  </tr>
                               </tbody>
                            </table>
+                           </div>
                         </div>
                         
                         
                         
                         <!--매장 삭제 화면 -->
-                        <div id="storedelete" style="display:none; margin-top: 88px;"class="col-md-9 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <div id="storedelete" style="display:none;"class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
                                 <h3>매장 삭제</h3> 
                                 <FONT SIZE="4">안녕하세요! 밍키사장님,</FONT><br/> 
                                 <FONT SIZE="4">매장을 삭제하려고 하신다니 아쉽네요.</FONT>
                                 <br/>
                                 <h4>삭제하기 전에 이유를 알려주세요.</h4>
-                                <div class="col-md-5 col-sm-12 col-xs-12">
-                                                <select style="margin-left:-30px" class="select-dropbox">
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                                <select class="select-dropbox">
                                                     <option>--</option>
                                                     <option>폐업을 하게 되었어요.</option>
                                                     <option>서비스를 그만 이용하고 싶어요.</option>
@@ -528,60 +344,75 @@ tr th {
                                                 </select>
                                             </div>
                                              <div class="col-md-5 col-sm-12 col-xs-12">
-                                             <input style="margin-left:70%" name="submit" class="btn-black" type="button" value="삭제"/>
+                                             <input name="submit" class="btn-black" type="button" value="삭제"/>
                                              </div>
                                 </div>
                             </div>
                             
                             
                             
-                  				<!--매장 수정 화면 -->
-                                <div id="storemodify"style="box-shadow: 4px 4px 3px #000; display:block;" class="shop-checkout-right">
-                                
+                  				<!--매장 정보 수정 화면 --> 
+                                <div id="storemodify" style="display:block;"class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
+                                 <h3>매장 정보 수정</h3>
                                  <div style="text-align:center;"class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                <div style="padding:3px; text-align:center"class="shop-checkout-left">
-                               <img class="shop-checkout-left" src="images/plus.png" alt=""/>
+                               <img class="shop-checkout-left" src="/images/plus.png" alt=""/>
                                 
                             </div>
                             <FONT SIZE="4">사진 수정</FONT>
                             </div>
                             
                              <div class="col-md-9 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                              <h7>사장 ID :  밍키</h7> 
-                              <div style="border:gray solid 1px;background-color:white" class="shop-checkout-right">
-                              
-                               <div class="col-md-5 col-sm-12 col-xs-12">
-                                    <input style="height:30px; margin-bottom:20px;margin-left:-30px; font-size:15px;" type="text" name="txt" placeholder="사업자 등록 번호" class="input-fields">
-                               </div>
-								<p style="text-align:center">시간 설정</p>
-                                <div class="col-md-5 col-sm-12 col-xs-12">
-                                    <input style="height:30px; margin-bottom:20px;margin-left:-30px; font-size:15px;" type="text" name="txt" placeholder="업소명" class="input-fields">
-                               </div>
-                                <div style="text-align:center" class="col-md-7 col-sm-12 col-xs-12">
-                                    <input style="width:60%;height:30px; margin-bottom:20px;margin-left:17px;font-size:15px;" type="text" name="txt" placeholder="오픈 시간" class="input-fields">
-                               </div>
-                                <div class="col-md-5 col-sm-12 col-xs-12">
-                                    <input style="height:30px; margin-bottom:20px;margin-left:-30px; font-size:15px;" type="text" name="txt" placeholder="전화번호" class="input-fields">
-                               </div>
-                               <div style="text-align:center" class="col-md-7 col-sm-12 col-xs-12">
-                                    <input style="width:60%;height:30px; margin-bottom:20px;margin-left:17px;font-size:15px;" type="text" name="txt" placeholder="마감 시간" class="input-fields">
-                               </div>
-                               <div class="col-md-5 col-sm-12 col-xs-12">
-                                                <select style="margin-left:-30px" class="select-dropbox">
+                              <h6>사장 ID :  밍키</h6> 
+                              <div class="register-wrap form-common">
+                              <form class="register-form" method="post" name="register">
+                              <div class="row">
+                              <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="사업자 등록번호" class="input-fields">
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="업소명" class="input-fields">
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="비밀번호" class="input-fields">
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <input type="password" name="password" placeholder="전화번호" class="input-fields">
+                                            </div>
+                                          <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="우편번호" class="input-fields">
+                                            </div>
+                                          <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="submit" name="submit" class="button-default" value="우편번호 검색" style="width: 100%;">
+                                        </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="주소" class="input-fields">
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="상세주소" class="input-fields">
+                                            </div>
+                                            
+                                              <div class="col-md-12 col-sm-12 col-xs-12 "style="text-align:center;">
+                                            <h4>시간 설정</h4>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="오픈시간" class="input-fields">
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <input type="text" name="txt" placeholder="마감시간" class="input-fields">
+                                            </div>
+                                            
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <select class="select-dropbox">
                                                     <option>먹포 구분</option>
                                                     <option>먹고 간다.</option>
                                                     <option>포장 한다.</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-4 col-sm-12 col-xs-12">
-                                            <input style="height:30px; margin-bottom:20px;margin-left:-5px; font-size:15px;" type="text" name="txt" placeholder="우편번호" class="input-fields">
-                                            </div>
-                                            <div class="col-md-3 col-sm-12 col-xs-12">
-                                            <input style="width:127%;height:30px; margin-bottom:20px;margin-left:-30px; font-size:11px;" type="button" name="button" value="우편번호 검색" class="button-default">
-                                            </div>
-                                            
-                              				<div class="col-md-5 col-sm-12 col-xs-12">
-                                                <select style="margin-left:-30px" class="select-dropbox">
+                                              
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <select class="select-dropbox">
                                                     <option>카테고리</option>
                                                     <option>마구간</option>
                                                     <option>불꽃남자</option>
@@ -590,18 +421,72 @@ tr th {
                                                     <option>해물이</option>
                                                 </select>
                                             </div>
-                                              <div class="col-md-7 col-sm-12 col-xs-12">
-                                    <input style="width:100%;height:30px; margin-bottom:20px;margin-left:-5px;font-size:15px;" type="text" name="txt" placeholder="주소" class="input-fields">
-                               </div>  
-                               <div class="col-md-12 col-sm-12 col-xs-12"> 
-                                    <input style="width:56%;height:30px; margin-bottom:20px;margin-left:202px;font-size:15px;" type="text" name="txt" placeholder="상세 주소" class="input-fields">
-                               </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12"> 
-                                    <a href="#" class="btn-main btn-shadow modi">수정</a>
-                                    <a href="#" class="btn-main btn-shadow modi">취소</a> 
-                               </div>
-                                </div>
+                                            <input type="submit" name="submit" class="button-default button-default-submit" value="수정">
+                                            </div>
+                                            </form>
+                                            </div>
+                                            
+                                            
+                                            
+<!--                               <div style="border:gray solid 1px;background-color:white" class="shop-checkout-right"> -->
+                              
+<!--                                <div class="col-md-5 col-sm-12 col-xs-12"> -->
+<!--                                     <input style="height:30px; margin-bottom:20px;margin-left:-30px; font-size:15px;" type="text" name="txt" placeholder="사업자 등록 번호" class="input-fields"> -->
+<!--                                </div> -->
+<!-- 								<p style="text-align:center">시간 설정</p> -->
+<!--                                 <div class="col-md-5 col-sm-12 col-xs-12"> -->
+<!--                                     <input style="height:30px; margin-bottom:20px;margin-left:-30px; font-size:15px;" type="text" name="txt" placeholder="업소명" class="input-fields"> -->
+<!--                                </div> -->
+<!--                                 <div style="text-align:center" class="col-md-7 col-sm-12 col-xs-12"> -->
+<!--                                     <input style="width:60%;height:30px; margin-bottom:20px;margin-left:17px;font-size:15px;" type="text" name="txt" placeholder="오픈 시간" class="input-fields"> -->
+<!--                                </div> -->
+<!--                                 <div class="col-md-5 col-sm-12 col-xs-12"> -->
+<!--                                     <input style="height:30px; margin-bottom:20px;margin-left:-30px; font-size:15px;" type="text" name="txt" placeholder="전화번호" class="input-fields"> -->
+<!--                                </div> -->
+<!--                                <div style="text-align:center" class="col-md-7 col-sm-12 col-xs-12"> -->
+<!--                                     <input style="width:60%;height:30px; margin-bottom:20px;margin-left:17px;font-size:15px;" type="text" name="txt" placeholder="마감 시간" class="input-fields"> -->
+<!--                                </div> -->
+<!--                                <div class="col-md-5 col-sm-12 col-xs-12"> -->
+<!--                                                 <select style="margin-left:-30px" class="select-dropbox"> -->
+<!--                                                     <option>먹포 구분</option> -->
+<!--                                                     <option>먹고 간다.</option> -->
+<!--                                                     <option>포장 한다.</option> -->
+<!--                                                 </select> -->
+<!--                                             </div> -->
+<!--                                             <div class="col-md-4 col-sm-12 col-xs-12"> -->
+<!--                                             <input style="height:30px; margin-bottom:20px;margin-left:-5px; font-size:15px;" type="text" name="txt" placeholder="우편번호" class="input-fields"> -->
+<!--                                             </div> -->
+<!--                                             <div class="col-md-3 col-sm-12 col-xs-12"> -->
+<!--                                             <input style="width:127%;height:30px; margin-bottom:20px;margin-left:-30px; font-size:11px;" type="button" name="button" value="우편번호 검색" class="button-default"> -->
+<!--                                             </div> -->
+                                            
+<!--                               				<div class="col-md-5 col-sm-12 col-xs-12"> -->
+<!--                                                 <select style="margin-left:-30px" class="select-dropbox"> -->
+<!--                                                     <option>카테고리</option> -->
+<!--                                                     <option>마구간</option> -->
+<!--                                                     <option>불꽃남자</option> -->
+<!--                                                     <option>주온</option> -->
+<!--                                                     <option>BGM</option> -->
+<!--                                                     <option>해물이</option> -->
+<!--                                                 </select> -->
+<!--                                             </div> -->
+<!--                                               <div class="col-md-7 col-sm-12 col-xs-12"> -->
+<!--                                     <input style="width:100%;height:30px; margin-bottom:20px;margin-left:-5px;font-size:15px;" type="text" name="txt" placeholder="주소" class="input-fields"> -->
+<!--                                </div>   -->
+<!--                                <div class="col-md-12 col-sm-12 col-xs-12">  -->
+<!--                                     <input style="width:56%;height:30px; margin-bottom:20px;margin-left:202px;font-size:15px;" type="text" name="txt" placeholder="상세 주소" class="input-fields"> -->
+<!--                                </div> -->
+<!--                                 <div class="col-md-12 col-sm-12 col-xs-12">  -->
+<!--                                     <a href="#" class="btn-main btn-shadow modi">수정</a> -->
+<!--                                     <a href="#" class="btn-main btn-shadow modi">취소</a>  -->
+<!--                                </div> -->
+<!--                                 </div> -->
+
+
+
                              </div>
+                             
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -665,23 +550,23 @@ tr th {
     </div>
     <!-- Back To Top Arrow -->
     <a href="#" class="top-arrow"></a>
-    <script src="js/jquery.min.js"></script>
-    <script src="plugin/bootstrap/bootstrap.min.js"></script>
-    <script src="plugin/bootstrap/bootstrap-datepicker.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
-    <script src="plugin/form-field/jquery.formstyler.min.js"></script>
-    <script src="plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
-    <script src="plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
-    <script src="plugin/owl-carousel/owl.carousel.min.js"></script>
-    <script src="plugin/slick-slider/slick.min.js"></script>
-    <script src="plugin/isotop/isotop.js"></script>
-    <script src="plugin/isotop/packery-mode.pkgd.min.js"></script>
-    <script src="plugin/magnific/jquery.magnific-popup.min.js"></script>
-    <script src="plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="plugin/animation/wow.min.js"></script>
-    <script src="plugin/parallax/jquery.stellar.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
+    <script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
+    <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
+    <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
+    <script src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
+    <script src="/plugin/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/plugin/slick-slider/slick.min.js"></script>
+    <script src="/plugin/isotop/isotop.js"></script>
+    <script src="/plugin/isotop/packery-mode.pkgd.min.js"></script>
+    <script src="/plugin/magnific/jquery.magnific-popup.min.js"></script>
+    <script src="/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/plugin/animation/wow.min.js"></script>
+    <script src="/plugin/parallax/jquery.stellar.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
