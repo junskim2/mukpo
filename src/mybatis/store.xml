@@ -147,4 +147,24 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 	<select id="selectCateList" resultType="menuVO" parameterType="menuVO">
 	select m_cate from menu where r_cid=#{rCid} group by m_cate
 	</select>
+	
+	<!-- 1208 주용 예약내역 불러오기 -->
+	<select id="selectReserveList" resultType="resVO">
+	  SELECT * FROM reservelist WHERE r_cid = #{rCid} AND r_yn ='RW'
+	</select>
+	
+	<!-- 1208 주용 사장님 예약 거절 -->
+	<select id="storeReserveUpdate" parameterType="resVO">
+	  UPDATE reservelist set r_yn='RC' WHERE r_cid = #{rCid} AND m_id = #{mId}
+	</select>
+	
+	<!-- 1208 주용 사장님 예약 수락 -->
+	<select id="storeReserveUpdateOk" parameterType="resVO">
+	  UPDATE reservelist set r_yn='RO' WHERE r_cid = #{rCid} AND m_id = #{mId}
+	</select>
+	
+	<!-- 1208 주용 사장님 취소시 예치금 포인트로 환급 -->
+	<select id="storeReserveReturn" parameterType="resVO">
+	UPDATE member set m_point= m_point + (SELECT r_keepmoney FROM reservelist WHERE m_id = #{mId} AND r_id= #{rId}) where m_id = #{mId}
+	</select>
 </mapper>
