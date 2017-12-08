@@ -574,7 +574,7 @@ nav {
 								<!-- 처음 돋보기 -->
 								<div class="search-box">
 									<!-- 돋보기 클릭 후 입력창 -->
-									<input id="txtSearch" type="text" name="txt"
+									<input id="txtSearch" type="text" name="sName"
 										placeholder="Search" /> <input type="hidden" name="sMp"
 										value="${ sMp }" /> <input id="btnSearch" type="submit"
 										name="submit" value=" " />
