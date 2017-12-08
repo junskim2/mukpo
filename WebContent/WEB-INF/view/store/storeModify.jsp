@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <% request.setCharacterEncoding("euc-kr");%>
+   <%String rCid = request.getParameter("rCid"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,6 +64,8 @@ color:#e4b95b;
 
                 
 <body>
+   <!-- 주용1208 파라미터값 input 저장 -->
+   <input type="hidden" value=<%=rCid%> id="paramval">
     <!-- Page pre loader -->
     <div id="pre-loader">
         <div class="loader-holder">
@@ -272,6 +276,7 @@ color:#e4b95b;
                         </div> 
                         
                         
+<!-- 1208 주용 추가 -->              
                         <!-- 예약관리 -->
                         <div id="managere" style="display: none;" class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                            <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
@@ -280,39 +285,21 @@ color:#e4b95b;
                                  <tr>
                                     <th style="font-size: 15px; text-align: center;">회원ID</th>
                                     <th style="font-size: 15px; text-align: center;">예약 유형</th>
-                                    <th style="font-size: 15px; text-align: center;">예약 현황</th>
                                     <th style="font-size: 15px; text-align: center;">예약 날짜</th>
                                     <th style="font-size: 15px; text-align: center;">인원 수</th>
                                     <th style="font-size: 15px; text-align: center;">테이블 번호</th>
                                     <th style="font-size: 15px; text-align: center;">예약 상태</th>
+                                     <th style="font-size: 15px; text-align: center;">수락/거절</th>
                                  </tr>
                               </thead>
-                              <tbody>
-                                 <tr>
-                                    <td style="font-size: 13px; text-align: center;">신주용</td>
-                                    <td style="font-size: 13px; text-align: center;">테이블</td>
-
-                                    <td style="font-size: 13px; text-align: center;">M</td>
-                                    <td style="font-size: 13px; text-align: center;">2017-11-24</td>
-                                    <td style="font-size: 13px; text-align: center;">5명</td>
-                                    <td style="font-size: 13px; text-align: center;">3번</td>
-                                    <td style="font-size: 13px; text-align: center;">Y</td>
-                                 </tr>
-                                 <tr style='text-align: right; margin-right: 2%;'>
-                                    <td style='height: 17px;' colspan="7">
-                                       <button class="btn btn-primary btn-lg active"
-                                          style='font-size: 13px; padding: 5px;'>수락</button>
-                                       <button class="btn btn-primary btn-lg active"
-                                          style='font-size: 13px; padding: 5px;'>취소</button>
-                                    </td>
-                                 </tr>
+                              <tbody id="relist">
+                              
+                              <!-- 동적 예약 리스트 생성 -->
+                 
                               </tbody>
                            </table>
                            </div>
-                        </div>
-                        
-                        
-                        
+                        </div>  
                         <!--매장 삭제 화면 -->
                         <div id="storedelete" style="display:none;"class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
