@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%><!DOCTYPE html>
 <html>
 
 <head>
@@ -25,6 +25,42 @@
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
+
+<style type="text/css">
+.shop-product{
+border-radius: 2em;
+height:100%;
+margin-bottom:0px;
+}
+.shop-pro{
+}
+.btn-black{
+min-width:0px;
+height:30px;
+line-height:35px;
+margin-top:9%;
+}
+.shop-cart-btn{
+min-width:0px;
+}
+
+.shop-main-list{
+margin:0 0 0 0;
+}
+.cart-overlay{
+top:10%;
+}
+.shop-main-list h5{
+margin:0 0 0 0;
+}
+.portfolioFilter a{
+padding: 13px 42px;
+}
+.service-track-overlay{
+padding:0px;
+}
+
+</style>
 <!--[if lt IE 9]>
       <script src="/https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -73,15 +109,25 @@
 								</h6>
 								<!-- table for문 시작 -->
 								<c:forEach begin="1" end="${tableSet.tCnt}" varStatus="status" >
-								<div
+								<div 
 									class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown"
-									data-wow-duration="1000ms" data-wow-delay="300ms">
+									data-wow-duration="1000ms" data-wow-delay="300ms" style="padding-bottom:5%;">
 									<div class="shop-main-list">
-										<div class="shop-product">
-											<img src="/images/table${status.count }.png" alt="">
+										<div class="shop-product" style="height:150px;background-color:#A8A69C;">
+										<p style="margin:0 0 0 0;">${status.count}</p>
+											
 											<div class="cart-overlay-wrap">
 												<div class="cart-overlay">
-													<a href="/pos/posOrder.do?rCid=${ tableSet.rCid }&tableNum=${ status.count }" class="shop-cart-btn">ADD TO TABLE</a>
+													<div class="service-track-overlay banner-bg">
+													<p>${status.count}번 테이블</p>
+															<a data-toggle="modal" data-target="#booktable" href="#"
+																class="btn-black btnPos"
+																id="${sl.rCid }"
+																>주문하기</a>
+																<a
+																data-toggle="modal" data-target="#booktable2" href="#"
+																class="btn-black btnSetting" id="${sl.rCid }">결제하기</a>
+														</div>
 												</div>
 											</div>
 										</div>
@@ -131,6 +177,8 @@
 
 		<!-- End Footer -->
 		<!-- Start Book Table -->
+		
+		<!-- 경식 추가  주문 ``````````````````````````````````모달 창 -->
 		<div class="modal fade booktable" id="booktable" tabindex="-1"
 			role="dialog" aria-labelledby="booktable">
 			<div class="modal-dialog" role="document">
@@ -141,50 +189,149 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<div class="table-title">
-							<h2>Reservation</h2>
-							<h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit.</h6>
+							<h2>주문 하기</h2>
 						</div>
-						<div class="row">
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select class="select-dropbox">
-									<option>Hour</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select>
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select class="select-dropbox">
-									<option>Number of People</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select>
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input type="text" name="txt" placeholder="Pick a Date"
-									class="date-pick">
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input type="text" name="txt" placeholder="Phone Number">
-							</div>
-							<div class="col-md-12 col-sm-12 col-xs-12">
-								<input type="email" name="email" placeholder="Email Address">
-							</div>
-							<div class="col-md-12 col-sm-12 col-xs-12">
-								<button class="btn-main btn-big">BOOK A TABLE</button>
-							</div>
-						</div>
+						<main> <!-- Start Menu Part -->
+		
+<section class="home-icon blog-main-section shop-page" style="padding:0px 0 0px">
+		<div class="container" style="width:100%;">
+			<div class="build-title">
+				<h2>메뉴선택</h2>
+			</div>
+			
+			<form method="post" action="/reserve/reservePPayment.do" style="left: 5%;;top: 15% margin-top:40px;width:100%;">
+			<div class="menu-wrapper">
+                            <div class="portfolioFilter">
+                                <div class="portfolioFilter-inner">
+						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> 
+							<c:choose>
+							<c:when test="${cateList=='[]'}">
+           		 <a href="javascript:;" data-filter="*" class="current">카테고리가 없습니다.</a> 
+        		</c:when>
+        			<c:otherwise>
+				<c:forEach var="list" items="${cateList}" end="30" >
+							<a href="javascript:;" data-filter=".${list.mCate }">${list.mCate }</a> 
+					</c:forEach>
+					</c:otherwise>
+					</c:choose>
+					</div>
+				</div>
+
+				<div class="portfolioContainer row ">
+<!-- 				메뉴 리스트 화면 -윤경식 추가-->
+				<c:choose>
+				<c:when test="${menuList == '[]'}">
+ 				<div><h3>등록된 메뉴가 없습니다.</h3></div>
+        		</c:when>
+        		<c:otherwise>
+				<c:forEach var="list" items="${menuList}" end="30" >
+				
+					    <div class="col-md-3 col-sm-6 col-xs-12 isotope-item  ${list.mCate}" style="margin-bottom:5%">
+                                <div class="shop-main-list">
+                                    <div class="shop-product shop-pro">
+                                        <img src="${list.mUrl}" alt="">
+                                        <div class="cart-overlay-wrap" style="height:72.1%;">
+                                            <div class="cart-overlay" style="top:50%;">
+                                                <input type="button" name="${list.mId}" class="shop-cart-btn" value="주문 하기"/>
+                                            </div>
+                                        </div>
+                                    <a href="#"><h5 class="${list.mId}">${list.mName }</h5></a>
+                                    <h5><strong class="${list.mId}">${list.mPrice }</strong></h5>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+					
+					</c:forEach>
+					</c:otherwise>
+					</c:choose>
+					
+					
+				</div>
+			
+			</div>
+			</form>
+			
+			</div>
+			</section>
+			
+			<form method="post" action="/reserve/reservePPayment.do">
+			<div class="shop-cart-list wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="build-title">
+				<h2>주문 메뉴</h2>
+			</div>
+                            <div class="menu-select">
+                            <table class="shop-cart-table">
+                                <thead>
+                                    <tr>
+                                        <th>PRODUCT</th>
+                                        <th>PRICE</th>
+                                        <th>QUANTITY</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="menulist">
+<!--                                  경식 추가  여기에 매뉴 리스트 추가 됨 *************************************************************************************-->
+                                </tbody>
+                            </table>
+                            
+                            
+                            <div class="product-cart-detail">
+                            <h3 class="ordermenu">주문할 메뉴를 선택하세요.</h3>
+                                <input type="button"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
+                            	<input type="hidden" name="rCid"/>
+                            	<input type="hidden" name="sName"/>
+                            </div>
+                            </div>
+                        </div>
+			</form>
+		
+	</main>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<!-- 결제 모달창 -->
+		<div class="modal fade booktable" id="booktable2" tabindex="-1"
+			role="dialog" aria-labelledby="booktable2">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<div class="table-title">
+							<h2>설정 접속</h2>
+							<h6 class="heade-xs">비밀번호 확인이 필요합니다.</h6>
+						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+		
+		
+		
+		
 		<!-- End Book Table -->
+		
+		<div class="modal fade booktable" id="booktable2" tabindex="-1"
+			role="dialog" aria-labelledby="booktable2">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+		
+		</div>
+				</div>
+			</div>
+		</div>
+		<!-- ************************** -->
+		
 	</div>
 	<!-- Back To Top Arrow -->
 	<a href="#" class="top-arrow"></a>
@@ -208,6 +355,8 @@
 	<script src="/plugin/parallax/jquery.stellar.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/script.js"></script>
+	<script src="/js/pos/order.js"></script>
+	<script src="/js/store/basket.js"></script>
 </body>
 
 </html>

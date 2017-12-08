@@ -38,13 +38,17 @@ public class PosController {
 	@RequestMapping(value = "/posMain.do")
 	public ModelAndView posMain(String rCid) {
 		ModelAndView mv = new ModelAndView();
-		
+		MenuVO mvo = new MenuVO();
+		mvo.setrCid(rCid);
 		//메뉴 리스트 가져오기
 		List<MenuVO> menuList = posDAO.selectMenuList(rCid);
 		//주문내역 가져오기
 		List<OrderListVO> orderList = posDAO.selectOrderList(rCid);
 		//테이블 정보가져오기
 		TableSetVO tableSet = posDAO.selectTableSet(rCid);
+		//카테고리 종류 가져오기
+		List<MenuVO> cateList = storeDAO.selectCateList(mvo);
+		
 		
 		//혼잡도설정 가져오기 시작
 		CongestionSetVO gCon = new CongestionSetVO();
@@ -66,6 +70,7 @@ public class PosController {
 		//예약 내역 리스트 가져오기
 		List<ReserveVO> reserveList = posDAO.selectReserveList(rCid);
 		
+		mv.addObject("cateList",cateList);
 		mv.addObject("menuList", menuList);
 		mv.addObject("orderList", orderList);
 		mv.addObject("tableSet", tableSet);
