@@ -15,7 +15,7 @@
 	}
 	/* mMain & 로고 & pMain 묶어줄 div */
 	#body3 {
-		height: 70%;
+		height: 65%;
 		position: relative;
 	}
 	/* 문구 */
@@ -84,7 +84,7 @@
 		color : #808080;
 	}
 	/* 로그인 회원가입 버튼 */
-	#loginjoin {
+	#loginjoin, #loginjoin-visible {
 		position: absolute;
 		left : -70px;
 		bottom : -30px;
@@ -133,4 +133,13 @@ height: 100%;
    color: #f6f0f2;
    font-family: 'Graviola-Regular';
    font-size: 15px;
+}
+
+/* 1209 로그인 클릭했을 때 밑에도 헤더 추가 */
+#footer-visible {
+	margin: 10px auto 0;
+	width: 1150px;
+}
+section.home-icon {
+	padding-bottom: 0px;
 }
