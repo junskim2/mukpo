@@ -77,14 +77,14 @@ $(document).ready(function(){		//윤경식 추가
 		
 			type :"POST",
 			dataType:"json",
-			data:{"oMenu":mName,"o_price":mPrice,"oCnt":mNum,"rCid":rCid,"oTablenum":tableNum},
+			data:{"rCid":rCid,"oTablenum":tableNum},
 			success : function(data) {
 				if(data != null){
-					alert("성공?");
+//					alert("성공?");
 				}
 			},
 			error : function(error) {
-				alert("error : "+error)
+				alert("error : "+error);
 			}
 		}); //ajax end
 		
