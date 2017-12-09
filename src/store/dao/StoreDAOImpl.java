@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import pos.domain.CongestionSetVO;
+import reserve.domain.ReserveVO;
 import store.domain.BlackListVO;
 import store.domain.BossVO;
 import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
 import user.domain.FavoriteVO;
+import user.domain.UserVO;
 
 @Repository
 public class StoreDAOImpl implements StoreDAO {
@@ -220,5 +222,29 @@ public class StoreDAOImpl implements StoreDAO {
 	@Override
 	public List<MenuVO> selectCateList(MenuVO menuVO) {
 		return storess.selectList("store.selectCateList", menuVO);
+	}
+	
+	//1207 주용 사장님 예약리스트 출력
+	@Override
+	public List<ReserveVO> selectReserveList(ReserveVO reserveVO) {
+		return storess.selectList("store.selectReserveList", reserveVO);
+	}
+	
+	//1207 주용 사장님 예약리스트 거절
+	@Override
+	public int storeReserveUpdate(ReserveVO reserveVO) {
+		return storess.update("store.storeReserveUpdate", reserveVO);
+	}
+		
+	//1207 주용 사장님 예약리스트 거절
+	@Override
+	public int storeReserveUpdateOk(ReserveVO reserveVO) {
+		return storess.update("store.storeReserveUpdateOk", reserveVO);
+	}
+	
+	//1207 주용 사장님 예약리스트 거절
+	@Override
+	public int storeReserveReturn(ReserveVO reserveVO) {
+		return storess.update("store.storeReserveReturn", reserveVO);
 	}
 }

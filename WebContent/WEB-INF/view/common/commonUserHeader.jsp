@@ -336,30 +336,22 @@ nav {
 				.click(
 						function() {
 							//경기도 시군구 불러오기
-							$
-									.ajax({
-										url : "/store/sigunguSelect.do", //controll에 보낼 url주소
-										type : "POST", //post방식으로 보내겠다
-										dataType : "json", //제이슨 형식으로 받아오겠다
-										data : {
-											"sSido" : "경기도"
-										},
-										success : function(data) {//값을 성공적으로 받아왔을 때를 기술. (data) 값들이 담겨있다.
-											if (data != null) {
-												$('#location2').html("");
-												$(data)
-														.each(
-																function(index,
-																		item) {
-																	var tag = ""; //var tag 선언 주용1206 수정
-																	tag += "<li><div class='jq-checkbox' unselectable='on' style='user-select: none; display: inline-block; position: relative; '><input type='checkbox' class='sigungu' name='sSigungu2' value='"+this.sSigungu+"' style='position: absolute; z-index: -1; opacity: 0; margin: 0px; padding: 0px;'><div class='jq-checkbox__div'></div></div>"
-																	+this.sSigungu+"</li>";
-																	$(
-																			'#location2')
-																			.append(
-																					tag); //#tblList에 tag값을 붙임
-																});
-											}
+							$.ajax({ url : "/store/sigunguSelect.do", //controll에 보낼 url주소
+									 type : "POST", //post방식으로 보내겠다
+									 dataType : "json", //제이슨 형식으로 받아오겠다
+									 data : {"sSido" : "경기도"},
+									 success : function(data) {//값을 성공적으로 받아왔을 때를 기술. (data) 값들이 담겨있다.
+									if (data != null) {
+									$('#location2').html("");
+									$(data).each(function(index,item) {
+									var tag = ""; //var tag 선언 주용1206 수정
+									tag += "<li><div class='jq-checkbox' unselectable='on' style='user-select: none; display: inline-block; position: relative; '><input type='checkbox' class='sigungu' name='sSigungu2' value='"+this.sSigungu+"' style='position: absolute; z-index: -1; opacity: 0; margin: 0px; padding: 0px;'><div class='jq-checkbox__div'></div></div>"
+									+this.sSigungu+"</li>";
+									$('#location2').append(tag); //#tblList에 tag값을 붙임
+										
+									
+									});
+									}
 										
 										
 											$(".Gyeonggi").css("display", "block");
@@ -374,6 +366,7 @@ nav {
 												$(this).find('div').addClass('checked');
 												$(this).find('input').prop("checked",true);
 											});
+											
 										},
 										error : function(error) {
 											alert("error" + error); //에러 던지기
@@ -581,7 +574,7 @@ nav {
 								<!-- 처음 돋보기 -->
 								<div class="search-box">
 									<!-- 돋보기 클릭 후 입력창 -->
-									<input id="txtSearch" type="text" name="txt"
+									<input id="txtSearch" type="text" name="sName"
 										placeholder="Search" /> <input type="hidden" name="sMp"
 										value="${ sMp }" /> <input id="btnSearch" type="submit"
 										name="submit" value=" " />

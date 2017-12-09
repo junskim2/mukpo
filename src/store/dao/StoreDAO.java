@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import pos.domain.CongestionSetVO;
+import reserve.domain.ReserveVO;
 import store.domain.BlackListVO;
 import store.domain.BossVO;
 import store.domain.MenuVO;
 import store.domain.StoreVO;
 import store.domain.TableSetVO;
 import user.domain.FavoriteVO;
+import user.domain.UserVO;
 
 public interface StoreDAO {
 	// 사장님 로그인 기능 구현
@@ -111,6 +113,18 @@ public interface StoreDAO {
 
 	// 1206 경식 메뉴카테고리 리스트 출력
 	List<MenuVO> selectCateList(MenuVO vo);
+	
+	//1207주용 사장님 예약 리스트 출력
+	List<ReserveVO> selectReserveList(ReserveVO reserveVO);
+	
+	//1207주용 사장님 예약내역 거절
+	int storeReserveUpdate(ReserveVO reserveVO);
+	
+	//1207주용 사장님 예약내역 수락
+	int storeReserveUpdateOk(ReserveVO reserveVO);
+	
+	//1208주용 사장님 예약내역 거절 포인트 환급
+	int storeReserveReturn(ReserveVO reserveVO);
 	
 	
 }

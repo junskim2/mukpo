@@ -1,25 +1,48 @@
 $(document).ready(function(){
 	 
     $('#menumgbtn').click(function() {  //메뉴 관리 화면
-  	  
-       $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-       $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-       $('#managere').css('display', 'none');		//예약 관리 화면
-       $('#detail').css('display', 'none');		//메뉴 상세 화면
-       $('#storedelete').css('display','none');	//메장 삭제 화면
-       $('#storemodify').css('display','none');	//메장 수정 화면
-       $('#list').css('display', 'block');		// 메뉴 관리 화면
-    });
-    
-    $('#reservemgbtn').click(function() {     // 예약 관리 화면 클릭 시
-  	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
-        $('#addmenu').css('display', 'none');		//메뉴 등록 화면
-        $('#managere').css('display', 'block');		//예약 관리 화면
-        $('#detail').css('display', 'none');		//메뉴 상세 화면
-        $('#storedelete').css('display','none');	//메장 삭제 화면
-        $('#storemodify').css('display','none');	//메장 수정 화면
-        $('#list').css('display', 'none');		// 메뉴 관리 화면
+        
+        $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+        $('#addmenu').css('display', 'none');      //메뉴 등록 화면
+        $('#managere').css('display', 'none');      //예약 관리 화면
+        $('#detail').css('display', 'none');      //메뉴 상세 화면
+        $('#storedelete').css('display','none');   //메장 삭제 화면
+        $('#storemodify').css('display','none');   //메장 수정 화면
+        $('#list').css('display', 'block');      // 메뉴 관리 화면
      });
+     
+     $('#reservemgbtn').click(function() {// 예약 관리 화면 클릭 시
+        var rCid=$("#paramval").val();
+        $.ajax({ url : '/store/storeReserve.do', //controll에 보낼 url주소
+           type : "POST", //post방식으로 보내겠다
+           dataType : "json", //제이슨 형식으로 받아오겠다
+           data : {"rCid" :rCid },
+           success : function(data) {//값을 성공적으로 받아왔을 때를 기술. (data) 값들이 담겨있다.
+                if (data != null) {
+                   $('#relist').html("");
+                   $(data).each(function(index,item) {
+                      var tag = ""; 
+                      tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rYn+"</td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td><input type='hidden'class='hiddenrId' value='"+this.rId+"'/></tr>";
+                      $('#relist').append(tag); //#tblList에 tag값을 붙임
+                   });
+                   }
+          $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+            $('#addmenu').css('display', 'none');      //메뉴 등록 화면
+            $('#managere').css('display', 'block');      //예약 관리 화면
+            $('#detail').css('display', 'none');      //메뉴 상세 화면
+            $('#storedelete').css('display','none');   //메장 삭제 화면
+            $('#storemodify').css('display','none');   //메장 수정 화면
+            $('#list').css('display', 'none');      // 메뉴 관리 화면
+             
+             },
+             error : function(error) {
+                alert("error" + error); //에러 던지기
+             }
+          }); //ajax end
+   
+     
+      }); //예약 관리 화면 end  
+   
     
     $('#storedeletebtn').click(function() {     // 삭제 관리 화면  클릭시 
   	  $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
@@ -112,6 +135,85 @@ $(document).ready(function(){
        $(this).children('.menu-list').css('display', 'block');
 
     });
+    //1208주용 추가       
+    //동적 테이블 취소 눌렀을떄
+      $(document).on("click", ".reserveNo", function(){
+        
+              var mId = $(this).parent().prevAll(".reserveTd").text();
+              var rCid=$("#paramval").val();
+              var rId =$(this).parent().next().val();
+              
+              $.ajax({ url :'/store/storeReserveUpdate.do', //controll에 보낼 url주소
+                 
+                  type : "POST", //post방식으로 보내겠다
+                  dataType : "json", //제이슨 형식으로 받아오겠다
+                  data : {"mId" :mId,"rCid":rCid,"rId":rId  },
+                  success : function(data) {//값을 성공적으로 받아왔을 때를 기술. (data) 값들이 담겨있다.
+                       alert(mId+"주문이 취소 되었습니다.");
+                       if (data != null) {
+                          $('#relist').html("");
+                          $(data).each(function(index,item) {
+                             var tag = ""; 
+                             tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rYn+"</td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td><input type='hidden'class='hiddenrId' value='"+this.rId+"'/></tr>";
+                             $('#relist').append(tag); //#tblList에 tag값을 붙임
+
+                          });
+                          }
+                       $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+                         $('#addmenu').css('display', 'none');      //메뉴 등록 화면
+                         $('#managere').css('display', 'block');      //예약 관리 화면
+                         $('#detail').css('display', 'none');      //메뉴 상세 화면
+                         $('#storedelete').css('display','none');   //메장 삭제 화면
+                         $('#storemodify').css('display','none');   //메장 수정 화면
+                         $('#list').css('display', 'none');      // 메뉴 관리 화면
+                    
+                    },
+                    error : function(error) {
+                       alert("error" + error); //에러 던지기
+                    }
+                 }); //ajax end
+              
+      });
+      
+       //1208주용 추가       
+       //동적 테이블 수락 눌렀을떄
+         $(document).on("click", ".reserveOk", function(){
+                 var mId = $(this).parent().prevAll(".reserveTd").text();
+                 var rCid=$("#paramval").val();
+                 var rId=$(this).parent().prevAll(".hiddenrId").text();
+                 $.ajax({ url :'/store/storeReserveUpdateOk.do', //controll에 보낼 url주소
+                     type : "POST", //post방식으로 보내겠다
+                     dataType : "json", //제이슨 형식으로 받아오겠다
+                     data : {"mId" :mId,"rCid":rCid},
+                     success : function(data) {//값을 성공적으로 받아왔을 때를 기술. (data) 값들이 담겨있다.
+                        alert(mId+"주문이 접수되었습니다.");
+                          if (data != null) {
+                             $('#relist').html("");
+                             $(data).each(function(index,item) {
+                                var tag = ""; 
+                                tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rYn+"</td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td><input type='hidden'class='hiddenrId' value='"+this.rId+"'/></tr>";
+                                $('#relist').append(tag); //#tblList에 tag값을 붙임
+
+                             });
+                             }
+                          $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
+                            $('#addmenu').css('display', 'none');      //메뉴 등록 화면
+                            $('#managere').css('display', 'block');      //예약 관리 화면
+                            $('#detail').css('display', 'none');      //메뉴 상세 화면
+                            $('#storedelete').css('display','none');   //메장 삭제 화면
+                            $('#storemodify').css('display','none');   //메장 수정 화면
+                            $('#list').css('display', 'none');      // 메뉴 관리 화면
+                       
+                       },
+                       error : function(error) {
+                          alert("error" + error); //에러 던지기
+                       }
+                    }); //ajax end
+                 
+         });
+
 
     
+	 
+	 
 });
