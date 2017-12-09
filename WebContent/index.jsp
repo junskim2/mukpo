@@ -7,20 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="plugin/bootstrap/bootstrap.css" rel="stylesheet">
-<link href="plugin/bootstrap/datepicker.css" rel="stylesheet">
-<link href="plugin/font-awesome/font-awesome.css" rel="stylesheet">
-<link href="plugin/form-field/jquery.formstyler.css" rel="stylesheet">
-<link href="plugin/revolution-plugin/extralayers.css" rel="stylesheet">
-<link href="plugin/revolution-plugin/settings.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
-<link href="plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
-<link href="plugin/slick-slider/slick-theme.css" rel="stylesheet">
-<link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
-<link href="plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
-<link href="plugin/animation/animate.min.css" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+<link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
+<link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
+<link href="/plugin/form-field/jquery.formstyler.css" rel="stylesheet">
+<link href="/plugin/revolution-plugin/extralayers.css" rel="stylesheet">
+<link href="/plugin/revolution-plugin/settings.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
+<link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
+<link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
+<link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
+<link href="/plugin/animation/animate.min.css" rel="stylesheet">
+<link href="/css/t                                                                  heme.css" rel="stylesheet">
+<link href="/css/responsive.css" rel="stylesheet">
 <!-- 1207 현희 index css -->
 <link href="/css/common/index.css" rel="stylesheet" />
 <title>먹포 - 먹고갈래? 포장할래?</title>
@@ -39,7 +39,7 @@
 			</div>
 			<div id="body3">
 				<div id="mainLogo"> <!-- 로고를 묶어줄 div -->
-					<img id="imgMainLogo" src="images/common/로고2.png">
+					<img id="imgMainLogo" src="/images/common/로고2.png">
 				</div>
 				<div id="UserMmain"></div> <!-- Mmain -->
 				<div id="UserPmain"></div> <!-- Pmain -->
@@ -50,15 +50,23 @@
    <!-- Start Footer -->
    <footer>
    <div class="footer-part">
- <!-- 1204 아름 로그인했을시 안보이게 시작 -->
-   <c:if test="${ empty sessionScope.userName }">
+
+<!-- 1209 현희 로그인 안했을 때 --> 
+   <c:if test="${ empty sessionScope.userName}">
+		<div class="icon-find" id="test">
+      		<img id="loginjoin" src="/images/common/loginjoin.png" >
+      	</div>
+   </c:if>
+<!-- 1204 아름 로그인했을시 안보이게 시작 -->
+<!-- 1209 현희 로그인했을 때 welcome 이미지 -->
+   <c:if test="${ !empty sessionScope.userName }">
       <div class="icon-find" id="test">
-      	<img id="loginjoin" src="/images/common/loginjoin.png" >
+      	<img id="loginjoin" src="/images/common/welcome.png" >
       </div>
-    </c:if>
+   </c:if>
     <div id="footer">
 	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	      <img src="images/common/ㄴㅇㄹ.png" id="logo3" />
+	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
 	      
 	      <!-- 주소, 전화번호, 이메일 -->
 	      <div id="mukpoInfo">
@@ -72,7 +80,7 @@
 	      <!-- 푸터 메뉴들 -->
 	      <div id="fotterMenu">
 		      <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
-		      <a href="store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
+		      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
 		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
 		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
 	      </div>
@@ -173,12 +181,12 @@
 <!-- 1209 현희 로그인 클릭 시에도 fotter 존재하게 추가  -->         
          <div id="footer-visible">
 	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	      <img src="images/common/ㄴㅇㄹ.png" id="logo3" />
+	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
 	      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	      <!-- 푸터 메뉴들 -->
 	      <div id="fotterMenu">
 		      <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
-		      <a href="store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
+		      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
 		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
 		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
 	      </div>
@@ -189,23 +197,23 @@
    </footer>
    <!-- End Footer -->
 
-   <script src="js/jquery.min.js"></script>
-   <script src="plugin/bootstrap/bootstrap.min.js"></script>
-   <script src="plugin/bootstrap/bootstrap-datepicker.js"></script>
+   <script src="/js/jquery.min.js"></script>
+   <script src="/plugin/bootstrap/bootstrap.min.js"></script>
+   <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
-   <script src="plugin/form-field/jquery.formstyler.min.js"></script>
-   <script src="plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
-   <script src="plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
-   <script src="plugin/owl-carousel/owl.carousel.min.js"></script>
-   <script src="plugin/slick-slider/slick.min.js"></script>
-   <script src="plugin/isotop/isotop.js"></script>
-   <script src="plugin/isotop/packery-mode.pkgd.min.js"></script>
-   <script src="plugin/magnific/jquery.magnific-popup.min.js"></script>
-   <script src="plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-   <script src="plugin/animation/wow.min.js"></script>
-   <script src="plugin/parallax/jquery.stellar.js"></script>
-   <script src="js/app.js"></script>
-   <script src="js/script.js"></script>
+   <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
+   <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
+   <script src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
+   <script src="/plugin/owl-carousel/owl.carousel.min.js"></script>
+   <script src="/plugin/slick-slider/slick.min.js"></script>
+   <script src="/plugin/isotop/isotop.js"></script>
+   <script src="/plugin/isotop/packery-mode.pkgd.min.js"></script>
+   <script src="/plugin/magnific/jquery.magnific-popup.min.js"></script>
+   <script src="/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="/plugin/animation/wow.min.js"></script>
+   <script src="/plugin/parallax/jquery.stellar.js"></script>
+   <script src="/js/app.js"></script>
+   <script src="/js/script.js"></script>
 <!-- 1204 아름 로그인여부 확인 -->
    <script src="/js/common/loginCheck.js"></script>
 </body>

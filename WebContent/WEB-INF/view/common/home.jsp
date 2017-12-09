@@ -8,7 +8,7 @@
 <% int result = 0;%>
 
 <%  result= (int)request.getAttribute("result");%>  
-<!DOCTYPE html PUBLIC "-/W3C/DTD HTML 4.01 Transitional/EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,87 +28,12 @@
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
-
+<!-- 1207 현희 index css -->
+<link href="/css/common/index.css" rel="stylesheet" />
 <title>먹포 - 먹고갈래? 포장할래?</title>
-<style type="text/css">
-#mainLogo2 {
-   height: 80%;
-   width: 80%;
-}
-
-#mainLogo {
-   text-align: center;
-}
-
-#UserMmain {
-   height: 500px;
-   position: absolute;
-   width: 45%;
-   cursor: pointer;
-}
-
-#UserPmain {
-   height: 500px;
-   position: absolute;
-   width: 45%;
-   right: 8px;
-   cursor: pointer;
-}
-
-#body {
-   margin: 100px;
-}
-
-.arrow {
-   width: 20px;
-}
-
-#mainLogin {
-   background-color: #212130;
-}
-
-#test {
-   position: absolute;
-   left: 50%;
-   top: -59px;
-   width: 254px;
-   background: url('/images/pattern-dark.png') no-repeat center;
-   -webkit-transform: translateX(-50%);
-   -moz-transform: translateX(-50%);
-   -ms-transform: translateX(-50%);
-   -o-transform: translateX(-50%);
-   transform: translateX(-50%);
-   height: 59px;
-   z-index: 30;
-   text-align: center;
-   padding: 10px 0 0 0;
-}
-
-#logo3 {
-   width: 150px;
-}
-
-.footer-part {
-   float: left;
-   width: 100%;
-   background: #20202f;
-   position: relative;
-   padding: 10px 0 0 0;
-   color: #f6f0f2;
-   font-family: 'Graviola-Regular';
-   font-size: 15px;
-}
-</style>
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
-	$("#UserMmain").click(function() {
-		location.href = "/common/userMmain.do";
-	});
-	$("#UserPmain").click(function(){
-		location.href = "/common/userPmain.do";
-	});
 //신주용 회원가입 성공 메시지
     if(<%=result%>==2){
   	  alert("회원가입을 축하합니다.");
@@ -117,75 +42,103 @@ $(function() {
 });
 </script>
 </head>
+
 <body>
-   <div id="body">
-      <div id="UserMmain"></div>
-      <div id="UserPmain"></div>
-      <div id="mainLogo">
-         <img id="mainLogo2" src="/images/common/로고2.png">
-      </div>
-   </div>
+<!-- 로그인 아이디확인 -->
+<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }" />
+	<div id="body"> <!-- body 와 footer를 나눌 div -->	
+		<div id="body2"> <!-- mMain & 로고 & pMain 묶어줄 div -->
+			<div id="mainText">
+				<div id="textdiv">
+					<img id="imgMaintext" src="/images/common/logotext.png"> <!-- 문구 -->
+				</div>
+			</div>
+			<div id="body3">
+				<div id="mainLogo"> <!-- 로고를 묶어줄 div -->
+					<img id="imgMainLogo" src="/images/common/로고2.png">
+				</div>
+				<div id="UserMmain"></div> <!-- Mmain -->
+				<div id="UserPmain"></div> <!-- Pmain -->
+			</div>
+		</div>
+	</div>
 
    <!-- Start Footer -->
-   <footer> <!--    data-wow-duration="1000ms" data-wow-delay="300ms" fadeInDown  wow-->
+   <footer>
    <div class="footer-part">
- <!-- 1202 아름 로그인했을시 안보이게 시작 -->
-   <c:if test="${ empty sessionScope.userName }">
-      <div class="icon-find" id="test">
-         <a href="#"> <img class="arrow"
-            src="/images/common/down-arrow.png" alt=""> <span>로그인/회원가입</span>
-         </a>
+
+<!-- 1209 현희 로그인 안했을 때 --> 
+   <c:if test="${ empty sessionScope.userName}">
+		<div class="icon-find" id="test">
+      		<img id="loginjoin" src="/images/common/loginjoin.png" >
+      	</div>
+   </c:if>
+<!-- 1204 아름 로그인했을시 안보이게 시작 -->
+<!-- 1209 현희 로그인했을 때 welcome 이미지 -->
+   <c:if test="${ !empty sessionScope.userName }">
+      <div id="test">
+      	<img id="loginjoin" src="/images/common/welcome.png" >
       </div>
-    </c:if>
-      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
-      <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
-      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
-      <a href="/reserve/userMypageReservList.do">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 / 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
-      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->      
+   </c:if>
+    <div id="footer">
+	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
+	      
+	      <!-- 주소, 전화번호, 이메일 -->
+	      <div id="mukpoInfo">
+	      	<div><img src="/images/common/location.png" /> 서울특별시 금천구 가산동 가산디지털로1로 149, 신한이노플렉스 207호 </div>&nbsp&nbsp&nbsp&nbsp
+	      	<div><img src="/images/common/call.png" />&nbsp&nbsp010.4300.6867</div>&nbsp&nbsp&nbsp&nbsp
+	      	<div><img src="/images/common/email.png" />&nbsp&nbspmukpo151@gmail.com</div>
+	      </div>
+	      
+	      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	      
+	      <!-- 푸터 메뉴들 -->
+	      <div id="fotterMenu">
+		      <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
+		      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
+		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
+		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
+	      </div>
+      </div>
+      
       <!-- 로그인 회원가입 클릭하면 나오는 화면 -->
       <div class="location-footer-map">
-		 <c:if test="${ empty sessionScope.userName  }">
+		<c:if test="${ empty sessionScope.userName  }">
          <div class="icon-find-location">         
-            <a href="/#"> <img class="arrow" src="/images/common/up-arrow.png"
-               alt=""> <br />
-                <span>로그인/회원가입</span>
-            </a>
+<!-- 1209 현희 로그인이미지 수정 -->            
+            <img id="loginjoin-visible" src="/images/common/loginjoin.png" >
          </div>
           </c:if>
-<!-- 1202 아름 로그인했을시 안보이게 끝 -->     
-      <section id="mainLogin" class="home-icon login-register bg-skeen">
+<!-- 1204 아름 로그인했을시 안보이게 끝 -->
+         <section id="mainLogin" class="home-icon login-register bg-skeen">
          <div class="container">
             <div class="row">
-               <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown"
-                  data-wow-duration="1000ms" data-wow-delay="300ms">
+               <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="login-wrap form-common">
                      <div class="title text-center">
                         <h3 class="text-coffee">Login</h3>
                      </div>
-                     <form class="login-form" method="post" name="login">
+                     <form action="common/home.do" class="login-form" method="post" name="login">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt"
-                                 placeholder="Username or email address" class="input-fields">
+                              <input type="text" name="mId" placeholder="Username or email address" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password" placeholder="********"
-                                 class="input-fields">
+                              <input type="password" name="mPw" placeholder="********" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <div class="row">
                                  <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label><input type="checkbox" name="chkbox">Remember
-                                       me</label>
+                                    <label><input type="checkbox" name="chkbox">Remember me</label>
                                  </div>
                                  <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <a href="/#" class="pull-right">Lost your password</a>
+                                    <a href="#" class="pull-right">Lost your password</a>
                                  </div>
                               </div>
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="submit" name="submit" value="LOGIN"
-                                 class="button-default button-default-submit">
+                              <input type="submit" name="submit" value="LOGIN" class="button-default button-default-submit">
                            </div>
                         </div>
                      </form>
@@ -195,63 +148,65 @@ $(function() {
                      </div>
                      <div class="row">
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                           <a href="/#" class="facebook-btn btn-change button-default"><i
-                              class="fa fa-facebook"></i>Facebook Connect</a>
+                           <a href="#" class="facebook-btn btn-change button-default"><i class="fa fa-facebook"></i>Facebook Connect</a>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                           <a href="/#" class="tweeter-btn btn-change button-default"><i
-                              class="fa fa-twitter"></i>Twitter Connect</a>
+                           <a href="#" class="tweeter-btn btn-change button-default"><i class="fa fa-twitter"></i>Twitter Connect</a>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown"
-                  data-wow-duration="1000ms" data-wow-delay="300ms">
+<!-- 주용 회원가입 db연결 -->
+               <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="register-wrap form-common">
                      <div class="title text-center">
                         <h3 class="text-coffee">Register</h3>
                      </div>
-                     <form class="register-form" method="post" name="register">
+                     <form action="/user/insertMemberJoin.do"class="register-form" method="post" name="register">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt" placeholder="First Name"
-                                 class="input-fields">
+                              <input type="text" name="mId" placeholder="아이디" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt" placeholder="Last Name"
-                                 class="input-fields">
+                              <input type="password" name="mPw" placeholder="비밀번호" class="input-fields">
+                           </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <input type="password" placeholder="비밀번호 확인" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="text" name="txt" placeholder="alitfn58@gmail.com"
-                                 class="input-fields">
+                              <input type="text" name="mName" placeholder="이름" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password" placeholder="Password"
-                                 class="input-fields">
+                              <input type="text" name="mTel" placeholder="전화번호" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password"
-                                 placeholder="Confirm Password" class="input-fields">
+                              <input type="text" name="mBorn" placeholder="yyyy/mm/dd" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="password" name="password"
-                                 placeholder="Confirm Password" class="input-fields">
+                              <input type="text" name="mEmail" placeholder="alitfn58@gmail.com" class="input-fields">
                            </div>
                            <div class="col-md-12 col-sm-12 col-xs-12">
-                              <input type="submit" name="submit"
-                                 class="button-default button-default-submit"
-                                 value="RegIster now">
+                              <input type="submit" name="submit" class="button-default button-default-submit" value="RegIster now">
                            </div>
                         </div>
                      </form>
-                     <p>
-                        By clicking on “Register Now” button you are accepting the <a
-                           href="/terms_condition.html">Terms &amp; Conditions</a>
-                     </p>
                   </div>
                </div>
             </div>
          </div>
+<!-- 1209 현희 로그인 클릭 시에도 fotter 존재하게 추가  -->         
+         <div id="footer-visible">
+	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
+	      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	      <!-- 푸터 메뉴들 -->
+	      <div id="fotterMenu">
+		      <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
+		      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
+		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
+		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
+	      </div>
+      </div>
          </section>
       </div>
       </div>
@@ -261,12 +216,10 @@ $(function() {
    <script src="/js/jquery.min.js"></script>
    <script src="/plugin/bootstrap/bootstrap.min.js"></script>
    <script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
-   <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf6My1Jfdi1Fmj-DUmX_CcNOZ6FLkQ4Os"></script>
    <script src="/plugin/form-field/jquery.formstyler.min.js"></script>
    <script src="/plugin/revolution-plugin/jquery.themepunch.plugins.min.js"></script>
-   <script
-      src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
+   <script src="/plugin/revolution-plugin/jquery.themepunch.revolution.min.js"></script>
    <script src="/plugin/owl-carousel/owl.carousel.min.js"></script>
    <script src="/plugin/slick-slider/slick.min.js"></script>
    <script src="/plugin/isotop/isotop.js"></script>
@@ -277,5 +230,7 @@ $(function() {
    <script src="/plugin/parallax/jquery.stellar.js"></script>
    <script src="/js/app.js"></script>
    <script src="/js/script.js"></script>
+<!-- 1204 아름 로그인여부 확인 -->
+   <script src="/js/common/loginCheck.js"></script>
 </body>
 </html>
