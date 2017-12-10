@@ -280,10 +280,9 @@ padding:0px;
                                 </tbody>
                             </table>
                             
-                            
-                            <div class="product-cart-detail">
+                          <div class="product-cart-detail">
                             <h3 class="ordermenu">주문할 메뉴를 선택하세요.</h3>
-                                <input type="button"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
+                                <input type="button" id="cartOrder"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
                             	<input type="hidden" name="rCid"/>
                             	<input type="hidden" name="sName"/>
                             </div>

@@ -126,10 +126,12 @@
 
 										<div class="checkout-button">
 										<input type="hidden" name="mId" value="<%=id%>"/>		<!--회원ID-->
-										<input type="hidden" name="sId" value="<%=rCid%>"/>		<!--사업자등록번호-->
-										<input type="hidden" name="sName" value="<%=sName%>"/>		<!--사업자등록번호-->
-										
+										<input type="hidden" name="rCid" value="<%=rCid%>"/>		<!--사업자등록번호-->
+										<input type="hidden" name="sName" value="<%=sName%>"/>		<!--매장명-->
+										<input type="hidden" name="mName" value="<%=mName%>"/>	<!-- 메뉴이름 -->
 										<input type="hidden" name="oTotal"value="<%=total%>" />   <!--총 금액-->
+										<input type="hidden" name="mCnt"value="<%=mCnt%>" /> <!-- 메뉴 갯수 -->
+										<input type="hidden" name="mPrice"value="<%=mPrice%>" /> <!-- 원가 -->
 										
 											<input type="submit" id="pay" class="button-default btn-large btn-primary-gold" value="결제하기"/>
 										</div>

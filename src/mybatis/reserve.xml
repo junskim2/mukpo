@@ -34,4 +34,10 @@ where r.m_id= #{mId}
 insert into payment values(sysdate,#{mId},#{sId},#{pWith},#{oTotal},#{pState},#{sName})
 </insert>
 
+<!-- 1209 주용 포장 예약 -->
+<insert id="reservePackage" parameterType='resVO'>
+INSERT INTO reservelist(r_id,m_id,r_cid,r_mpwp,r_date,r_time,r_pnum,r_keepmoney,r_tnum,r_yn,s_name)
+values(sysdate,#{mId},#{rCid},(SELECT s_mp FROM store WHERE r_cid = #{rCid}),sysdate,'19:00',0,0,0,'RW',#{sName})
+</insert>
+
 </mapper>
