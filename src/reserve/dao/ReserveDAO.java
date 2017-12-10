@@ -30,6 +30,8 @@ public interface ReserveDAO {
 	List<MenuVO> reserveMenuList(ReserveVO vo); // 1201 아름 메뉴정보 가져오기 
 	
 	int reservePayment(PaymentVO vo);
+	
+	int reservePackage(ReserveVO vo);	// 1210  주용 포장 예약
 
 	
 }

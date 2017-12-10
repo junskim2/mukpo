@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE>
+<!DOCTYPE> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,7 +19,7 @@
 <link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
 <link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
-<link href="/css/t                                                                  heme.css" rel="stylesheet">
+<link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
 <!-- 1207 현희 index css -->
 <link href="/css/common/index.css" rel="stylesheet" />

@@ -39,9 +39,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</foreach>
 	</if>  
 	
-	<if test="sName != null or sName !=''"> 
-	and s_name = #{sName}
-	</if>
+<!-- 	<if test="sName != null or sName !=''">  -->
+<!-- 	and s_name = #{sName} -->
+<!-- 	</if> -->
    		) WHERE rownum BETWEEN #{startRowNo} AND #{endRowNo}
    		  
 	</select>

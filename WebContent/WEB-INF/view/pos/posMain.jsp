@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%><!DOCTYPE html>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+    <%String rCid = request.getParameter("rCid"); %>
+    <!DOCTYPE html>
 <html>
 
 <head>
@@ -119,7 +121,7 @@ padding:0px;
 											<div class="cart-overlay-wrap">
 												<div class="cart-overlay">
 													<div class="service-track-overlay banner-bg">
-													<p>${status.count}번 테이블</p>
+													<p>${status.count}</p>
 															<a data-toggle="modal" data-target="#booktable" href="#"
 																class="btn-black btnPos"
 																id="${sl.rCid }"
@@ -178,7 +180,7 @@ padding:0px;
 		<!-- End Footer -->
 		<!-- Start Book Table -->
 		
-		<!-- 경식 추가  주문 ``````````````````````````````````모달 창 -->
+		<!-- 경식 추가  주문 모달 창  **********************************************************************************************-->
 		<div class="modal fade booktable" id="booktable" tabindex="-1"
 			role="dialog" aria-labelledby="booktable">
 			<div class="modal-dialog" role="document">
@@ -237,6 +239,7 @@ padding:0px;
                                         </div>
                                     <a href="#"><h5 class="${list.mId}">${list.mName }</h5></a>
                                     <h5><strong class="${list.mId}">${list.mPrice }</strong></h5>
+                                    <input type="hidden" name="rCid" value="<%=rCid%>"/>
                                     </div>
                                     
                                 </div>
@@ -272,13 +275,14 @@ padding:0px;
                                 </thead>
                                 <tbody class="menulist">
 <!--                                  경식 추가  여기에 매뉴 리스트 추가 됨 *************************************************************************************-->
+                                
+<!--                                 *************************************************************************************************************** -->
                                 </tbody>
                             </table>
                             
-                            
-                            <div class="product-cart-detail">
+                          <div class="product-cart-detail">
                             <h3 class="ordermenu">주문할 메뉴를 선택하세요.</h3>
-                                <input type="button"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
+                                <input type="button" id="cartOrder"  class="btn-medium btn-skin pull-right" value="UPDATE cart"/>
                             	<input type="hidden" name="rCid"/>
                             	<input type="hidden" name="sName"/>
                             </div>
@@ -292,7 +296,7 @@ padding:0px;
 			</div>
 		</div>
 		
-		<!-- 결제 모달창 -->
+		<!-- 결제 모달창  ********************************************************************************************************* -->
 		<div class="modal fade booktable" id="booktable2" tabindex="-1"
 			role="dialog" aria-labelledby="booktable2">
 			<div class="modal-dialog" role="document">
@@ -356,7 +360,6 @@ padding:0px;
 	<script src="/js/app.js"></script>
 	<script src="/js/script.js"></script>
 	<script src="/js/pos/order.js"></script>
-	<script src="/js/store/basket.js"></script>
 </body>
 
 </html>
