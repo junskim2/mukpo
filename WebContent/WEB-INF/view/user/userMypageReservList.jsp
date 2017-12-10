@@ -7,8 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
+<!-- 1211 주용 부트스트랩추가 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <style type="text/css">
+/* 1211 주용 리뷰 모달창 css추가 */
+
+
+.modal-content{
+height:100%;
+}
+
+.modal-dialog{
+height:55%;
+}
+
 /* 주용 1206 리뷰 사진 css */
 #reviewleft{
 float:left;
@@ -145,12 +160,12 @@ overflow:hidden;
 								<c:choose>
 									<c:when test="${reserve.RV_ID eq null}">
 										<td class="view-message dont-show reviewadd"><input
-											type="button" class="reviewadd1" value="리뷰 남기기"
+											type="button" class="btn btn-default reviewadd1" value="리뷰 남기기"
 											data-toggle="modal" data-target="#booktable" /></td>
 									</c:when>
 									<c:otherwise>
 										<td class="view-message dont-show review"><input
-											type="button" class="reviewselect" value="리뷰 보기"
+											type="button" class="btn btn-default reviewselect" value="리뷰 보기"
 											data-toggle="modal" data-target=".booktable${reserve.RV_ID}" /></td>
 										<!-- 리뷰보기  다이어로그-->
 										<!--1206 신주용 수정 -->
