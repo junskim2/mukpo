@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import pos.dao.PosDAO;
 import pos.domain.CongestionSetVO;
 import pos.domain.OrderListVO;
-import pos.domain.OrderListVOArray;
 import reserve.domain.ReserveVO;
 import store.dao.StoreDAO;
 import store.domain.MenuVO;
@@ -107,7 +106,7 @@ public class PosController {
 		
 		  @RequestMapping(value="/insertOrderList.do", produces="text/json;charset=UTF-8")
 	      @ResponseBody
-	      public  String storeTableInsert(OrderListVOArray orderlistvo) {
+	      public  String storeTableInsert(OrderListVO orderlistvo) {
 			  
 	    	  int result = posDAO.insertOrderList(orderlistvo);
 	    	  

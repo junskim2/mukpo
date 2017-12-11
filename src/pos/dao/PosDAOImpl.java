@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import pos.domain.CongestionSetVO;
 import pos.domain.OrderListVO;
-import pos.domain.OrderListVOArray;
 import pos.domain.PaymentVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
@@ -37,7 +36,7 @@ public class PosDAOImpl implements PosDAO {
 	}
 
 	@Override
-	public  int insertOrderList(OrderListVOArray olVO) {
+	public  int insertOrderList(OrderListVO olVO) {
 		return posss.insert("pos.insertOrderList",olVO);
 		
 	}
