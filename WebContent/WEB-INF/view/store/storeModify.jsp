@@ -56,6 +56,13 @@ color:#e4b95b;
 #addbtn {
 	display: inline-block;
 }
+.storemg-ck{cursor:pointer;}
+#storemodifybtn{cursor:pointer;}
+#storedeletebtn{cursor:pointer;}
+.menumg-ck{cursor:pointer;}
+#menumgbtn{cursor:pointer;}
+.reservemg-ck{cursor:pointer;}
+#reservemgbtn{cursor:pointer;}
     	
     </style>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>

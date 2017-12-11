@@ -231,6 +231,6 @@ $(function() {
    <script src="/js/app.js"></script>
    <script src="/js/script.js"></script>
 <!-- 1204 아름 로그인여부 확인 -->
-   <script src="/js/common/loginCheck.js"></script>
+   <script src="/js/common/homeloginCheck.js"></script>
 </body>
 </html>

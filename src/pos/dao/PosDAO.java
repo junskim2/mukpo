@@ -4,6 +4,7 @@ import java.util.List;
 
 import pos.domain.CongestionSetVO;
 import pos.domain.OrderListVO;
+import pos.domain.OrderListVOArray;
 import pos.domain.PaymentVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
@@ -46,7 +47,7 @@ public interface PosDAO {
 	CongestionSetVO selectCongestionset(CongestionSetVO vo);
 	
 	// 주문하기
-	void insertOrderList(OrderListVO olVO);	// 주문취소
+	int insertOrderList(OrderListVOArray olVO);	// 주문취소
 	//	void uapdateOyn();
 	
 	// 주문 내역보기
