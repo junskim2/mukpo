@@ -136,7 +136,6 @@ public class UserController {
 			   String s = request.getParameter("search");
 			   
 			   List<StoreVO> storeVOList = userDAO.getAddrList(storeVO); //데이터 가져오기
-			    //가져온 검색어 테스트
 			   
 			   List<JSONObject> rList = new ArrayList<>(); //제이슨 오브젝트 리스트 생성
 			  
@@ -146,6 +145,16 @@ public class UserController {
 				try {
 					JSONObject obj = new JSONObject();
 					obj.put("sName", storeVOList.get(i).getsName());
+					obj.put("sUrl", storeVOList.get(i).getsUrl());
+					obj.put("sRcid", storeVOList.get(i).getrCid());
+					obj.put("sAddress", storeVOList.get(i).getsAddress());
+					if(storeVOList.get(i).getsAddress().length()>30) {
+						storeVOList.get(i).setsAddress(storeVOList.get(i).getsAddress().substring(0, 30)+"...");
+					}
+					obj.put("sAddressSubstring", storeVOList.get(i).getsAddress());
+					obj.put("sTel", storeVOList.get(i).getsTel());
+					obj.put("sClose", storeVOList.get(i).getsClose());
+					
 					ja.put(obj);//리스트에 넣기
 				} catch (JSONException e) {
 					e.printStackTrace();

@@ -23,7 +23,7 @@ $(function() {
 //	 });
 
 	var thankyou;
-	$(".row>div").click(
+	$(".row>div.mypageheader").click(
 			function() {
 				if (thankyou === undefined) {
 					var img = $(this).find("img");

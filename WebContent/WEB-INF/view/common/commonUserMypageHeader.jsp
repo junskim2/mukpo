@@ -74,7 +74,7 @@
 						<h2>마이페이지</h2>
 
 						<div class="row">
-							<div class="col-md-2 col-sm-2 col-xs-2 "  id="orderlist">
+							<div class="col-md-2 col-sm-2 col-xs-2 mypageheader"  id="orderlist">
 								<div class="feature-list-icon">
 									<div class="feature-icon-table">
 										<img src="/images/user/menu.png" alt="">
@@ -82,7 +82,7 @@
 								</div>
 								<h5>예약내역</h5>
 							</div>
-							<div class="col-md-2 col-sm-2 col-xs-2 "  id="booking">
+							<div class="col-md-2 col-sm-2 col-xs-2 mypageheader"  id="booking">
 								<div class="feature-list-icon">
 									<div class="feature-icon-table">
 										<img src="/images/user/calendar.png" alt="">
@@ -90,7 +90,7 @@
 								</div>
 								<h5>주간예약하기</h5>
 							</div>
-							<div class="col-md-2 col-sm-2 col-xs-2 "  id="love">
+							<div class="col-md-2 col-sm-2 col-xs-2 mypageheader"  id="love">
 								<div class="feature-list-icon">
 									<div class="feature-icon-table">
 										<img src="/images/user/favorite.png" alt="">
@@ -98,7 +98,7 @@
 								</div>
 								<h5>즐겨찾기 목록</h5>
 							</div>
-							<div class="col-md-2 col-sm-2 col-xs-2 "  id="point">
+							<div class="col-md-2 col-sm-2 col-xs-2 mypageheader"  id="point">
 								<div class="feature-list-icon">
 									<div class="feature-icon-table">
 										<img src="/images/user/coins.png" alt="">
@@ -106,7 +106,7 @@
 								</div>
 								<h5>먹포인트</h5>
 							</div>
-							<div class="col-md-2 col-sm-2 col-xs-2 "
+							<div class="col-md-2 col-sm-2 col-xs-2 mypageheader"
 								id="contract">
 								<div class="feature-list-icon">
 									<div class="feature-icon-table">
