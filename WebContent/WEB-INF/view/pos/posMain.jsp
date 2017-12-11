@@ -29,6 +29,9 @@
 <link href="/css/responsive.css" rel="stylesheet">
 
 <style type="text/css">
+.collapsed{
+    padding: 8px 44px 8px 10px;}
+   
 .shop-product{
 border-radius: 2em;
 height:100%;
@@ -60,6 +63,9 @@ padding: 13px 42px;
 }
 .service-track-overlay{
 padding:0px;
+}
+.panel-body p{
+    margin: 0 0 5px 0;
 }
 
 </style>
@@ -141,18 +147,26 @@ padding:0px;
 						</div>
 						<div class="col-md-3 col-sm-5 col-xs-12 wow fadeInDown"
 							data-wow-duration="1000ms" data-wow-delay="300ms">
-							<div style="text-align: center" class="shop-checkout-right">
+							<div style="text-align: center;padding: 30px 0px 0px;" class="shop-checkout-right">
 								<h6 style="text-align: center">예약 요청건</h6>
-
-								<img src="/images/arrow1.png" alt=""><br />
 								
+								<img src="/images/arrow1.png" alt=""><br />
+								<div class="reserveli" style="padding-top: 8%; ">
+								<div class="container" style="width:100%;">
+								<div class="panel-group accordion-part" id="accordion" role="tablist" aria-multiselectable="true">
 								<c:forEach items="${reserveList}" var="rl">
-								<div style="border: 1px solid orange; border-radius: 2em;"
-									class="shop-checkout-box">
-									<div class="shop-checkout-title">
-										<h6>${rl.mId }님의 예약</h6>
-									</div>
-									<p>
+								
+								<div class="panel panel-default wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" style="padding: 13px 50px 13px 10px;"role="button" data-toggle="collapse" data-parent="#accordion" href="#${rl.rId }" aria-expanded="false" aria-controls="${rl.rId }">
+                                        ${rl.mId }님의 예약
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="${rl.rId }" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <p>
 										<span>예약 시간</span> <small>${rl.rTime}</small>
 									</p>
 									<p>
@@ -160,11 +174,19 @@ padding:0px;
 									</p>
 									<p>
 										<span>예약 테이블</span> <small>${rl.rTnum }</small>
-									</p>
-								</div>
+									</p> 
+                                    </div>
+                                </div>
+                            </div>
 								</c:forEach>
 								
+								</div>
+								</div>
+								</div>
 								<img src="/images/arrow2.png" alt="">
+								
+								</div>
+								
 
 							</div>
 						</div>
