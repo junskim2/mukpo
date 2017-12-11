@@ -29,6 +29,26 @@
 <link href="/css/responsive.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
 <link href="/css/store/storeMdetail.css" rel="stylesheet">
+<!-- 1206 아름 CSS 추가 -->
+
+<link href="/css/reserve/reserveM.css" rel="stylesheet" />
+<link href='/css/reserve/calendar.css' rel='stylesheet' />
+<link href='/css/reserve/fullcalendar.css' rel='stylesheet' />
+<link href='/css/reserve/fullcalendar.print.css' rel='stylesheet'
+	media='print' />
+
+<!-- 1206 아름 예약시간 관련 시작 -->
+<link href='/css/reserve/jquery.timepicker.css' rel='stylesheet' />
+<link href='/css/reserve/jquery.timepicker.min.css' rel='stylesheet' />
+
+
+<!-- 1206 아름 예약시간 관련 끝 -->
+<!-- 1206 아름 ax5tpast -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.rawgit.com/ax5ui/ax5ui-toast/master/dist/ax5toast.css" />
+
+
+
 <style type="text/css">
 /* 1204 현희 메인 아닐 때 추가될 클래스 */
 		.otherscroll{
@@ -186,7 +206,7 @@
 											<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }">
 											<input type="hidden" id="rCid" name="rCid" value="${ param.rCid }">
 											<input type="hidden" name="rTnum" value="${ no.count }" />
-											<a href="#" id="reserveM" class="shop-cart-btn reservebtn" name="${ no.count }">예약하기</a> <br />
+											<a id="reserveM" class="shop-cart-btn reservebtn" name="${ no.count }">예약하기</a> <br />
 										</form>
 
 									</div>

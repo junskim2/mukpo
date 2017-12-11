@@ -32,4 +32,9 @@ $(document).ready(function(){
 		
 
 	}); 
+	
+//	1205 아름 테이블 예약 모달로 변경
+	$(".reservebtn").click(function(){
+		$(this).closest('form').submit();
+	});
 });
