@@ -30,7 +30,7 @@
     <![endif]-->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-    <!--신주요 예약 내역 이벤트 처리 -->
+    <!--신주용 예약 내역 이벤트 처리 -->
     <script type="text/javascript">
     $(function() {
         $("#orderlist").click(function() {
@@ -44,6 +44,10 @@
         });
         $("#point").click(function() {
       	  location.href = "/user/userMypagePoint.do";
+        });
+/* 1212신주용 개인정보 수정 추가 */
+        $("#contract").click(function(){
+        	location.href="/user/userMypageInfoModifyMain.do"
         });
       
    
@@ -73,7 +77,7 @@
 					<div class="breadcrumb-inner">
 						<h2>마이페이지</h2>
 
-						<div class="row">
+						<div class="row" id='mypageheader'>
 							<div class="col-md-2 col-sm-2 col-xs-2 mypageheader"  id="orderlist">
 								<div class="feature-list-icon">
 									<div class="feature-icon-table">

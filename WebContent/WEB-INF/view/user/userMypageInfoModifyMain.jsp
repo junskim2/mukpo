@@ -55,7 +55,7 @@
 					<!-- 회원정보수정 -->
 					<div role="tabpanel" class="tab-pane active" id="reviews">
 						<!-- 1202 아름 수정 -->
-						<form action="/user/userMypageInfoModify.do" method="post"
+						<form action="/user/userMypageInfoModify.do" name='infoPwCheck' method="post"
 							class="infoPwCheck">
 							<div style="border-radius: 2em; padding-top: 23px;"
 								class="title text-center">
@@ -63,7 +63,7 @@
 									<h6 name="infoModicyCheck" style="vertical-align: middle">비밀번호</h6>
 									<input style="height: 40px" type="password" name="mPw" />
 								</div>
-								<br /> <a href="#" id="aInfoPwCheck" name="infoModify"
+								<br /> <a href="javascript:infoPwCheck.submit();" id="aInfoPwCheck" name="infoModify"
 									class="btn-main btn-shadow">확인</a> <a href="/common/home.do"
 									name="infoModify" class="btn-main btn-shadow">취소</a>
 							</div>
@@ -73,7 +73,7 @@
 					<!-- 비밀번호변경 -->
 					<div role="tabpanel" class="tab-pane" id="description">
 						<form action="/user/userMypageInfoPWModify.do" method="post"
-							id="infoPwModify">
+							id="infoPwModify" name='infoPwModify'>
 							<div style="border-radius: 2em; padding-top: 23px;"
 								class="title text-center">
 								<div class="pwConfirm">
@@ -92,7 +92,7 @@
 										비밀번호 확인</h6>
 									<input style="height: 40px" type="password" name="mPwNewCh" id="chpass" />
 								</div>
-								<br /> <a  href="#" id="aInfoPwModify"
+								<br /> <a href="javascript:infoPwModify.submit();" id="aInfoPwModify"
 									class="btn-main btn-shadow" name="infoModify">확인</a> <a href="/common/home.do"
 									class="btn-main btn-shadow" name="infoModify">취소</a>
 							</div>

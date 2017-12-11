@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
+<link rel='stylesheet prefetch'href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <!-- 1211 주용 부트스트랩추가 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -32,6 +33,7 @@ width:50%;
 }
 /* 주용 1206 리뷰 내용 css */
 #reviewright{
+border:0;
 float:right;
 width:50%;
 height:228px;
@@ -73,8 +75,6 @@ overflow:hidden;
 
 	<jsp:include page="../common/commonUserMypageHeader.jsp"></jsp:include>
 	<div class="container">
-		<link rel='stylesheet prefetch'
-			href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 		<div class="mail-box">
 			<aside class="lg-side">
 			<div class="inbox-body">

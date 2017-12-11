@@ -37,21 +37,12 @@
         <!-- Start Mypage Header -->
         	<jsp:include page="/WEB-INF/view/common/commonUserMypageHeader.jsp"></jsp:include>
         <!-- End Mypage Header -->
-        
-	<!-- Page pre loader -->
-	<div id="pre-loader">
-		<div class="loader-holder">
-			<div class="frame">
-				<img src="/images/Preloader.gif" alt="Laboom" />
-			</div>
-		</div>
-	</div>
-	<div class="wrapper">
+ 
 
 		<!-- Start Main -->
-		<main>
-		<div class="main-part">
-			<section class="home-icon shop-cart bg-skeen">
+	
+<!-- 1212 신주용 수정 -->	
+	<div class="container">
 				<div class="icon-default icon-skeen">
 					<img src="/images/scroll-arrow.png" alt="">
 				</div>
@@ -125,12 +116,9 @@
 						</div>
 					</div>
 				</div>
-			</section>
 		</div>
-		</main>
 		<!-- End Main -->
 
-	</div>
 	<!-- Back To Top Arrow -->
 	<a href="#" class="top-arrow"></a>
 	<script src="/js/jquery.min.js"></script>

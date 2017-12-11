@@ -42,7 +42,7 @@
 		data-wow-duration="1000ms" data-wow-delay="300ms">
 		<article class="container">
 			<div class="col-md-12">
-				<form class="form-horizontal infoModifySubmit" action="/user/userMypageInfoModifyOk.do" method="POST">
+				<form class="form-horizontal infoModifySubmit" name='infoModifySubmit' action="/user/userMypageInfoModifyOk.do" method="POST">
 				<input type="hidden" name="mId" value="${ userInfo.mId }" />
 				<input type="hidden" name="mPw" value="${ userInfo.mPw }" />
 					<div class="form-group">
@@ -73,17 +73,17 @@
 								name="mBorn" value="${ userInfo.mBorn }"  />
 						</div>
 					</div>
-				</form>
 				
 				<p name="memberout">먹고갈래? 포장할래? 사이트를 더 이상 이용하지 않는다면, <a href="/user/userMypageMemberout.do">회원탈퇴</a></p>
 				
 				<div class="form-group">
 					<div class="col-sm-12 text-center">
-						<a href="#" id="aInfoModifyConfirm" 
+						<a href="javascript:infoModifySubmit.submit();" id="aInfoModifyConfirm" 
 							class="btn-main btn-shadow">수정</a> 
 						<a href="/common/home.do"
 							class="btn-main btn-shadow">취소</a>
 					</div>
+				</form>
 				</div>
 			</div>
 		</article>

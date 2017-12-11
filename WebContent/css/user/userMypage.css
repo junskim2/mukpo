@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/* 1211 주용 마이페이지 헤더 가운데 정렬 */
+#mypageheader{
+	margin-left:12%;
+}
+
 .row>div {
 	cursor: pointer;
 	

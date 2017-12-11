@@ -31,22 +31,16 @@
 </head>
 
 <body>
-        <!-- Start Mypage Header -->
+
+<!-- 1212신주용 수정 -->
+<!--Start Mypage Header -->
         	<jsp:include page="/WEB-INF/view/common/commonUserMypageHeader.jsp"></jsp:include>
-        <!-- End Mypage Header -->
+<!--End Mypage Header -->
         
-    <!-- Page pre loader -->
-    <div id="pre-loader">
-        <div class="loader-holder">
-            <div class="frame">
-                <img src="/images/Preloader.gif" alt="Laboom" />
-            </div>
-        </div>
-    </div>
-    <div class="wrapper">
+   
         <!-- Start Main -->
-        <main>
-            <div class="main-part">
+<!-- 1212 신주용 수정 -->
+            <div class="container">
                 <!-- Start Tab Part -->
                 <section class="default-section comment-review-tab bg-grey v-pad-remove wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <div class="container">
@@ -110,8 +104,6 @@
                     </div>
                 </section>
                 <!-- End Tab Part -->
-            </div>
-        </main>
         <!-- End Main -->
     </div>
     <!-- Back To Top Arrow -->
