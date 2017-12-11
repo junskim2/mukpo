@@ -56,3 +56,7 @@ form div.reserveM {
 .favoriteImg {
 	cursor: pointer;
 }
+
+#reserveM{
+	cursor: pointer;
+}
