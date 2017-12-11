@@ -185,8 +185,8 @@
 <!-- 1204 아름 ajax 처리 위해 mId, rCid 받기 -->
 											<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }">
 											<input type="hidden" id="rCid" name="rCid" value="${ param.rCid }">
-											<input type="hidden" name="rTnum" value="${ no.count }" /> <input
-												type="submit" class="shop-cart-btn" value="예약하기">
+											<input type="hidden" name="rTnum" value="${ no.count }" />
+											<a href="#" id="reserveM" class="shop-cart-btn reservebtn" name="${ no.count }">예약하기</a> <br />
 										</form>
 
 									</div>

@@ -56,20 +56,22 @@ public class ReserveController {
 		return mv;
 	}
 
-	// 1201 아름 추가 예약정보저장
-	@RequestMapping(value = "reserveMPayment.do")
-	public ModelAndView reserveMPayment(ReserveVO vo, String rTel, String rName, String rMemo) {
-		List<MenuVO> payMenuList = reserveDAO.reserveMenuList(vo); // 1201 아름 메뉴정보 가져오기
+	// 1201 아름,민우 추가 예약정보저장
+			@RequestMapping(value = "reserveMPayment.do")
+			public ModelAndView reserveMPayment(ReserveVO vo, String rTel, String rName, String rMemo) {
+				List<MenuVO> payMenuList = reserveDAO.reserveMenuList(vo);	// 1201 아름 메뉴정보 가져오기
+				ModelAndView mv = new ModelAndView();
+				int deposit = vo.getrPnum()*5000; //예치금 계산
 
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("reserve/reserveMPayment");
-		mv.addObject("reserveInfo", vo);
-		mv.addObject("payMenuList", payMenuList);
-		mv.addObject("rTel", rTel);
-		mv.addObject("rName", rName);
-		mv.addObject("rMemo", rMemo);
-		return mv;
-	}
+				mv.setViewName("reserve/reservePPayment");
+				mv.addObject("reserveInfo", vo);
+				mv.addObject("payMenuList", payMenuList);
+				mv.addObject("rTel", rTel);
+				mv.addObject("rName", rName);
+				mv.addObject("rMemo", rMemo);
+				mv.addObject("rPnum", deposit);
+				return mv;
+			}
 
 	//1210 포장 결제하기 주용
 	@RequestMapping(value ="/reservePaymentOk.do")

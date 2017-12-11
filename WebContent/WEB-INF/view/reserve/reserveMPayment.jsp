@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checkout - Laboom</title>
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -25,6 +24,7 @@
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
+<link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -45,7 +45,7 @@
 		</div>
 	</div>
 	<!-- Start Header -->
-	   	<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
+	   	<jsp:include page="/WEB-INF/view/common/commonUserHeader.jsp"></jsp:include>
    <!-- End Header -->
 	<!-- Start Main -->
 	<main>
@@ -65,10 +65,82 @@
 						<li>결제 완료</li>
 					</ul>
 				</div>
+				<!-- 메뉴 리스트 받아오기-->
 				<div class="row">
-					<div class="col-md-5 col-sm-5 col-xs-12 wow fadeInDown"
+					<div class="col-md-6 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+						<div class="shop-checkout-left" style="height:600px; overflow-y:scroll;">
+							<h3 style="text-align: center; font-weight: bold;">메뉴 선택</h3>
+							<br />
+							<div class="portfolioContainer row">
+
+								<c:forEach items="${ payMenuList }" var="menuList">
+								<div class="col-md-12 col-sm-6 col-xs-12 isotope-item ${ menuList.mCate }">
+								
+								<div id="cart-overlay-wrap">	     
+                                   <div id="cart-overlay">
+                                       <input type="button" name="${menuList.mId}" class="shop-cart-btn" value="장바구니 추가"/>
+                                   </div>
+							  	</div>
+							  	
+						  			<div class="shop-product">
+									  <div class="menu-list-copy">
+						  				<img src="${ menuList.mUrl }" class="${ menuList.mUrl }" alt="" style="height:100px;  width:30%; float:left;">
+						 					 <div>
+						 					 <h5 class="${menuList.mId}" style="padding-top:4%; z-index:-1;"> <!--h5태그에 class값 id줘서 등록 -->
+						 					 <center class="${menuList.mId}">&nbsp;&nbsp;${ menuList.mName }</center> <!-- 메뉴이름 -->
+						 					 <span style="margin-top:4%;"class="${menuList.mId}"><strong>${ menuList.mPrice }</strong></span> <!-- 메뉴가격 --> 
+						 					 </h5>
+						 					 </div>
+											 <center>${ menuList.mDetail }</center>
+									  </div>
+									</div>
+						  		</div>
+						  		</c:forEach> 
+							</div>
+							</div>
+						</div>
+					<!-- 메뉴 리스트 받아오기 끝-->
+					
+					<!-- 장바구니탭 -->
+				<div class="row">				
+				<div class="col-md-6 col-sm-7 col-xs-12 wow fadeInDown"
 						data-wow-duration="1000ms" data-wow-delay="300ms">
-						<div class="shop-checkout-right">
+						<div class="shop-checkout-left" style="height:600px; overflow-y:scroll; scrollbar-face-color:FFFFFF;">
+							
+							<form method="post" action="/reserve/reservePPayment.do">
+								<div class="shop-cart-list wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" style="padding:0 !important;">
+                        <div class="build-title">
+				<h2>주문 메뉴</h2>
+						</div>
+                            <div class="menu-select">
+                            <table class="shop-cart-table" style="width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th>메뉴 명</th>
+                                        <th>가격</th>
+                                        <th>수량</th>
+                                        <th>총금액</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="menulist">
+								<!-- 메뉴 추가되는부분 -->
+                                </tbody>
+                            </table>
+                            
+                            <div class="product-cart-detail">
+                                <input type="button" id="goPayment" name="goPayment" class="btn-medium btn-skin pull-right" value="최종선택"/>
+                                <input type="button" id="goClear" class="btn-medium btn-skin pull-right" value="전부취소"/>
+                            </div>
+                            </div>
+                        	   </div>
+			</form>
+						</div>
+					</div>
+				</div>
+				
+		<!-- 예약정보 탭 -->
+			<div class="col-md-5 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" >
+						<div class="shop-checkout-right" style="height:710px;">
 							<div class="shop-checkout-box">
 								<h5>예약 정보</h5>
 								<div class="shop-checkout-title">
@@ -110,32 +182,9 @@
 
 						</div>
 					</div>
+					<!-- 예약정보 탭 끝-->
+					<!-- 최종 결제정보 탭 -->
 					<div class="col-md-7 col-sm-7 col-xs-12 wow fadeInDown"
-						data-wow-duration="1000ms" data-wow-delay="300ms">
-						<div class="shop-checkout-left">
-							<h6>메뉴 선택</h6>
-							<br />
-							<div class="portfolioContainer row">
-								<c:forEach items="${ payMenuList }" var="menuList">
-
-									<div
-										class="col-md-12 col-sm-6 col-xs-12 isotope-item ${ menuList.mCate }">
-										<div class="menu-list-copy">
-											<h5>
-												${ menuList.mName } <span><fmt:formatNumber
-														value="${ menuList.mPrice }" type="number" /></span>
-											</h5>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br />
-				<div class="row">
-					<div class="col-md-3 col-sm-3 col-xs-12"></div>
-					<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown"
 						data-wow-duration="1000ms" data-wow-delay="300ms">
 						<div class="shop-checkout-right">
 							<div class="shop-checkout-box">
@@ -145,25 +194,29 @@
 										주문내역 <span></span>
 									</h6>
 								</div>
-								<div class="shop-checkout-row">
-									<p>
-										<span>여기에 주문내역을 띄워줘야 한단다</span>
-									</p>
+								<div id="shop-checkout-orderlist" class="shop-checkout-row"><!-- class=css용 / id=값 설정용 -->
 								</div>
-								<div class="checkout-total">
+								<div class="shop-checkout-title">
 									<h6>
-										예치금 <small>35000원</small>
+										예치금 
 									</h6>
 								</div>
-								<div class="checkout-total">
+								<div id="checkout-deposit" class="shop-checkout-row">
+								${ rPnum }
+								</div>
+								<div class="shop-checkout-title" >
 									<h6>
-										금액 <small>48000원</small>
+										금액 
 									</h6>
 								</div>
-								<div class="checkout-total">
+								<div id="shop-checkout-price" class="shop-checkout-row">
+								</div>
+								<div class="shop-checkout-title">
 									<h6>
-										결제금액 <small>13000원</small>
+										결제금액 
 									</h6>
+								</div>
+								<div id="shop-checkout-totalPrice" class="shop-checkout-row">
 								</div>
 								<div class="checkout-total">
 									<div class="shop-checkout-box">
@@ -180,15 +233,15 @@
 										</div>
 
 										<div class="checkout-button">
+											<button id="payClear" class="button-default btn-large btn-primary-gold">전부취소</button>
 											<button id="pay" class="button-default btn-large btn-primary-gold">결제하기</button>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
 					</div>
-
+<!-- 최종 결제정보 탭 끝 -->
 				</div>
 			</div>
 
@@ -221,5 +274,6 @@
 	<script src="/plugin/parallax/jquery.stellar.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/script.js"></script>
+	<script src="/js/store/reservePbasket.js"></script>
 </body>
 </html>

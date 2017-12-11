@@ -17,15 +17,18 @@
 <link href="/plugin/owl-carousel/owl.theme.default.css" rel="stylesheet">
 <link href="/plugin/slick-slider/slick-theme.css" rel="stylesheet">
 <link href="/plugin/magnific/magnific-popup.css" rel="stylesheet">
-<link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css"
-	rel="stylesheet">
+<link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- 1206 아름 CSS 추가 -->
+<link href="/css/reserve/reserveM.css" rel="stylesheet" />
+<link href='/css/reserve/calendar.css' rel='stylesheet' />
+<link href='/css/reserve/fullcalendar.css' rel='stylesheet' />
+<link href='/css/reserve/fullcalendar.print.css' rel='stylesheet' media='print' />
+<!-- 1206 아름 예약시간 관련 시작 -->
+<link href='/css/reserve/jquery.timepicker.css' rel='stylesheet' />
+<link href='/css/reserve/jquery.timepicker.min.css' rel='stylesheet' />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -50,39 +53,71 @@
 					<h2>먹고갈꺼니?</h2>
 					<h6 class="heade-xs">잘생각 했어 b</h6>
 				</div>
+				<!-- 1206 아름 달력 추가 -->
+				<div id='calendar'></div>
+				<!-- 1206 아름 달력 추가 끝 -->
+				<script>
+            $(document).ready(function() {
+
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+                left:   'Calendar',
+                center: '',
+                right:  'today prev,next'
+                });
+            });
+        		</script>
 				<form action="/reserve/reserveMPayment.do" method="post">
 					<!-- 사업자등록번호 -->
 					<input type="hidden" name="rCid" value="${ reserveInfo.rCid }" />
-					<div class="row">
+					<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }"> 
+					<input type="hidden" name="rCid" value="${ param.rCid }" /> 
+					
+					<div class="row rowTopMargin">
 						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input type="text" id="rDate" name="rDate" placeholder="예약날짜" readonly />
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input type="text" id="disableTimeRangesExample" name="rDate" placeholder="예약시간"
+								id="disableTimeRangesExample" />
+						</div>
 
-							<input type="hidden" name="rTnum" value="${ reserveInfo.rTnum }"
-								class="" /> <input type="text" name="rDate" placeholder="예약날짜"
-								class="date-pick"> <input type="text" name="rTime"
-								placeholder="시간" class="" value="" /> <input type="text"
-								name="rPnum" placeholder="인원수" class="" value="" /> <input
-								type="text" name="rTel" placeholder="전화번호" class="" value="" />
-							<input type="text" name="rName" placeholder="이름" class=""
-								value="" />
-						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<div>
-								<img src="/images/img2.png" style="width: 400px; height: 360px;">
-							</div>
+							<input type="text" name="rPnum" placeholder="인원수" />
 						</div>
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<input type="text" name="rMemo" placeholder="요청사항"
-								style="width: 100%;" value="" /> <br /> <input type="submit"
-								value="예약" id="reserveTable" style="width: 100%;"
-								class="btn-main btn-big" />
+
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input type="text" name="rMemo" placeholder="요청사항" />
 						</div>
+
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input type="text" name="rName" placeholder="이름" />
+						</div>
+						
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<input type="text" name="rTel" placeholder="전화번호" />
+						</div>
+
+
 					</div>
+					<input type="submit" value="예약하기">
 				</form>
 			</div>
 		</div>
 	</div>
 	<!-- Back To Top Arrow -->
 	<a href="#" class="top-arrow"></a>
+	<!-- 1206 아름 ax5tpast -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.rawgit.com/ax5ui/ax5core/master/dist/ax5core.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.rawgit.com/ax5ui/ax5ui-toast/master/dist/ax5toast.min.js"></script>
+
+
 	<script src="/js/jquery.min.js"></script>
 	<script src="/plugin/bootstrap/bootstrap.min.js"></script>
 	<script src="/plugin/bootstrap/bootstrap-datepicker.js"></script>
@@ -103,5 +138,15 @@
 	<script src="/plugin/parallax/jquery.stellar.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/script.js"></script>
+	<!-- 1206 아름 달력 추가 -->
+	<script src="/js/reserve/reserveM.js"></script>
+	<script src="/js/reserve/calendar.js"></script>
+	<script src='/js/reserve/moment.min.js'></script>
+	<script src='/js/reserve/jquery.min.js'></script>
+	<script src='/js/reserve/fullcalendar.min.js'></script>
+	<!-- 1206 아름 예약시간 -->
+	<script src="/js/reserve/jquery.timepicker.js"></script>
+	<script src="/js/reserve/jquery.timepicker.min.js"></script>
+
 </body>
 </html>

@@ -83,12 +83,8 @@
 															<h3>${sl.sName}</h3>
 														</div>
 														<div class="service-track-overlay banner-bg">
-															<a data-toggle="modal" data-target="#booktable" href="#"
-																class="btn-black btnPos" style="margin-bottom: 70%;"
-																id="${sl.rCid }"
-																>POS기</a> <a
-																data-toggle="modal" data-target="#booktable2" href="#"
-																class="btn-black btnSetting" id="${sl.rCid }">설정</a>
+															<a data-toggle="modal" data-target="#booktable" href="#" class="btn-black btnPos" style="margin-bottom: 70%;" id="${sl.rCid }">POS기</a> 
+															<a data-toggle="modal" data-target="#booktable2" href="#" class="btn-black btnSetting" id="${sl.rCid }">설정</a>
 														</div>
 													</div>
 												</div>
