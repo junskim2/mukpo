@@ -27,6 +27,8 @@
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
+<!-- 1211 아름 posMain.css 추가 -->
+<link href="/css/pos/posMain.css" rel="stylesheet">
 
 <style type="text/css">
 .collapsed{
@@ -160,21 +162,29 @@ padding:0px;
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
                                         <a class="collapsed" style="padding: 13px 50px 13px 10px;"role="button" data-toggle="collapse" data-parent="#accordion" href="#${rl.rId }" aria-expanded="false" aria-controls="${rl.rId }">
-                                        ${rl.mId }님의 예약
+                                        <span class="userName">${rl.mId }님의 <c:if test="${fn:contains(rl.rMpwp, 'M')}">매장</c:if><c:if test="${fn:contains(rl.rMpwp, 'P')}">포장</c:if> 예약</span>
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="${rl.rId }" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        <p>
-										<span>예약 시간</span> <small>${rl.rTime}</small>
+                                     <div class="panel-body">
+                                    <p>
+										<span>날짜</span> <small>${rl.rDate}</small>
 									</p>
-									<p>
-										<span>예약 인원</span> <small>${rl.rPnum }</small>
+                                    <p>
+										<span>시간</span> <small>${rl.rTime}</small>
 									</p>
+									<c:if test="${ rl.rPnum ne 0 }">
 									<p>
-										<span>예약 테이블</span> <small>${rl.rTnum }</small>
+										<span>인원</span> <small>${rl.rPnum }</small>
+									</p>
+									</c:if>
+									<c:if test="${ rl.rTnum ne 0 }">
+									<p name="rTnum">
+										<span>테이블</span> <small >${rl.rTnum }</small>
 									</p> 
+									</c:if>
+									<a href="#" class="button-default" id="reserveOrder">주문하기 <i class="icon-right-4"></i></a>
                                     </div>
                                 </div>
                             </div>

@@ -24,6 +24,15 @@ $(document).ready(function(){		//윤경식 추가
 				if(dulpChk==false){
 					mIdArr[mIdArr.length]=mId;	
 					$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="/images/img70.png" alt=""></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div id="'+mId+'"class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input name="mCnt"value="1" type="text"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'</td><td class="shop-cart-close"><i class="icon-cancel-5"name="'+mId+'"></i></td></tr>');
+				} else if(dulpChk){
+					var num=$("#"+mId).children().next().next().next().val(); //수량
+		               num = Number(num);
+		               $("#"+mId).children().next().next().next().val(num+1);
+		               
+		               num=$("#"+mId).children().next().next().next().val();
+		               var price = $("#"+mId).children().next().next().val();  //단가
+		               var result = $("#"+mId).parent().next().next().text(price*num);  //가격 창
+
 				}
 			}
 			
@@ -92,6 +101,11 @@ $(document).ready(function(){		//윤경식 추가
 	$('.btnPos').click(function(){  											//테이블 번호 구하기
 		tableNum=$(this).parent().parent().parent().prev().text();
 		
+	});
+	
+	// 1212 아름 예약내역 주문하기
+	$("#reserveOrder").click(function(){		
+		$('.orderTarget').eq(($(this).prevAll('p[name="rTnum"]').find('small').text())-1).trigger('click'); // 예약한 테이블의 주문 모달창 띄우기
 	});
 	
 
