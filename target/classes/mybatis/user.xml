@@ -5,17 +5,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="user">
 
-<!-- 회원가입 sql -->
+<!-- 회원가입 sql 경식 수정-->
 <insert id="userInsert" parameterType="userVO"> 
-	INSERT INTO member VALUES(#{mId}, #{mPw}, #{mName}, #{mTel}, #{mBorn},#{mEmail})	
+	INSERT INTO member VALUES(#{mId}, #{mPw}, #{mName}, #{mTel}, #{mBorn},#{mEmail},0,'N')	
 </insert>
 
 <!-- 로그인 sql -->
+<!-- 1203 아름 탈퇴여부 체크 추가 -->
 <select id="userLogin" parameterType="userVO" resultType="userVO"> 
-	select * from member where m_id=#{mId} 
+	select * from member where m_id=#{mId} AND m_yn = 'N'
 	<if test="mPw !=null">
 		AND m_pw = #{mPw}
-	</if>
+	</if>  
 	
 </select>
 
@@ -25,8 +26,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<!-- 마이페이지 포인트내역 -->
+	<!-- 1212 주용 수정 -->
 	<select id="selectPoint" parameterType="poVO" resultType="poVO">
-		SELECT * FROM point WHERE m_id = '${mId}'
+		 SELECT * FROM point WHERE m_id= '${mId}'
 
 	</select>
 
@@ -49,5 +51,68 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertPoint" parameterType="poVO">
 		INSERT INTO point (p_id, m_id, p_date, p_as, p_store, p_price, p_cruntmoney) VALUES (seq_point_p_id.nextval, #{mId}, sysdate, '충전', '포인트충전', #{pPrice}, #{pCruntmoney})
 	</insert>
+	
+	<!-- 마이페이지 주간예약 매장 검색 -->
+<!-- 마이페이지 주간예약 매장 검색 -->
+<select id="getaddr" parameterType="java.util.HashMap" resultType="storeVO">
+               SELECT *
+               FROM store
+               WHERE s_name like '%'||'${search}'||'%' 
+               or s_sido like '%'||'${search}'||'%'
+               or s_sigungu like '%'||'${search}'||'%'
+               or s_cate like '%'||'${search}'||'%'
+</select>
 
+	<!-- 생생리뷰 -->
+	<select id="selectLatelyReview" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT c.rv_content AS rv_content, c.rv_date AS rv_date, c.r_cid AS r_cid, c.s_name AS s_name, c.m_name AS m_name
+		FROM (SELECT a.rv_content AS rv_content, a.rv_date AS rv_date, b.r_cid AS r_cid, b.s_name AS s_name, d.m_name AS m_name
+				FROM review a,
+		        (SELECT r_id, r_cid, s_name FROM reservelist WHERE r_mpwp = '${rMpwp}') b,
+		        (SELECT m_name FROM member WHERE m_id IN (SELECT m_id FROM reservelist) ) d
+				WHERE a.r_id IN b.r_id
+				ORDER BY rv_date DESC) c
+		<where>
+			ROWNUM <![CDATA[ <= ]]> 6
+		</where>
+	</select>
+<!-- 1202 아름 회원정보 수정 전 비밀번호 확인 -->
+	<select id="selectMemberModifyCheck" resultType="userVO">
+		SELECT * FROM member WHERE m_id = #{mId} AND m_pw = #{mPw}
+	</select>
+	
+<!-- 1203 아름 회원정보 수정 update -->
+	<update id="updateMemberModify" parameterType="userVO">
+		UPDATE member SET m_pw = #{ mPw }
+		<if test="mName != null and mTel != null and mEmail != null and mBorn != null">
+		,m_name = #{ mName }, m_tel = #{ mTel }, m_email = #{ mEmail }, m_born = #{ mBorn } 
+		</if>
+		 WHERE m_id = #{mId}
+	</update>
+	
+<!-- 1203 아름 회원탈퇴 -->
+	<update id="updateMemberDelete" parameterType="userVO">
+		UPDATE member SET m_yn = 'Y' WHERE m_id = #{ mId }
+	</update>
+	
+<!-- 	1204 아름 즐겨찾기 추가 -->
+	<insert id="insertFavorite" parameterType="favVO">
+		INSERT INTO favorite VALUES (#{fId}, #{mId}, #{rCid})
+	</insert>
+	
+<!-- 1204 아름 즐겨찾기 삭제 -->
+	<delete id="deleteFavorite" parameterType="favVO">
+		DELETE FROM favorite WHERE f_id = #{fId}
+	</delete>
+
+<!-- 1204 아름 마이페이지 즐겨찾기 리스트 -->
+	<select id="selectFS" parameterType="favVO" resultType="java.util.HashMap">
+		select count(reservelist.r_cid) AS REVIEW_COUNT, store.r_cid AS r_cid, store.s_name AS s_name, store.s_url AS s_url, store.s_mp AS s_mp
+		FROM review FULL OUTER JOIN RESERVELIST ON review.R_ID = RESERVELIST.R_ID
+        		    RIGHT JOIN store ON store.r_cid = reservelist.r_cid
+            		INNER JOIN favorite ON favorite.r_cid = store.r_cid
+		WHERE favorite.m_id = #{ mId }
+		GROUP BY store.r_cid, store.s_name, store.s_url, store.s_mp
+	</select>
+		
 </mapper>

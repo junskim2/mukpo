@@ -206,7 +206,14 @@
 											<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }">
 											<input type="hidden" id="rCid" name="rCid" value="${ param.rCid }">
 											<input type="hidden" name="rTnum" value="${ no.count }" />
-											<a id="reserveM" class="shop-cart-btn reservebtn" name="${ no.count }">예약하기</a> <br />
+											<c:choose>
+													<c:when test="${fn:length(reserveInfo) eq 0}" >
+													 로그인해주세요 
+													</c:when>
+													<c:otherwise>
+													<a href="#" id="reserveM" class="shop-cart-btn reservebtn" name="${ no.count }">예약하기</a> <br />
+													</c:otherwise>
+												</c:choose>
 										</form>
 
 									</div>

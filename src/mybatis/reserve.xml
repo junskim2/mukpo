@@ -29,6 +29,12 @@ where r.m_id= #{mId}
 	<select id="reserveMenuList" parameterType="resVO" resultType="menuVO">
 		SELECT * FROM menu WHERE r_cid = #{rCid}
 	</select>
+	
+	<!-- 	테이블예약할때 로그인 확인 -->
+	<select id="reserveTable" parameterType="userVO" resultType="userVO">
+		SELECT * FROM member WHERE m_id = #{mId} AND m_yn = 'N'
+	</select>
+	
 <!-- 경식 추가 결제하기  -->
 <insert id="reservePayment" parameterType="payVO"  >
 insert into payment values(sysdate,#{mId},#{sId},#{pWith},#{oTotal},#{pState},#{sName})

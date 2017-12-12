@@ -16,6 +16,7 @@ import pos.domain.PaymentVO;
 import reserve.dao.ReserveDAO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
+import user.domain.UserVO;
 
 @Controller
 @RequestMapping("/reserve")
@@ -48,11 +49,15 @@ public class ReserveController {
 
 	// 1201 아름 추가 예약화면 (테이블번호 가져가기)
 	@RequestMapping(value = "/reserveM.do")
-	public ModelAndView reserveM(ReserveVO vo) {
+	public ModelAndView reserveM(UserVO userVO, ReserveVO vo, HttpSession httpSession) {
+		userVO.setmId((String)httpSession.getAttribute("userName"));
+		vo.setmId((String)httpSession.getAttribute("userName"));   //사용자 값 들어옴
+		List<UserVO> reserveTable = reserveDAO.reserveTable(userVO);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reserve/reserveM");
 		mv.addObject("reserveInfo", vo);
-
+		mv.addObject("reserveUserInfo", reserveTable);
+		
 		return mv;
 	}
 
@@ -63,7 +68,7 @@ public class ReserveController {
 				ModelAndView mv = new ModelAndView();
 				int deposit = vo.getrPnum()*5000; //예치금 계산
 
-				mv.setViewName("reserve/reservePPayment");
+				mv.setViewName("reserve/reserveMPayment");
 				mv.addObject("reserveInfo", vo);
 				mv.addObject("payMenuList", payMenuList);
 				mv.addObject("rTel", rTel);

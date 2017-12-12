@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="reserve">
 
-
+ 
 
 <!-- 예약, 리뷰 sql -->
 <select id="reserveList" parameterType="resVO" resultType="hashmap">
@@ -19,11 +19,31 @@ from reservelist r LEFT OUTER JOIN
             on reserv.r_id = rv.r_id     
         ) rv
 ON r.r_id = rv.rv_id
-where r.m_id='user3'
+where r.m_id= #{mId}
 	
 	
 	
 </select>
 
+	<!-- 아름 먹고갈래 예약 메뉴 불러오기 -->
+	<select id="reserveMenuList" parameterType="resVO" resultType="menuVO">
+		SELECT * FROM menu WHERE r_cid = #{rCid}
+	</select>
+	
+	<!-- 	테이블예약할때 로그인 확인 -->
+	<select id="reserveTable" parameterType="userVO" resultType="userVO">
+		SELECT * FROM member WHERE m_id = #{mId} AND m_yn = 'N'
+	</select>
+	
+<!-- 경식 추가 결제하기  -->
+<insert id="reservePayment" parameterType="payVO"  >
+insert into payment values(sysdate,#{mId},#{sId},#{pWith},#{oTotal},#{pState},#{sName})
+</insert>
+
+<!-- 1209 주용 포장 예약 -->
+<insert id="reservePackage" parameterType='resVO'>
+INSERT INTO reservelist(r_id,m_id,r_cid,r_mpwp,r_date,r_time,r_pnum,r_keepmoney,r_tnum,r_yn,s_name)
+values(sysdate,#{mId},#{rCid},(SELECT s_mp FROM store WHERE r_cid = #{rCid}),sysdate,'19:00',0,0,0,'RW',#{sName})
+</insert>
 
 </mapper>

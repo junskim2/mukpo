@@ -6,6 +6,7 @@ import java.util.List;
 import pos.domain.PaymentVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
+import user.domain.UserVO;
 
 public interface ReserveDAO {
 
@@ -28,6 +29,8 @@ public interface ReserveDAO {
 	ReserveVO favoriteWeekSelect(ReserveVO vo); // 주주간예약 즐겨찾기 불러오기 selsect
 	
 	List<MenuVO> reserveMenuList(ReserveVO vo); // 1201 아름 메뉴정보 가져오기 
+	
+	List<UserVO> reserveTable(UserVO vo); //테이블예약 회원정보 가져오기
 	
 	int reservePayment(PaymentVO vo);
 	

@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>먹포 - 테이블 예약</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/ax5ui/ax5ui-toast/master/dist/ax5toast.css" />
 <link href="/plugin/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="/plugin/bootstrap/datepicker.css" rel="stylesheet">
 <link href="/plugin/font-awesome/font-awesome.css" rel="stylesheet">
@@ -71,7 +72,7 @@
         		</script>
 				<form action="/reserve/reserveMPayment.do" method="post">
 					<!-- 사업자등록번호 -->
-					<input type="hidden" name="rCid" value="${ reserveInfo.rCid }" />
+					<input type="hidden" name="rTnum" value="${ reserveInfo.rTnum }" />
 					<input type="hidden" id="mId" name="mId" value="${ sessionScope.userName }"> 
 					<input type="hidden" name="rCid" value="${ param.rCid }" /> 
 					
@@ -92,12 +93,12 @@
 							<input type="text" name="rMemo" placeholder="요청사항" />
 						</div>
 
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="text" name="rName" placeholder="이름" />
+						<div class="col-md-6 col-sm-6 col-xs-12"> <!-- 회원이름  -->
+							<input type="text" name="rName" value="${reserveUserInfo.get(0).getmName().toString()}" readonly/>
 						</div>
 						
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="text" name="rTel" placeholder="전화번호" />
+						<div class="col-md-6 col-sm-6 col-xs-12"> <!-- 회원 전화번호 -->
+							<input type="text" name="rTel" value="${ reserveUserInfo.get(0).getmTel().toString() }" readonly/>
 						</div>
 
 

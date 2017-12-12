@@ -45,7 +45,7 @@
 		</div>
 	</div>
 	<!-- Start Header -->
-	   	<jsp:include page="/WEB-INF/view/common/commonUserHeader.jsp"></jsp:include>
+	   	<jsp:include page="wWEBiINF/view/common/commonUserHeader.jsp"></jsp:include>
    <!-- End Header -->
 	<!-- Start Main -->
 	<main>
@@ -80,8 +80,7 @@
                                    <div id="cart-overlay">
                                        <input type="button" name="${menuList.mId}" class="shop-cart-btn" value="장바구니 추가"/>
                                    </div>
-							  	</div>
-							  	
+							  	</div>							 
 						  			<div class="shop-product">
 									  <div class="menu-list-copy">
 						  				<img src="${ menuList.mUrl }" class="${ menuList.mUrl }" alt="" style="height:100px;  width:30%; float:left;">

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import pos.domain.PaymentVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
+import user.domain.UserVO;
 @Repository
 public class ReserveDAOImpl implements ReserveDAO{
 	
@@ -72,6 +73,11 @@ public class ReserveDAOImpl implements ReserveDAO{
 	@Override
 	public List<MenuVO> reserveMenuList(ReserveVO vo) {			// 1201 아름 메뉴정보 가져오기 
 		return reservess.selectList("reserve.reserveMenuList", vo);
+	}
+	
+	@Override
+	public List<UserVO> reserveTable(UserVO vo) { //민우 ReserveM 회원정보 가져오기
+		return reservess.selectList("reserve.reserveTable", vo);
 	}
 
 	@Override
