@@ -131,7 +131,7 @@ padding:0px;
 													<div class="service-track-overlay banner-bg">
 													<p>${status.count}</p>
 															<a data-toggle="modal" data-target="#booktable" href="#"
-																class="btn-black btnPos"
+																class="btn-black btnPos orderTarget"
 																id="${sl.rCid }"
 																>주문하기</a>
 																<a
@@ -149,10 +149,9 @@ padding:0px;
 						</div>
 						<div class="col-md-3 col-sm-5 col-xs-12 wow fadeInDown"
 							data-wow-duration="1000ms" data-wow-delay="300ms">
-							<div style="text-align: center;padding: 30px 0px 0px;" class="shop-checkout-right">
-								<h6 style="text-align: center">예약 요청건</h6>
+							<div style="text-align: center;padding: 30px 0px 0px;" class="shop-checkout-right posReserveList">
+								<h6 class="marginBottom">예약 요청건</h6>
 								
-								<img src="/images/arrow1.png" alt=""><br />
 								<div class="reserveli" style="padding-top: 8%; ">
 								<div class="container" style="width:100%;">
 								<div class="panel-group accordion-part" id="accordion" role="tablist" aria-multiselectable="true">
@@ -193,7 +192,6 @@ padding:0px;
 								</div>
 								</div>
 								</div>
-								<img src="/images/arrow2.png" alt="">
 								
 								</div>
 								
@@ -216,7 +214,7 @@ padding:0px;
 		<div class="modal fade booktable" id="booktable" tabindex="-1"
 			role="dialog" aria-labelledby="booktable">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content">
+				<div class="modal-content" id="modalMargin">
 					<div class="modal-body">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
@@ -228,13 +226,13 @@ padding:0px;
 						<main> <!-- Start Menu Part -->
 		
 <section class="home-icon blog-main-section shop-page" style="padding:0px 0 0px">
-		<div class="container" style="width:100%;">
+		<div class="container" id="containerWidthEdit" style="width:100%;">
 			<div class="build-title">
 				<h2>메뉴선택</h2>
 			</div>
 			
 			<form method="post" action="/reserve/reservePPayment.do" style="left: 5%;;top: 15% margin-top:40px;width:100%;">
-			<div class="menu-wrapper">
+			<div class="menu-wrapper userMypageMenucateWidth">
                             <div class="portfolioFilter">
                                 <div class="portfolioFilter-inner">
 						<a href="javascript:;" data-filter="*" class="current">전체메뉴</a> 
@@ -251,7 +249,7 @@ padding:0px;
 					</div>
 				</div>
 
-				<div class="portfolioContainer row ">
+				<div class="portfolioContainer row menuScroll">
 <!-- 				메뉴 리스트 화면 -윤경식 추가-->
 				<c:choose>
 				<c:when test="${menuList == '[]'}">
@@ -260,7 +258,7 @@ padding:0px;
         		<c:otherwise>
 				<c:forEach var="list" items="${menuList}" end="30" >
 				
-					    <div class="col-md-3 col-sm-6 col-xs-12 isotope-item  ${list.mCate}" style="margin-bottom:5%">
+					    <div class="Menumargin col-md-3 col-sm-6 col-xs-12 isotope-item  ${list.mCate}" style="margin-bottom:5%">
                                 <div class="shop-main-list">
                                     <div class="shop-product shop-pro">
                                         <img src="${list.mUrl}" alt="">
