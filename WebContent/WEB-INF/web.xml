@@ -20,6 +20,7 @@
 			/WEB-INF/config/reserve-servlet.xml
 			/WEB-INF/config/store-servlet.xml
 			/WEB-INF/config/user-servlet.xml
+			/WEB-INF/config/mongo-servlet.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
