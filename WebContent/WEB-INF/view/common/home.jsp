@@ -49,7 +49,6 @@ $(function() {
 	<div id="body"> <!-- body 와 footer를 나눌 div -->	
 		<div id="body2"> <!-- mMain & 로고 & pMain 묶어줄 div -->
 			<div id="mainText">
-			<div style="text-align:right;"><h6><%=userName %> 님  <a id="logout">로그아웃</a>/<a id="mypage">마이페이지</a></h6></div>
 				<div id="textdiv">
 					<img id="imgMaintext" src="/images/common/logotext.png"> <!-- 문구 -->
 				</div>
@@ -96,8 +95,8 @@ $(function() {
 	      
 	      <!-- 푸터 메뉴들 -->
 	      <div id="fotterMenu">
-		      <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
-		      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
+		      <h6><%=userName %><a>님  현재 보유 먹포인트</a> : ${ uservo.mPoint} 먹포</h6><a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
+		      <a id="logout">LOGOUT</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
 		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
 		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
 	      </div>
