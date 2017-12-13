@@ -104,7 +104,7 @@ $(document).ready(function(){		//윤경식 추가
 	});
 	
 	// 1212 아름 예약내역 주문하기
-	$(".reserveOrder").click(function(){		
+	$(".reserveOrder").click(function(){		 
 		$('.orderTarget').eq(($(this).prevAll('p[name="rTnum"]').find('small').text())-1).trigger('click'); // 예약한 테이블의 주문 모달창 띄우기
 	});
 	
