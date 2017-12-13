@@ -46,4 +46,21 @@ INSERT INTO reservelist(r_id,m_id,r_cid,r_mpwp,r_date,r_time,r_pnum,r_keepmoney,
 values(sysdate,#{mId},#{rCid},(SELECT s_mp FROM store WHERE r_cid = #{rCid}),sysdate,'19:00',0,0,0,'RW',#{sName})
 </insert>
 
+<!-- 1213 아름 예약정보 insert 수정 -->	
+	<insert id="reservePaymentOk" parameterType="resVO">
+		INSERT INTO reservelist 
+		VALUES (#{rId}, #{mId}, #{rCid}, #{rMpwp}, #{rDate}, #{rTime}, #{rPnum}, #{rKeepmoney}, #{rTnum}, #{rYn}, #{sName})
+	</insert>
+
+<!-- 1213 아름 예약 메뉴 insert -->
+	<insert id="reserveMenuInsert" parameterType="resMenuVO">
+		INSERT INTO reserve_menu
+		VALUES (#{rmid}, #{rId}, #{mId}, #{rmCnt})
+	</insert>	
+	
+<!-- 1213 아름 사업자등록번호로 매장정보 가져오기 -->
+	<select id="selectreserveInfo" parameterType="resVO" resultType="resVO" >
+		SELECT * FROM store WHERE r_cid = #{rCid}
+	</select>
+
 </mapper>

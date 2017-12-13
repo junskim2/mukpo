@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import pos.domain.PaymentVO;
+import reserve.domain.ReserveMenuVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
 import user.domain.UserVO;
@@ -35,9 +36,8 @@ public class ReserveDAOImpl implements ReserveDAO{
 	}
 
 	@Override
-	public int reserveMenuInsert(ReserveVO vo) {				//메뉴 예약 insert
-		// TODO Auto-generated method stub
-		return 0;
+	public int reserveMenuInsert(ReserveMenuVO vo) {				//메뉴 예약 insert
+		return reservess.insert("reserve.reserveMenuInsert", vo);
 	}
 
 //	@Override
@@ -92,6 +92,15 @@ public class ReserveDAOImpl implements ReserveDAO{
 		return reservess.insert("reserve.reservePackage",vo);
 	}
 
+	// 1213 아름 사업자등록번호로 업소명 검색
+	@Override
+	public ReserveVO selectreserveInfo(ReserveVO vo) {
+		return reservess.selectOne("reserve.selectreserveInfo", vo);
+	}
 
+	@Override
+	public ReserveVO reservePaymentOk(ReserveVO vo) {
+		return reservess.selectOne("reserve.reservePaymentOk", vo);
+	}
 
 }

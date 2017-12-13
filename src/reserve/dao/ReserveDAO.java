@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import pos.domain.PaymentVO;
+import reserve.domain.ReserveMenuVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
 import user.domain.UserVO;
@@ -16,7 +17,7 @@ public interface ReserveDAO {
 	
 	ReserveVO reserveUpdate(ReserveVO vo); //예약 취소 or 주간예약 취소,변경 update
 	
-	int reserveMenuInsert(ReserveVO vo); //메뉴 예약 insert
+	int reserveMenuInsert(ReserveMenuVO vo); // 1213 아름 ReserveMenuVO로 수정 메뉴 예약 insert
 	
 	//ReserveVO reserveMenuList(ReserveVO vo); //메뉴 예약 불러오기 select 
 	
@@ -36,5 +37,8 @@ public interface ReserveDAO {
 	
 	int reservePackage(ReserveVO vo);	// 1210  주용 포장 예약
 
+	ReserveVO selectreserveInfo(ReserveVO vo); // 1213 아름 사업자등록번호로 업소명 검색
+
+	ReserveVO reservePaymentOk(ReserveVO vo);
 	
 }

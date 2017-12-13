@@ -12,17 +12,17 @@ $(document).ready(function(){			//김민우 추가
 					  '<tr>'
 					+ '<th>PRODUCT</th>'
 					+ '<td>'
-					+ '<div class="product-cart-title"><span>'+mName+'</span></div>'
+					+ '<div class="product-cart-title"><span class="mNameCart">'+mName+'</span></div>'
 					+ '</td>'
 					+ '<th>PRICE</th>'
 					+ '<td><strong>'+ mPrice+'</strong></td>'
 					+ '<th>QUANTITY</th>'
 					+ '<td><div class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/>'
-					+ '<input type="hidden" name="mPrice" value="'+mPrice+'"/>'
-					+ '<input name="mCnt" type="text" value="1"><span class="plus-text"><i class="icon-plus"></i></span></div></td>'
+					+ '<input type="hidden" name="mPrice" class="cartmPrice" value="'+mPrice+'"/>'
+					+ '<input name="mCnt" type="text" value="1" class="Amount" id="Amount"><span class="plus-text"><i class="icon-plus"></i></span></div></td>'
 					+ '<th>TOTAL</th>'
 					+ '<td id="totalPrice" class="totalPrice">'+mPrice+'</td>'
-					+ '<td class="shop-cart-close"><i class="icon-cancel-5" name="'+mId+'"></i></td>'
+					+ '<td class="shop-cart-close"><i class="icon-cancel-5" mId="'+mId+'" name="'+mId+'"></i></td>'
 					+ '</tr>');
 		}else{
 			var dulpChk = false;
@@ -39,17 +39,17 @@ $(document).ready(function(){			//김민우 추가
 						  '<tr>'
 						+ '<th>PRODUCT</th>'
 						+ '<td>'
-						+ '<div class="product-cart-title"><span>'+mName+'</span></div>'
+						+ '<div class="product-cart-title"><span class="mNameCart">'+mName+'</span></div>'
 						+ '</td>'
 						+ '<th>PRICE</th>'
 						+ '<td><strong>'+ mPrice+'</strong></td>'
 						+ '<th>QUANTITY</th>'
 						+ '<td><div class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/>'
-						+ '<input type="hidden" name="mPrice" value="'+mPrice+'"/>'
-						+ '<input name="mCnt" type="text" value="1"><span class="plus-text"><i class="icon-plus"></i></span></div></td>'
+						+ '<input type="hidden" name="mPrice" class="cartmPrice" value="'+mPrice+'"/>'
+						+ '<input name="mCnt" type="text" value="1" class="Amount" id="Amount"><span class="plus-text"><i class="icon-plus"></i></span></div></td>'
 						+ '<th>TOTAL</th>'
 						+ '<td id="totalPrice" class="totalPrice">'+mPrice+'</td>'
-						+ '<td class="shop-cart-close"><i class="icon-cancel-5" name="'+mId+'"></i></td>'
+						+ '<td class="shop-cart-close"><i class="icon-cancel-5" mId="'+mId+'" name="'+mId+'"></i></td>'
 						+ '</tr>');
 			}
 		}
@@ -89,22 +89,48 @@ $(document).ready(function(){			//김민우 추가
 			$(this).parent().parent().remove();
 	});
 
-	//장바구니 최종선택 클릭시 결제정보로 이동  --진행중
+	//장바구니 최종선택 클릭시 결제정보로 이동 
 		$("#goPayment").bind("click",function(){
-			var orderlist = $('.product-cart-title').text();
+//			var orderlist = $('.product-cart-title').text();
 			
 			var total = 0; //금액 합계
 			var Price = 0;
 			
 			for(var i=0; i<mIdArr.length; i++){
 				Price = parseInt($('.totalPrice').eq(i).text());
-				total = total + Price;
+				total = total + Price; // 총 합계 금액
+				
+				var mId = $('.icon-cancel-5').eq(i).attr("name");	// 메뉴아이디
+				var mName = $('.mNameCart').eq(i).text(); // 메뉴명
+				var Amount = $('.Amount').eq(i).val(); //수량
+				var mPrice = $('.cartmPrice').eq(i).val(); // 가격
+				var orderlist = $('.product-cart-title').eq(i).text(); //장바구니의 주문내역
+
+				$('#shop-checkout-orderlist').eq(i).text(orderlist); //최종결제 주문내역
+				$('#shop-checkout-orderAmount').eq(i).text(Amount);
+				
+				$(".reserveMenuList").append('<input type="hidden" name="mId" value="'+mId+'">'
+						+ '<input type="hidden" name="rmCnt" value="'+Amount+'">'
+						+ '<p>'
+						+ '<span class="mName">'+mName+'</span> x<span class="rmCnt">'+Amount+'</span> <small class="mPrice">'+mPrice+'</small>'
+						+ '</p>');
 			}
-			$('#shop-checkout-orderlist').text(orderlist); //주문내역
-			$('#shop-checkout-price').text(total); //총금액
+//		1213 아름 총금액 name 주기
+			$('#shop-checkout-price').append('<span>'+total+'</<span>'); //총금액
 			
-			var deposit = Number($('#checkout-deposit').text())+total;
-			$('#shop-checkout-totalPrice').text(deposit);
+			// 1213 아름 메뉴 선택시 인원수에 따른 예치금 계산 수정
+			if(mIdArr.length>0){
+				$('.rPmoney').val('0'); // 메뉴 선택시 예치금 0원
+				$('.rPmoneyClass').text('0');
+				var deposit = Number($('#checkout-deposit').text())+total; //예치금 계산
+//				1213 아름 예치금 name 부여
+				$('#shop-checkout-totalPrice').append('<input type="hidden" name="rKeepmoney" value="'+deposit+'"/><span name="rKeepmoney" value="'+deposit+'">'+deposit+'</span>'); //예치금 쓰기
+			} else {
+				var deposit = Number($('#checkout-deposit').text())+total; //예치금 계산
+				$('#shop-checkout-totalPrice').append("<input type='hidden' name='rKeepmoney' value='"+deposit+"'/><span name='rKeepmoney' value='"+deposit+"'>"+deposit+"</span>"); //예치금 쓰기
+			}
+			
+			
 
 		}); //end of #goPayment
 	}); // end of $(document).ready

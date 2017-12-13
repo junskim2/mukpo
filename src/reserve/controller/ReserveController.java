@@ -1,7 +1,10 @@
 package reserve.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pos.domain.PaymentVO;
 import reserve.dao.ReserveDAO;
+import reserve.domain.ReserveMenuVO;
 import reserve.domain.ReserveVO;
 import store.domain.MenuVO;
 import user.domain.UserVO;
@@ -96,5 +100,36 @@ public class ReserveController {
 			mv.addObject("result",result);
 			return mv; 
 		}
+	
+	@RequestMapping(value = "/reserveMPaymentOk.do")
+	public ModelAndView reserveMPaymentOk(Integer[] mId, Integer[] rmCnt, ReserveVO vo, HttpSession httpSession, String radio) {
+		// reservelist insert
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA);   // 주문시간으로 주문번호만들기
+	    Date date = new Date();
+		vo.setrId(df.format(date));	// 예약ID 현재 날짜로 가져오기
+		vo.setmId((String)httpSession.getAttribute("userName"));	// 세션에 저장된 사용자 ID SET
+		ReserveVO selectsName = reserveDAO.selectreserveInfo(vo);	// 사업자등록번호로 업소명 검색
+		vo.setsName(selectsName.getsName());
+		vo.setrMpwp("M");
+		vo.setrYn("RW");	// 예약대기
+		ReserveVO reservePaymentOk = reserveDAO.reservePaymentOk(vo);
+		
+		ReserveMenuVO reserveMenuVO = new ReserveMenuVO();
+		// reservemenu insert
+		for(int i=0; i<mId.length; i++) {
+			reserveMenuVO.setrId(vo.getrId());
+			reserveMenuVO.setmId(mId[i]);
+			reserveMenuVO.setRmid(reserveMenuVO.getrId()+"_"+reserveMenuVO.getmId());
+			reserveMenuVO.setRmCnt(rmCnt[i]);
+			int result = reserveDAO.reserveMenuInsert(reserveMenuVO);
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("reserve/reservePaymentOk");
+		mv.addObject("reserveInfo", vo);
+		
+		return mv;
+	}
 
 }
