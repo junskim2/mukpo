@@ -268,6 +268,7 @@ public class StoreController {
 		if (userName != null) {
 			favoriteVO.setmId((String) httpsession.getAttribute("userName"));
 			favoriteVO = storeDAO.selectFavoriteStore(favoriteVO);
+			mv.addObject("reserveInfo", userName);	// 로그인여부확인
 			if (favoriteVO != null) {
 				mv.addObject("favoriteVO", "즐겨찾기O");
 			}
