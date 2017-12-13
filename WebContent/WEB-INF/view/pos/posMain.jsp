@@ -183,7 +183,7 @@ padding:0px;
 										<span>테이블</span> <small >${rl.rTnum }</small>
 									</p> 
 									</c:if>
-									<a href="#" class="button-default" id="reserveOrder">주문하기 <i class="icon-right-4"></i></a>
+									<a href="#" class="button-default reserveOrder">주문하기 <i class="icon-right-4"></i></a>
                                     </div>
                                 </div>
                             </div>
