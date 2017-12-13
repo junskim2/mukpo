@@ -86,6 +86,7 @@
 		left : -70px;
 		bottom : -30px;
 		max-width: none;
+		cursor: pointer;
 	}
 	/* 헤더 메뉴들 글씨 크기 */
 	#fotterMenu > a {
