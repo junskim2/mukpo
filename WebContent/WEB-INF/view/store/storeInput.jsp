@@ -29,6 +29,20 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.rawgit.com/ax5ui/ax5ui-dialog/master/dist/ax5dialog.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.rawgit.com/ax5ui/ax5ui-uploader/master/dist/ax5uploader.css">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.rawgit.com/ax5ui/ax5core/master/dist/ax5core.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.rawgit.com/ax5ui/ax5ui-dialog/master/dist/ax5dialog.js"></script>
+<script type="text/javascript"
+	src="https://cdn.rawgit.com/ax5ui/ax5ui-uploader/master/dist/ax5uploader.js"></script>
+<script
+	src="https://cdn.rawgit.com/thomasJang/jquery-direct/master/dist/jquery-direct.min.js"></script>
 </head>
 
 <body>
@@ -50,33 +64,27 @@
 
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="shop-checkout-left">
-
 									<form action="storeInputOk.do" name="store" method="post">
-										<div class="col-md-4 col-sm-12 col-xs-12 image">
-											<img src="/images/plus.png" alt="" />
-											<h6>매장 사진</h6>
-										</div>
 
 										<input type="hidden" value="${bossVO.bId}" name="bId">
 										<div class="row">
 
-											<div class="col-md-7 col-sm-12 col-xs-12">
-												<h4>사장님 ID : ${bossVO.bId}</h4>
-												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
-													<h5>매장 정보</h5>
-												</div>
-												<div class="col-md-12 col-sm-12 col-xs-12">
-													<input type="text" name="rCid" placeholder="사업자등록번호">
-												</div>
-												<div class="col-md-12 col-sm-12 col-xs-12">
-													<input type="text" name="sName" placeholder="업소명">
-												</div>
-												<div class="col-md-12 col-sm-12 col-xs-12">
-													<input type="text" name="sPw" placeholder="비밀번호">
-												</div>
+											<h4>사장님 ID : ${bossVO.bId}</h4>
+											<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+												<h5>매장 정보</h5>
 											</div>
+											<div class="col-md-4 col-sm-12 col-xs-12">
+												<input type="text" name="rCid" placeholder="사업자등록번호">
+											</div>
+											<div class="col-md-4 col-sm-12 col-xs-12">
+												<input type="text" name="sName" placeholder="업소명">
+											</div>
+											<div class="col-md-4 col-sm-12 col-xs-12">
+												<input type="text" name="sPw" placeholder="비밀번호">
+											</div>
+
 											<div class="col-md-12 col-sm-12 col-xs-12">
-											<div class="col-md-7 col-sm-12 col-xs-12">
+												<div class="col-md-7 col-sm-12 col-xs-12">
 													<input type="text" name="sTel" placeholder="전화번호">
 												</div>
 												<div class="col-md-6 col-sm-12 col-xs-12">
@@ -122,13 +130,20 @@
 													<h5>휴무일 선택</h5>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12">
-													<label> <input type="checkbox" name="checkbox" name="day" value="월">월
-													</label> <label> <input type="checkbox" name="checkbox" value="화">화
-													</label> <label> <input type="checkbox" name="checkbox" value="수">수
-													</label> <label> <input type="checkbox" name="checkbox" value="목">목
-													</label> <label> <input type="checkbox" name="checkbox" value="금">금
-													</label> <label> <input type="checkbox" name="checkbox" value="토">토
-													</label> <label> <input type="checkbox" name="checkbox" value="일">일
+													<label> <input type="checkbox" name="checkbox"
+														name="day" value="월">월
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="화">화
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="수">수
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="목">목
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="금">금
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="토">토
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="일">일
 													</label>
 												</div>
 												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
@@ -225,8 +240,9 @@
 											</div>
 											<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
 												<a href="storeMain.do"
-													class="button-default button-default-submit btn">뒤로가기</a>
-													<input type="submit" name="store" value="등록" class="button-default button-default-submit btn"> 
+													class="button-default button-default-submit btn">뒤로가기</a> <input
+													type="submit" name="store" value="등록"
+													class="button-default button-default-submit btn">
 											</div>
 										</div>
 									</form>

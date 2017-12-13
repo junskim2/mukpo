@@ -11,7 +11,7 @@ $(function(){
 	alert("${message}");
  	  
 	  if(${result} > 0 ){
-		  location.href="storeMain.do";
+		  location.href="storeImageInput.do?rCid=${storeVO.rCid}";
 	  }else{
 		  history.back();
 	  }
