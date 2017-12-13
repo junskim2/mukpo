@@ -6,7 +6,7 @@
  
  <!--   1202 신주용 회원가입 성공 메세지 -->
 <% int result = 0;%>
-
+<% String userName = (String)session.getAttribute("userName"); %>
 <%  result= (int)request.getAttribute("result");%>  
 <!DOCTYPE>
 <html>
@@ -49,6 +49,7 @@ $(function() {
 	<div id="body"> <!-- body 와 footer를 나눌 div -->	
 		<div id="body2"> <!-- mMain & 로고 & pMain 묶어줄 div -->
 			<div id="mainText">
+			<div style="text-align:right;"><h6><%=userName %> 님  <a id="logout">로그아웃</a>/<a id="mypage">마이페이지</a></h6></div>
 				<div id="textdiv">
 					<img id="imgMaintext" src="/images/common/logotext.png"> <!-- 문구 -->
 				</div>
@@ -119,7 +120,7 @@ $(function() {
                      <div class="title text-center">
                         <h3 class="text-coffee">Login</h3>
                      </div>
-                     <form action="/common/home.do" class="login-form" method="post" name="login">
+                     <form action="/home.do" class="login-form" method="post" name="login">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <input type="text" name="mId" placeholder="Username or email address" class="input-fields">

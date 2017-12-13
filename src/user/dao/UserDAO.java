@@ -3,6 +3,7 @@ package user.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import store.domain.MenuVO;
 import store.domain.StoreVO;
 import user.domain.FavoriteVO;
 import user.domain.PointVO;
@@ -31,6 +32,7 @@ public interface UserDAO {
 
 	PointVO selectPointCharge(PointVO pointVO); // 마이페이지 - 현재포인트
 
+	List<MenuVO> selectMenuList(MenuVO menuVO); // 주간예약 메뉴 가져오기
 	// 1204 아름 수정
 	List<HashMap> selectFS(FavoriteVO vo); // 마이페이지 - 즐겨찾기목록
 

@@ -23,7 +23,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import pos.domain.CongestionSetVO;
+import store.domain.MenuVO;
 import store.domain.StoreVO;
+import store.domain.TableSetVO;
 import user.dao.UserDAO;
 import user.domain.FavoriteVO;
 import user.domain.PointVO;
@@ -167,6 +170,38 @@ public class UserController {
 				e.printStackTrace();
 			}
 		   }
+		   
+		 //마이페이지 - 주간예약 - 상점클릭시 모달창 메뉴출력 김민우
+			@RequestMapping(value= "/reservWeeklyMenu.do", produces="text/json;charset=UTF-8")
+			@ResponseBody
+			public void storeMdetail(HttpServletResponse response, Model model, MenuVO menuVO, CongestionSetVO congestionSetVO, TableSetVO tableSetVO,
+					StoreVO storeVO, FavoriteVO favoriteVO, HttpSession httpsession,HttpServletRequest request) throws JSONException, IOException {
+				
+			    //List<StoreVO> selectStoreCid = userDAO.selectStoreCid(storeVO); //사업자번호 데이터 가져오기
+				
+				
+				List<MenuVO> menuVOList = userDAO.selectMenuList(menuVO); // 매장의 메뉴를 출력하는 기능 구현
+
+				JSONArray ja = new JSONArray();
+				
+				for(int i = 0; i < menuVOList.size(); i++) {
+					JSONObject obj = new JSONObject();
+					obj.put("mId", menuVOList.get(i).getmId());
+					obj.put("mCate", menuVOList.get(i).getmCate());
+					obj.put("mFullName", menuVOList.get(i).getmName());
+					if(menuVOList.get(i).getmName().length()>5) {
+						menuVOList.get(i).setmName(menuVOList.get(i).getmName().substring(0, 5)+"...");	// 메뉴 이름이 긴 메뉴는 자르기
+					}
+					obj.put("mName", menuVOList.get(i).getmName());
+					obj.put("mDetail", menuVOList.get(i).getmDetail());
+					obj.put("mUrl", menuVOList.get(i).getmUrl());
+					obj.put("mPrice", menuVOList.get(i).getmPrice());
+					
+					ja.put(obj);
+				}
+				
+				response.getWriter().print(ja.toString());
+			}
 		   
 			//마에페이지 - 예약내역 - 리뷰 남기기 버튼 클릭시, 모델앤뷰 사용 불가 String만 가능 신주용
 			@RequestMapping("/reviewInsert.do")

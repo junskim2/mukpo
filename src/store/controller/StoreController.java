@@ -499,4 +499,20 @@ public class StoreController {
 		return mv;
 	}
 
+	
+	   // 1207 아름 주간예약 메뉴카테 가져오기
+  	@RequestMapping(value = "reservWeeklyMenuCate.do", produces="text/json;charset=UTF-8")
+  	@ResponseBody
+  	public void reservWeeklyMenuCate(MenuVO menuVO, HttpServletResponse response) throws JSONException, IOException {
+  		List<MenuVO> menuCate = storeDAO.selectMenuCate(menuVO);
+  		JSONArray ja = new JSONArray();
+  		
+  		for(int i = 0; i < menuCate.size(); i++) {
+  			JSONObject obj = new JSONObject();
+  			obj.put("mCate", menuCate.get(i).getmCate());
+  			
+  			ja.put(obj);
+  		}
+  		response.getWriter().print(ja.toString());
+  	}
 }
