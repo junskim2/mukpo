@@ -67,11 +67,11 @@
    </c:if>
     <div id="footer">
 	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" /> 
+	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
 	      
 	      <!-- 주소, 전화번호, 이메일 -->
 	      <div id="mukpoInfo">
-	      	<div><img src="/images/common/location.png" /> 서울특별시 금천구 가산동</div>&nbsp&nbsp&nbsp&nbsp
+	      	<div><img src="/images/common/location.png" /> 서울특별시 금천구 가산동 가산디지털로1로 149, 신한이노플렉스 207호 </div>&nbsp&nbsp&nbsp&nbsp
 	      	<div><img src="/images/common/call.png" />&nbsp&nbsp010.4300.6867</div>&nbsp&nbsp&nbsp&nbsp
 	      	<div><img src="/images/common/email.png" />&nbsp&nbspmukpo151@gmail.com</div>
 	      </div>
@@ -104,7 +104,7 @@
                      <div class="title text-center">
                         <h3 class="text-coffee">Login</h3>
                      </div>
-                     <form action="common/home.do" class="login-form" method="post" name="login">
+                     <form action="home.do" class="login-form" method="post" name="login">
                         <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
                               <input type="text" name="mId" placeholder="Username or email address" class="input-fields">
@@ -185,7 +185,7 @@
 	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
 	      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	      <!-- 푸터 메뉴들 -->
-	      <div id="fotterMenu"> 
+	      <div id="fotterMenu">
 		      <a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
 		      <a href="/store/storeBossLogin.do">BOSS</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
 		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->

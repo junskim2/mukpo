@@ -51,11 +51,7 @@
         });
 
         $('.icon-find').on('click', function() {
-        	$('.location-footer-map').addClass('location-open');
-// 1209 현희 로그인/회원가입 클릭 시 스크롤 이동
-        	// 스크롤 로그인으로 이동
-        	var height = $("#loginjoin-visible").offset();
-            $(window).scrollTop(height.top);
+            $('.location-footer-map').addClass('location-open');
             return false;
         });
 

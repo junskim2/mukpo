@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import store.domain.MenuVO;
 import store.domain.StoreVO;
 import user.domain.FavoriteVO;
 import user.domain.PointVO;
@@ -128,5 +129,10 @@ public class UserDAOImpl implements UserDAO{
 		@Override
 		public int deleteFavorite(FavoriteVO vo) {
 			return userss.delete("user.deleteFavorite", vo);
+		}
+		
+		@Override
+		public List<MenuVO> selectMenuList(MenuVO menuVO) {
+			return userss.selectList("user.selectMMenuList", menuVO);
 		}
 }

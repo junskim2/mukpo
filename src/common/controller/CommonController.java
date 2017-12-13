@@ -88,4 +88,14 @@ public class CommonController {
 		return mv;
 	}
 	
+	@RequestMapping("/index.do")
+	public ModelAndView logout(HttpSession session,UserVO uservo) {
+		ModelAndView mv = new ModelAndView();
+		session.removeAttribute("userName");
+		uservo.setmId(null);
+		mv.setViewName("common/index");
+		return mv;
+		
+	}
+	
 }

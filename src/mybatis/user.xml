@@ -115,4 +115,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		GROUP BY store.r_cid, store.s_name, store.s_url, store.s_mp
 	</select>
 		
+		
+		
+	<!-- 주간예약 메뉴 출력 김민우-->
+	<select id="selectMMenuList" resultType="menuVO" parameterType="menuVO">
+		SELECT * FROM menu WHERE r_cid = #{rCid}
+		<if test="mCate != null">
+			AND m_cate = #{mCate}
+		</if>
+	</select>
 </mapper>

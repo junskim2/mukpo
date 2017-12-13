@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	 $("#UserMmain").click(function() {
-	      location.href = "userMmain.do";
+	      location.href = "/common/userMmain.do";
 	   });
 	   $("#UserPmain").click(function(){
-	      location.href = "userPmain.do";
+	      location.href = "/common/userPmain.do";
 	   });
 	   
 	   $('#mypage').click(function(){
@@ -14,10 +14,5 @@ $(document).ready(function(){
 		   }
 		   
 	   
-	   });
-	   $('#logout').click(function(){
-		   location.href = "/common/index.do"
-		   
-			   
 	   });
 });
