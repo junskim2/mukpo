@@ -36,9 +36,10 @@ where r.m_id= #{mId}
 	</select>
 	
 <!-- 경식 추가 결제하기  -->
-<insert id="reservePayment" parameterType="payVO"  >
-insert into payment values(sysdate,#{mId},#{sId},#{pWith},#{oTotal},#{pState},#{sName})
-</insert>
+<!-- 1214 아름 주문번호 수정 -->
+	<insert id="reservePayment" parameterType="payVO"  >
+		INSERT INTO payment VALUES(#{oNum},#{mId},#{sId},#{pWith},#{oTotal},#{pState},#{sName})
+	</insert>
 
 <!-- 1209 주용 포장 예약 -->
 <insert id="reservePackage" parameterType='resVO'>
