@@ -82,9 +82,9 @@ public class ReserveDAOImpl implements ReserveDAO{
 
 	@Override
 	public int reservePayment(PaymentVO vo) {
-		// TODO Auto-generated method stub
-		return reservess.insert("reserve.reservePayment",vo);
+		return reservess.insert("reserve.reservePayment",vo); // 아름 수정
 	}
+	
 	//1210 주용추가 포장 결제
 	@Override
 	public int reservePackage(ReserveVO vo) {			//1209 주용 포장예약

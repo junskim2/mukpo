@@ -1,6 +1,6 @@
 $(document).ready(function(){			//윤경식 추가
-	var mIdArr = new Array();
-	//메뉴 추가 버튼
+	var mIdArr = new Array(); //윤경식 추가
+	//메뉴 추가 버튼 // 1214 아름 name값 수정
 	$(".shop-cart-btn").click(function(){
 		$('.pull-right').css('display','block');
 		$('.ordermenu').css('display','none');
@@ -10,7 +10,7 @@ $(document).ready(function(){			//윤경식 추가
 		
 		if(mIdArr[0] == undefined){
 			mIdArr[0]=mId;
-			$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="/images/img70.png" alt=""></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input name="mCnt" type="text" value="1"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'</td><td class="shop-cart-close"><i class="icon-cancel-5" name="'+mId+'"></i></td></tr>');
+			$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="/images/img70.png" alt=""></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input name="mCnt" type="text" value="1"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'</td><td class="shop-cart-close"><input type="hidden" name="mId" value="'+mId+'" /><i class="icon-cancel-5" name="'+mId+'"></i></td></tr>');
 		}else{
 			var dulpChk = false;
 			var idxSame = 0;
@@ -22,7 +22,7 @@ $(document).ready(function(){			//윤경식 추가
 			}
 			if(dulpChk==false){
 				mIdArr[mIdArr.length]=mId;	
-				$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="/images/img70.png" alt=""></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input name="mCnt"value="1" type="text"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'</td><td class="shop-cart-close"><i class="icon-cancel-5"name="'+mId+'"></i></td></tr>');
+				$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="/images/img70.png" alt=""></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input name="mCnt"value="1" type="text"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'</td><td class="shop-cart-close"><input type="hidden" name="mId" value="'+mId+'"><i class="icon-cancel-5"name="'+mId+'"></i></td></tr>');
 			}
 		}
 		

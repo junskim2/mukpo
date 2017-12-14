@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+/* 1213 아름 css 추가 시작*/
+.menuScroll{
+	overflow-x: auto;
+    height: 500px !important;
+}
+/* 1213 아름 css 추가 끝 */
+
 .StoreMdetail_congestion{
 	height: 120px;
     width: 60%;

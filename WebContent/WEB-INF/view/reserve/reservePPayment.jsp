@@ -7,7 +7,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checkout - Laboom</title>
+<title>먹포-포장결제</title>
+<%String mId[] = request.getParameterValues("mId");// 1214 아름 메뉴 아이디  %>  
 <%String mName[] = request.getParameterValues("mName");//메뉴 이름  %>  
 <%String mCnt[] = request.getParameterValues("mCnt"); //메뉴 갯수%>
 <%String mPrice[] = request.getParameterValues("mPrice"); //메뉴 가격%>
@@ -30,6 +31,9 @@
 <link href="/plugin/animation/animate.min.css" rel="stylesheet">
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
+<!-- 1214 아름 timepicker css 추가 -->
+<link href="/css/reserve/jquery.timepicker.css" rel="stylesheet">
+<link href="/css/reserve/jquery.timepicker.min.css" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 // 	$(function() {
@@ -67,7 +71,7 @@
 				<div class="checkout-wrap wow fadeInDown" data-wow-duration="1000ms"
 					data-wow-delay="300ms">
 					<ul class="checkout-bar">
-						<li class="done-proceed">알맞은 단어</li>
+						<li class="done-proceed">메뉴선택</li>
 						<li class="active">결제</li>
 						<li>결제 완료</li>
 					</ul>
@@ -81,6 +85,13 @@
 						<form action="/reserve/reservePaymentOk.do" method="post">
 							<div class="shop-checkout-box">
 								<h5>결제 정보</h5>
+								<div class="checkout-total"> <!-- 1214 아름 예약시간 설정 추가 -->
+									<h6>예약시간설정 
+										<small>
+										<input type="text" id="disableTimeRangesExample" name="rTime" placeholder="예약시간" class="ui-timepicker-input" autocomplete="off">
+										</small>
+									</h6>
+								</div>
 								<div class="shop-checkout-title">
 									<h6>
 										주문내역 <span></span>
@@ -90,6 +101,9 @@
 								<div class="shop-checkout-row">
 									<%for(int i=0; i<mName.length; i++){ %>
 									<p>
+									<!-- 1214 아름 controller param 넘겨줄 값 -->
+									<input type="hidden" name="mId" value="<%= mId[i] %>" />
+									<input type="hidden" name="rmCnt" value="<%=mCnt[i] %>" />
 									<!-- 메뉴 리스트 출력 화면 윤경식 추가 -->
 										<span><%=mName[i]%></span>x<%=mCnt[i] %><small><%=mPrice[i] %>원</small>
 									</p>
@@ -105,6 +119,7 @@
 											total+=Integer.parseInt(mPrice[j])*Integer.parseInt(mCnt[j]);
 										}
 										%>
+										<input type="hidden" name="rKeepmoney" value="<%=total %>" /> <!-- 1214 아름 예치금 -->
 										<%=total %>원
 										</small>
 									</h6>
@@ -125,13 +140,11 @@
 										
 
 										<div class="checkout-button">
-										<input type="hidden" name="mId" value="<%=id%>"/>		<!--회원ID-->
+										<!-- 1214 아름 hidden 값 수정 -->
 										<input type="hidden" name="rCid" value="<%=rCid%>"/>		<!--사업자등록번호-->
-										<input type="hidden" name="sName" value="<%=sName%>"/>		<!--매장명-->
-										<input type="hidden" name="mName" value="<%=mName%>"/>	<!-- 메뉴이름 -->
+										<input type="hidden" name="sName" value="<%=sName%>"/>		<!--사업자등록번호-->
 										<input type="hidden" name="oTotal"value="<%=total%>" />   <!--총 금액-->
-										<input type="hidden" name="mCnt"value="<%=mCnt%>" /> <!-- 메뉴 갯수 -->
-										<input type="hidden" name="mPrice"value="<%=mPrice%>" /> <!-- 원가 -->
+										<input type="submit" id="pay" class="button-default btn-large btn-primary-gold" value="결제하기"/>
 										
 											<input type="submit" id="pay" class="button-default btn-large btn-primary-gold" value="결제하기"/>
 										</div>
@@ -176,5 +189,11 @@
 	<script src="/plugin/parallax/jquery.stellar.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/script.js"></script>
+<!-- 1214 아름 timepicker 추가 -->
+	<script src="/js/reserve/jquery.timepicker.js"></script>
+	<script src="/js/reserve/jquery.timepicker.min.js"></script>
+	<script src="/js/reserve/moment.min.js"></script>
+<!-- 1214 현재 페이지 js 파일 추가  -->
+	<script src="/js/reserve/reservePPayment.js"></script>
 </body>
 </html>
