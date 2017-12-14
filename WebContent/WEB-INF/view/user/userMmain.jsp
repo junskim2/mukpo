@@ -49,7 +49,80 @@
         <!-- Start Main -->
         <main>
             <div class="main-part">
-            
+            	<!-- Start Map Part -->
+                <section class="map-address pad-top-remove" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="build-title">
+                            <h2>먹고갈래 ?</h2>
+                            <h6>사용자의 위치에 따라 매장들을 보여줍니다</h6>
+                        </div>
+                    
+                        <div class="map-top">
+                            <div class="container" id="mapContainer">
+                            	<div id="kakaoMap" style="width:700px;height:400px;"></div>
+                            </div>
+                            <div class="container" id="storeContainer">
+                                <div class="userLocationStore">
+                                    <h3>밍키의 눈칫밥상 1호점</h3>
+                                   	<span>독산동 동경빌딩 507호</span>
+                                </div>
+                                <div class="userLocationStore">
+                                    <h3>야생마의 마굿간떡볶이</h3>
+                                    <span>가산동 마굿간 101호</span>
+                                </div>
+                                <div class="userLocationStore">
+                                    <h3>갱식쓰의 뼉다구찜닭</h3>
+                                    <span>가산동 아이파크 202호</span>
+                                </div>
+                                <div class="userLocationStore">
+                                    <h3>주용쓰 잘해줘치킨</h3>
+                                    <span>독산동 미래빌딩 205호</span>
+                                </div>
+                                <div class="userLocationStore">
+                                    <h3>와따 큰 피자</h3>
+                                    <span>아름동 혀니빌딩 204호</span>
+                                </div>
+                            </div>
+                        
+                    </div>
+<!--                     <div class="map-bottom"> -->
+<!--                          <div class="footer-map-outer1"> -->
+<!--                             <div id="footer-map"></div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+                </section>
+                <!-- End Map Part -->
+                
+              	<!-- Start Feature Blog -->
+                <section class="feature-blog-wrap wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="container">
+                        <div class="build-title">
+                            <h2>! 생생 리뷰 !</h2>
+                            <h6>사용자들이 작성한 최근 리뷰를 보여줍니다</h6>
+                        </div>
+                        <div class="feature-blog feature-label">
+                            <div class="owl-carousel owl-theme" data-items="2" data-laptop="2" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
+<!-- 1201 현희 리뷰 -->
+                               <c:forEach var="re" items="${ review }" >
+                                 <div class="item">
+                                    <div class="feature-img">
+                                        <img src="/images/img15.png" alt="">
+                                        <div class="date-feature">05
+                                            <br> <small>oct</small></div>
+                                    </div>
+                                    <div class="feature-info">
+                                        <span><i class="icon-user"></i> ${ re.M_NAME } </span>
+                                        <h5>${ re.S_NAME }</h5>
+                                        <p>${ re.RV_CONTENT }</p>
+                                        <a href="#">더보기 <i class="icon-more"></i></a>
+                                    </div>
+                                </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Feature Blog -->
+                
                 <!-- Start Slider Part -->
                 <section class="home-slider home-ride">
                     <div class="tp-banner-container">
@@ -103,80 +176,6 @@
                     </div>
                 </section>
                 <!-- End Slider Part -->
-
-                <!-- Start Feature Blog -->
-                <section class="feature-blog-wrap wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <div class="container">
-                        <div class="build-title">
-                            <h2>! 생생 리뷰 !</h2>
-                            <h6>사용자들이 작성한 최근 리뷰를 보여줍니다</h6>
-                        </div>
-                        <div class="feature-blog feature-label">
-                            <div class="owl-carousel owl-theme" data-items="2" data-laptop="2" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
-<!-- 1201 현희 리뷰 DB값 /값이안나옴... -->
-                               <c:forEach var="re" items="${ review }" >
-                                 <div class="item">
-                                    <div class="feature-img">
-                                        <img src="/images/img15.png" alt="">
-                                        <div class="date-feature">05
-                                            <br> <small>oct</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> ${ re.M_NAME } </span>
-                                        <h5>${ re.S_NAME }</h5>
-                                        <p>${ re.RV_CONTENT }</p>
-                                        <a href="#">더보기 <i class="icon-more"></i></a>
-                                    </div>
-                                </div>
-                                </c:forEach>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End Feature Blog -->
-                
-                <!-- Start Map Part -->
-                <section class="map-address pad-top-remove" data-wow-duration="1000ms" data-wow-delay="300ms">
-                <div class="build-title">
-                            <h2>먹고갈래 ?</h2>
-                            <h6>사용자의 위치에 따라 매장들을 보여줍니다</h6>
-                        </div>
-                    
-                        <div class="map-top">
-                            <div class="container" id="mapContainer">
-                            	<div id="kakaoMap" style="width:700px;height:400px;"></div>
-                            </div>
-                            <div class="container" id="storeContainer">
-                                <div class="userLocationStore">
-                                    <h3>밍키의 눈칫밥상 1호점</h3>
-                                   	<span>독산동 동경빌딩 507호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>야생마의 마굿간떡볶이</h3>
-                                    <span>가산동 마굿간 101호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>갱식쓰의 뼉다구찜닭</h3>
-                                    <span>가산동 아이파크 202호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>주용쓰 잘해줘치킨</h3>
-                                    <span>독산동 미래빌딩 205호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>와따 큰 피자</h3>
-                                    <span>아름동 혀니빌딩 204호</span>
-                                </div>
-                            </div>
-                        
-                    </div>
-<!--                     <div class="map-bottom"> -->
-<!--                          <div class="footer-map-outer1"> -->
-<!--                             <div id="footer-map"></div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-                </section>
-                <!-- End Map Part -->
             </div>
         </main>
         <!-- End Main -->

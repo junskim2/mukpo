@@ -232,19 +232,20 @@
 }
 /* 1203 현희 헤더 스크롤 고정 */
 header {
-	position: fixed;
+	position: sticky;
 	z-index: 9999;
 	width: 100%;
+	top : 0;
 }
 
 .header-part.header-on {
-	left: -70px;
-	top: 78px;
+	left: unset;
+	top: unset;
+	position: unset;
 }
 /* 1204 현희 스크롤 내렸을 때 추가될 클래스 */
 .header-part.header-on.mainscroll {
 	top: -60px;
-	background-color: black;
 }
 
 nav {
@@ -255,6 +256,20 @@ nav {
 	top: 0px;
 	left: 0px;
 	background-color: black;
+}
+.header-bottom {
+	float: unset;
+	position : unset;
+}
+.header-part .container {
+	position: unset;
+}
+.header-on {
+	background-color: wheat;
+	border-radius: 15px;
+}
+.map-address {
+	margin-top: 50px;
 }
 </style>
 
