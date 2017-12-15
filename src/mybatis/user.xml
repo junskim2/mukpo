@@ -124,7 +124,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- userMmain 지도 위도,경도 가져오기 -->
-		<select id="selectStoreLocation" parameterType="storeVO" resultType="storeVO">
+	<select id="selectMStoreLocation" parameterType="storeVO" resultType="storeVO">
 		SELECT * FROM store WHERE s_mp = 'M' OR s_mp = 'MP'
 	</select>
+	
+	<!-- userPmain 지도 위도,경도 가져오기 -->
+	<select id="selectPStoreLocation" parameterType="storeVO" resultType="storeVO">
+		SELECT * FROM store WHERE s_mp = 'P' OR s_mp = 'MP'
+	</select>
+	
 </mapper>
