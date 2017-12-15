@@ -185,11 +185,11 @@ public class StoreController {
 	// 경식 수정
 	@RequestMapping(value = "/storeSetting.do")
 	public ModelAndView storeSetting(String rCid) {
-		StoreVO svo = new StoreVO();
-		svo.setrCid(rCid);
-
+		
 		MenuVO mvo = new MenuVO();
 		mvo.setrCid(rCid);
+
+		StoreVO svo = storeDAO.selectStorerCid(rCid);
 		List<MenuVO> list = storeDAO.selectMenuList(svo); // 메장 의 메뉴리스트 뽑아 오기
 		List<MenuVO> catelist = storeDAO.selectCateList(mvo); // 매뉴 카테고리
 
@@ -515,4 +515,124 @@ public class StoreController {
   		}
   		response.getWriter().print(ja.toString());
   	}
+  	
+  	
+ // 매장 등록하는 메소드
+ 	@RequestMapping(value = "/storeModifyOk.do")
+ 	public ModelAndView storeModifyOk(StoreVO storeVO, TableSetVO tableSetVO, String[] checkbox, String GcsCnt,
+ 			String GcsTime, String YcsCnt, String YcsTime, String RcsCnt, String RcsTime) {
+ 		String msg = "매장 수정, 매장테이블 수정, 혼잡도 설정 실패";
+
+ 		// Start - store테이블 등록 부분
+ 		storeVO.setsAddress(storeVO.getsAddress() + " " + storeVO.getsSido());
+ 		StringTokenizer st = new StringTokenizer(storeVO.getsAddress());
+ 		storeVO.setsSido(st.nextToken());
+ 		storeVO.setsSigungu(st.nextToken());
+ 		String sClose = "";
+ 		for (String tmp : checkbox) {
+ 			sClose = sClose + tmp + ", ";
+ 		}
+ 		storeVO.setsClose(sClose);
+ 		int result = storeDAO.updateStoreModify(storeVO);
+ 		if (result > 0) {
+ 			msg = "매장 수정 완료! 매장 테이블 수정,혼잡도 설정 실패!";
+ 		}
+ 		// End - 매장정보 등록 부분
+
+ 		// Start - tableset테이블 등록부분
+ 		int tSetResult = storeDAO.updateTableSetModify(tableSetVO);
+ 		if (tSetResult > 0) {
+ 			msg = "매장정보 수정,매장 테이블 정보 수정 완료! 혼잡도 설정 수정!";
+ 		}
+ 		// End - tableset테이블 등록부분
+
+ 		// Start - CongestionSet테이블 등록부분
+ 		CongestionSetVO gConSetVO = new CongestionSetVO();
+ 		CongestionSetVO yConSetVO = new CongestionSetVO();
+ 		CongestionSetVO rConSetVO = new CongestionSetVO();
+
+ 		gConSetVO.setrCid(storeVO.getrCid());
+ 		gConSetVO.setCsId(storeVO.getrCid() + "_G");
+ 		gConSetVO.setCsCongestion("G");
+ 		gConSetVO.setCsCnt(Integer.parseInt(GcsCnt));
+ 		gConSetVO.setCsTime(GcsTime);
+ 		gConSetVO.setCsYn("Y");
+
+ 		yConSetVO.setrCid(storeVO.getrCid());
+ 		yConSetVO.setCsId(storeVO.getrCid() + "_Y");
+ 		yConSetVO.setCsCongestion("Y");
+ 		yConSetVO.setCsCnt(Integer.parseInt(YcsCnt));
+ 		yConSetVO.setCsTime(YcsTime);
+ 		yConSetVO.setCsYn("N");
+
+ 		rConSetVO.setrCid(storeVO.getrCid());
+ 		rConSetVO.setCsId(storeVO.getrCid() + "_R");
+ 		rConSetVO.setCsCongestion("R");
+ 		rConSetVO.setCsCnt(Integer.parseInt(RcsCnt));
+ 		rConSetVO.setCsTime(RcsTime);
+ 		rConSetVO.setCsYn("N");
+
+ 		int result1 = storeDAO.updateCongestionset(gConSetVO);
+ 		int result2 = storeDAO.updateCongestionset(yConSetVO);
+ 		int result3 = storeDAO.updateCongestionset(rConSetVO);
+ 		if (result1 > 0) {
+ 			msg = "매장정보,매장 테이블 정보 수정 완료! Y,R혼잡도 설정 실패!";
+ 		}
+ 		if (result2 > 0) {
+ 			msg = "매장정보,매장 테이블 정보 수정 완료! R혼잡도 설정 실패!";
+ 		}
+ 		if (result3 > 0) {
+ 			msg = "매장정보 수정 완료!";
+ 		}
+
+ 		// End - CongestionSet테이블 등록부분
+
+ 		ModelAndView mv = new ModelAndView();
+ 		mv.setViewName("store/storeModify");
+ 		mv.addObject("result", result3);
+ 		mv.addObject("message", msg);
+
+ 		return mv;
+ 	}
+  	
+ 	//매장 삭제하는 메소드
+ 	@RequestMapping(value="/storeDeleteOk.do")
+ 	public ModelAndView storeDeleteOk(BossVO bossVO,StoreVO vo,HttpSession session ) {
+ 		session.setAttribute("bId", vo.getbId());
+ 		int result1 = storeDAO.updateStoreDelete(vo.getrCid());
+ 		BossVO result = null;
+ 		ModelAndView mv = new ModelAndView();
+ 		if (session.getAttribute("bId") == null) {
+
+			result = storeDAO.selectBossLogin(bossVO); // 로그인 후 사장님 정보 가져오기
+
+			if (result != null) { // 로그인 정보가 일치할때
+				session.setAttribute("bId", result.getbId()); // 세션에 사장님 아이디 저장
+				mv.setViewName("store/storeMain"); // viewname 지정
+				List<StoreVO> storeList = storeDAO.selectStoreList(bossVO); // 사장님 아이디에 대한 매장 목록 가져오기
+				mv.addObject("storeList", storeList); // model에 매장 목록 추가
+				mv.addObject("bossInfo", result); // model에 사장 정보 추가
+
+			} else { // 로그인 정보가 불일치할때
+				mv.setViewName("store/storeBossLogin"); // 로그인 실패시 다시 로그인 창으로 이동
+			}
+		} else {
+			mv.setViewName("store/storeMain"); // viewname 지정
+			bossVO.setbId((String) session.getAttribute("bId"));
+			bossVO = storeDAO.selectBossSearch(bossVO);
+			List<StoreVO> storeList = storeDAO.selectStoreList(bossVO); // 사장님 아이디에 대한 매장 목록 가져오기
+			mv.addObject("storeList", storeList); // model에 매장 목록 추가
+			mv.addObject("bossInfo", bossVO); // model에 사장 정보 추가
+		}
+ 		mv.setViewName("store/storeMain");
+ 		mv.addObject("result",result1);
+ 		return mv;
+ 	}
+ 	//홈 으로 돌아가기
+ 	@RequestMapping(value="/home.do")
+public ModelAndView home(StoreVO vo, HttpSession session) {
+ 		ModelAndView mv = new ModelAndView();
+ 		mv.setViewName("common/index");
+ 		return mv;
+ 	}
 }

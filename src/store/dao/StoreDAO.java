@@ -45,7 +45,7 @@ public interface StoreDAO {
 	int updateTableSetModify(TableSetVO vo);
 
 	// 매장 정보 삭제 기능 구현
-	int updateStoreDelete(StoreVO vo);
+	int updateStoreDelete(String rCid);
 
 	// 매장의 테이블 수 삭제 기능 구현
 	int updateTableSetDelete(TableSetVO vo);
@@ -92,6 +92,7 @@ public interface StoreDAO {
 	
 	// 혼잡도 초기 설정
 	int insertCongestionset(CongestionSetVO vo);
+	
 
 	// 1130 아름 매장의 메뉴 카테고리 가져오는 기능 구현
 	List<MenuVO> selectMenuCate(MenuVO menuVO);
@@ -126,5 +127,10 @@ public interface StoreDAO {
 	//1208주용 사장님 예약내역 거절 포인트 환급
 	int storeReserveReturn(ReserveVO reserveVO);
 	
+	//1214경식 rCid 로 매장정보 검색
+	StoreVO selectStorerCid(String rCid);
+
+	// 혼잡도 수정
+	int updateCongestionset(CongestionSetVO gConSetVO);
 	
 }

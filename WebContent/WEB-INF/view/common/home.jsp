@@ -80,7 +80,7 @@ $(function() {
       	<img id="loginjoin" src="/images/common/welcome.png" >
       </div>
    </c:if>
-    <div id="footer">
+    <div id="footer" style="height:50%;">
 	      <img src="/images/common/ㄴㅇㄹ.png" id="logo3" />
 	      
 	      <!-- 주소, 전화번호, 이메일 -->
@@ -89,13 +89,12 @@ $(function() {
 	      	<div><img src="/images/common/call.png" />&nbsp&nbsp010.4300.6867</div>&nbsp&nbsp&nbsp&nbsp
 	      	<div><img src="/images/common/email.png" />&nbsp&nbspmukpo151@gmail.com</div>
 	      </div>
-	      
 	      <!-- 푸터 메뉴들 -->
 	      <div id="fotterMenu">
-		      <h6><%=userName %><a>님  현재 보유 먹포인트</a> : ${ uservo.mPoint} 먹포</h6><a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
+		      <h6><%=userName %><a>님  현재 보유 먹포인트</a> : ${ uservo.mPoint} 먹포<a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
 		      <a id="logout">LOGOUT</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
 		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
-		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 -->
+		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 --></h6>
 	      </div>
       </div>
       

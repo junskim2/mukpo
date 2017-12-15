@@ -188,6 +188,7 @@ html, body {
                                         <th>PRICE</th>
                                         <th>QUANTITY</th>
                                         <th>TOTAL</th>
+                                        <th>DEL</th>
                                     </tr>
                                 </thead>
                                 <tbody class="menulist">

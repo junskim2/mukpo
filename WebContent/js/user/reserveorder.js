@@ -12,10 +12,11 @@ $(document).ready(function(){
 		var mName = $(this).next().val();
 		var mPrice = $(this).parent().parent().next().children().text();
 		var mId = $(this).attr('name');
+		var mUrl = $(this).parent().parent().prev().attr('src');
 		
 		if(mIdArr[0] == undefined){
 			mIdArr[0]=mId;
-			$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="/images/img70.png" alt=""></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div id="'+mId+'"class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input name="mCnt" type="text" value="1"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'</td><td class="shop-cart-close"><i class="icon-cancel-5" name="'+mId+'"></i></td></tr>');
+			$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="'+mUrl+'" alt="" width="167" height="110"></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div style="width:70%;" id="'+mId+'"class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input style="margin-bottom:0px;" name="mCnt" type="text" value="1"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'<label>원</label></td><th>DEL</th><td class="shop-cart-close"><i class="icon-cancel-5" name="'+mId+'"></i></td></tr>');
 		}else{
 			var dulpChk = false;
 			var idxSame = 0;
@@ -27,7 +28,7 @@ $(document).ready(function(){
 			}
 			if(dulpChk==false){
 				mIdArr[mIdArr.length]=mId;	
-				$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="/images/img70.png" alt=""></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div id="'+mId+'"class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input name="mCnt"value="1" type="text"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'</td><td class="shop-cart-close"><i class="icon-cancel-5"name="'+mId+'"></i></td></tr>');
+				$(".shop-cart-table tbody").append('<tr><th>PRODUCT</th><td><div class="product-cart"><img src="'+mUrl+'" alt="" width="167" height="110"></div><div class="product-cart-title"><span>'+mName+'</span></div></td><th>PRICE</th><td><strong>'+mPrice+'</strong></td><th>QUANTITY</th><td><div style="width:70%;" id="'+mId+'"class="price-textbox"><span class="minus-text"><i class="icon-minus"></i></span><input type="hidden" name="mName" value="'+mName+'"/><input type="hidden" name="mPrice" value="'+mPrice+'"/><input style="margin-bottom:0px;" class="mCnt" name="mCnt"value="1" type="text"><span class="plus-text"><i class="icon-plus"></i></span></div></td><th>TOTAL</th><td>'+mPrice+'<label>원</label></td><th>DEL</th><td class="shop-cart-close"><i class="icon-cancel-5"name="'+mId+'"></i></td></tr>');
 			}else{
 				
 				var num=$("#"+mId).children().next().next().next().val(); //수량
@@ -36,7 +37,7 @@ $(document).ready(function(){
 				
 				num=$("#"+mId).children().next().next().next().val();
 				var price = $("#"+mId).children().next().next().val();  //단가
-				var result = $("#"+mId).parent().next().next().text(price*num);  //가격 창
+				var result = $("#"+mId).parent().next().next().text(price*num+"원");  //가격 창
 //				
 //				alert('dddd')
 //				$("#"+mId).parent().next().next().text(price*num);

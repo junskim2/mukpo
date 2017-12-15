@@ -65,7 +65,7 @@
                         <div class="order-complete-box">
                             <img src="/images/mukpo1.png">
                             <p><h2>결제가 완료되었습니다.</h2></p>
-                            <a href="user/userMypageReservList.do" class="btn-medium btn-primary-gold btn-large">예약 내역 보러가기</a>
+                            <a href="userMypageReservList.do" class="btn-medium btn-primary-gold btn-large">예약 내역 보러가기</a>
                              <a href="/index.jsp" class="btn-medium btn-primary-gold btn-large">&nbsp&nbsp&nbsp&nbsp&nbsp홈으로 가기&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
                         </div>
                     </div>

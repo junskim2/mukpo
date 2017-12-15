@@ -77,6 +77,17 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 		congestionset
 		VALUES(#{csId},#{rCid},#{csCongestion},#{csCnt},#{csTime},#{csYn})
 	</insert>
+	
+	<update id="updateStoreInfo" parameterType="storeVO">
+	UPDATE store 
+	SET s_name=#{sName,jdbcType=VARCHAR},s_pw=#{sPw,jdbcType=VARCHAR},s_tel=#{sTel,jdbcType=VARCHAR},s_opentime=#{sOpentime,jdbcType=VARCHAR},s_closetime=#{sClosetime,jdbcType=VARCHAR},s_detail=#{sDetail,jdbcType=VARCHAR},s_cate=#{sCate,jdbcType=VARCHAR},s_zipcode=#{sZipcode,jdbcType=VARCHAR},s_sido=#{sSido,jdbcType=VARCHAR},s_sigungu=#{sSigungu,jdbcType=VARCHAR},s_address=#{sAddress},s_close=#{sClose,jdbcType=VARCHAR} WHERE r_cid=#{rCid}
+	</update>
+	<update id="updateTableSet" parameterType="tSetVO">
+	UPDATE tableset SET t_cnt=#{tCnt},t_max=#{tMax} WHERE r_cid=#{rCid}
+	</update>
+	<update id="updateCongestionset" parameterType="conVO">
+	UPDATE congestionset SET cs_cnt=#{csCnt},cs_time=#{csTime} WHERE cs_id=#{csId}
+	</update>
 
 	<!-- 1201 경식추가 사용자 매뉴리스트 -->
 	<select id="selectMenuList" resultType="menuVO" parameterType="storeVO">
@@ -167,4 +178,15 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 	<select id="storeReserveReturn" parameterType="resVO">
 	UPDATE member set m_point= m_point + (SELECT r_keepmoney FROM reservelist WHERE m_id = #{mId} AND r_id= #{rId}) where m_id = #{mId}
 	</select>
+	
+	<!-- 1214 경식 rCid로 매장검색-->
+	<select id="selectstoreRcid" parameterType="String" resultType="storeVO">
+	SELECT * FROM store WHERE r_cid = #{rCid}
+	</select>
+	
+	<!-- 1214 경식 매장설정 ->매장 삭제  -->
+	<update id="updateStoreDelete" parameterType="String">
+	UPDATE store SET s_yn='Y' WHERE r_Cid=#{rCid}
+	</update>
+	
 </mapper>

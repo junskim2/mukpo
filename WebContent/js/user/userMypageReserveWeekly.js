@@ -187,6 +187,7 @@ $(document)
 																												+ '<div class="cart-overlay-wrap" id="wrapHeight">'
 																												+ '<div class="cart-overlay">'
 																												+ '<a href="#" class="shop-cart-btn">ADD TO CART</a>'
+																												+ '<input type="hidden" value="'+this.mName+'"/>' 
 																												+ '</div>'
 																												+ '</div>'
 																												+ '<h5 id="cartMargin">'

@@ -71,28 +71,37 @@ public class StoreDAOImpl implements StoreDAO {
 		return storess.insert("store.insertTableSet", vo);
 	}
 
+	//매장 정보 수정
 	@Override
 	public int updateStoreModify(StoreVO vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return storess.update("store.updateStoreInfo",vo);
 	}
-
+	
+	//매장 테이블 수 수정
 	@Override
 	public int updateTableSetModify(TableSetVO vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return storess.update("store.updateTableSet",vo);
 	}
 
 	@Override
-	public int updateStoreDelete(StoreVO vo) {
+	public int updateStoreDelete(String vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return storess.update("store.updateStoreDelete",vo);
 	}
 
 	@Override
 	public int updateTableSetDelete(TableSetVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	// 혼잡도 수정
+	@Override
+	public int updateCongestionset(CongestionSetVO vo) {
+		
+		return storess.update("store.updateCongestionset",vo);
 	}
 
 	// 매장 목록 리스트 반환 메소드
@@ -246,5 +255,10 @@ public class StoreDAOImpl implements StoreDAO {
 	@Override
 	public int storeReserveReturn(ReserveVO reserveVO) {
 		return storess.update("store.storeReserveReturn", reserveVO);
+	}
+	
+	@Override
+	public StoreVO selectStorerCid(String rCid) {
+		return storess.selectOne("store.selectstoreRcid", rCid);
 	}
 }

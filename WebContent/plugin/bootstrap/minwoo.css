@@ -7,6 +7,66 @@
 }
 /* 1213 아름 css 추가 끝 */
 
+/* 반응형 실패 */
+ #containerEdit{
+ 	width: 100% !important;
+ }
+ 
+ .menuListPriductEdit{
+ 	max-width: 100% !important;
+ }
+ 
+ .menuListHeighEdit{
+	height: 210px !important;
+	width: 33% !important;
+	margin-bottom: 0% !important;
+ }
+ 
+ #wrapHeight{
+ height: 88.1% !important;
+ }
+ 
+ section#reach-to{
+	width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+ }
+ 
+ #cartMargin{
+     margin-top: 3% !important;
+     margin-bottom: 2% !important;
+     padding-bottom: 2% !important;
+ }
+ 
+ #menulist{
+ 	overflow-x: auto;
+    height: 400px !important;
+ }
+ 
+/*  #menuModalMarginTop{ */
+/* 	 margin-top: 5% !important; */
+/* 	 margin-left: 2.8%; */
+	 
+/*  } */
+
+#cateMargin {
+	margin-top: -10%;
+    margin-bottom: -8%;
+}
+
+#modalMargin{
+	margin-top: -20%;
+}
+
+section#storeListPaddingTop{
+	    padding: 0px 0 140px;
+}
+
+#date-range6{
+	width: 29%;
+}
+ 
 .StoreMdetail_congestion{
 	height: 120px;
     width: 60%;
@@ -365,8 +425,13 @@ width:50%;
 margin-left:25%;
 margin-right:25%;
 }
+
+#search{
+cursor:pointer;
+}
+
 @media( max-width: 640px ) {
-    .FavoriteList{
+    .FavoriteList, .modal-body{
     display: block;
 /*         table과 하위 요소들의 display 속성을 변경 */
     }
@@ -383,8 +448,14 @@ margin-right:25%;
     }
 
  /* ReservList 테이블css 끝*/
-
  
-.rowMarginBottom {
+/*  1207 아름 주간예약 메뉴 카테고리 width 조정 */
+.userMypageMenucateWidth {
+	width: 63% !important;
+
+ }
+ 
+ .rowMarginBottom {
 	margin-bottom: 3% !important;
  }
+

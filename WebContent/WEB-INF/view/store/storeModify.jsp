@@ -97,7 +97,7 @@ color:#e4b95b;
                         <div class="row"> 
                         	<div>
 							  
-							<h2><img src="/images/img10.png" alt="Laboom"/>매장 설정</h2> 
+							<h2><img src="/images/img10.png" alt="Laboom"/>${storeVO.sName} : 매장 설정</h2> 
 							</div>    
                             <div class="col-md-3 col-sm-5 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 						
@@ -310,6 +310,7 @@ color:#e4b95b;
                         <!--매장 삭제 화면 -->
                         <div id="storedelete" style="display:none;"class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
+                                <form action="storeDeleteOk.do" name="store" method="post">
                                 <h3>매장 삭제</h3> 
                                 <FONT SIZE="4">안녕하세요! 밍키사장님,</FONT><br/> 
                                 <FONT SIZE="4">매장을 삭제하려고 하신다니 아쉽네요.</FONT>
@@ -326,8 +327,11 @@ color:#e4b95b;
                                                 </select>
                                             </div>
                                              <div class="col-md-5 col-sm-12 col-xs-12">
-                                             <input name="submit" class="btn-black" type="button" value="삭제"/>
+                                             <input type="hidden" name="bId" value="${storeVO.bId }"/>
+                                             <input type="hidden" name="rCid" value="${storeVO.rCid }"/>
+                                             <input name="submit" class="btn-black" type="submit" value="삭제"/>
                                              </div>
+                                             </form>
                                 </div>
                             </div>
                             
@@ -336,80 +340,184 @@ color:#e4b95b;
                   				<!--매장 정보 수정 화면 --> 
                                 <div id="storemodify" style="display:none;"class="col-md-12 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div style="box-shadow: 4px 4px 3px #000;" class="shop-checkout-right">
-                                 <h3>매장 정보 수정</h3>
-                                 <div style="text-align:center;"class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                               <div style="padding:3px; text-align:center"class="shop-checkout-left">
-                               <img class="shop-checkout-left" src="/images/plus.png" alt=""/>
-                                
-                            </div>
-                            <FONT SIZE="4">사진 수정</FONT>
-                            </div>
-                            
-                             <div class="col-md-9 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                              <h6>사장 ID :  밍키</h6> 
-                              <div class="register-wrap form-common">
-                              <form class="register-form" method="post" name="register">
-                              <div class="row">
-                              <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="사업자 등록번호" class="input-fields">
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="업소명" class="input-fields">
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="비밀번호" class="input-fields">
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <input type="password" name="password" placeholder="전화번호" class="input-fields">
-                                            </div>
-                                          <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="우편번호" class="input-fields">
-                                            </div>
-                                          <div class="col-md-6 col-sm-12 col-xs-12">
-                                            <input type="submit" name="submit" class="button-default" value="우편번호 검색" style="width: 100%;">
-                                        </div>
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="주소" class="input-fields">
-                                            </div>
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="상세주소" class="input-fields">
-                                            </div>
-                                            
-                                              <div class="col-md-12 col-sm-12 col-xs-12 "style="text-align:center;">
-                                            <h4>시간 설정</h4>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="오픈시간" class="input-fields">
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="마감시간" class="input-fields">
-                                            </div>
-                                            
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <select class="select-dropbox">
-                                                    <option>먹포 구분</option>
-                                                    <option>먹고 간다.</option>
-                                                    <option>포장 한다.</option>
-                                                </select>
-                                            </div>
-                                              
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <select class="select-dropbox">
-                                                    <option>카테고리</option>
-                                                    <option>마구간</option>
-                                                    <option>불꽃남자</option>
-                                                    <option>주온</option>
-                                                    <option>BGM</option>
-                                                    <option>해물이</option>
-                                                </select>
-                                            </div>
-                                            <input type="submit" name="submit" class="button-default button-default-submit" value="수정">
-                                            </div>
-                                            </form>
-                                            </div>
-                                            
-                             </div>
-                             
+                               <form action="storeModifyOk.do" name="store" method="post">
+
+										<div class="row">
+											<h3>매장 정보 수정</h3>
+											<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+												<h5>매장 정보</h5>
+											</div>
+											<div class="col-md-4 col-sm-12 col-xs-12">
+												<input type="text" name="sName" placeholder="${storeVO.sName }" value="${storeVO.sName }">
+											</div>
+											<div class="col-md-4 col-sm-12 col-xs-12">
+												<input type="text" name="sPw" placeholder="${storeVO.sPw}" value="${storeVO.sPw}">
+											</div>
+
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<div class="col-md-7 col-sm-12 col-xs-12">
+													<input type="text" name="sTel" placeholder="${storeVO.sTel}" value="${storeVO.sTel}">
+												</div>
+												<div class="col-md-6 col-sm-12 col-xs-12">
+													<input type="text" name="sOpentime" placeholder="${storeVO.sOpentime}" value="${storeVO.sOpentime}">
+												</div>
+												<div class="col-md-6 col-sm-12 col-xs-12">
+													<input type="text" name="sClosetime" placeholder="${storeVO.sClosetime}" value="${storeVO.sClosetime}">
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12">
+													<textarea name="sDetail" placeholder="${storeVO.sDetail}">${storeVO.sDetail}</textarea>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+													<h5>카테고리 선택</h5>
+												</div>
+												<div class="col-md-4 col-sm-12 col-xs-12">
+													<select class="select-dropbox" name="sCate">
+														<option value="한식">한식</option>
+														<option value="분식">분식</option>
+														<option value="일식">일식</option>
+														<option value="중식">중식</option>
+														<option value="양식">양식</option>
+														<option value="패스트푸드">패스트푸드</option>
+														<option value="카페">카페</option>
+														<option value="뷔페식">뷔페식</option>
+													</select>
+												</div>
+												<div class="col-md-8 col-sm-12 col-xs-12"></div>
+
+												<div class="col-md-6 col-sm-12 col-xs-12">
+													<input type="text" name="sZipcode" placeholder="${storeVO.sZipcode}" value="${storeVO.sZipcode}">
+												</div>
+												<div class="col-md-6 col-sm-12 col-xs-12">
+													<input type="button" name="submit" value="우편번호 검색"
+														class="button-default button-default-submit btn2">
+												</div>
+												<div class="col-md-7 col-sm-12 col-xs-12">
+													<input type="text" name="sAddress" placeholder="${storeVO.sSido} ${storeVO.sSigungu}" value="${storeVO.sSido} ${storeVO.sSigungu}">
+												</div>
+												<div class="col-md-9 col-sm-12 col-xs-12">
+													<input type="text" name="sSido" placeholder="${storeVO.sAddress}" value="${storeVO.sAddress}">
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+													<h5>휴무일 선택</h5>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12">
+													<label> <input type="checkbox" name="checkbox"
+														name="day" value="월">월
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="화">화
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="수">수
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="목">목
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="금">금
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="토">토
+													</label> <label> <input type="checkbox" name="checkbox"
+														value="일">일
+													</label>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+													<h5>먹포 선택</h5>
+												</div>
+												<div class="col-md-6 col-sm-12 col-xs-12">
+													<select class="select-dropbox" name="sMp">
+														<option value="M">먹고 간다.</option>
+														<option value="P">포장 한다.</option>
+														<option value="MP">둘다 한다.</option>
+													</select>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+													<h5>매장 테이블 정보</h5>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+													<div class="col-md-3 col-sm-12 col-xs-12">
+														<h6>매장 테이블 갯수</h6>
+														<select class="select-dropbox" name="tCnt">
+															<option value="0">0</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+														</select>
+													</div>
+													<div class="col-md-4 col-sm-12 col-xs-12">
+														<h6>테이블당 인원수</h6>
+														<input type="text" name="tMax" placeholder="테이블당 최대 인원">
+													</div>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo">
+													<h5>매장 혼잡도 설정</h5>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
+													<h6>여유</h6>
+													<div class="col-md-3 col-sm-12 col-xs-12">
+														<input type="text" name="GcsCnt" placeholder="주문건수">
+													</div>
+													<div class="col-md-3 col-sm-12 col-xs-12">
+														<select class="select-dropbox" name="GcsTime">
+															<option value="0">0분</option>
+															<option value="10">10분</option>
+															<option value="20">20분</option>
+															<option value="30">30분</option>
+															<option value="40">40분</option>
+															<option value="50">50분</option>
+															<option value="60">60분</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
+													<h6>보통</h6>
+													<div class="col-md-3 col-sm-12 col-xs-12">
+														<input type="text" name="YcsCnt" placeholder="주문건수">
+													</div>
+													<div class="col-md-3 col-sm-12 col-xs-12">
+														<select class="select-dropbox" name="YcsTime">
+															<option value="0">0분</option>
+															<option value="10">10분</option>
+															<option value="20">20분</option>
+															<option value="30">30분</option>
+															<option value="40">40분</option>
+															<option value="50">50분</option>
+															<option value="60">60분</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
+													<h6>혼잡</h6>
+													<div class="col-md-3 col-sm-12 col-xs-12">
+														<input type="text" name="RcsCnt" placeholder="주문건수">
+													</div>
+													<div class="col-md-3 col-sm-12 col-xs-12">
+														<select class="select-dropbox" name="RcsTime">
+															<option value="0">0분</option>
+															<option value="10">10분</option>
+															<option value="20">20분</option>
+															<option value="30">30분</option>
+															<option value="40">40분</option>
+															<option value="50">50분</option>
+															<option value="60">60분</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12 col-sm-12 col-xs-12 storeinfo2">
+												<a href="storeMain.do"
+													class="button-default button-default-submit btn">뒤로가기</a> <input
+													type="submit" name="store" value="등록"
+													class="button-default button-default-submit btn"/>
+													<input type="hidden" name="rCid" value="${storeVO.rCid}"/>
+											</div>
+										</div>
+									</form>
                                 </div>
                                 </div>
                             </div>
