@@ -69,7 +69,7 @@ public class CommonController {
 		List<HashMap> review = userDAO.selectLatelyReview(mp);
 		mv.addObject("review", review);
 //민우 상점 위도,경도 및 정보가져오기
-		List<StoreVO> storeLocation = userDAO.selectStoreLocation(storeVO);
+		List<StoreVO> storeLocation = userDAO.selectMStoreLocation(storeVO);
 		mv.addObject("Location",storeLocation);
 //신주용 헤더 먹포 구분		
 		session.setAttribute("sMp",mp);		
@@ -78,7 +78,7 @@ public class CommonController {
 	
 	// 홈에서 포장할래로 들어왔을 때
 	@RequestMapping("/userPmain.do")
-	public ModelAndView userPmain(HttpSession session) {
+	public ModelAndView userPmain(HttpSession session,StoreVO storeVO) {
 		String mp = "P";
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userPmain");
@@ -87,6 +87,9 @@ public class CommonController {
 // 1201 현희 생생리뷰 디비 값 가져오기
 		List<HashMap> review = userDAO.selectLatelyReview(mp);
 		mv.addObject("review", review);
+//민우 상점 위도,경도 및 정보가져오기
+		List<StoreVO> storeLocation = userDAO.selectPStoreLocation(storeVO);
+		mv.addObject("Location",storeLocation);
 //신주용 헤더 먹포 구분		
 		session.setAttribute("sMp",mp);		
 		return mv;

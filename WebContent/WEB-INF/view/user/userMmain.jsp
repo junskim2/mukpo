@@ -146,7 +146,7 @@
                     
                         <div class="map-top">
                             <div class="container" id="mapContainer">
-                            	<div id="kakaoMap" style="width:700px;height:400px;"></div>
+                            	<div id="kakaoMap" style="width:100%;height:400px;"></div>
                             </div>
                         
                     </div>

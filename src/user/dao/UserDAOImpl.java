@@ -138,7 +138,13 @@ public class UserDAOImpl implements UserDAO{
 		
 		// 상점 위도,경도 및 정보 가져오기
 		@Override
-		public List<StoreVO> selectStoreLocation(StoreVO vo) {
-			return userss.selectList("user.selectStoreLocation", vo);
+		public List<StoreVO> selectMStoreLocation(StoreVO vo) {
+			return userss.selectList("user.selectMStoreLocation", vo);
+		}
+		
+		// 상점 위도,경도 및 정보 가져오기
+		@Override
+		public List<StoreVO> selectPStoreLocation(StoreVO vo) {
+			return userss.selectList("user.selectPStoreLocation", vo);
 		}
 }

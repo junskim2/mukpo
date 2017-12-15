@@ -55,5 +55,10 @@ public interface UserDAO {
 		int deleteFavorite(FavoriteVO vo);
 		
 //userMmain 상점 위도,경도 가져오기
-		List<StoreVO> selectStoreLocation(StoreVO vo);
+		List<StoreVO> selectMStoreLocation(StoreVO vo);
+		
+//userMmain 상점 위도,경도 가져오기
+		List<StoreVO> selectPStoreLocation(StoreVO vo);
+				
+				
 }
