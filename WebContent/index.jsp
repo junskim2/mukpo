@@ -70,9 +70,9 @@
 	      
 	      <!-- 주소, 전화번호, 이메일 -->
 	      <div id="mukpoInfo">
-	      	<div><img src="/images/common/location.png" /> 서울특별시 금천구 가산동</div>&nbsp&nbsp&nbsp&nbsp
-	      	<div><img src="/images/common/call.png" />&nbsp&nbsp010.4300.6867</div>&nbsp&nbsp&nbsp&nbsp
-	      	<div><img src="/images/common/email.png" />&nbsp&nbspmukpo151@gmail.com</div>
+	      	<div><img src="/images/common/location.png" /> 서울특별시 금천구 가산동</div>&nbsp;&nbsp;&nbsp;&nbsp;
+	      	<div><img src="/images/common/call.png" />&nbsp;&nbsp;010.4300.6867</div>&nbsp;&nbsp;&nbsp;&nbsp;
+	      	<div><img src="/images/common/email.png" />&nbsp;&nbsp;mukpo151@gmail.com</div>
 	      </div>
 	      
 	      <!-- 푸터 메뉴들 -->
