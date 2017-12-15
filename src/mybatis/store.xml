@@ -164,15 +164,15 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 	  SELECT * FROM reservelist WHERE r_cid = #{rCid} AND r_yn ='RW'
 	</select>
 	
-	<!-- 1208 주용 사장님 예약 거절 -->
-	<select id="storeReserveUpdate" parameterType="resVO">
-	  UPDATE reservelist set r_yn='RC' WHERE r_cid = #{rCid} AND m_id = #{mId}
-	</select>
-	
-	<!-- 1208 주용 사장님 예약 수락 -->
-	<select id="storeReserveUpdateOk" parameterType="resVO">
-	  UPDATE reservelist set r_yn='RO' WHERE r_cid = #{rCid} AND m_id = #{mId}
-	</select>
+   <!-- 1208 주용 사장님 예약 거절 -->
+   <select id="storeReserveUpdate" parameterType="resVO">
+     UPDATE reservelist set r_yn='RC' WHERE r_id=#{rId}
+   </select>
+   
+   <!-- 1208 주용 사장님 예약 수락 -->
+   <select id="storeReserveUpdateOk" parameterType="resVO">
+     UPDATE reservelist set r_yn='RO' WHERE r_id= #{rId}
+   </select>
 	
 	<!-- 1208 주용 사장님 취소시 예치금 포인트로 환급 -->
 	<select id="storeReserveReturn" parameterType="resVO">

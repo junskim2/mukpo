@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('#list').css('display', 'block');      // 메뉴 관리 화면
      });
      
-     $('#reservemgbtn').click(function() {// 예약 관리 화면 클릭 시
+    $('#reservemgbtn').click(function() {// 예약 관리 화면 클릭 시
         var rCid=$("#paramval").val();
         $.ajax({ url : '/store/storeReserve.do', //controll에 보낼 url주소
            type : "POST", //post방식으로 보내겠다
@@ -22,8 +22,10 @@ $(document).ready(function(){
                    $('#relist').html("");
                    $(data).each(function(index,item) {
                       var tag = ""; 
-                      tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rYn+"</td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td><input type='hidden'class='hiddenrId' value='"+this.rId+"'/></tr>";
-                      $('#relist').append(tag); //#tblList에 tag값을 붙임
+                      tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'><c:if test='${fn:contains('"+this.rYn+"', 'RW')}'>예약대기</c:if></td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;' name='"+this.rId+"'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td></tr>";
+                       $('#relist').append(tag); //#tblList에 tag값을 붙임
+
+
                    });
                    }
           $('#modifymenu').css('display', 'none');   //메뉴 수정 화면
@@ -141,7 +143,8 @@ $(document).ready(function(){
         
               var mId = $(this).parent().prevAll(".reserveTd").text();
               var rCid=$("#paramval").val();
-              var rId =$(this).parent().next().val();
+              var rId =$(this).prev().attr('name');
+              
               
               $.ajax({ url :'/store/storeReserveUpdate.do', //controll에 보낼 url주소
                  
@@ -154,8 +157,9 @@ $(document).ready(function(){
                           $('#relist').html("");
                           $(data).each(function(index,item) {
                              var tag = ""; 
-                             tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rYn+"</td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td><input type='hidden'class='hiddenrId' value='"+this.rId+"'/></tr>";
-                             $('#relist').append(tag); //#tblList에 tag값을 붙임
+                             tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'><c:if test='${fn:contains('"+this.rYn+"', 'RW')}'>예약대기</c:if></td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;' name='"+this.rId+"'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td></tr>";
+                              $('#relist').append(tag); //#tblList에 tag값을 붙임
+
 
                           });
                           }
@@ -180,19 +184,19 @@ $(document).ready(function(){
          $(document).on("click", ".reserveOk", function(){
                  var mId = $(this).parent().prevAll(".reserveTd").text();
                  var rCid=$("#paramval").val();
-                 var rId=$(this).parent().prevAll(".hiddenrId").text();
+                 var rId =$(this).attr('name');
                  $.ajax({ url :'/store/storeReserveUpdateOk.do', //controll에 보낼 url주소
                      type : "POST", //post방식으로 보내겠다
                      dataType : "json", //제이슨 형식으로 받아오겠다
-                     data : {"mId" :mId,"rCid":rCid},
+                     data : {"mId" :mId,"rCid":rCid,"rId":rId},
                      success : function(data) {//값을 성공적으로 받아왔을 때를 기술. (data) 값들이 담겨있다.
                         alert(mId+"주문이 접수되었습니다.");
                           if (data != null) {
                              $('#relist').html("");
                              $(data).each(function(index,item) {
-                                var tag = ""; 
-                                tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rYn+"</td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td><input type='hidden'class='hiddenrId' value='"+this.rId+"'/></tr>";
-                                $('#relist').append(tag); //#tblList에 tag값을 붙임
+                                 var tag = ""; 
+                                 tag += "<tr><td class='reserveTd' value='"+this.mId+"' style='font-size: 13px; text-align: center;'>"+this.mId+"</td><td style='font-size: 13px; text-align: center;'>"+this.rMpwp+"</td><td style='font-size: 13px; text-align: center;'>"+this.rDate+"</td><td style='font-size: 13px; text-align: center;'>"+this.rPnum+"</td><td style='font-size: 13px; text-align: center;'>"+this.rTnum+"</td><td style='font-size: 13px; text-align: center;'><c:if test='${fn:contains('"+this.rYn+"', 'RW')}'>예약대기</c:if></td><td style='font-size: 13px; text-align: center;'><button class='btn btn-primary btn-lg active reserveOk' style='font-size: 13px; padding: 5px;' name='"+this.rId+"'>O</button><button class='btn btn-primary btn-lg active reserveNo' style='font-size: 13px; padding: 5px;'>X</button></td></tr>";
+                                  $('#relist').append(tag); //#tblList에 tag값을 붙임
 
                              });
                              }

@@ -383,86 +383,107 @@ public class StoreController {
 	}
 
 	// 1207 신주용 store 예약내역x버튼 눌렀을떄
-	@RequestMapping(value = "/storeReserveUpdate.do", produces = "text/json;charset=UTF-8")
-	@ResponseBody
-	public void storeReserveUpdate(Model model, HttpServletResponse response, HttpServletRequest request,
-			ReserveVO vo) {
+	   @RequestMapping(value = "/storeReserveUpdate.do", produces = "text/json;charset=UTF-8")
+	   @ResponseBody
+	   public void storeReserveUpdate(Model model, HttpServletResponse response, HttpServletRequest request,
+	         ReserveVO vo) {
+	      
+	      String mId = request.getParameter("mId");
+	      String rId = request.getParameter("rId");
+	      String rCid = request.getParameter("rCid");
+	      vo.setmId(mId);
+	      vo.setrId(rId);
+	      vo.setrCid(rCid);
+	      int result = storeDAO.storeReserveUpdate(vo); // 예약 취소 업데이트
+	      vo.setmId(mId);
+	      vo.setrId(rId);
+	      vo.setrCid(rCid);
 
-		int result = storeDAO.storeReserveUpdate(vo); // 예약 취소 업데이트
+	      int result2 = storeDAO.storeReserveReturn(vo); // 포인트 환급 업데이트
 
-		int result2 = storeDAO.storeReserveReturn(vo); // 포인트 환급 업데이트
+	      vo.setmId(mId);
+	      vo.setrId(rId);
+	      vo.setrCid(rCid);
+	      List<ReserveVO> reserveVOList = storeDAO.selectReserveList(vo); // mybatis형식으로 데이터 가져오기
 
-		List<ReserveVO> reserveVOList = storeDAO.selectReserveList(vo); // mybatis형식으로 데이터 가져오기
+	      List<JSONObject> rList = new ArrayList<>(); // 제이슨 오브젝트 리스트 생성
 
-		List<JSONObject> rList = new ArrayList<>(); // 제이슨 오브젝트 리스트 생성
+	      JSONArray ja = new JSONArray(); // 제이슨Array 배열생성
 
-		JSONArray ja = new JSONArray(); // 제이슨Array 배열생성
+	      for (int i = 0; i < reserveVOList.size(); i++) { // 가져온 데이터값 돌려서 한줄씩 JSONobject에 넣기
+	         JSONObject obj = new JSONObject(); // JONS형식으로 변환할 OBJECT형식 선언
+	         try {
+	            obj.put("mId", reserveVOList.get(i).getmId());
+	            obj.put("rMpwp", reserveVOList.get(i).getrMpwp());
+	            obj.put("rDate", reserveVOList.get(i).getrDate());
+	            obj.put("rPnum", reserveVOList.get(i).getrPnum());
+	            obj.put("rTnum", reserveVOList.get(i).getrTnum());
+	            obj.put("rYn", reserveVOList.get(i).getrYn());
+	            obj.put("rId", reserveVOList.get(i).getrId());
 
-		for (int i = 0; i < reserveVOList.size(); i++) { // 가져온 데이터값 돌려서 한줄씩 JSONobject에 넣기
-			JSONObject obj = new JSONObject(); // JONS형식으로 변환할 OBJECT형식 선언
-			try {
-				obj.put("mId", reserveVOList.get(i).getmId());
-				obj.put("rMpwp", reserveVOList.get(i).getrMpwp());
-				obj.put("rDate", reserveVOList.get(i).getrDate());
-				obj.put("rPnum", reserveVOList.get(i).getrPnum());
-				obj.put("rTnum", reserveVOList.get(i).getrTnum());
-				obj.put("rYn", reserveVOList.get(i).getrYn());
+	            ja.put(obj);// object에 넣은값을 배열로 변환하기위해 JSONArray에 넣기
+	         } catch (JSONException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         } // 제이슨obj에 가져온 값 넣기
+	      }
+	      try {
 
-				ja.put(obj);// object에 넣은값을 배열로 변환하기위해 JSONArray에 넣기
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} // 제이슨obj에 가져온 값 넣기
-		}
-		try {
+	         response.getWriter().print(ja.toString());
+	      } catch (IOException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }
 
-			response.getWriter().print(ja.toString());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	   }
 
-	}
+	   // 1207 신주용 store 예약내역O버튼 눌렀을떄
+	   @RequestMapping(value = "/storeReserveUpdateOk.do", produces = "text/json;charset=UTF-8")
+	   @ResponseBody
+	   public void storeReserveUpdateOk(Model model, HttpServletResponse response, HttpServletRequest request,
+	         ReserveVO vo) {
+	      String mId = vo.getmId();
+	      String rId = vo.getrId();
+	      String rCid = vo.getrCid();
+	      
+	      vo.setmId(mId);
+	      vo.setrId(rId);
+	      vo.setrCid(rCid);
+	      int result = storeDAO.storeReserveUpdateOk(vo); // 예약 업데이트
+	      vo.setmId(mId);
+	      vo.setrId(rId);
+	      vo.setrCid(rCid);
+	      List<ReserveVO> reserveVOList = storeDAO.selectReserveList(vo); // mybatis형식으로 데이터 가져오기
 
-	// 1207 신주용 store 예약내역O버튼 눌렀을떄
-	@RequestMapping(value = "/storeReserveUpdateOk.do", produces = "text/json;charset=UTF-8")
-	@ResponseBody
-	public void storeReserveUpdateOk(Model model, HttpServletResponse response, HttpServletRequest request,
-			ReserveVO vo) {
+	      List<JSONObject> rList = new ArrayList<>(); // 제이슨 오브젝트 리스트 생성
 
-		int result = storeDAO.storeReserveUpdateOk(vo); // 예약 업데이트
+	      JSONArray ja = new JSONArray(); // 제이슨Array 배열생성
 
-		List<ReserveVO> reserveVOList = storeDAO.selectReserveList(vo); // mybatis형식으로 데이터 가져오기
+	      for (int i = 0; i < reserveVOList.size(); i++) { // 가져온 데이터값 돌려서 한줄씩 JSONobject에 넣기
+	         JSONObject obj = new JSONObject(); // JONS형식으로 변환할 OBJECT형식 선언
+	         try {
+	            obj.put("mId", reserveVOList.get(i).getmId());
+	            obj.put("rMpwp", reserveVOList.get(i).getrMpwp());
+	            obj.put("rDate", reserveVOList.get(i).getrDate());
+	            obj.put("rPnum", reserveVOList.get(i).getrPnum());
+	            obj.put("rTnum", reserveVOList.get(i).getrTnum());
+	            obj.put("rYn", reserveVOList.get(i).getrYn());
+	            obj.put("rId", reserveVOList.get(i).getrId());
 
-		List<JSONObject> rList = new ArrayList<>(); // 제이슨 오브젝트 리스트 생성
+	            ja.put(obj);// object에 넣은값을 배열로 변환하기위해 JSONArray에 넣기
+	         } catch (JSONException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         } // 제이슨obj에 가져온 값 넣기
+	      }
+	      try {
 
-		JSONArray ja = new JSONArray(); // 제이슨Array 배열생성
-
-		for (int i = 0; i < reserveVOList.size(); i++) { // 가져온 데이터값 돌려서 한줄씩 JSONobject에 넣기
-			JSONObject obj = new JSONObject(); // JONS형식으로 변환할 OBJECT형식 선언
-			try {
-				obj.put("mId", reserveVOList.get(i).getmId());
-				obj.put("rMpwp", reserveVOList.get(i).getrMpwp());
-				obj.put("rDate", reserveVOList.get(i).getrDate());
-				obj.put("rPnum", reserveVOList.get(i).getrPnum());
-				obj.put("rTnum", reserveVOList.get(i).getrTnum());
-				obj.put("rYn", reserveVOList.get(i).getrYn());
-
-				ja.put(obj);// object에 넣은값을 배열로 변환하기위해 JSONArray에 넣기
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} // 제이슨obj에 가져온 값 넣기
-		}
-		try {
-
-			response.getWriter().print(ja.toString());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
+	         response.getWriter().print(ja.toString());
+	      } catch (IOException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }
+	   }
 	// 1206 성현추가
 	// 매장 사진등록 페이지로 이동하며 사업자등록번호 넘겨주기
 	@RequestMapping(value = "storeImageInput.do")
