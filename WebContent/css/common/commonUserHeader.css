@@ -129,10 +129,10 @@ header .container {
 #txtSearch {
 	margin: 10px;
 	width: 80%;
-	margin-left: 5%;
+	margin-left: 2%;
 }
 #btnSearch {
-	background: url(/a/images/icon-zoom-blue.png);
+	background: url(/images/icon-zoom-blue.png);
 	width: 28px;
 	border: none;
 	margin-left: 1%;

@@ -13,48 +13,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/common/commonUserHeader.js"></script>
-<script type="text/javascript">
-	$(function() {
-		var location = [], category = [];
-		// 지역 카테고리 체크박스 클릭 했을 때
-		$(".jq-checkbox").click(function() {
-			$(this).each(function() {
-				if( $(this).parent().parent().is("#locationdrop") ) {
-					$("#loChk").text("");
-					if( $(this).is(".checked") ) {
-						location.push($(this).parent().text());
-					} else {
-						var delLo = location.indexOf($(this).parent().text());
-						location.splice(delLo, 1);
-					}
-				} else if( $(this).parent().parent().is("#categorydrop") ) {
-					if( $(this).is(".checked") ) {
-						category.push($(this).parent().text());
-					} else {
-						var delCa = category.indexOf($(this).parent().text());
-						category.splice(delCa, 1);
-					}
-				}
-			});	
-		});
-		
-		
-		// 검색 버튼 누를 때
-		$("#btnSearch").click(function() {
-			if(location == "") {
-				$("#loChk").text("지역을 선택하세요.");
-				return false;
-			}
-			$("#sSido").val(location.join("','"));
-			if(category != "") {
-				$("#sCate").val(category.join("','"));
-			}
-			
-			$("#searchForm").submit();
-			
-		});
-	});
-</script>
 </head>
 <body>
 
@@ -71,7 +29,8 @@
 						
 						<!-- 먹포 구분 -->
 						<div id="headerMP" class="con-div">
-							<img src="/images/common/m_icon.png" />
+							<c:if test="${ sMp == 'M' }"> <img src="/images/common/m_icon.png" /> </c:if>
+							<c:if test="${ sMp == 'P' }"> <img src="/images/common/p_icon.png" /> </c:if>
 							<ul class="drop-nav" id="mpdrop">
 								<li><a href="/common/userMmain.do"> ▶ 먹고갈래?</a></li>
 								<li><a href="/common/userPmain.do"> ▶ 포장할래?</a></li>
@@ -79,17 +38,20 @@
 						</div>
 						
 						<!-- 검색 -->
+						
 						<div id="headerSearch" class="con-div search-part">
 								<img src="/images/common/search.png" />
 								<ul class="drop-nav" id="searchdrop">
 									<!-- 검색창 -->
+									<li>
 									<form id="searchForm" method="post" action="/store/storeList.do">
 										<input id="txtSearch" type="text" name="sName" placeholder="입력하지 않으면 전체 식당이 검색됩니다." />
 										<input id="btnSearch" type="button" name="submit" value="" />
 										<input id="sMp" type="hidden" name="sMp" value="${ sMp }" />
 										<input id="sCate" type="hidden" name="sCate" value="" />
 										<input id="sSido" type="hidden" name="sSido" value="" />
-									</form>
+										</form>
+									</li>
 									<!-- 지역 메뉴 -->
 									<li class="mega-menu" style="padding-left: 35px;"><span class="menuname">지역</span>
 										<ul id="locationdrop">
