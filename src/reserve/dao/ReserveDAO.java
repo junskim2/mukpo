@@ -40,5 +40,9 @@ public interface ReserveDAO {
 	ReserveVO selectreserveInfo(ReserveVO vo); // 1213 아름 사업자등록번호로 업소명 검색
 
 	ReserveVO reservePaymentOk(ReserveVO vo);
+
+	ReserveVO selectReserveListView(String rId); // 1215 아름 예약내역
+
+	List<HashMap> selectReserveDetail(String rId);	// 1215 POS기에서 예약 상세내역 보기
 	
 }

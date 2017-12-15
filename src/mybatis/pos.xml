@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectReserveList" resultType="resVO" parameterType="String">
 		SELECT * FROM reservelist
 		WHERE
-		r_cid=#{rCid}
+		r_cid=#{rCid} AND r_yn = 'RO'
 	</select>
 	
 	<!-- 포스기 주문내역 입력 -->

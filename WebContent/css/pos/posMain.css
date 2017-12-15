@@ -60,3 +60,25 @@
     transition-delay: 0.1s;
     z-index: 1;
 }
+
+.poBtn{
+	margin-top: 0% !important;
+    float: right;
+    line-height: 32px !important;
+}
+
+.posTopFont{
+    font-size: 18px;
+    color: #383848;
+    line-height: normal;
+    margin: 0 0 16px 0;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* 1214 아름 추가 시작 */
+.shop-cart-table-margin{
+	margin-bottom: 5%;
+}    
+
+/* 1214 아름 추가 끝 */

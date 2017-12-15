@@ -106,6 +106,86 @@ $(document).ready(function(){		//윤경식 추가
 		
 	});
 	
+	
+	
+	// 1215 예약 상세내역 보기
+	$(".reserveOrder").click(function(){	// 상세내역 버튼
+		var rId = $(this).attr("rId");		// 버튼의 rId값 가져오기
+		
+		$.ajax({							// 예약한 메뉴 가져오기
+			url : '/reserve/reserveDetail.do',
+			type : 'POST',
+			dataType : 'JSON',
+			data : { "rId" : rId },
+			success : function(data){
+
+				if(data != null){
+					$('.reserveListView').html('');
+					var tag = '';
+					tag += '<div class="shop-checkout-title">'
+						+ '<h6>'
+						+ '메뉴 <span>금액</span>'
+						+ '</h6>';
+					$('.reserveListView').append(tag);
+					
+					$(data).each(function(index, item){
+
+						tag = '</div>'
+							+ '<div class="shop-checkout-row">'
+							+ '<p>'
+							+ '<span>'+this.M_NAME+'</span> x'+this.RM_CNT+' <small>'+this.MENU_PRICE_TOTAL+'</small>'
+							+ '</p>'
+							+ '</div>';
+						$('.reserveListView').append(tag);
+					}); 
+				}
+			}
+				
+			}); 
+		
+		$.ajax({							// 예약리스트 data 가져오기
+			url : '/reserve/reserveListView.do',
+			type : 'POST',
+			dataType : 'JSON',
+			data : { "rId" : rId },
+			success : function(data){
+				if(data != null) {
+					$(data).each(function(index, item){
+					$('.reserveDetailInfoList').html('');
+					var tag = '';
+					tag += '<div class="checkout-total">'
+						+ '<h6>'
+						+ '예약날짜 <small>'+this.rDate+'</small>'
+						+ '</h6>'
+						+ '</div>'
+						+ '<div class="checkout-total">'
+						+ '<h6>'
+						+ '예약시간 <small>'+this.rTime+'</small>'
+						+ '</h6>'
+						+ '</div>'
+						+ '<div class="checkout-total">'
+						+ '<h6>'
+						+ '인원수 <small>'+this.rPnum+'명</small>'
+						+ '</h6>'
+						+ '</div>'
+						+ '<div class="checkout-total">'
+						+ '<h6>'
+						+ '테이블번호 <small>'+this.rTnum+'</small>'
+						+ '</h6>'
+						+ '</div>'
+						+ '<div class="checkout-total">'
+						+ '<h6>'
+						+ '예치금 <small class="price-big">'+this.rKeepmoney+'</small>'
+						+ '</h6>'
+						+ '</div>';
+					
+						$('.reserveDetailInfoList').append(tag);
+				});
+				}
+			}
+});
+}); 
+	
 
 });
 

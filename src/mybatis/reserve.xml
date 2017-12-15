@@ -63,5 +63,19 @@ values(sysdate,#{mId},#{rCid},(SELECT s_mp FROM store WHERE r_cid = #{rCid}),sys
 	<select id="selectreserveInfo" parameterType="resVO" resultType="resVO" >
 		SELECT * FROM store WHERE r_cid = #{rCid}
 	</select>
+	
+	<!-- 1215 아름 예약리스트 가져오기 -->
+	<select id="selectReserveListView" parameterType="String" resultType="resVO" >
+		SELECT *
+		FROM reservelist
+		WHERE r_id = #{rId}
+	</select>
+	
+<!-- 1215 아름 예약 메뉴 정보 가져오기 -->
+	<select id="selectReserveDetail" parameterType="String" resultType="java.util.HashMap">
+		SELECT reserve_menu.r_id AS r_id, reserve_menu.rmid AS rmid, reserve_menu.m_id AS m_id, reserve_menu.rm_cnt AS rm_cnt, menu.r_cid AS r_cid, menu.m_name AS m_name, (menu.m_price*reserve_menu.rm_cnt) AS menu_price_total
+		FROM reserve_menu INNER JOIN menu ON reserve_menu.m_id = menu.m_id
+		WHERE reserve_menu.r_id = #{rId}
+	</select>
 
 </mapper>

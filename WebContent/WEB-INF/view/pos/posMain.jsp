@@ -103,7 +103,8 @@ padding:0px;
 						<div class="col-md-9 col-sm-7 col-xs-12 wow fadeInDown"
 							data-wow-duration="1000ms" data-wow-delay="300ms">
 							<div class="shop-checkout-left">
-								<h6>
+							<div>
+								<span class="posTopFont">
 									혼잡도
 									<c:choose>
 									<c:when test="${gCon.csYn =='Y'}">
@@ -116,7 +117,11 @@ padding:0px;
 									<img src="/images/traffic3.png" alt="" width="15%">혼잡
 									</c:when>
 									</c:choose>
-								</h6>
+								</span>
+								<!-- 1214 아름 포장예약하기 추가 -->
+									<a data-toggle="modal" data-target="#booktable" href="#"
+										class="poBtn btn-black btnPos orderTarget" id="">포장</a>
+										</div>
 								<!-- table for문 시작 -->
 								<c:forEach begin="1" end="${tableSet.tCnt}" varStatus="status" >
 								<div 
@@ -183,7 +188,10 @@ padding:0px;
 										<span>테이블</span> <small >${rl.rTnum }</small>
 									</p> 
 									</c:if>
-									<a href="#" class="button-default reserveOrder">주문하기 <i class="icon-right-4"></i></a>
+									<!-- 1215 아름 a태크에 rId 값 추가 -->
+															<a rId="${rl.rId }" data-toggle="modal" data-target="#reserveDetail"
+																href="#" class="button-default reserveOrder">상세내역 <i
+																class="icon-right-4"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -205,10 +213,68 @@ padding:0px;
 		</div>
 		</main>
 		<!-- End Main -->
-		<!-- Start Footer -->
+		
 
-		<!-- End Footer -->
-		<!-- Start Book Table -->
+<!-- 1214 아름 예약 상세내역 모달 시작  -->
+
+	<div class="modal fade booktable" id="reserveDetail" tabindex="-1"
+		role="dialog" aria-labelledby="booktable">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" id="modalMargin">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+					<main> <!-- Start Menu Part -->
+
+					<section class="home-icon blog-main-section shop-page"
+						style="padding: 0px 0 0px">
+						<!-- 						<div class="container" id="containerWidthEdit" -->
+						<!-- 							style="width: 100%;"> -->
+						<!-- 							<div class="build-title"> -->
+						<!-- 								<h2>예약상세내역</h2> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
+						<!-- 					</section> -->
+
+						<form method="post" action="/reserve/reservePPayment.do">
+							<div class="col-md-12 col-sm-5 col-xs-12 wow fadeInDown animated"
+								data-wow-duration="1000ms" data-wow-delay="300ms"
+								style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeInDown;">
+								<div class="shop-checkout-right">
+									<div class="shop-checkout-box">
+										<h5>예약상세내역</h5>
+										<div class="reserveListView">
+										
+										<!-- 동적 주문한 메뉴 -->
+										
+										</div>
+										<div class="reserveDetailInfoList">
+										
+										<!-- 동적 예약내역 -->
+										
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="product-cart-detail">
+								<a href="#" class="btn-medium btn-dark-coffee">추가주문</a> <a
+									href="#" class="btn-medium btn-skin pull-right">주문완료</a>
+							</div>
+
+						</form>
+					</section>
+					</main>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 1214 아름 예약 상세내역 모달 끝  -->
+	
+	
 		
 		<!-- 경식 추가  주문 모달 창  **********************************************************************************************-->
 		<div class="modal fade booktable" id="booktable" tabindex="-1"

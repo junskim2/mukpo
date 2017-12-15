@@ -103,4 +103,16 @@ public class ReserveDAOImpl implements ReserveDAO{
 		return reservess.selectOne("reserve.reservePaymentOk", vo);
 	}
 
+	// 1215 아름 예약내역
+	@Override
+	public ReserveVO selectReserveListView(String rId) {
+		return reservess.selectOne("reserve.selectReserveListView", rId);
+	}
+
+	// 1215 POS기에서 예약 상세내역 보기
+	@Override
+	public List<HashMap> selectReserveDetail(String rId) {
+		return reservess.selectList("reserve.selectReserveDetail", rId);
+	}
+
 }

@@ -7,12 +7,17 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import pos.domain.PaymentVO;
@@ -160,5 +165,46 @@ public class ReserveController {
 		
 		return mv;
 	}
+	
+	// 1215 POS기에서 예약 상세내역 보기
+	@RequestMapping(value="/reserveDetail.do")
+	@ResponseBody
+	public void storeReserve(HttpServletResponse response, Model model, String rId) throws Exception {
+		List<HashMap> reserveDetail =  reserveDAO.selectReserveDetail(rId);	// 예약상세내역 HashMap으로 받기
+		
+		JSONArray jsonArray = new JSONArray();
+		
+		for(int i=0; i<reserveDetail.size(); i++) {
+			jsonArray.put(reserveDetail.get(i));
+		}
+		
+		String json = jsonArray.toString();
+		
+		response.getWriter().print(json);
+
+	}
+	
+	// 1215 POS기에서 예약 내역 보기
+		@RequestMapping(value="/reserveListView.do")
+		@ResponseBody
+		public void reserveListView(HttpServletResponse response, Model model, String rId) throws Exception {
+			ReserveVO reserveListView =  reserveDAO.selectReserveListView(rId);	// 예약상세내역 HashMap으로 받기
+
+			
+			JSONObject jsonObject = new JSONObject();
+			JSONArray jsonArray = new JSONArray();
+			
+			jsonObject.put("rId", reserveListView.getrId());
+			jsonObject.put("rDate", reserveListView.getrDate());
+			jsonObject.put("rTime", reserveListView.getrTime());
+			jsonObject.put("rPnum", reserveListView.getrPnum());
+			jsonObject.put("rKeepmoney", reserveListView.getrKeepmoney());
+			jsonObject.put("rTnum", reserveListView.getrTnum());
+			
+			jsonArray.put(jsonObject);
+			
+			response.getWriter().print(jsonArray.toString());
+
+		}
 
 }
