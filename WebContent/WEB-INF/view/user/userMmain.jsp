@@ -23,19 +23,107 @@
     <link href="/plugin/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet">
     <link href="/plugin/animation/animate.min.css" rel="stylesheet">
     <link href="/css/theme.css" rel="stylesheet">
+    <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
     <link href="/css/responsive.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c90936953fe2cb46c371ca9d061b1a69"></script>
-<script src="/js/user/userMmain.js"></script>
+<!-- <script src="/js/user/userMmain.js"></script> -->
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script type="text/javascript">
+   $(document).on('click','.sTitle',function(){
+	   $('.storeMform').submit();
+   })
    $(function() {
       $("#userloginspan").click(function() {
          location.href = "userLogin.do";
       });
+      
+      var mapList = new Array();
+		<c:forEach items="${Location}" var="lc">
+			 mapList.push("${lc.sName},${lc.sLatitude},${lc.sLongitude},${lc.rCid},${lc.sMp}");
+		</c:forEach>
+    
+		var positions = new Array();
+		for ( var i = 0; i < mapList.length; i++) {
+		    var mapItem = new Array();
+		    mapItem = mapList[i].split(',');
+		    
+		    var name = mapItem[0];
+		    var la = mapItem[1];
+		    var lo = mapItem[2];
+		    var id = mapItem[3];
+		    var sMp = mapItem[4];
+		    
+		 // 마커를 표시할 위치와 title 객체 배열입니다 
+		    var position1 = [
+		                     {
+		                         title: name, //상점이름
+		                         latlng: new daum.maps.LatLng(la, lo), //위도경도 위치
+		                         laa: la, //위도
+		                         loo: lo, //경도
+		                         id: id, //사업자번호
+		                     }  
+		                 ];
+		    positions.push(position1);
+		} 
+		
+			var mapContainer = document.getElementById('kakaoMap'), // 지도를 표시할 div 
+			mapOption = { 
+				center: new daum.maps.LatLng(37.4787031,126.8802539), // 지도의 중심좌표
+				level: 4 // 지도의 확대 레벨
+			};
 
+			var map = new daum.maps.Map(mapContainer, mapOption);
+
+			var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다    
+			imageSize = new daum.maps.Size(34, 39); // 마커이미지의 크기입니다
+			
+			var marker = new Array();        //  마커
+			var infowindow = new Array(); //인포윈도우
+
+			for (var i = 0; i < positions.length; i ++) {
+			
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); // 마커가 표시될 위치입니다
+
+				// 마커를 생성합니다
+				 marker[i] = new daum.maps.Marker({
+					map: map,
+					position: positions[i][0].latlng, // 마커를 표시할 위치
+					title : positions[i][0].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+					image: markerImage // 마커이미지 설정 
+				});
+				 
+				 // 마커 각각의 ID를 설정해 줍니다.
+				 marker[i].index = i;
+				 var iwContent = '<form class="storeMform" method="post" action="/store/storeMdetail.do">'
+				 + '<input type="hidden" name="rCid" value="'+positions[i][0].id+'" />'
+				 + '<div class="sTitle" style="padding:5px; width:180px;text-align:center; cursor:pointer;">'
+				 + positions[i][0].title
+				 + '</div>'
+				 + '</form>';
+
+				iwRemoveable = true;
+				// removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+				// 인포윈도우를 생성합니다. 
+
+				  infowindow[i] = new daum.maps.InfoWindow({
+				     content : iwContent,
+				     removable : iwRemoveable
+				 });
+				   
+				  //다중마커 클릭시 인포윈도우 열림----------<<인포윈도우 이벤트>>
+				  daum.maps.event.addListener(marker[i], "click", function() {
+					  
+				// 인포윈도우를 하나씩만 보여줄때 사용
+				     for ( var i = 0; i < marker.length ; i++) {
+				   infowindow[i].close();}
+				  // 해당 마커를 열어준다.
+				    infowindow[this.index].open(map, marker[this.index]);
+				  });
+			}
    });
 </script>
 </head>
@@ -59,28 +147,6 @@
                         <div class="map-top">
                             <div class="container" id="mapContainer">
                             	<div id="kakaoMap" style="width:700px;height:400px;"></div>
-                            </div>
-                            <div class="container" id="storeContainer">
-                                <div class="userLocationStore">
-                                    <h3>밍키의 눈칫밥상 1호점</h3>
-                                   	<span>독산동 동경빌딩 507호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>야생마의 마굿간떡볶이</h3>
-                                    <span>가산동 마굿간 101호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>갱식쓰의 뼉다구찜닭</h3>
-                                    <span>가산동 아이파크 202호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>주용쓰 잘해줘치킨</h3>
-                                    <span>독산동 미래빌딩 205호</span>
-                                </div>
-                                <div class="userLocationStore">
-                                    <h3>와따 큰 피자</h3>
-                                    <span>아름동 혀니빌딩 204호</span>
-                                </div>
                             </div>
                         
                     </div>

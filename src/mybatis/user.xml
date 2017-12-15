@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 회원가입 sql 경식 수정-->
 <insert id="userInsert" parameterType="userVO"> 
-	INSERT INTO member VALUES(#{mId}, #{mPw}, #{mName}, #{mTel}, #{mBorn},#{mEmail},0,'N')	
+	INSERT INTO member VALUES(#{mId}, #{mPw}, #{mName}, #{mTel}, #{mBorn},#{mEmail},0,'N')
 </insert>
 
 <!-- 로그인 sql -->
@@ -115,13 +115,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		GROUP BY store.r_cid, store.s_name, store.s_url, store.s_mp
 	</select>
 		
-		
-		
 	<!-- 주간예약 메뉴 출력 김민우-->
 	<select id="selectMMenuList" resultType="menuVO" parameterType="menuVO">
 		SELECT * FROM menu WHERE r_cid = #{rCid}
 		<if test="mCate != null">
 			AND m_cate = #{mCate}
 		</if>
+	</select>
+	
+	<!-- userMmain 지도 위도,경도 가져오기 -->
+		<select id="selectStoreLocation" parameterType="storeVO" resultType="storeVO">
+		SELECT * FROM store WHERE s_mp = 'M' OR s_mp = 'MP'
 	</select>
 </mapper>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import reserve.dao.ReserveDAO;
+import store.domain.StoreVO;
 import user.dao.UserDAO;
 import user.domain.ReviewVO;
 import user.domain.UserVO;
@@ -58,7 +59,7 @@ public class CommonController {
 	
 	// 홈에서 먹고갈래로 들어왔을 때
 	@RequestMapping("/userMmain.do")
-	public ModelAndView userMmain(HttpSession session) {
+	public ModelAndView userMmain(HttpSession session,StoreVO storeVO) {
 		String mp = "M";
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user/userMmain");
@@ -67,6 +68,9 @@ public class CommonController {
 // 1201 현희 생생리뷰 디비 값 가져오기
 		List<HashMap> review = userDAO.selectLatelyReview(mp);
 		mv.addObject("review", review);
+//민우 상점 위도,경도 및 정보가져오기
+		List<StoreVO> storeLocation = userDAO.selectStoreLocation(storeVO);
+		mv.addObject("Location",storeLocation);
 //신주용 헤더 먹포 구분		
 		session.setAttribute("sMp",mp);		
 		return mv;
