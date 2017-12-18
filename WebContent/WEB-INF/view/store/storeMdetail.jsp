@@ -36,6 +36,7 @@
 <link href='/css/reserve/fullcalendar.css' rel='stylesheet' />
 <link href='/css/reserve/fullcalendar.print.css' rel='stylesheet'
 	media='print' />
+<link href="/css/common/commonUserHeader.css" rel="stylesheet"/>
 
 <!-- 1206 아름 예약시간 관련 시작 -->
 <link href='/css/reserve/jquery.timepicker.css' rel='stylesheet' />
@@ -49,7 +50,30 @@
 
 
 
+
+
 <style type="text/css">
+
+.col-md-8{
+margin-top:-5%;
+}
+
+.blog-right-section{
+margin-left:20%;
+}
+.date-feature{
+margin-right:27%;
+margin-top:-5%;
+}
+
+.stote-img{
+width:70%;
+}
+
+.date-feature{
+margin-right:27%;
+}
+
 /* 1204 현희 메인 아닐 때 추가될 클래스 */
 		.otherscroll{
 			top : -60px;
@@ -58,6 +82,13 @@
 			margin-top: -10%;
 			
 		}
+		
+.header-part.header-on{
+width:80%;
+height:106px;
+margin-left:auto;
+margin-right:auto;
+}		
 		
 
 </style>
@@ -90,7 +121,7 @@
 				<div class="blog-right-listing wow fadeInDown"
 					data-wow-duration="1000ms" data-wow-delay="300ms">
 					<div class="feature-img">
-						<img src="${ storeVO.sUrl }" alt="">
+						<img class='stote-img' src="${ storeVO.sUrl }" style="width:70%;"alt="">
 <!-- 1203 아름 즐겨찾기 기능 추가 -->
 						<div class="date-feature">
 							<c:choose>

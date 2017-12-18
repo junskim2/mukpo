@@ -26,9 +26,16 @@
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
+<link href="/css/common/commonUserHeader.css" rel="stylesheet"/>
 
-<!-- 현희 추가 -->
 <style type="text/css">
+.header-part.header-on{
+width:80%;
+height:106px;
+margin-left:auto;
+margin-right:auto;
+}
+<!-- 현희 추가 -->
 .store {
 	cursor: pointer;
 }
@@ -124,7 +131,7 @@
 										<div class="store col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 											<div class="blog-right-listing">
 												<div class="feature-img">
-													<img src="${ list.sUrl }" alt="" />
+													<img src="${ list.sUrl }" alt="" style='width:553px; height:350px;'/>
 													<h3>${ list.sName }</h3>
 													<div>${ list.sAddress }</div>
 													<div>${ list.sTel }</div>

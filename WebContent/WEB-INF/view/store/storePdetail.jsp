@@ -30,7 +30,15 @@
 <link href="/css/theme.css" rel="stylesheet">
 <link href="/css/responsive.css" rel="stylesheet">
 <link href="/plugin/bootstrap/minwoo.css" rel="stylesheet">
+<link href="/css/common/commonUserHeader.css" rel="stylesheet"/>
 <style type="text/css">
+
+.header-part.header-on{
+width:80%;
+height:106px;
+margin-left:auto;
+margin-right:auto;
+}
 .date-feature{
 margin-top: 10%;
 }
