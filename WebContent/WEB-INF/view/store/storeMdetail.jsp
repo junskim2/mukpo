@@ -50,7 +50,30 @@
 
 
 
+
+
 <style type="text/css">
+
+.col-md-8{
+margin-top:-5%;
+}
+
+.blog-right-section{
+margin-left:20%;
+}
+.date-feature{
+margin-right:27%;
+margin-top:-5%;
+}
+
+.stote-img{
+width:70%;
+}
+
+.date-feature{
+margin-right:27%;
+}
+
 /* 1204 현희 메인 아닐 때 추가될 클래스 */
 		.otherscroll{
 			top : -60px;
@@ -98,7 +121,7 @@ margin-right:auto;
 				<div class="blog-right-listing wow fadeInDown"
 					data-wow-duration="1000ms" data-wow-delay="300ms">
 					<div class="feature-img">
-						<img src="${ storeVO.sUrl }" alt="">
+						<img class='stote-img' src="${ storeVO.sUrl }" style="width:70%;"alt="">
 <!-- 1203 아름 즐겨찾기 기능 추가 -->
 						<div class="date-feature">
 							<c:choose>
