@@ -54,6 +54,10 @@
 
 <style type="text/css">
 
+.portfolioContainer{
+width: 85%; margin: auto;
+}
+
 .col-md-8{
 margin-top:-5%;
 }
