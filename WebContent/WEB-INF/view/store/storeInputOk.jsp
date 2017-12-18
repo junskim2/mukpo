@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(function(){ 	  
+$(function(){
+	alert("${message}");
+ 	  
 	  if(${result} > 0 ){
-		  alert("사진등록 완료!");
 		  location.href="storeImageInput.do?rCid=${storeVO.rCid}";
 	  }else{
-		  alert("사진등록 실패!");
 		  history.back();
 	  }
 });
