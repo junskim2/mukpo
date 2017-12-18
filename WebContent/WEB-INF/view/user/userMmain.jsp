@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!-- 1201 현희 추가 -->
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,6 +126,7 @@
 				  });
 			}
    });
+   
 </script>
 </head>
 
@@ -134,114 +136,117 @@
 			<jsp:include page="../common/commonUserHeader.jsp"></jsp:include>
 		<!-- UserHeader 끝 -->
 
+        <!-- Start Slider Part -->
+        <section class="home-slider home-ride">
+            <div class="tp-banner-container">
+                <div class="tp-banner">
+                    <ul>
+                        <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+<!-- 1130 현희 이미지추가 -->
+<!-- 주용 광고 상세보기 연결 -->
+                            <img class="ad" src="/images/user/야생마떡볶이광고.png" alt="야생마떡볶이" data-lazyload="/images/user/야생마떡볶이광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                            <!-- LAYERS -->
+                            <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">야생마의 <span>마굿간떡볶이</span>
+                            </div>
+                            <!-- LAYERS -->
+                            <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">떡볶이가 너무 매워서 이히히힝~
+                            </div>
+                            <!-- LAYERS -->
+                            <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="/store/storeMdetail.do?rCid=8165" class="button-white">상세보기</a>
+                            </div>
+                        </li>
+                        <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+<!-- 1130 현희 이미지추가 -->                                    
+                            <img class="ad" src="/images/user/주용쓰잘해줘치킨광고.png" alt="주용쓰잘해줘치킨" data-lazyload="/images/user/주용쓰잘해줘치킨광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                            <!-- LAYERS -->
+                            <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">주용쓰의 <span>잘해줘치킨</span>
+                            </div>
+                            <!-- LAYERS -->
+                            <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">노친절하면 주용쓰 흥흥 삐짐 :(
+                            </div>
+                            <!-- LAYERS -->
+                            <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="/store/storeMdetail.do?rCid=8166" class="button-white">상세보기</a>
+                            </div>
+                        </li>
+                        <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+<!-- 1130 현희 이미지추가 -->                                
+                            <img class="ad" src="/images/user/민우쓰의눈칫밥상광고.png" alt="민우쓰의눈칫밥상" data-lazyload="/images/user/민우쓰의눈칫밥상광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                            <!-- LAYERS -->
+                            <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">밍키의 <span>눈칫밥상 1호점</span>
+                            </div>
+                            <!-- LAYERS -->
+                            <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">아직도 안가봤어? 어머 너 눈치없다~
+                            </div>
+                            <!-- LAYERS -->
+                            <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="/store/storeMdetail.do?rCid=8167" class="button-white">상세보기</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="on-scroll">
+                <a href="#reach-to" class="scroll"><img src="/images/scroll-down.png" alt=""></a>
+            </div>
+        </section>
+        <!-- End Slider Part -->
+
         <!-- Start Main -->
         <main>
             <div class="main-part">
             	<!-- Start Map Part -->
                 <section class="map-address pad-top-remove" data-wow-duration="1000ms" data-wow-delay="300ms">
                 <div class="build-title">
-                            <h2>먹고갈래 ?</h2>
-                            <h6>사용자의 위치에 따라 매장들을 보여줍니다</h6>
-                        </div>
-                    
-                        <div class="map-top">
-                            <div class="container" id="mapContainer">
-                            	<div id="kakaoMap" style="width:100%;height:400px;"></div>
-                            </div>
-                        
-                    </div>
-<!--                     <div class="map-bottom"> -->
-<!--                          <div class="footer-map-outer1"> -->
-<!--                             <div id="footer-map"></div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-                </section>
-                <!-- End Map Part -->
+                       <h2>먹고갈래 ?</h2>
+                       <h6>사용자의 위치에 따라 매장들을 보여줍니다</h6>
+                   </div>
+               
+                   <div class="map-top">
+                       <div class="container" id="mapContainer">
+                       	<div id="kakaoMap" style="width:100%;height:400px;"></div>
+                       </div>
+                   
+               </div>
+           </section>
+           <!-- End Map Part -->
                 
-              	<!-- Start Feature Blog -->
-                <section class="feature-blog-wrap wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <div class="container">
-                        <div class="build-title">
-                            <h2>! 생생 리뷰 !</h2>
-                            <h6>사용자들이 작성한 최근 리뷰를 보여줍니다</h6>
-                        </div>
-                        <div class="feature-blog feature-label">
-                            <div class="owl-carousel owl-theme" data-items="2" data-laptop="2" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
-<!-- 1201 현희 리뷰 -->
-                               <c:forEach var="re" items="${ review }" >
-                                 <div class="item">
-                                    <div class="feature-img">
-                                        <img src="/images/img15.png" alt="">
-                                        <div class="date-feature">05
-                                            <br> <small>oct</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> ${ re.M_NAME } </span>
-                                        <h5>${ re.S_NAME }</h5>
-                                        <p>${ re.RV_CONTENT }</p>
-                                        <a href="#">더보기 <i class="icon-more"></i></a>
-                                    </div>
-                                </div>
-                                </c:forEach>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End Feature Blog -->
-                
-                <!-- Start Slider Part -->
-                <section class="home-slider home-ride">
-                    <div class="tp-banner-container">
-                        <div class="tp-banner">
-                            <ul>
-                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-<!-- 1130 현희 이미지추가 -->
-<!-- 주용 광고 상세보기 연결 -->
-                                    <img class="ad" src="/images/user/야생마떡볶이광고.png" alt="야생마떡볶이" data-lazyload="/images/user/야생마떡볶이광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">야생마의 <span>마굿간떡볶이</span>
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">떡볶이가 너무 매워서 이히히힝~
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="/store/storeMdetail.do?rCid=8165" class="button-white">상세보기</a>
-                                    </div>
-                                </li>
-                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-<!-- 1130 현희 이미지추가 -->                                    
-                                    <img class="ad" src="/images/user/주용쓰잘해줘치킨광고.png" alt="주용쓰잘해줘치킨" data-lazyload="/images/user/주용쓰잘해줘치킨광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">주용쓰의 <span>잘해줘치킨</span>
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">노친절하면 주용쓰 흥흥 삐짐 :(
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="/store/storeMdetail.do?rCid=8166" class="button-white">상세보기</a>
-                                    </div>
-                                </li>
-                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-<!-- 1130 현희 이미지추가 -->                                
-                                    <img class="ad" src="/images/user/민우쓰의눈칫밥상광고.png" alt="민우쓰의눈칫밥상" data-lazyload="/images/user/민우쓰의눈칫밥상광고.png" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">밍키의 <span>눈칫밥상 1호점</span>
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">아직도 안가봤어? 어머 너 눈치없다~
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="/store/storeMdetail.do?rCid=8167" class="button-white">상세보기</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="on-scroll">
-                        <a href="#reach-to" class="scroll"><img src="/images/scroll-down.png" alt=""></a>
-                    </div>
-                </section>
-                <!-- End Slider Part -->
+           <!-- Start Feature Blog -->
+	       <section class="feature-blog-wrap wow fadeInUp"
+				data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="container">
+					<div class="build-title">
+						<h2>! 생생 리뷰 !</h2>
+						<h6>사용자들이 작성한 최근 리뷰를 보여줍니다</h6>
+					</div>
+					<div class="feature-blog feature-label">
+						<div class="owl-carousel owl-theme" data-items="2" data-laptop="2"
+							data-tablet="2" data-mobile="1" data-nav="false" data-dots="true"
+							data-autoplay="true" data-speed="1800" data-autotime="5000">
+							<!-- 1201 현희 리뷰 DB값 연결 /아직 연결안되고 P는 값이 없음 -->
+							<c:forEach var="re" items="${ review }">
+								<div class="item">
+									<div class="feature-img">
+										<img src="/images/img15.png" alt="">
+										<div class="date-feature">
+											<fmt:formatDate value="${re.RV_DATE}" pattern="dd"/> <br> 
+											<small>
+												<fmt:formatDate value="${re.RV_DATE}" pattern="MMM"/>
+											</small>
+										</div>
+									</div>
+									<div class="feature-info">
+										<span><i class="icon-user"></i> ${ re.M_NAME } </span>
+										<h5>${ re.S_NAME }</h5>
+										<p>${ re.RV_CONTENT }</p>
+										<a href="#">더보기 <i class="icon-more"></i></a>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
+			</section>
+       	<!-- End Feature Blog -->
+
             </div>
         </main>
         <!-- End Main -->
