@@ -33,6 +33,9 @@
 <link href="/css/common/commonUserHeader.css" rel="stylesheet"/>
 <style type="text/css">
 
+.portfolioContainer{
+width: 75%; margin: auto;
+}
 .header-part.header-on{
 width:80%;
 height:106px;
@@ -90,7 +93,6 @@ display:none;
 				</div>
 			</div>
 		</div>
-<section class="home-icon blog-main-section shop-page">
 		<div class="container">
 			<div class="build-title">
 				<h2>메뉴선택</h2>
@@ -149,7 +151,6 @@ display:none;
 			</form>
 			
 			</div>
-			</section>
 			
 			<form method="post" action="/reserve/reservePPayment.do">
 			<div class="shop-cart-list wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
