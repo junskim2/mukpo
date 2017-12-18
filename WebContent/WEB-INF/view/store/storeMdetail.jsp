@@ -36,6 +36,7 @@
 <link href='/css/reserve/fullcalendar.css' rel='stylesheet' />
 <link href='/css/reserve/fullcalendar.print.css' rel='stylesheet'
 	media='print' />
+<link href="/css/common/commonUserHeader.css" rel="stylesheet"/>
 
 <!-- 1206 아름 예약시간 관련 시작 -->
 <link href='/css/reserve/jquery.timepicker.css' rel='stylesheet' />
@@ -58,6 +59,13 @@
 			margin-top: -10%;
 			
 		}
+		
+.header-part.header-on{
+width:80%;
+height:106px;
+margin-left:auto;
+margin-right:auto;
+}		
 		
 
 </style>
