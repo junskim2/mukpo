@@ -29,6 +29,10 @@
 <link href="/css/common/commonUserHeader.css" rel="stylesheet"/>
 
 <style type="text/css">
+
+.row{
+width:90%; margin:auto;
+}
 .header-part.header-on{
 width:80%;
 height:106px;
@@ -76,7 +80,7 @@ margin-right:auto;
 		<div class="main-part">
 			<!-- Start Breadcrumb Part -->
 			<section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('/images/breadbg1.jpg');">
-				<div class="container">
+				<div class="container" style='height:30%'>
 					<div class="breadcrumb-inner">
 						<!-- 현희 제목바꾸기 -->
 						<h2>매장검색</h2>
@@ -131,7 +135,7 @@ margin-right:auto;
 										<div class="store col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 											<div class="blog-right-listing">
 												<div class="feature-img">
-													<img src="${ list.sUrl }" alt="" style='width:553px; height:350px;'/>
+													<img src="${ list.sUrl }" alt="" style='width:345px; height:218px;'/>
 													<h3>${ list.sName }</h3>
 													<div>${ list.sAddress }</div>
 													<div>${ list.sTel }</div>
