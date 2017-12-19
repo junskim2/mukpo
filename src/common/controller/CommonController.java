@@ -53,6 +53,8 @@ public class CommonController {
 		mv.setViewName("common/home");
 		mv.addObject("result", result);
 		mv.addObject("message", message);
+		mv.addObject("uservo", dbvo);	// 1219 아름 회원정보 리턴
+
 		return mv;
 		
 	}
