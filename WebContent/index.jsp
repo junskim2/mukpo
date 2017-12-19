@@ -99,7 +99,7 @@
                <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="login-wrap form-common">
                      <div class="title text-center">
-                        <h3 class="text-coffee">Login</h3>
+                        <h3 class="text-coffee">로그인</h3>
                      </div>
                      <form action="common/home.do" class="login-form" method="post" name="login">
                         <div class="row">
@@ -130,7 +130,7 @@
                <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="register-wrap form-common">
                      <div class="title text-center">
-                        <h3 class="text-coffee">Register</h3>
+                        <h3 class="text-coffee">회원가입</h3>
                      </div>
                      <form action="/user/insertMemberJoin.do"class="register-form" method="post" name="register">
                         <div class="row">
