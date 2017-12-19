@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import common.domain.PagingVO;
 import pos.domain.CongestionSetVO;
 import reserve.domain.ReserveVO;
 import store.dao.MongoDAO;
@@ -205,25 +206,60 @@ public class StoreController {
 
 	// 매장 검색
 	// 민우 페이징
-	@RequestMapping(value = "storeList.do")
-	public ModelAndView storeList(StoreVO store) {
+		@RequestMapping(value = "storeList.do")
+		public ModelAndView storeList(StoreVO store, String pageCount, PagingVO page) {
 
-		// 현희 VOList 없애고 List<> 형태로 변경
-		ModelAndView mv = new ModelAndView();
-		// 1130 현희 추가
-		mv.addObject("sMp", store.getsMp()); // 매장인지 포장인지 구분값
+			
+			String[] lo = store.getsSido().split(",");
+			String[] ca = store.getsCate().split(",");
+			 
+			store.setsSido2(lo);
+			store.setsCate2(ca);
+			// 현희 VOList 없애고 List<> 형태로 변경
+			ModelAndView mv = new ModelAndView();
+			// 1130 현희 추가
+			mv.addObject("sMp", store.getsMp()); // 매장인지 포장인지 구분값
+			
+			int totalCount = storeDAO.countUserStore(store); // 매장 리스트 총 갯수
+			page.setTotalCount(totalCount);
+			// 총 페이지 수 구하기 
+			int pageSize = 1; 
+			if(pageSize % 10 == 0) pageSize = totalCount / 10;
+			else pageSize += totalCount / 10;
+			System.out.println(page.getPageNo());
+//			if(pageCount == null) page.setPageNo(0); // 현재 페이지 번호
+			// 시작 페이지 구하기
+//			if(page.getPageNo() == 0) page.setFirstPageNo(1);
+//			else page.setFirstPageNo(page.getPageNo()*5 + 1);
+			// 끝 페이지 구하기
+//			page.setFinalPageNo((page.getPageNo()+1)*5);
+			
+			// 끝매장 첫매장 구하기 
+//			int startStore = 10 * (Integer.parseInt(pageCount) - 1) + 1; // 시작매장
+//			int endStore = 10 * Integer.parseInt(pageCount); // 끝 매장
+			
+//			store.setStartStore(startStore);
+//			store.setEndStore(endStore);
+			
+			store.setStartStore(1);
+			store.setEndStore(10);
+			int start=0;
+			int end=0;
+			end=page.getPageNo()*10;
+			start=end-9;
+			store.setStartStore(start);
+			store.setEndStore(end);
+			
+			List<StoreVO> list = storeDAO.selectPageStore(store); // 상점리스트 받아오기
+			mv.addObject("pSido",store.getsSido());
+			mv.addObject("pCate",store.getsCate());
+			
+			mv.addObject("storeList", list);// 상점리스트
+			mv.addObject("pageVO", page);// 페이징 정보
+			mv.setViewName("store/storeList");
 
-		int totalCount = storeDAO.countUserStore(store); // 매장 리스트 총 갯수
-
-		store.setTotalCount(totalCount);// storeVO setTotalCount에 총매장리스트값 설정
-		List<StoreVO> list = storeDAO.selectUserStore(store); // 상점리스트 받아오기
-
-		mv.addObject("storeList", list);// 상점리스트
-		mv.addObject("pageVO", store);// 페이징 정보
-		mv.setViewName("store/storeList");
-
-		return mv;
-	}
+			return mv;
+		}
 
 	// 현희 추가
 	// 포장 상세 페이지

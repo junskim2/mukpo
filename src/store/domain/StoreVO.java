@@ -13,6 +13,7 @@ public class StoreVO extends PagingVO{
 	String sZipcode;	//우편번호    
 	String sAddress;	//주소       
 	String sSido;		//시도
+	String[] sSido2;	//현희 시도배열
 	String sSigungu;	//시구군
 	String[] sSigungu2;	//신주용 시군구 배열 값 추가
 	String sMp;			//먹포구분(M,P,MP)
@@ -26,6 +27,7 @@ public class StoreVO extends PagingVO{
 	double sLongitude;	//경도
 	String sDetail;		//매장설명      
 	String search;
+	int startStore, endStore; // 페이지에 해당하는 매장의 첫번호와 끝번호
 
 	public StoreVO() {}
 	
@@ -201,6 +203,30 @@ public class StoreVO extends PagingVO{
 
 	public void setSearch(String search) {
 		this.search = search;
+	}
+
+	public String[] getsSido2() {
+		return sSido2;
+	}
+
+	public void setsSido2(String[] sSido2) {
+		this.sSido2 = sSido2;
+	}
+
+	public int getStartStore() {
+		return startStore;
+	}
+
+	public void setStartStore(int startStore) {
+		this.startStore = startStore;
+	}
+
+	public int getEndStore() {
+		return endStore;
+	}
+
+	public void setEndStore(int endStore) {
+		this.endStore = endStore;
 	}
 	
 }

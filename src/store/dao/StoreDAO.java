@@ -133,4 +133,5 @@ public interface StoreDAO {
 	// 혼잡도 수정
 	int updateCongestionset(CongestionSetVO gConSetVO);
 	
+	List<StoreVO> selectPageStore(StoreVO storeVO);
 }

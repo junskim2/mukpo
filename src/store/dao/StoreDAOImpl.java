@@ -257,8 +257,16 @@ public class StoreDAOImpl implements StoreDAO {
 		return storess.update("store.storeReserveReturn", reserveVO);
 	}
 	
-	@Override
-	public StoreVO selectStorerCid(String rCid) {
-		return storess.selectOne("store.selectstoreRcid", rCid);
-	}
+	// 1215 현희 페이지별로 매장 출력
+		public List<StoreVO> selectPageStore(StoreVO storeVO) {
+			return storess.selectList("store.selectPageStore", storeVO);
+		}
+
+		@Override
+		public StoreVO selectStorerCid(String rCid) {
+			// TODO Auto-generated method stub
+			return storess.selectOne("store.selectStorerCid",rCid);
+		}
+	
+	
 }

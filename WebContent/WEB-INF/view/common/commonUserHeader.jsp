@@ -44,12 +44,13 @@
 								<ul class="drop-nav" id="searchdrop">
 									<!-- 검색창 -->
 									<li>
-									<form id="searchForm" method="post" action="/store/storeList.do">
-										<input id="txtSearch" type="text" name="sName" placeholder="입력하지 않으면 전체 식당이 검색됩니다." />
-										<input id="btnSearch" type="button" name="submit" value="" />
-										<input id="sMp" type="hidden" name="sMp" value="${ sMp }" />
-										<input id="sCate" type="hidden" name="sCate" value="" />
-										<input id="sSido" type="hidden" name="sSido" value="" />
+										<form id="searchForm" method="post" name="form" action="/store/storeList.do">
+											<input id="txtSearch" type="text" name="sName" placeholder="입력하지 않으면 전체 식당이 검색됩니다." />
+											<input id="btnSearch" type="button" name="submit"/>
+											<input id="sMp" type="hidden" name="sMp" value="${ sMp }" />
+											<input id="sCate" type="hidden" name="sCate" value="" />
+											<input id="sSido" type="hidden" name="sSido" value="" />
+											
 										</form>
 									</li>
 									<!-- 지역 메뉴 -->

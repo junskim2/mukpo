@@ -26,20 +26,19 @@ $(function() {
 		});	
 	});
 	
-	
 	// 검색 버튼 누를 때
 	$("#btnSearch").click(function() {
 		if(location == "") {
 			$("#loChk").text("지역을 선택하세요.");
 			return false;
 		}
-		$("#sSido").val(location.join("','"));
+		$("#sSido").val(location);
 		if(category != "") {
-			$("#sCate").val(category.join("','"));
+			$("#sCate").val(category);
 		}
-		
+
 		$("#searchForm").submit();
-		
+
 	});
 	
 	// 로그인 버튼
