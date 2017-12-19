@@ -47,13 +47,34 @@
 <!-- 1206 아름 ax5tpast -->
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.rawgit.com/ax5ui/ax5ui-toast/master/dist/ax5toast.css" />
-
-
-
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <style type="text/css">
 
+#menutop{
+margin-top: 5%;
+}
+#storeimg{
+margin-top:12%;
+}
+.jbMenu{
+padding-top:10%;
+margin-left:30%;
+}
+
+.jbFixed {
+position: fixed;
+top: -7%;
+margin-left: 30%;
+z-index:5;
+}
+
+/* #menubtn{ */
+/* margin-left:30%; */
+/* } */
+/* .menucata{ */
+/* margin-top:-10%; */
+/* } */
 .portfolioContainer{
 width: 85%; margin: auto;
 }
@@ -96,7 +117,25 @@ margin-right:auto;
 		
 
 </style>
+<script type="text/javascript">
+function fnMove(seq){
+    var offset = $("#div" + seq).offset();
+    $('html, body').animate({scrollTop : offset.top}, 400);
+}
 
+$( document ).ready( function() {
+    var jbOffset = $( '.jbMenu' ).offset();
+    $( window ).scroll( function() {
+      if ( $( document ).scrollTop() > jbOffset.top ) {
+        $( '.jbMenu' ).addClass( 'jbFixed' );
+      }
+      else {
+        $( '.jbMenu' ).removeClass( 'jbFixed' );
+      }
+    });
+  });
+
+</script>
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -124,7 +163,7 @@ margin-right:auto;
 			<div class="blog-right-section">
 				<div class="blog-right-listing wow fadeInDown"
 					data-wow-duration="1000ms" data-wow-delay="300ms">
-					<div class="feature-img">
+					<div id='storeimg'class="feature-img">
 						<img class='stote-img' src="${ storeVO.sUrl }" style="width:70%;"alt="">
 <!-- 1203 아름 즐겨찾기 기능 추가 -->
 						<div class="date-feature">
@@ -142,13 +181,15 @@ margin-right:auto;
 				</div>
 			</div>
 		</div>
-
-		<div class="container" style="margin-top: 10%;">
-			<div class="build-title">
-				<h2>메뉴소개</h2>
-			</div>
-			<div class="menu-wrapper">
-				<div class="portfolioFilter">
+		
+		<div class='jbMenu'>
+			<button id='menubtn' class='btn-main btn-shadow' onclick="fnMove('1')">메뉴소개</button>
+    		<button class='btn-main btn-shadow' onclick="fnMove('2')">예약</button>
+    		<button class='btn-main btn-shadow' onclick="fnMove('3')">리뷰</button>
+    	</div>	
+		<div id='menutop'class="container">
+			<div id='div1' class="menu-wrapper">
+				<div id='menucata'class="portfolioFilter">
 					<!-- 1130 아름 메뉴 카테고리 가져오기 -->
 					<c:choose>
 						<c:when test="${ fn:length(menuVOCate) eq 0 }">
@@ -198,7 +239,7 @@ margin-right:auto;
 		</div>
 	</section>
 	<!--혼잡도 표시 -->
-	<div class="StoreMdetail_congestion">
+	<div class="StoreMdetail_congestion" id='div2'>
 		혼잡도 &nbsp;
 		<c:choose>
 			<c:when test="${ congestionState eq 'G' }">
@@ -288,7 +329,7 @@ margin-right:auto;
 				<img src="/images/scroll-arrow.png" alt="">
 			</div>
 			<div class="container">
-				<div class="row">
+				<div id='div3'class="row">
 					<div class="col-md-8 col-sm-8 col-xs-12 wow fadeInDown"
 						data-wow-duration="1000ms" data-wow-delay="300ms">
 						<div class="blog-right-section">
