@@ -40,6 +40,11 @@ public class CommonController {
 	public ModelAndView login(UserVO userVO,Model model, HttpSession session) {
 		String message = "로그인을 실패하셨습니다.";
 		int result=0;
+		
+		// mId null인 단순 페이지 이동일 경우 session값 가져오기
+		if (userVO.getmId() == null) {
+			userVO.setmId((String)session.getAttribute("userName"));
+		}
 		//id pw 디비통해 select
 		UserVO dbvo = userDAO.selectMemberLogin(userVO);
 		ModelAndView mv = new ModelAndView();
