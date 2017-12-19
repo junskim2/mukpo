@@ -91,7 +91,7 @@ $(function() {
 	      </div>
 	      <!-- 푸터 메뉴들 -->
 	      <div id="fotterMenu">
-		      <h6><%=userName %><a>님  현재 보유 먹포인트</a> : ${ uservo.mPoint} 먹포<a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
+		      <h6><%=userName %><a>님  현재 보유 먹포인트</a> : ${ uservo.mPoint}<c:if test="${ empty uservo.mPoint  }">0</c:if> 먹포&nbsp;<a>ABOUT</a> &nbsp; | &nbsp; <!-- 먹포에 관한 설명 페이지로 이동 -->
 		      <a id="logout">LOGOUT</a> &nbsp; | &nbsp;  <!-- 사장님 로그인화면으로 이동 -->
 		      <a id="mypage">MYPAGE</a> &nbsp; | &nbsp;  <!-- 로그인 안했을 경우, 로그인/회원가입 페이지로 이동 // 로그인 했을 경우 해당 사용자의 마이페이지로 이동 -->
 		      <a>NOTICE</a> <!-- 공지사항 페이지로 이동 --></h6>
