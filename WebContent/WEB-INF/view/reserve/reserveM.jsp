@@ -81,7 +81,7 @@
 							<input type="text" id="rDate" name="rDate" placeholder="예약날짜" readonly />
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="text" id="disableTimeRangesExample" name="rDate" placeholder="예약시간"
+							<input type="text" id="disableTimeRangesExample" name="rTime" placeholder="예약시간"
 								id="disableTimeRangesExample" />
 						</div>
 
