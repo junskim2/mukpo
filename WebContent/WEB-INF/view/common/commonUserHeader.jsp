@@ -44,9 +44,9 @@
 								<ul class="drop-nav" id="searchdrop">
 									<!-- 검색창 -->
 									<li>
-										<form id="searchForm" method="post" name="form" action="/store/storeList.do">
+										<form id="searchForm" method="post" action="/store/storeList.do">
 											<input id="txtSearch" type="text" name="sName" placeholder="입력하지 않으면 전체 식당이 검색됩니다." />
-											<input id="btnSearch" type="button" name="submit"/>
+											<input id="btnSearch" type="button" value=""/>
 											<input id="sMp" type="hidden" name="sMp" value="${ sMp }" />
 											<input id="sCate" type="hidden" name="sCate" value="" />
 											<input id="sSido" type="hidden" name="sSido" value="" />
@@ -57,7 +57,7 @@
 									<li class="mega-menu" style="padding-left: 35px;"><span class="menuname">지역</span>
 										<ul id="locationdrop">
 											<li id="selecgg"><input type="checkbox" name="" value="서울" />서울</li>
-											<li id="Gyeonggi"><input type="checkbox" name="" value="경기" />경기</li>
+											<li id="Gyeonggi"><input type="checkbox" name="" value="경기도" />경기도</li>
 											<li id="Chungcheongnam"><input type="checkbox" name="" value="충남" />충남</li>
 											<li id="Daejeon"><input type="checkbox" name="" value="대전" />대전</li>
 											<li id="Gwangju"><input type="checkbox" name="" value="광주" />광주</li>

@@ -226,7 +226,6 @@ public class StoreController {
 			int pageSize = 1; 
 			if(pageSize % 10 == 0) pageSize = totalCount / 10;
 			else pageSize += totalCount / 10;
-			System.out.println(page.getPageNo());
 //			if(pageCount == null) page.setPageNo(0); // 현재 페이지 번호
 			// 시작 페이지 구하기
 //			if(page.getPageNo() == 0) page.setFirstPageNo(1);
@@ -257,7 +256,6 @@ public class StoreController {
 			mv.addObject("storeList", list);// 상점리스트
 			mv.addObject("pageVO", page);// 페이징 정보
 			mv.setViewName("store/storeList");
-
 			return mv;
 		}
 

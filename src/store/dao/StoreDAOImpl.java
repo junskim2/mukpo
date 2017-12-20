@@ -259,6 +259,11 @@ public class StoreDAOImpl implements StoreDAO {
 	
 	// 1215 현희 페이지별로 매장 출력
 		public List<StoreVO> selectPageStore(StoreVO storeVO) {
+			System.out.println(storeVO.getPageNo());
+			System.out.println(storeVO.getsCate());
+			System.out.println(storeVO.getsMp());
+			System.out.println(storeVO.getsSido());
+			System.out.println(storeVO.getEndStore());
 			return storess.selectList("store.selectPageStore", storeVO);
 		}
 

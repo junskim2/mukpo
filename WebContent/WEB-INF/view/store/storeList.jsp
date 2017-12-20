@@ -53,11 +53,11 @@ margin-right:auto;
 		});
 	});
 	
-	function fn_movePage(val){
-	    jQuery("input[name=pageNo]").val(val);
-	    jQuery("form[name=frm]").attr("method", "post");
-	    jQuery("form[name=frm]").attr("action","").submit();
-	}
+// 	function fn_movePage(val){
+// 	    jQuery("input[name=pageNo]").val(val);
+// 	    jQuery("form[name=frm]").attr("method", "post");
+// 	    jQuery("form[name=frm]").attr("action","").submit();
+// 	}
 </script>
 </head>
 
@@ -165,26 +165,55 @@ margin-right:auto;
   <form name="frm">
                               <input type="hidden" name="pageNo" />
                                        <div id="page" class="pagination">
-                                          <c:if test="${pageVO.pageNo != 0}">
+<%--                                           <c:if test="${pageVO.pageNo != 0}"> --%>
 
-                                             <span> <c:forEach var="i"
-                                                   begin="${pageVO.startPageNo}" end="${pageVO.endPageNo}"
-                                                   step="1">
-                                                   <c:choose>
-                                                      <c:when test="${i eq pageVO.pageNo}">
-                                                         <a href="javascript:fn_movePage(${i})" style="text-decoration: none;"> 
-                                                         <font style="font-weight: bold;">${i}</font>
-                                                         </a>
-                                                      </c:when>
-                                                      <c:otherwise>
-                                                         <a href="javascript:fn_movePage(${i})" style="text-decoration: none;">${i}</a>
-                                                      </c:otherwise>
-                                                 </c:choose>
-                                                </c:forEach>
-                                             </span>
-                                          </c:if>
+<%--                                              <span> <c:forEach var="i" --%>
+<%--                                                    begin="${pageVO.startPageNo}" end="${pageVO.endPageNo}" --%>
+<%--                                                    step="1"> --%>
+<%--                                                    <c:choose> --%>
+<%--                                                       <c:when test="${i eq pageVO.pageNo}"> --%>
+<%--                                                          <a href="javascript:fn_movePage(${i})" style="text-decoration: none;">  --%>
+<%--                                                          <font style="font-weight: bold;">${i}</font> --%>
+<!--                                                          </a> -->
+<%--                                                       </c:when> --%>
+<%--                                                       <c:otherwise> --%>
+<%--                                                          <a href="javascript:fn_movePage(${i})" style="text-decoration: none;">${i}</a> --%>
+<%--                                                       </c:otherwise> --%>
+<%--                                                  </c:choose> --%>
+<%--                                                 </c:forEach> --%>
+<!--                                              </span> -->
+<%--                                           </c:if> --%>
                                        </div>
                            </form>     
+                            <!-- 경식 페이징 -->  
+                              <form name="form2" name="form2" action="/store/storeList.do" >
+                           <c:set var="a" value="1"/>
+                           <c:set var="b" value="10"/>
+                           		<div id="paging" class="pages">
+                           		<input type="hidden" name="sMp" value="${sMp }"/>
+                           		<input type="hidden" name="sSido" value="${pSido }"/>
+                           		<input type="hidden" name="sCate" value="${pCate }"/>
+                           		<input type="button" class="prev" value="<"/>
+                           		
+                           		
+                           		<c:forEach var="i" begin="1" end="${pageVO.totalCount}" step="1">
+                           		
+                           		<c:if test="${i%10==1 }">
+                           		<c:if test="${a <= 10}">
+<%--                            		<a href="javascript:fn_movePage(${a})">${a}</a> --%>
+								<input type="submit" name="pageNo" value="${a }"/>
+                           		
+                           		</c:if>
+                           		
+                           		
+                           		<c:set var="a" value="${a+1}"/>
+                           	    
+                           		</c:if>
+                           		
+                           		</c:forEach>
+                           		<input type="button" class="next" value=">"/>
+                           		</div>
+                           </form>  
 <!-- 페이징처리 끝-->
 							</div>
 						</div>
