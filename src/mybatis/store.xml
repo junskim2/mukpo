@@ -193,12 +193,7 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 	<select id="selectPageStore" parameterType="storeVO" resultType="storeVO">
 		SELECT *
 		FROM ( SELECT *
-		        FROM ( SELECT rownum rnum, store.r_cid r_cid, store.b_id b_id, store.s_pw s_pw,
-		                      store.s_url s_url, store.s_name s_name, store.s_tel s_tel, store.s_zipcode s_zipcode,
-		                      store.s_address s_address, store.s_sido s_sido, store.s_sigungu s_sigungu, store.s_mp s_mp,
-		                      store.s_cate s_cate, store.s_opentime s_opentime, store.s_closetime s_closetime, 
-		                      store.s_close s_close, store.s_yn s_yn, store.s_latitude s_latitude,
-		                      store.s_longitude s_longitude, store.s_detail s_detail 
+		        FROM ( SELECT rownum rnum, store.r_cid r_cid, store.b_id b_id, store.s_pw s_pw, store.s_url s_url, store.s_name s_name, store.s_tel s_tel, store.s_zipcode s_zipcode, store.s_address s_address, store.s_sido s_sido, store.s_sigungu s_sigungu, store.s_mp s_mp, store.s_cate s_cate, store.s_opentime s_opentime, store.s_closetime s_closetime,  store.s_close s_close, store.s_yn s_yn, store.s_latitude s_latitude, store.s_longitude s_longitude, store.s_detail s_detail 
 		                FROM store
 		                WHERE (s_mp, s_cate, s_sido) IN (
 		                    SELECT s_mp,s_cate,s_sido  
