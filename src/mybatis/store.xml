@@ -199,19 +199,17 @@ SELECT count(*) totalCount FROM store WHERE NOT s_yn='N' ORDER BY S_NAME desc
 		                    SELECT s_mp,s_cate,s_sido  
 		                    FROM store 
 		                    WHERE s_mp IN (#{sMp}, 'MP')
-								AND s_sido IN 
-									<foreach collection="sSido2" index="index" 
-										 item="type" open="(" close=")" separator=",">
-											#{type}
-									</foreach>
-									
-								<if test='sCate2 !="" and sCate2 != null'>
-									AND s_cate IN 
-										<foreach collection="sCate2" index="index" 
-											 item="type" open="(" close=")" separator=",">
-												#{type}
-										</foreach>
-								</if>
+					AND s_sido IN 
+						<foreach collection="sSido2" index="index" item="type" open="(" close=")" separator=",">
+							#{type}
+						</foreach>
+
+					<if test='sCate2 !="" and sCate2 != null'>
+						AND s_cate IN 
+							<foreach collection="sCate2" index="index" item="type" open="(" close=")" separator=",">
+								#{type}
+							</foreach>
+					</if>
 		                )
 		            ) store
 		        WHERE rnum <![CDATA[ <= ]]> #{endStore}
